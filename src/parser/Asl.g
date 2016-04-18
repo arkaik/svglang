@@ -62,7 +62,11 @@ prog	: func+ EOF -> ^(LIST_FUNCTIONS func+)
 
 // A function has a name, a list of parameters and a block of instructions
 func	: FUNC^ ID params block_instructions ENDFUNC!
+		| macro
         ;
+
+macro	: '@SHOW'
+		;
 
 // The list of parameters grouped in a subtree (it can be empty)
 params	: '(' paramlist? ')' -> ^(PARAMS paramlist?)
@@ -92,8 +96,8 @@ instruction
         |   funcall         // Call to a procedure (no result produced)
         |	return_stmt     // Return statement
         |	read            // Read a variable
-        | 	write           // Write a string or an expression
-        |   create          // Create an object
+        | 	write           // Write a string or an expressionobject
+        |	set				//
         |                   // Nothing
         ;
 
@@ -120,17 +124,22 @@ read	:	READ^ ID
 // Write an expression or a string
 write	:   WRITE^ (expr | STRING )
         ;
+        
+set		:	ID ('@'^|'#'^) STRING INT+
+		;
+        
+expr	:	boolexpr
+		|	graphicexpr 
+		;
 
-// Create an entity
-create  :   CREATE^ entity INT INT INT INT
-        ;
-
-entity  :   RECT
-        |   CIRCLE
-        ;
+graphicexpr	:	RECT^ INT INT INT INT
+		|		CIRCLE^ INT INT INT
+		|		TEXT^ INT INT STRING
+		|		ELLIPSE^ INT INT INT INT
+		;      
 
 // Grammar for expressions with boolean, relational and aritmetic operators
-expr    :   boolterm (OR^ boolterm)*
+boolexpr    :   boolterm (OR^ boolterm)*
         ;
 
 boolterm:   boolfact (AND^ boolfact)*
@@ -194,9 +203,10 @@ RETURN	: 'return' ;
 READ	: 'read' ;
 WRITE	: 'write' ;
 
-CREATE  : 'create';
-RECT    : 'rect';
-CIRCLE  : 'circle';
+RECT    : 'Rectangle';
+CIRCLE  : 'Circle';
+ELLIPSE	: 'Ellipse';
+TEXT	: 'Text';
 
 TRUE    : 'true' ;
 FALSE   : 'false';
