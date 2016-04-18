@@ -51,6 +51,9 @@ public class Interp {
     /** Standard input of the interpreter (System.in). */
     private Scanner stdin;
 
+    /** Default output **/
+    private PrintWriter writer;
+
     /**
      * Stores the line number of the current statement.
      * The line number is used to report runtime errors.
@@ -156,6 +159,9 @@ public class Interp {
      * @return The data returned by the function.
      */
     private Data executeFunction (String funcname, AslTree args) {
+        writer = new PrintWriter("default.js", "UTF-8");
+        writer.println("<svg>");
+
         // Get the AST of the function
         AslTree f = FuncName2Tree.get(funcname);
         if (f == null) throw new RuntimeException(" function " + funcname + " not declared");
@@ -196,6 +202,8 @@ public class Interp {
         // Destroy the activation record
         Stack.popActivationRecord();
 
+        writer.println("</svg>");
+        writer.close();
         return result;
     }
 
@@ -294,13 +302,6 @@ public class Interp {
                 System.out.print(evaluateExpression(v).toString());
                 return null;
 
-            //Crear entidad SVG
-            case AslLexer.CREATE:
-                System.out.println("<svg>");
-                System.out.println("\t<"+t.getChild(0).getText().toString()+" x='"+evaluateExpression(t.getChild(1)).toString()+"' y='"+evaluateExpression(t.getChild(2)).toString()+"' w='"+evaluateExpression(t.getChild(3)).toString()+"' h='"+evaluateExpression(t.getChild(4)).toString()+"' />");
-                System.out.println("</svg>");
-                return null;
-
             // Function call
             case AslLexer.FUNCALL:
                 //PrintWriter writer = new PrintWriter(t.getChild(0).getText().toString()+".svg", "UTF-8");
@@ -350,6 +351,8 @@ public class Interp {
                 if (value.isVoid()) {
                     throw new RuntimeException ("function expected to return a value");
                 }
+                break;
+            case AslLexer.RECT:
                 break;
             default: break;
         }
