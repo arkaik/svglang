@@ -130,7 +130,7 @@ public class Interp {
     private void PreProcessAST(AslTree T) {
         if (T == null) return;
         switch(T.getType()) {
-            case AslLexer.INT: T.setIntValue(); break;
+            case AslLexer.FLOAT: T.setFloatValue(); break;
             case AslLexer.STRING: T.setStringValue(); break;
             case AslLexer.BOOLEAN: T.setBooleanValue(); break;
             default: break;
@@ -318,7 +318,7 @@ public class Interp {
         }
 
         // All possible instructions should have been treated.
-        assert false;
+        //assert false;
         return null;
     }
 
@@ -348,8 +348,8 @@ public class Interp {
                 value = new Data(Stack.getVariable(t.getText()));
                 break;
             // An integer literal
-            case AslLexer.INT:
-                value = new Data(t.getIntValue());
+            case AslLexer.FLOAT:
+                value = new Data(t.getFloatValue());
                 break;
             // A Boolean literal
             case AslLexer.BOOLEAN:

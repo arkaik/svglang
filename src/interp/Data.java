@@ -41,13 +41,17 @@ import parser.*;
 
 public class Data {
     /** Types of data */
-    public enum Type {VOID, BOOLEAN, INTEGER;}
+    public enum Type {VOID, BOOLEAN, INTEGER, FLOAT;}
 
     /** Type of data*/
     private Type type;
 
     /** Value of the data */
-    private int value; 
+    private int value;
+
+    private float fvalue;
+
+    Data(float v) { type = Type.FLOAT; fvalue = v; }
 
     /** Constructor for integers */
     Data(int v) { type = Type.INTEGER; value = v; }
@@ -99,13 +103,13 @@ public class Data {
 
     /** Copies the value from another data */
     public void setData(Data d) { type = d.type; value = d.value; }
-    
+
     /** Returns a string representing the data in textual form. */
     public String toString() {
         if (type == Type.BOOLEAN) return value == 1 ? "true" : "false";
         return Integer.toString(value);
     }
-    
+
     /**
      * Checks for zero (for division). It raises an exception in case
      * the value is zero.
@@ -120,7 +124,7 @@ public class Data {
      * @param op Type of operator (token).
      * @param d Second operand.
      */
-     
+
     public void evaluateArithmetic (int op, Data d) {
         assert type == Type.INTEGER && d.type == Type.INTEGER;
         switch (op) {
@@ -148,7 +152,7 @@ public class Data {
             case AslLexer.LE: return new Data(value <= d.value);
             case AslLexer.GT: return new Data(value > d.value);
             case AslLexer.GE: return new Data(value >= d.value);
-            default: assert false; 
+            default: assert false;
         }
         return null;
     }

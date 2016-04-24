@@ -37,10 +37,13 @@ import org.antlr.runtime.Token;
  * be extracted from the "text" fields of the tokens.
  * However, it helps to understand how to extend AST nodes in ANTLR.
  */
- 
+
 public class AslTree extends CommonTree {
     /** Field to store integer literals */
     private int intValue;
+
+    /** Field to store float literals */
+    private float floatValue;
 
     /** Field to store string literals (without the enclosing quotes) */
     private String strValue;
@@ -60,6 +63,12 @@ public class AslTree extends CommonTree {
 
     /** Define the integer value of the node. */
     public void setIntValue() { intValue = Integer.parseInt(getText()); }
+
+    /** Get the integer value of the node. */
+    public float getFloatValue() { return floatValue;}
+
+    /** Define the integer value of the node. */
+    public void setFloatValue() { floatValue = Float.parseFloat(getText()); }
 
     /** Get the Boolean value of the node. */
     public boolean getBooleanValue() { return intValue != 0; }

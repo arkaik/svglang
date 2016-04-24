@@ -45,6 +45,8 @@ tokens {
     LIST_INSTR; // Block of instructions
     BOOLEAN;    // Boolean atom (for Boolean constants "true" or "false")
     DISP;       // Display node
+    TUPLA;
+    COMP;
     PVALUE;     // Parameter by value in the list of parameters
     PREF;       // Parameter by reference in the list of parameters
 }
@@ -104,12 +106,14 @@ instruction
         |	set				//
         |	transform		// object transformations
         |	animation		// basic animations
+        |   macro
         |                   // Nothing
         ;
 
+
 //Transformaciones de objetos
-transform	:	TRANS^ ID FLOAT FLOAT
-	|	TRANSREL^ ID FLOAT FLOAT
+transform	:	TRANS^ ID atom atom
+	|	TRANSREL^ ID atom atom
 	|	SCALE^ ID FLOAT (FLOAT)?
 	|	SCALEREL^ ID FLOAT (FLOAT)?	//Necesitariem floats per ferho elegant
 	|	ROTATE^ ID FLOAT (FLOAT)?
@@ -117,7 +121,7 @@ transform	:	TRANS^ ID FLOAT FLOAT
 	;
 
 //Animacinones de objetos
-animation	:	MOVEMENT^ ID INT INT INT	//Movement Identificador (desx desy)<- PAIR
+animation	:	MOVEMENT^ ID FLOAT FLOAT FLOAT	//Movement Identificador (desx desy)<- PAIR
 	|	ROTATION^ ID FLOAT // Rotation Identificador Velocitat<- FLOATS
 	;
 
@@ -126,7 +130,7 @@ assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
         ;
 
 // Pair Assigment
-pair_assign	:	ID '.' PAIR_ASSIGN eq=EQUAL expr -> ^(PAIR_ASSIGN[$eq,":="] ID PAIR_ASSIGN expr)
+pair_assign	:	ID '.' ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID PAIR_ASSIGN expr)
 			;
 
 // if-then-else (else is optional)
@@ -187,17 +191,19 @@ factor  :   (NOT^ | PLUS^ | MINUS^)? atom
 // Atom of the expressions (variables, integer and boolean literals).
 // An atom can also be a function call or another expression
 // in parenthesis
-atom    :   ID
-        |   INT
-        |	pair
+atom    :   ID (component)? -> ^(ID component?)
+        |   FLOAT
+        |	'{' expr_list '}' -> ^(TUPLA expr_list)
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
         |   funcall
         |   '('! expr ')'!
         ;
 
-// pair
+
 pair	:	ID '.' PAIR_INDEX -> ^(PAIR ID PAIR_INDEX)
 		;
+
+component 	: 	 '.' PAIR_INDEX ;
 
 
 // A function call has a lits of arguments in parenthesis (possibly empty)
@@ -254,9 +260,10 @@ ROTATION	: 'Rotation';
 TRUE    : 'true' ;
 FALSE   : 'false';
 PAIR_INDEX : ('first'|'second'|'x'|'y');
+PAIR_ASSIGN : ('scale'|'rotation'|'position'|'anchor');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
-FLOAT   :   '0'..'9'+ '.' '0'..'9'+;
-INT 	:	'0'..'9'+ ;
+FLOAT   :   '0'..'9'+ ('.' '0'..'9'+)?;
+//INT 	:	'0'..'9'+ ;
 
 // C-style comments
 COMMENT	: '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
