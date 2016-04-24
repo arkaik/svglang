@@ -114,10 +114,10 @@ instruction
 //Transformaciones de objetos
 transform	:	TRANS^ ID atom atom
 	|	TRANSREL^ ID atom atom
-	|	SCALE^ ID FLOAT (FLOAT)?
-	|	SCALEREL^ ID FLOAT (FLOAT)?	//Necesitariem floats per ferho elegant
-	|	ROTATE^ ID FLOAT (FLOAT)?
-	|	ROTATEREL^ ID FLOAT (FLOAT)?
+	|	SCALE^ ID atom (atom)? 
+	|	SCALEREL^ ID atom (atom)?	//Necesitariem floats per ferho elegant
+	|	ROTATE^ ID atom (atom)?
+	|	ROTATEREL^ ID atom (atom)?
 	;
 
 //Animacinones de objetos
@@ -191,11 +191,11 @@ factor  :   (NOT^ | PLUS^ | MINUS^)? atom
 // Atom of the expressions (variables, integer and boolean literals).
 // An atom can also be a function call or another expression
 // in parenthesis
-atom    :   ID (component)? -> ^(ID component?)
-        |   FLOAT
+atom    :   FLOAT
+		|	ID
         |	'{' expr_list '}' -> ^(TUPLA expr_list)
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
-        |   funcall
+        //|   funcall
         |   '('! expr ')'!
         ;
 
