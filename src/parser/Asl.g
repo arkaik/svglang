@@ -99,8 +99,16 @@ instruction
         |	read            // Read a variable
         | 	write           // Write a string or an expressionobject
         |	set				//
+        |	transform
         |                   // Nothing
         ;
+        
+//Transformaciones de objetos
+transform	:	TRANS^ ID INT INT
+	|	SCALE^ ID INT (INT)?
+	|	SCALEREL^ ID INT	//Necesitariem floats per ferho elegant
+	|	ROTATE^ ID INT
+	;
 
 // Assignment
 assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
@@ -211,6 +219,11 @@ RECT    : 'Rectangle';
 CIRCLE  : 'Circle';
 ELLIPSE	: 'Ellipse';
 TEXT	: 'Text';
+
+TRANS	: 'Trans';
+SCALE	: 'Scale';	 	//Escalado absoluto
+SCALEREL	: 'ScaleRel'; 		//Escalado relativo
+ROTATE	: 'Rotate';
 
 TRUE    : 'true' ;
 FALSE   : 'false';
