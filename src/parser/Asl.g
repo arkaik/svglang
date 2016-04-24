@@ -42,6 +42,7 @@ tokens {
     ARGLIST;    // List of arguments passed in a function call
     LIST_INSTR; // Block of instructions
     BOOLEAN;    // Boolean atom (for Boolean constants "true" or "false")
+    DISP;       // Display node
     PVALUE;     // Parameter by value in the list of parameters
     PREF;       // Parameter by reference in the list of parameters
 }
@@ -124,19 +125,22 @@ read	:	READ^ ID
 // Write an expression or a string
 write	:   WRITE^ (expr | STRING )
         ;
-        
+
 set		:	ID ('@'^|'#'^) STRING INT+
 		;
-        
+
 expr	:	boolexpr
-		|	graphicexpr 
+		|	graphicexpr
 		;
 
-graphicexpr	:	RECT^ INT INT INT INT
+graphicexpr	:   graphicconst -> ^(DISP graphicconst)
+		;
+
+graphicconst:   RECT^ INT INT INT INT
 		|		CIRCLE^ INT INT INT
 		|		TEXT^ INT INT STRING
 		|		ELLIPSE^ INT INT INT INT
-		;      
+        ;
 
 // Grammar for expressions with boolean, relational and aritmetic operators
 boolexpr    :   boolterm (OR^ boolterm)*

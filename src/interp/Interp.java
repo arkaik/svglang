@@ -159,8 +159,14 @@ public class Interp {
      * @return The data returned by the function.
      */
     private Data executeFunction (String funcname, AslTree args) {
-        writer = new PrintWriter("default.js", "UTF-8");
-        writer.println("<svg>");
+        try {
+            writer = new PrintWriter("default.js", "UTF-8");
+            writer.println("<svg>");
+        }
+        catch (Exception e) {
+            System.err.println("DANGER DANGER: " + e.getMessage());
+        }
+
 
         // Get the AST of the function
         AslTree f = FuncName2Tree.get(funcname);
@@ -328,6 +334,11 @@ public class Interp {
         int previous_line = lineNumber();
         setLineNumber(t);
         int type = t.getType();
+        if (type == Asl.Lexer.DISP)
+        {
+                evaluateDisplay(t.getChild(0));
+                return null;
+        }
 
         Data value = null;
         // Atoms
@@ -351,8 +362,6 @@ public class Interp {
                 if (value.isVoid()) {
                     throw new RuntimeException ("function expected to return a value");
                 }
-                break;
-            case AslLexer.RECT:
                 break;
             default: break;
         }
@@ -426,6 +435,21 @@ public class Interp {
 
         setLineNumber(previous_line);
         return value;
+    }
+
+    private Data evaluateDisplay(AslTree t)
+    {
+        switch (t.getType) {
+            case AslLexer.RECT:
+                writer.println("<rect");
+                writer.println("\tx="+t.getChild(0).getText()+" y="+t.getChild(1).getText());
+                writer.println("\tx="+t.getChild(2).getText()+" y="+t.getChild(3).getText());
+                writer.println("/>");
+                break;
+            default:
+                break;
+        }
+        return null;
     }
 
     /**
