@@ -37,6 +37,8 @@ options {
 tokens {
     LIST_FUNCTIONS; // List of functions (the root of the tree)
     ASSIGN;     // Assignment instruction
+    PAIR_ASSIGN; //Pair Assignment instruction
+    PAIR;
     PARAMS;     // List of parameters in the declaration of a function
     FUNCALL;    // Function call
     ARGLIST;    // List of arguments passed in a function call
@@ -92,6 +94,7 @@ block_instructions
 // The different types of instructions
 instruction
         :	assign          // Assignment
+        |	pair_assign		// Pair Assignment
         |	ite_stmt        // if-then-else
         |	while_stmt      // while statement
         |   funcall         // Call to a procedure (no result produced)
@@ -99,7 +102,8 @@ instruction
         |	read            // Read a variable
         | 	write           // Write a string or an expressionobject
         |	set				//
-        |	transform
+        |	transform		// object transformations
+        |	animation		// basic animations
         |                   // Nothing
         ;
         
@@ -112,10 +116,18 @@ transform	:	TRANS^ ID INT INT
 	|	ROTATEREL^ ID INT
 	;
 
+//Animacinones de objetos
+animation	:	MOVEMENT^ ID INT INT INT	//Movement Identificador (desx desy)<- PAIR
+	|	ROTATION^ ID INT // Rotation Identificador Velocitat<- FLOATS
+	;
+
 // Assignment
 assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
         ;
 
+// Pair Assigment
+pair_assign	:	ID '.' PAIR_ASSIGN eq=EQUAL expr -> ^(PAIR_ASSIGN[$eq,":="] ID PAIR_ASSIGN expr)
+        
 // if-then-else (else is optional)
 ite_stmt	:	IF^ expr THEN! block_instructions (ELSE! block_instructions)? ENDIF!
             ;
@@ -176,11 +188,15 @@ factor  :   (NOT^ | PLUS^ | MINUS^)? atom
 // in parenthesis
 atom    :   ID
         |   INT
+        |	pair
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
         |   funcall
         |   '('! expr ')'!
         ;
 
+// pair
+pair	:	ID '.' PAIR_INDEX -> ^(PAIR ID PAIR_INDEX)
+        
 // A function call has a lits of arguments in parenthesis (possibly empty)
 funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
         ;
@@ -229,8 +245,12 @@ SCALEREL	: 'ScaleRel'; 		//Escalado relativo
 ROTATE	: 'Rotate';
 ROTATEREL	: 'RotateRel';
 
+MOVEMENT	: 'Movement';
+ROTATION	: 'Rotation';
+
 TRUE    : 'true' ;
 FALSE   : 'false';
+PAIR_INDEX : ('first'|'second'|'x'|'y');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT 	:	'0'..'9'+ ;
 
