@@ -106,19 +106,19 @@ instruction
         |	animation		// basic animations
         |                   // Nothing
         ;
-        
+
 //Transformaciones de objetos
-transform	:	TRANS^ ID INT INT
-	|	TRANSREL^ ID INT
-	|	SCALE^ ID INT (INT)?
-	|	SCALEREL^ ID INT	//Necesitariem floats per ferho elegant
-	|	ROTATE^ ID INT
-	|	ROTATEREL^ ID INT
+transform	:	TRANS^ ID FLOAT FLOAT
+	|	TRANSREL^ ID FLOAT FLOAT
+	|	SCALE^ ID FLOAT (FLOAT)?
+	|	SCALEREL^ ID FLOAT (FLOAT)?	//Necesitariem floats per ferho elegant
+	|	ROTATE^ ID FLOAT (FLOAT)?
+	|	ROTATEREL^ ID FLOAT (FLOAT)?
 	;
 
 //Animacinones de objetos
 animation	:	MOVEMENT^ ID INT INT INT	//Movement Identificador (desx desy)<- PAIR
-	|	ROTATION^ ID INT // Rotation Identificador Velocitat<- FLOATS
+	|	ROTATION^ ID FLOAT // Rotation Identificador Velocitat<- FLOATS
 	;
 
 // Assignment
@@ -127,7 +127,8 @@ assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
 
 // Pair Assigment
 pair_assign	:	ID '.' PAIR_ASSIGN eq=EQUAL expr -> ^(PAIR_ASSIGN[$eq,":="] ID PAIR_ASSIGN expr)
-        
+			;
+
 // if-then-else (else is optional)
 ite_stmt	:	IF^ expr THEN! block_instructions (ELSE! block_instructions)? ENDIF!
             ;
@@ -148,7 +149,7 @@ read	:	READ^ ID
 write	:   WRITE^ (expr | STRING )
         ;
 
-set		:	ID ('@'^|'#'^) STRING INT+
+set		:	ID ('@'^|'#'^) STRING FLOAT+
 		;
 
 expr	:	boolexpr
@@ -158,10 +159,10 @@ expr	:	boolexpr
 graphicexpr	:   graphicconst -> ^(DISP graphicconst)
 		;
 
-graphicconst:   RECT^ INT INT INT INT
-		|		CIRCLE^ INT INT INT
-		|		TEXT^ INT INT STRING
-		|		ELLIPSE^ INT INT INT INT
+graphicconst:   RECT^ FLOAT FLOAT FLOAT FLOAT
+		|		CIRCLE^ FLOAT FLOAT FLOAT
+		|		TEXT^ FLOAT FLOAT STRING
+		|		ELLIPSE^ FLOAT FLOAT FLOAT FLOAT
         ;
 
 // Grammar for expressions with boolean, relational and aritmetic operators
@@ -196,7 +197,9 @@ atom    :   ID
 
 // pair
 pair	:	ID '.' PAIR_INDEX -> ^(PAIR ID PAIR_INDEX)
-        
+		;
+
+
 // A function call has a lits of arguments in parenthesis (possibly empty)
 funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
         ;
@@ -252,6 +255,7 @@ TRUE    : 'true' ;
 FALSE   : 'false';
 PAIR_INDEX : ('first'|'second'|'x'|'y');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
+FLOAT   :   '0'..'9'+ '.' '0'..'9'+;
 INT 	:	'0'..'9'+ ;
 
 // C-style comments
