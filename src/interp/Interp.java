@@ -314,7 +314,7 @@ public class Interp {
                 executeFunction(t.getChild(0).getText(), t.getChild(1));
                 return null;
 
-            default: assert false; // Should never happen
+            default: break; //assert false; // Should never happen
         }
 
         // All possible instructions should have been treated.
@@ -334,7 +334,7 @@ public class Interp {
         int previous_line = lineNumber();
         setLineNumber(t);
         int type = t.getType();
-        if (type == Asl.Lexer.DISP)
+        if (type == AslLexer.DISP)
         {
                 evaluateDisplay(t.getChild(0));
                 return null;
@@ -387,7 +387,7 @@ public class Interp {
                     checkBoolean(value);
                     value.setValue(!value.getBooleanValue());
                     break;
-                default: assert false; // Should never happen
+                default:break; // assert false; // Should never happen
             }
             setLineNumber(previous_line);
             return value;
@@ -430,7 +430,7 @@ public class Interp {
                 value = evaluateBoolean(type, value, t.getChild(1));
                 break;
 
-            default: assert false; // Should never happen
+            default: break; //assert false; // Should never happen
         }
 
         setLineNumber(previous_line);
@@ -439,7 +439,7 @@ public class Interp {
 
     private Data evaluateDisplay(AslTree t)
     {
-        switch (t.getType) {
+        switch (t.getType()) {
             case AslLexer.RECT:
                 writer.println("<rect");
                 writer.println("\tx="+t.getChild(0).getText()+" y="+t.getChild(1).getText());
