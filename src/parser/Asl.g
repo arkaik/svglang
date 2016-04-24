@@ -112,8 +112,8 @@ instruction
 
 
 //Transformaciones de objetos
-transform	:	TRANS^ ID atom atom
-	|	TRANSREL^ ID atom atom
+transform	:	TRANS^ ID atom (atom)?
+	|	TRANSREL^ ID atom (atom)?
 	|	SCALE^ ID atom (atom)? 
 	|	SCALEREL^ ID atom (atom)?	//Necesitariem floats per ferho elegant
 	|	ROTATE^ ID atom (atom)?
@@ -193,7 +193,7 @@ factor  :   (NOT^ | PLUS^ | MINUS^)? atom
 // in parenthesis
 atom    :   FLOAT
 		|	ID
-        |	'{' expr_list '}' -> ^(TUPLA expr_list)
+        |	tupla
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
         //|   funcall
         |   '('! expr ')'!
@@ -205,6 +205,7 @@ pair	:	ID '.' PAIR_INDEX -> ^(PAIR ID PAIR_INDEX)
 
 component 	: 	 '.' PAIR_INDEX ;
 
+tupla	: '{' expr_list '}' -> ^(TUPLA expr_list) ;
 
 // A function call has a lits of arguments in parenthesis (possibly empty)
 funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
