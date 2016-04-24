@@ -66,7 +66,7 @@ func	: FUNC^ ID params block_instructions ENDFUNC!
 		| macro
         ;
 
-macro	: '@SHOW'
+macro	: '$SHOW'
 		;
 
 // The list of parameters grouped in a subtree (it can be empty)
@@ -105,9 +105,11 @@ instruction
         
 //Transformaciones de objetos
 transform	:	TRANS^ ID INT INT
+	|	TRANSREL^ ID INT
 	|	SCALE^ ID INT (INT)?
 	|	SCALEREL^ ID INT	//Necesitariem floats per ferho elegant
 	|	ROTATE^ ID INT
+	|	ROTATEREL^ ID INT
 	;
 
 // Assignment
@@ -221,9 +223,11 @@ ELLIPSE	: 'Ellipse';
 TEXT	: 'Text';
 
 TRANS	: 'Trans';
+TRANSREL	: 'TransRel';
 SCALE	: 'Scale';	 	//Escalado absoluto
 SCALEREL	: 'ScaleRel'; 		//Escalado relativo
 ROTATE	: 'Rotate';
+ROTATEREL	: 'RotateRel';
 
 TRUE    : 'true' ;
 FALSE   : 'false';
