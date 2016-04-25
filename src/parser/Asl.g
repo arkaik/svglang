@@ -67,7 +67,6 @@ prog	: func+ EOF -> ^(LIST_FUNCTIONS func+)
 
 // A function has a name, a list of parameters and a block of instructions
 func	: FUNC^ ID params block_instructions ENDFUNC!
-		| macro
         ;
 
 macro	: '$SHOW'
@@ -112,9 +111,9 @@ instruction
 
 
 //Transformaciones de objetos
-transform	:	TRANS^ ID atom (atom)?
+transform	:	TRANS^ ID FLOAT (atom)?
 	|	TRANSREL^ ID atom (atom)?
-	|	SCALE^ ID atom (atom)? 
+	|	SCALE^ ID atom (atom)?
 	|	SCALEREL^ ID atom (atom)?	//Necesitariem floats per ferho elegant
 	|	ROTATE^ ID atom (atom)?
 	|	ROTATEREL^ ID atom (atom)?
@@ -185,18 +184,20 @@ num_expr:   term ( (PLUS^ | MINUS^) term)*
 term    :   factor ( (MUL^ | DIV^ | MOD^) factor)*
         ;
 
-factor  :   (NOT^ | PLUS^ | MINUS^)? atom
+factor  :   (NOT^ | PLUS^ | MINUS^) factor
+        |   atom
         ;
 
 // Atom of the expressions (variables, integer and boolean literals).
 // An atom can also be a function call or another expression
 // in parenthesis
-atom    :   FLOAT
-		|	ID
+atom    :   ID
+		|	FLOAT
+		|	INT
         |	tupla
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
-        //|   funcall
-        |   '('! expr ')'!
+        |   funcall
+        |   '('! boolexpr ')'!
         ;
 
 
@@ -205,7 +206,7 @@ pair	:	ID '.' PAIR_INDEX -> ^(PAIR ID PAIR_INDEX)
 
 component 	: 	 '.' PAIR_INDEX ;
 
-tupla	: '{' expr_list '}' -> ^(TUPLA expr_list) ;
+tupla	: '{' FLOAT (',' FLOAT)* '}' -> ^(TUPLA FLOAT+) ;
 
 // A function call has a lits of arguments in parenthesis (possibly empty)
 funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
@@ -263,8 +264,8 @@ FALSE   : 'false';
 PAIR_INDEX : ('first'|'second'|'x'|'y');
 PAIR_ASSIGN : ('scale'|'rotation'|'position'|'anchor');
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
-FLOAT   :   '0'..'9'+ ('.' '0'..'9'+)?;
-//INT 	:	'0'..'9'+ ;
+FLOAT   :   '0'..'9'+ '.' '0'..'9'*;
+INT 	:	'0'..'9'+ ;
 
 // C-style comments
 COMMENT	: '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
