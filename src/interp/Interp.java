@@ -29,6 +29,8 @@ package interp;
 
 import parser.*;
 
+
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -161,7 +163,8 @@ public class Interp {
     private Data executeFunction (String funcname, AslTree args) {
         try {
             writer = new PrintWriter("default.js", "UTF-8");
-            writer.println("<svg>");
+            writer.println("var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')");
+            writer.println("document.appendChild(svg);");
         }
         catch (Exception e) {
             System.err.println("DANGER DANGER: " + e.getMessage());
@@ -208,7 +211,6 @@ public class Interp {
         // Destroy the activation record
         Stack.popActivationRecord();
 
-        writer.println("</svg>");
         writer.close();
         return result;
     }
@@ -308,17 +310,65 @@ public class Interp {
                 System.out.print(evaluateExpression(v).toString());
                 return null;
 
+            case AslLexer.DRAW:
+                System.out.println("Dibujar objeto display: id = "+t.getChild(0).getText());
+                //TODO <use> & <defs> & <symbol>
+                writer.println("svg.appendElement("+t.getChild(0).getText()+")");
+                return null;
+
+            case AslLexer.FILL:
+                System.out.println("Rellenar "+t.getChild(0).getText()+" de color "+t.getChild(1).getText());
+                writer.println(t.getChild(0).getText()+".style.fill = '"+t.getChild(1).getText()+"';");
+                return null;
+
+            case AslLexer.TRANSFORM:
+                System.out.println("Ejecutar transformación...");
+                executeTransformation(t.getChild(0));
+                return null;
+
             // Function call
             case AslLexer.FUNCALL:
-                //PrintWriter writer = new PrintWriter(t.getChild(0).getText().toString()+".svg", "UTF-8");
                 executeFunction(t.getChild(0).getText(), t.getChild(1));
                 return null;
 
-            default: break; //assert false; // Should never happen
+            case AslLexer.DISP:
+                System.out.println("Declarar objeto display...");
+                evaluateDisplay(t.getChild(0));
+                return null;
+
+            case AslLexer.REL:
+                System.out.println("Relative Set");
+                //TODO Relative setting
+                return null;
+
+            case AslLexer.MACRO:
+                //TODO Mostrar svg
+                WebExecution browser = new WebExecution();
+                browser.show();
+                return null;
+
+            default: assert false; // Should never happen
         }
 
         // All possible instructions should have been treated.
         //assert false;
+        return null;
+    }
+
+    /**
+    *   Evaluates and generate code for SVG transformations.
+    * @param t The AST of the expression
+    * @return The value of the expression.
+    */
+
+    private Data executeTransformation(AslTree t) {
+        switch (t.getType()) {
+            case AslLexer.SCALEREL:
+
+                break;
+            default:
+                break;
+        }
         return null;
     }
 
@@ -334,11 +384,6 @@ public class Interp {
         int previous_line = lineNumber();
         setLineNumber(t);
         int type = t.getType();
-        if (type == AslLexer.DISP)
-        {
-                evaluateDisplay(t.getChild(0));
-                return null;
-        }
 
         Data value = null;
         // Atoms
@@ -348,6 +393,10 @@ public class Interp {
                 value = new Data(Stack.getVariable(t.getText()));
                 break;
             // An integer literal
+            case AslLexer.INT:
+                value = new Data(t.getIntValue());
+                break;
+            // An float literal
             case AslLexer.FLOAT:
                 value = new Data(t.getFloatValue());
                 break;
@@ -372,6 +421,8 @@ public class Interp {
             return value;
         }
 
+        //System.out.println("type: "+t.getType()+", number of childs: " + t.getChildCount());
+
         // Unary operators
         value = evaluateExpression(t.getChild(0));
         if (t.getChildCount() == 1) {
@@ -387,7 +438,7 @@ public class Interp {
                     checkBoolean(value);
                     value.setValue(!value.getBooleanValue());
                     break;
-                default:break; // assert false; // Should never happen
+                default: assert false; // Should never happen
             }
             setLineNumber(previous_line);
             return value;
@@ -437,13 +488,31 @@ public class Interp {
         return value;
     }
 
-    private Data evaluateDisplay(AslTree t)
-    {
+    private Data evaluateDisplay(AslTree t) {
         switch (t.getType()) {
             case AslLexer.RECT:
-                writer.println("<rect");
-                writer.println("\tx="+t.getChild(0).getText()+" y="+t.getChild(1).getText());
-                writer.println("\tx="+t.getChild(2).getText()+" y="+t.getChild(3).getText());
+                String id = t.getChild(0).getText();
+                AslTree arglist = t.getChild(1);
+                assert arglist.getChildCount() == 4;
+                System.out.println("\tEs un rectángulo con id = "+id);
+                writer.println("var "+id+" = svg.createElement('rect');");
+                writer.println(id+".setAttribute('id',"+id+");");
+                writer.println(id+".setAttribute('x',"+arglist.getChild(0).getText()+");");
+                writer.println(id+".setAttribute('y',"+arglist.getChild(1).getText()+");");
+                writer.println(id+".setAttribute('w',"+arglist.getChild(2).getText()+");");
+                writer.println(id+".setAttribute('h',"+arglist.getChild(3).getText()+");");
+                //TODO ¿Las propiedades deben ir en una estructura de JavaScript o en una de Java?
+                writer.println(id+".prop.x = "+arglist.getChild(0).getText()+"; "+id+".prop.y = "+arglist.getChild(1).getText()+";");
+                writer.println(id+".prop.w = "+arglist.getChild(2).getText()+"; "+id+".prop.h = "+arglist.getChild(3).getText()+";");
+                writer.println(id+".prop.sx = 1; "+id+".prop.sy = 1; "+id+".prop.rx = 0; "+id+".prop.ry = 0;");
+                // TODO Decisions difícils...
+                writer.println();
+                break;
+            case AslLexer.CIRCLE:
+                writer.println("<circle");
+                writer.println("\tid="+1);
+                writer.println("\tcx="+t.getChild(0).getText()+" cy="+t.getChild(1).getText());
+                writer.println("\tr="+t.getChild(2).getText());
                 writer.println("/>");
                 break;
             default:

@@ -38,10 +38,11 @@ package interp;
  */
 
 import parser.*;
+import java.util.ArrayList;
 
 public class Data {
     /** Types of data */
-    public enum Type {VOID, BOOLEAN, INTEGER, FLOAT;}
+    public enum Type {VOID, BOOLEAN, INTEGER, FLOAT, ARRAY;}
 
     /** Type of data*/
     private Type type;
@@ -51,6 +52,8 @@ public class Data {
 
     private float fvalue;
 
+    private ArrayList<Object> lvalue;
+
     Data(float v) { type = Type.FLOAT; fvalue = v; }
 
     /** Constructor for integers */
@@ -58,6 +61,8 @@ public class Data {
 
     /** Constructor for Booleans */
     Data(boolean b) { type = Type.BOOLEAN; value = b ? 1 : 0; }
+
+    Data(ArrayList<Object> arr) {type = Type.ARRAY; lvalue = arr;}
 
     /** Constructor for void data */
     Data() {type = Type.VOID; }
@@ -100,6 +105,9 @@ public class Data {
 
     /** Defines an integer value for the data */
     public void setValue(int v) { type = Type.INTEGER; value = v; }
+
+    /** Defines an integer value for the data */
+    public void setValue(float v) { type = Type.FLOAT; fvalue = v; }
 
     /** Copies the value from another data */
     public void setData(Data d) { type = d.type; value = d.value; }

@@ -37,16 +37,16 @@ options {
 tokens {
     LIST_FUNCTIONS; // List of functions (the root of the tree)
     ASSIGN;     // Assignment instruction
-    PAIR_ASSIGN; //Pair Assignment instruction
-    PAIR;
     PARAMS;     // List of parameters in the declaration of a function
     FUNCALL;    // Function call
     ARGLIST;    // List of arguments passed in a function call
     LIST_INSTR; // Block of instructions
     BOOLEAN;    // Boolean atom (for Boolean constants "true" or "false")
     DISP;       // Display node
-    TUPLA;
-    COMP;
+    ARRAY;		//
+    TIME;		//
+    TRANSFORM;	//
+    MACRO;
     PVALUE;     // Parameter by value in the list of parameters
     PREF;       // Parameter by reference in the list of parameters
 }
@@ -68,9 +68,6 @@ prog	: func+ EOF -> ^(LIST_FUNCTIONS func+)
 // A function has a name, a list of parameters and a block of instructions
 func	: FUNC^ ID params block_instructions ENDFUNC!
         ;
-
-macro	: '$SHOW'
-		;
 
 // The list of parameters grouped in a subtree (it can be empty)
 params	: '(' paramlist? ')' -> ^(PARAMS paramlist?)
@@ -95,7 +92,7 @@ block_instructions
 // The different types of instructions
 instruction
         :	assign          // Assignment
-        |	pair_assign		// Pair Assignment
+        |	declare		// Pair Assignment
         |	ite_stmt        // if-then-else
         |	while_stmt      // while statement
         |   funcall         // Call to a procedure (no result produced)
@@ -103,34 +100,47 @@ instruction
         |	read            // Read a variable
         | 	write           // Write a string or an expressionobject
         |	set				//
-        |	transform		// object transformations
+        |	draw			// Draw a declared object
+        |	fill
+        |	transform	-> ^(TRANSFORM transform)	// object transformations
         |	animation		// basic animations
-        |   macro
+        |   macro		-> ^(MACRO macro) 
+        |	loop
         |                   // Nothing
         ;
 
+macro	: '$SHOW' 
+		;
+
+
+loop	:	LOOP^ animation;
 
 //Transformaciones de objetos
-transform	:	TRANS^ ID FLOAT (atom)?
-	|	TRANSREL^ ID atom (atom)?
-	|	SCALE^ ID atom (atom)?
-	|	SCALEREL^ ID atom (atom)?	//Necesitariem floats per ferho elegant
-	|	ROTATE^ ID atom (atom)?
-	|	ROTATEREL^ ID atom (atom)?
+transform	:	TRANS^ ID atom (FLOAT)?
+	|	TRANSREL^ ID arglist
+	|	SCALE^ ID atom (FLOAT)?
+	|	SCALEREL^ ID arglist	//Necesitariem floats per ferho elegant
+	|	ROTATE^ ID atom (FLOAT)?
+	|	ROTATEREL^ ID arglist
 	;
 
 //Animacinones de objetos
-animation	:	MOVEMENT^ ID FLOAT FLOAT FLOAT	//Movement Identificador (desx desy)<- PAIR
-	|	ROTATION^ ID FLOAT // Rotation Identificador Velocitat<- FLOATS
+animation	:	MOVEMENT^ ID FLOAT FLOAT FLOAT//Movement Identificador (desx desy)<- PAIR
+	|	ROTATION^ ID FLOAT FLOAT// Rotation Identificador Velocitat<- FLOATS
 	;
 
 // Assignment
 assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
         ;
 
-// Pair Assigment
-pair_assign	:	ID '.' ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID PAIR_ASSIGN expr)
-			;
+declare	:	graphicexpr
+		;
+
+draw	:	DRAW^ ID
+		;
+
+fill	:	FILL^ ID COLOR
+		;
 
 // if-then-else (else is optional)
 ite_stmt	:	IF^ expr THEN! block_instructions (ELSE! block_instructions)? ENDIF!
@@ -152,20 +162,22 @@ read	:	READ^ ID
 write	:   WRITE^ (expr | STRING )
         ;
 
-set		:	ID ('@'^|'#'^) STRING FLOAT+
+set		:	ID (REL^|ABS^) ID arglist time?
 		;
 
+time	: 	'{' expr (',' expr)? '}' -> ^(TIME expr expr?) ;
+
 expr	:	boolexpr
-		|	graphicexpr
+		//|	graphicexpr
 		;
 
 graphicexpr	:   graphicconst -> ^(DISP graphicconst)
 		;
 
-graphicconst:   RECT^ FLOAT FLOAT FLOAT FLOAT
-		|		CIRCLE^ FLOAT FLOAT FLOAT
-		|		TEXT^ FLOAT FLOAT STRING
-		|		ELLIPSE^ FLOAT FLOAT FLOAT FLOAT
+graphicconst:   RECT^ ID arglist
+		|		CIRCLE^ ID arglist
+		|		TEXT^ ID arglist
+		|		ELLIPSE^ ID arglist
         ;
 
 // Grammar for expressions with boolean, relational and aritmetic operators
@@ -175,7 +187,7 @@ boolexpr    :   boolterm (OR^ boolterm)*
 boolterm:   boolfact (AND^ boolfact)*
         ;
 
-boolfact:   num_expr ((EQUAL^ | NOT_EQUAL^ | LT^ | LE^ | GT^ | GE^) num_expr)?
+boolfact:   num_expr ((EQ^ | NOT_EQUAL^ | LT^ | LE^ | GT^ | GE^) num_expr)?
         ;
 
 num_expr:   term ( (PLUS^ | MINUS^) term)*
@@ -194,30 +206,34 @@ factor  :   (NOT^ | PLUS^ | MINUS^) factor
 atom    :   ID
 		|	FLOAT
 		|	INT
-        |	tupla
+		|	array
+		|	arrayacc
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
         |   funcall
         |   '('! boolexpr ')'!
         ;
 
 
-pair	:	ID '.' PAIR_INDEX -> ^(PAIR ID PAIR_INDEX)
-		;
+array	: '[' atom (',' atom)* ']' -> ^(ARRAY atom+) ;
 
-component 	: 	 '.' PAIR_INDEX ;
-
-tupla	: '{' FLOAT (',' FLOAT)* '}' -> ^(TUPLA FLOAT+) ;
+arrayacc
+	:	ID '[' INT ']'
+	;
 
 // A function call has a lits of arguments in parenthesis (possibly empty)
 funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
         ;
 
+arglist
+	:	'(' expr_list? ')' -> ^(ARGLIST expr_list?)
+	;
 // A list of expressions separated by commas
 expr_list:  expr (','! expr)*
         ;
 
 // Basic tokens
 EQUAL	: '=' ;
+EQ		: '==';
 NOT_EQUAL: '!=' ;
 LT	    : '<' ;
 LE	    : '<=';
@@ -228,6 +244,10 @@ MINUS	: '-' ;
 MUL	    : '*';
 DIV	    : '/';
 MOD	    : '%' ;
+
+REL		: '@' ;
+ABS		: '#' ;
+
 NOT	    : 'not';
 AND	    : 'and' ;
 OR	    : 'or' ;
@@ -259,13 +279,20 @@ ROTATEREL	: 'RotateRel';
 MOVEMENT	: 'Movement';
 ROTATION	: 'Rotation';
 
+LOOP	: 'Loop';
+FILL	: 'Fill';
+STROKE	: 'Stroke';
+DRAW	: 'Draw';
+
 TRUE    : 'true' ;
 FALSE   : 'false';
-PAIR_INDEX : ('first'|'second'|'x'|'y');
-PAIR_ASSIGN : ('scale'|'rotation'|'position'|'anchor');
+
+COLOR	: '#' ('a'..'f'|'0'..'9')* ;
+
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
-FLOAT   :   '0'..'9'+ '.' '0'..'9'*;
 INT 	:	'0'..'9'+ ;
+FLOAT   :   '0'..'9'+ '.' '0'..'9'*;
+
 
 // C-style comments
 COMMENT	: '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
@@ -273,12 +300,12 @@ COMMENT	: '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
     	;
 
 // Strings (in quotes) with escape sequences
-STRING  :  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
+STRING  :  '"' ('\\' ESC_SEQ | ~('\\'|'"') )* '"'
         ;
 
 fragment
 ESC_SEQ
-    :   '\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
+    :   ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
     ;
 
 // White spaces
