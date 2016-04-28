@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-04-28 13:50:18
+// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-04-28 14:41:55
 
 package parser;
 import interp.AslTree;
@@ -902,8 +902,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslParser.loop_return loop32 =null;
 
 
-        RewriteRuleSubtreeStream stream_transform=new RewriteRuleSubtreeStream(adaptor,"rule transform");
         RewriteRuleSubtreeStream stream_macro=new RewriteRuleSubtreeStream(adaptor,"rule macro");
+        RewriteRuleSubtreeStream stream_transform=new RewriteRuleSubtreeStream(adaptor,"rule transform");
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:94:9: ( assign | declare | ite_stmt | while_stmt | funcall | return_stmt | read | write | set | draw | fill | transform -> ^( TRANSFORM transform ) | animation | macro -> ^( MACRO macro ) | loop |)
             int alt6=16;
@@ -2009,8 +2009,8 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree eq_tree=null;
         AslTree ID66_tree=null;
-        RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleTokenStream stream_EQUAL=new RewriteRuleTokenStream(adaptor,"token EQUAL");
+        RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:133:8: ( ID eq= EQUAL expr -> ^( ASSIGN[$eq,\":=\"] ID expr ) )
@@ -2917,8 +2917,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree char_literal101_tree=null;
         AslTree char_literal103_tree=null;
         RewriteRuleTokenStream stream_77=new RewriteRuleTokenStream(adaptor,"token 77");
-        RewriteRuleTokenStream stream_82=new RewriteRuleTokenStream(adaptor,"token 82");
         RewriteRuleTokenStream stream_81=new RewriteRuleTokenStream(adaptor,"token 81");
+        RewriteRuleTokenStream stream_82=new RewriteRuleTokenStream(adaptor,"token 82");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:168:6: ( '{' expr ( ',' expr )? '}' -> ^( TIME expr ( expr )? ) )
@@ -4300,8 +4300,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree INT148_tree=null;
         AslTree char_literal152_tree=null;
         AslTree char_literal154_tree=null;
-        RewriteRuleTokenStream stream_FALSE=new RewriteRuleTokenStream(adaptor,"token FALSE");
         RewriteRuleTokenStream stream_TRUE=new RewriteRuleTokenStream(adaptor,"token TRUE");
+        RewriteRuleTokenStream stream_FALSE=new RewriteRuleTokenStream(adaptor,"token FALSE");
 
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:206:9: ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !)
@@ -4626,8 +4626,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree char_literal155_tree=null;
         AslTree char_literal157_tree=null;
         AslTree char_literal159_tree=null;
-        RewriteRuleTokenStream stream_79=new RewriteRuleTokenStream(adaptor,"token 79");
         RewriteRuleTokenStream stream_77=new RewriteRuleTokenStream(adaptor,"token 77");
+        RewriteRuleTokenStream stream_79=new RewriteRuleTokenStream(adaptor,"token 79");
         RewriteRuleTokenStream stream_80=new RewriteRuleTokenStream(adaptor,"token 80");
         RewriteRuleSubtreeStream stream_atom=new RewriteRuleSubtreeStream(adaptor,"rule atom");
         try {

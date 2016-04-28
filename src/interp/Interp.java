@@ -343,8 +343,8 @@ public class Interp {
 
             case AslLexer.MACRO:
                 //TODO Mostrar svg
-                WebExecution browser = new WebExecution();
-                browser.show();
+                //WebExecution browser = new WebExecution();
+                javafx.application.Application.launch(WebExecution.class);
                 return null;
 
             default: assert false; // Should never happen
