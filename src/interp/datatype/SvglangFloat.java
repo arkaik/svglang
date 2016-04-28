@@ -20,7 +20,7 @@ public class SvglangFloat extends Data
         return value;
     }
     
-	public String toString();
+	public String toString()
     {
         return Float.toString(value);
     }
@@ -39,5 +39,18 @@ public class SvglangFloat extends Data
             case AslLexer.MOD: checkDivZero(d); value %= d.value; break;
             default: assert false;
         }
+    }
+    	public Data evaluateRelational (int op, Data d) {
+        //assert type != Type.VOID && type == d.type;
+        switch (op) {
+            case AslLexer.EQUAL: return new SvglangFloat(value == d.getValue());
+            case AslLexer.NOT_EQUAL: return new SvglangFloat(value != d.getValue());
+            case AslLexer.LT: return new SvglangFloat(value < d.getValue());
+            case AslLexer.LE: return new SvglangFloat(value <= d.getValue());
+            case AslLexer.GT: return new SvglangFloat(value > d.getValue());
+            case AslLexer.GE: return new SvglangFloat(value >= d.getValue());
+            default: assert false;
+        }
+        return null;
     }
 }

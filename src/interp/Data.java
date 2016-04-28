@@ -50,10 +50,10 @@ public abstract class Data<T> {
     public Data() {  }
 
     /** Constructor Template */
-    Data(T v) { value = v; }
+    public Data(T v) { value = v; }
 
     /** Copy constructor */
-    Data(Data d) { value = d.value; }
+    public Data(Data<T> d) { value = d.value; }
 
     /** Returns the type of data */
     public abstract String getType();
@@ -68,7 +68,7 @@ public abstract class Data<T> {
     public boolean isFloat() { return false; }
 
     /** Indicates whether the data is void */
-    public boolean isVoid() { return type == false; }
+    public boolean isVoid() { return false; }
 
     /**
      * Gets the value of an integer data. The method asserts that
@@ -99,6 +99,15 @@ public abstract class Data<T> {
         value = v;
     }
     
+	public T getValue() {
+        return value;
+    }
+    
+	/** Defines the value from another data */
+	public void setData(Data<T> d) {
+        value = d.value;
+    }
+    
 //     /** Defines a Boolean value for the data */
 //     public void setValue(boolean b) { type = Type.BOOLEAN; value = b ? 1 : 0; }
 // 
@@ -112,11 +121,7 @@ public abstract class Data<T> {
 //     public void setData(Data d) { type = d.type; value = d.value; }
 
     /** Returns a string representing the data in textual form. */
-    public  abstract String toString();
-    {
-        if (type == Type.BOOLEAN) return value == 1 ? "true" : "false";
-        return Integer.toString(value);
-    }
+    public abstract String toString();
 
     /**
      * Checks for zero (for division). It raises an exception in case
@@ -144,16 +149,6 @@ public abstract class Data<T> {
      * @return A Boolean data with the value of the expression.
      */
     public Data evaluateRelational (int op, Data d) {
-        //assert type != Type.VOID && type == d.type;
-        switch (op) {
-            case AslLexer.EQUAL: return new Data(value == d.value);
-            case AslLexer.NOT_EQUAL: return new Data(value != d.value);
-            case AslLexer.LT: return new Data(value < d.value);
-            case AslLexer.LE: return new Data(value <= d.value);
-            case AslLexer.GT: return new Data(value > d.value);
-            case AslLexer.GE: return new Data(value >= d.value);
-            default: assert false;
-        }
-        return null;
-    }
+		throw new RuntimeException ("INCORRECT TYPE FOR EVALUATERELATIONAL OP");
+	}
 }

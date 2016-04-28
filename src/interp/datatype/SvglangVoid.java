@@ -16,12 +16,9 @@ public class SvglangVoid extends Data
     
     public boolean isVoid() { return true; }
     
-	public String toString();
+	public String toString()
     {
         return "null";
     }
     
-	public Data evaluateRelational (int op, Data d) {
-        throw new RuntimeException ("Evaluate a Void Type");
-	}
 }

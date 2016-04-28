@@ -9,6 +9,9 @@ public class SvglangInteger extends Data
         super(v);
     }
 
+	/** Copy constructor */
+    public SvglangInteger(Data d) { super(v); }
+    
     public String getType()
     {
        return "Integer";
@@ -20,7 +23,7 @@ public class SvglangInteger extends Data
         return value;
     }
     
-	public String toString();
+	public String toString()
     {
         return Integer.toString(value);
     }
@@ -39,5 +42,19 @@ public class SvglangInteger extends Data
             case AslLexer.MOD: checkDivZero(d); value %= d.value; break;
             default: assert false;
         }
+    }
+    
+    	public Data evaluateRelational (int op, Data d) {
+        //assert type != Type.VOID && type == d.type;
+        switch (op) {
+            case AslLexer.EQUAL: return new SvglangInteger(value == d.getValue());
+            case AslLexer.NOT_EQUAL: return new SvglangInteger(value != d.getValue());
+            case AslLexer.LT: return new SvglangInteger(value < d.getValue());
+            case AslLexer.LE: return new SvglangInteger(value <= d.getValue());
+            case AslLexer.GT: return new SvglangInteger(value > d.getValue());
+            case AslLexer.GE: return new SvglangInteger(value >= d.getValue());
+            default: assert false;
+        }
+        return null;
     }
 }
