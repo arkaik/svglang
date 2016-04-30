@@ -68,6 +68,8 @@ public class Interp {
     /** Nested levels of function calls. */
     private int function_nesting = -1;
 
+    private boolean show = false;
+
     /**
      * Constructor of the interpreter. It prepares the main
      * data structures for the execution of the main program.
@@ -115,12 +117,17 @@ public class Interp {
         int n = T.getChildCount();
         for (int i = 0; i < n; ++i) {
             AslTree f = T.getChild(i);
-            assert f.getType() == AslLexer.FUNC;
-            String fname = f.getChild(0).getText();
-            if (FuncName2Tree.containsKey(fname)) {
-                throw new RuntimeException("Multiple definitions of function " + fname);
+            if (f.getType() == AslLexer.FUNC) {
+                String fname = f.getChild(0).getText();
+                if (FuncName2Tree.containsKey(fname)) {
+                    throw new RuntimeException("Multiple definitions of function " + fname);
+                }
+                FuncName2Tree.put(fname, f);
             }
-            FuncName2Tree.put(fname, f);
+            else if (f.getType() == AslLexer.MACRO)
+            {
+                show = true;
+            }
         }
     }
 
@@ -132,6 +139,7 @@ public class Interp {
     private void PreProcessAST(AslTree T) {
         if (T == null) return;
         switch(T.getType()) {
+            case AslLexer.INT: T.setIntValue(); break;
             case AslLexer.FLOAT: T.setFloatValue(); break;
             case AslLexer.STRING: T.setStringValue(); break;
             case AslLexer.BOOLEAN: T.setBooleanValue(); break;
@@ -163,8 +171,9 @@ public class Interp {
     private Data executeFunction (String funcname, AslTree args) {
         try {
             writer = new PrintWriter("default.js", "UTF-8");
-            writer.println("var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')");
-            writer.println("document.appendChild(svg);");
+            writer.println("var svg = document.createElementNS(\"http://www.w3.org/2000/svg\", \"svg\");");
+            writer.println("var svgNS = svg.namespaceURI;");
+            writer.println("document.body.appendChild(svg);");
         }
         catch (Exception e) {
             System.err.println("DANGER DANGER: " + e.getMessage());
@@ -211,7 +220,10 @@ public class Interp {
         // Destroy the activation record
         Stack.popActivationRecord();
 
-        writer.close();
+        if (funcname == "main") {
+            writer.close();
+            if (show) javafx.application.Application.launch(WebExecution.class);
+        }
         return result;
     }
 
@@ -313,12 +325,12 @@ public class Interp {
             case AslLexer.DRAW:
                 System.out.println("Dibujar objeto display: id = "+t.getChild(0).getText());
                 //TODO <use> & <defs> & <symbol>
-                writer.println("svg.appendElement("+t.getChild(0).getText()+")");
+                writer.println("svg.appendChild("+t.getChild(0).getText()+");");
                 return null;
 
             case AslLexer.FILL:
                 System.out.println("Rellenar "+t.getChild(0).getText()+" de color "+t.getChild(1).getText());
-                writer.println(t.getChild(0).getText()+".style.fill = '"+t.getChild(1).getText()+"';");
+                writer.println(t.getChild(0).getText()+".style.fill = \""+t.getChild(1).getText()+"\";");
                 return null;
 
             case AslLexer.TRANSFORM:
@@ -337,14 +349,7 @@ public class Interp {
                 return null;
 
             case AslLexer.REL:
-                System.out.println("Relative Set");
-                //TODO Relative setting
-                return null;
-
-            case AslLexer.MACRO:
-                //TODO Mostrar svg
-                //WebExecution browser = new WebExecution();
-                javafx.application.Application.launch(WebExecution.class);
+                relativeSet(t);
                 return null;
 
             default: assert false; // Should never happen
@@ -495,18 +500,17 @@ public class Interp {
                 AslTree arglist = t.getChild(1);
                 assert arglist.getChildCount() == 4;
                 System.out.println("\tEs un rectángulo con id = "+id);
-                writer.println("var "+id+" = svg.createElement('rect');");
-                writer.println(id+".setAttribute('id',"+id+");");
-                writer.println(id+".setAttribute('x',"+arglist.getChild(0).getText()+");");
-                writer.println(id+".setAttribute('y',"+arglist.getChild(1).getText()+");");
-                writer.println(id+".setAttribute('w',"+arglist.getChild(2).getText()+");");
-                writer.println(id+".setAttribute('h',"+arglist.getChild(3).getText()+");");
+                writer.println("var "+id+" = document.createElementNS(svgNS, \"rect\");");
+                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
+                writer.println(id+".setAttribute(\"x\",\""+arglist.getChild(0).getText()+"\");");
+                writer.println(id+".setAttribute(\"y\",\""+arglist.getChild(1).getText()+"\");");
+                writer.println(id+".setAttribute(\"width\",\""+arglist.getChild(2).getText()+"\");");
+                writer.println(id+".setAttribute(\"height\",\""+arglist.getChild(3).getText()+"\");");
                 //TODO ¿Las propiedades deben ir en una estructura de JavaScript o en una de Java?
-                writer.println(id+".prop.x = "+arglist.getChild(0).getText()+"; "+id+".prop.y = "+arglist.getChild(1).getText()+";");
+                /*writer.println(id+".prop.x = "+arglist.getChild(0).getText()+"; "+id+".prop.y = "+arglist.getChild(1).getText()+";");
                 writer.println(id+".prop.w = "+arglist.getChild(2).getText()+"; "+id+".prop.h = "+arglist.getChild(3).getText()+";");
                 writer.println(id+".prop.sx = 1; "+id+".prop.sy = 1; "+id+".prop.rx = 0; "+id+".prop.ry = 0;");
-                // TODO Decisions difícils...
-                writer.println();
+                */// TODO Decisions difícils...
                 break;
             case AslLexer.CIRCLE:
                 writer.println("<circle");
@@ -518,6 +522,40 @@ public class Interp {
             default:
                 break;
         }
+        return null;
+    }
+
+    private Data relativeSet(AslTree t)
+    {
+        String id = t.getChild(0).getText();
+        String property = t.getChild(1).getText();
+        AslTree args = t.getChild(2);
+        //Tenemos tiempo, hurra!
+        if (t.getChildCount() == 4) {
+            AslTree time = t.getChild(3);
+
+            if (property.equals("position"))
+            {
+                Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
+                writer.println("var _x = "+id+".getAttribute('x'); var _y = "+id+".getAttribute('y');");
+                writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
+                writer.println("_elem.setAttribute(\"type\", \"translate\")");
+                writer.println("_elem.setAttribute(\"from\", _x+\" \"+_y)");
+                writer.println("_elem.setAttribute(\"to\", \""+tx.toString()+" "+ty.toString()+"\")");
+                Data ti = evaluateExpression(time.getChild(0));
+                writer.println("_elem.setAttribute(\"begin\", \""+ti.toString()+"s\")");
+                if (time.getChildCount() == 2) {
+                    Data to = evaluateExpression(time.getChild(1));
+                    writer.println("_elem.setAttribute(\"dur\", \""+to.toString()+"s\")");
+                }
+                writer.println(id+".appendChild(_elem);");
+            }
+        }
+        else { //LMAO, instant setting
+            System.out.println("LMAO");
+        }
+
         return null;
     }
 

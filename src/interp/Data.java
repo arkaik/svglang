@@ -79,6 +79,9 @@ public class Data {
     /** Indicates whether the data is integer */
     public boolean isInteger() { return type == Type.INTEGER; }
 
+    /** Indicates whether the data is float */
+    public boolean isFloat() { return type == Type.FLOAT; }
+
     /** Indicates whether the data is void */
     public boolean isVoid() { return type == Type.VOID; }
 
@@ -115,7 +118,9 @@ public class Data {
     /** Returns a string representing the data in textual form. */
     public String toString() {
         if (type == Type.BOOLEAN) return value == 1 ? "true" : "false";
-        return Integer.toString(value);
+        if (type == Type.INTEGER) return Integer.toString(value);
+        if (type == Type.FLOAT) return Float.toString(fvalue);
+        return null;
     }
 
     /**
@@ -134,7 +139,8 @@ public class Data {
      */
 
     public void evaluateArithmetic (int op, Data d) {
-        assert type == Type.INTEGER && d.type == Type.INTEGER;
+
+        assert (type == Type.INTEGER && d.type == Type.INTEGER) || (type == Type.FLOAT && d.type == Type.FLOAT);
         switch (op) {
             case AslLexer.PLUS: value += d.value; break;
             case AslLexer.MINUS: value -= d.value; break;

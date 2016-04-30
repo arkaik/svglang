@@ -67,6 +67,7 @@ prog	: func+ EOF -> ^(LIST_FUNCTIONS func+)
 
 // A function has a name, a list of parameters and a block of instructions
 func	: FUNC^ ID params block_instructions ENDFUNC!
+		|   macro		-> ^(MACRO macro) 
         ;
 
 // The list of parameters grouped in a subtree (it can be empty)
@@ -104,7 +105,6 @@ instruction
         |	fill
         |	transform	-> ^(TRANSFORM transform)	// object transformations
         |	animation		// basic animations
-        |   macro		-> ^(MACRO macro) 
         |	loop
         |                   // Nothing
         ;
