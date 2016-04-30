@@ -28,6 +28,7 @@
 package interp;
 
 import parser.*;
+import interp.datatype.*;
 
 
 
@@ -212,7 +213,7 @@ public class Interp {
         Data result = executeListInstructions (f.getChild(2));
 
         // If the result is null, then the function returns void
-        if (result == null) result = new Data();
+        if (result == null) result = new SvglangVoid();
 
         // Dumps trace information
         if (trace != null) traceReturn(f, result, Arg_values);
@@ -293,13 +294,13 @@ public class Interp {
                 if (t.getChildCount() != 0) {
                     return evaluateExpression(t.getChild(0));
                 }
-                return new Data(); // No expression: returns void data
+                return new SvglangVoid(); // No expression: returns void data
 
             // Read statement: reads a variable and raises an exception
             // in case of a format error.
             case AslLexer.READ:
                 String token = null;
-                Data val = new Data(0);;
+                Data val = new SvglangInteger(0);
                 try {
                     token = stdin.next();
                     val.setValue(Integer.parseInt(token));
@@ -395,19 +396,19 @@ public class Interp {
         switch (type) {
             // A variable
             case AslLexer.ID:
-                value = new Data(Stack.getVariable(t.getText()));
+                value = new SvglangInteger(Stack.getVariable(t.getText()));
                 break;
             // An integer literal
             case AslLexer.INT:
-                value = new Data(t.getIntValue());
+                value = new SvglangInteger(t.getIntValue());
                 break;
             // An float literal
             case AslLexer.FLOAT:
-                value = new Data(t.getFloatValue());
+                value = new SvglangFloat(t.getFloatValue());
                 break;
             // A Boolean literal
             case AslLexer.BOOLEAN:
-                value = new Data(t.getBooleanValue());
+                value = new SvglangBoolean(t.getBooleanValue());
                 break;
             // A function call. Checks that the function returns a result.
             case AslLexer.FUNCALL:

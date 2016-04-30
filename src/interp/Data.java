@@ -40,58 +40,52 @@ package interp;
 import parser.*;
 import java.util.ArrayList;
 
-public class Data {
-    /** Types of data */
-    public enum Type {VOID, BOOLEAN, INTEGER, FLOAT, ARRAY;}
+public abstract class Data<T> {
 
-    /** Type of data*/
-    private Type type;
+ /** Value of the data */
+    protected T value;
 
-    /** Value of the data */
-    private int value;
 
-    private float fvalue;
+    /** Default Constructor */
+    public Data() {  }
 
-    private ArrayList<Object> lvalue;
-
-    Data(float v) { type = Type.FLOAT; fvalue = v; }
-
-    /** Constructor for integers */
-    Data(int v) { type = Type.INTEGER; value = v; }
-
-    /** Constructor for Booleans */
-    Data(boolean b) { type = Type.BOOLEAN; value = b ? 1 : 0; }
-
-    Data(ArrayList<Object> arr) {type = Type.ARRAY; lvalue = arr;}
-
-    /** Constructor for void data */
-    Data() {type = Type.VOID; }
+    /** Constructor Template */
+    public Data(T v) { value = v; }
 
     /** Copy constructor */
-    Data(Data d) { type = d.type; value = d.value; }
+    public Data(Data<T> d) { value = d.value; }
 
     /** Returns the type of data */
-    public Type getType() { return type; }
+    public abstract String getType();
 
     /** Indicates whether the data is Boolean */
-    public boolean isBoolean() { return type == Type.BOOLEAN; }
+    public boolean isBoolean() { return false; }
 
     /** Indicates whether the data is integer */
-    public boolean isInteger() { return type == Type.INTEGER; }
+    public boolean isInteger() { return false; }
+
+	/** Indicates whether the data is Float */
+    public boolean isFloat() { return false; }
 
     /** Indicates whether the data is float */
     public boolean isFloat() { return type == Type.FLOAT; }
 
     /** Indicates whether the data is void */
-    public boolean isVoid() { return type == Type.VOID; }
+    public boolean isVoid() { return false; }
 
     /**
      * Gets the value of an integer data. The method asserts that
      * the data is an integer.
      */
     public int getIntegerValue() {
-        assert type == Type.INTEGER;
-        return value;
+        throw new RuntimeException ("Incorrect type");
+    }
+
+	/**
+     * Gets the value of an float data.
+     */
+    public float getFloatValue() {
+        throw new RuntimeException ("Incorrect type");
     }
 
     /**
@@ -99,36 +93,45 @@ public class Data {
      * the data is a Boolean.
      */
     public boolean getBooleanValue() {
-        assert type == Type.BOOLEAN;
-        return value == 1;
+        throw new RuntimeException ("Incorrect type");
     }
 
-    /** Defines a Boolean value for the data */
-    public void setValue(boolean b) { type = Type.BOOLEAN; value = b ? 1 : 0; }
 
-    /** Defines an integer value for the data */
-    public void setValue(int v) { type = Type.INTEGER; value = v; }
+    /** Defines a new Template value */
+	public void setValue(T v) {
+        value = v;
+    }
 
-    /** Defines an integer value for the data */
-    public void setValue(float v) { type = Type.FLOAT; fvalue = v; }
+	public T getValue() {
+        return value;
+    }
 
-    /** Copies the value from another data */
-    public void setData(Data d) { type = d.type; value = d.value; }
+	/** Defines the value from another data */
+	public void setData(Data<T> d) {
+        value = d.value;
+    }
+
+//     /** Defines a Boolean value for the data */
+//     public void setValue(boolean b) { type = Type.BOOLEAN; value = b ? 1 : 0; }
+//
+//     /** Defines an integer value for the data */
+//     public void setValue(int v) { type = Type.INTEGER; value = v; }
+//
+//     /** Defines an integer value for the data */
+//     public void setValue(float v) { type = Type.FLOAT; fvalue = v; }
+//
+//     /** Copies the value from another data */
+//     public void setData(Data d) { type = d.type; value = d.value; }
 
     /** Returns a string representing the data in textual form. */
-    public String toString() {
-        if (type == Type.BOOLEAN) return value == 1 ? "true" : "false";
-        if (type == Type.INTEGER) return Integer.toString(value);
-        if (type == Type.FLOAT) return Float.toString(fvalue);
-        return null;
-    }
+    public abstract String toString();
 
     /**
      * Checks for zero (for division). It raises an exception in case
      * the value is zero.
      */
     private void checkDivZero(Data d) {
-        if (d.value == 0) throw new RuntimeException ("Division by zero");
+        throw new RuntimeException ("INCORRECT TYPE DIVISION 0");
     }
 
     /**
@@ -139,16 +142,8 @@ public class Data {
      */
 
     public void evaluateArithmetic (int op, Data d) {
+        throw new RuntimeException ("INCORRECT TYPE FOR ARITHMETIC OP");
 
-        assert (type == Type.INTEGER && d.type == Type.INTEGER) || (type == Type.FLOAT && d.type == Type.FLOAT);
-        switch (op) {
-            case AslLexer.PLUS: value += d.value; break;
-            case AslLexer.MINUS: value -= d.value; break;
-            case AslLexer.MUL: value *= d.value; break;
-            case AslLexer.DIV: checkDivZero(d); value /= d.value; break;
-            case AslLexer.MOD: checkDivZero(d); value %= d.value; break;
-            default: assert false;
-        }
     }
 
     /**
@@ -158,16 +153,6 @@ public class Data {
      * @return A Boolean data with the value of the expression.
      */
     public Data evaluateRelational (int op, Data d) {
-        assert type != Type.VOID && type == d.type;
-        switch (op) {
-            case AslLexer.EQUAL: return new Data(value == d.value);
-            case AslLexer.NOT_EQUAL: return new Data(value != d.value);
-            case AslLexer.LT: return new Data(value < d.value);
-            case AslLexer.LE: return new Data(value <= d.value);
-            case AslLexer.GT: return new Data(value > d.value);
-            case AslLexer.GE: return new Data(value >= d.value);
-            default: assert false;
-        }
-        return null;
-    }
+		throw new RuntimeException ("INCORRECT TYPE FOR EVALUATERELATIONAL OP");
+	}
 }
