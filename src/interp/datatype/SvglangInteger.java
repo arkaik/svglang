@@ -48,6 +48,7 @@ public class SvglangInteger extends Data
     }
 
     	public Data evaluateRelational (int op, Data d) {
+        assert getType() == d.getType();
         switch (op) {
             case AslLexer.EQUAL: return new SvglangBoolean( (int) value == (int) d.getValue());
             case AslLexer.NOT_EQUAL: return new SvglangBoolean( (int) value != (int) d.getValue());

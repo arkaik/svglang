@@ -37,7 +37,7 @@ import java.util.ListIterator;
  * records and each entry in the activation record contains is a pair
  * <name of variable,value>.
  */
- 
+
 public class Stack {
 
     /** Stack of activation records */
@@ -61,7 +61,7 @@ public class Stack {
 
     /** Stack trace to keep track of function calls */
     private LinkedList<StackTraceItem> StackTrace;
-    
+
     /** Constructor of the memory */
     public Stack() {
         Stack = new LinkedList<HashMap<String,Data>>();
@@ -93,7 +93,7 @@ public class Stack {
     public void defineVariable(String name, Data value) {
         Data d = CurrentAR.get(name);
         if (d == null) CurrentAR.put(name, value); // New definition
-        else d.setValue(value); // Use the previous data 
+        else d.setData(value); // Use the previous data 
     }
 
     /** Gets the value of the variable. The value is represented as
@@ -118,7 +118,7 @@ public class Stack {
      * @param current_line program line executed when this function
      *        is called.
      * @return A string with the contents of the stack trace.
-     */ 
+     */
     public String getStackTrace(int current_line) {
         int size = StackTrace.size();
         ListIterator<StackTraceItem> itr = StackTrace.listIterator(size);
@@ -140,7 +140,7 @@ public class Stack {
      * @param nitems number of function calls returned in the string
      *        at the beginning and at the end of the stack.
      * @return A string with the contents of the stack trace.
-     */ 
+     */
     public String getStackTrace(int current_line, int nitems) {
         int size = StackTrace.size();
         if (2*nitems >= size) return getStackTrace(current_line);
@@ -159,6 +159,5 @@ public class Stack {
            trace.append("|> ").append(it.fname).append(": line ").append(current_line).append("%n");current_line = it.line;
         }
         return trace.toString();
-    } 
+    }
 }
-    

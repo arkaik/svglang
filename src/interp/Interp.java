@@ -265,7 +265,6 @@ public class Interp {
             // Assignment
             case AslLexer.ASSIGN:
                 value = evaluateExpression(t.getChild(1));
-                System.out.println(value.getValue().getClass().getName());
                 Stack.defineVariable(t.getChild(0).getText(), value);
                 return null;
 
@@ -328,7 +327,6 @@ public class Interp {
                 return null;
 
             case AslLexer.DRAW:
-                System.out.println("Dibujar objeto display: id = "+t.getChild(0).getText());
                 //TODO <use> & <defs> & <symbol>
                 writer.println("svg.appendChild("+t.getChild(0).getText()+");");
                 return null;
@@ -498,7 +496,6 @@ public class Interp {
                 String id = t.getChild(0).getText();
                 AslTree arglist = t.getChild(1);
                 assert arglist.getChildCount() == 4;
-                System.out.println("\tEs un rectángulo con id = "+id);
                 writer.println("var "+id+" = document.createElementNS(svgNS, \"rect\");");
                 writer.println(id+".setAttribute(\"id\",\""+id+"\");");
                 writer.println(id+".setAttribute(\"x\",\""+arglist.getChild(0).getText()+"\");");

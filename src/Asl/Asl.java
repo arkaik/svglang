@@ -59,15 +59,15 @@ public class Asl{
     private static String tracefile = null;
     /** Flag to indicate whether the program must be executed after parsing. */
     private static boolean execute = true;
-      
+
     /** Main program that invokes the parser and the interpreter. */
-    
+
     public static void main(String[] args) throws Exception {
         // Parser for command line options
         if (!readOptions (args)) System.exit(1);
 
         // Parsing of the input file
-        
+
         CharStream input = null;
         try {
             input = new ANTLRFileStream(infile);
@@ -88,7 +88,7 @@ public class Asl{
         try {
             result = parser.prog();
         } catch (Exception e) {} // Just catch the exception (nothing to do)
-        
+
         // Check for parsing errors
         int nerrors = parser.getNumberOfSyntaxErrors();
         if (nerrors > 0) {
@@ -126,7 +126,6 @@ public class Asl{
                 System.err.print ("Runtime error");
                 if (linenumber < 0) System.err.print (": ");
                 else System.err.print (" (" + infile + ", line " + linenumber + "): ");
-                System.err.println (e.getMessage() + ".");
                 System.err.format (I.getStackTrace());
             } catch (StackOverflowError e) {
                 if (I != null) linenumber = I.lineNumber();
@@ -159,7 +158,7 @@ public class Asl{
                         .hasArg()
                         .withDescription ("write a trace of function calls during the execution of the program")
                         .create ("trace");
-                                       
+
         Options options = new Options();
         options.addOption(help);
         options.addOption(dot);
@@ -170,8 +169,8 @@ public class Asl{
         CommandLine line = null;
 
         String cmdline = "Asl [options] file";
-        
-        
+
+
         // Parse the options
         try {
             line = clp.parse (options, args);
@@ -189,16 +188,16 @@ public class Asl{
             formatter.printHelp (cmdline, options);
             return false;
         }
-        
+
         // Option -dot
         if (line.hasOption ("dot")) dotformat = true;
 
         // Option -ast dotfile
         if (line.hasOption ("ast")) astfile = line.getOptionValue ("ast");
-        
+
         // Option -trace dotfile
         if (line.hasOption ("trace")) tracefile = line.getOptionValue ("trace");
-        
+
         // Option -noexec
         if (line.hasOption ("noexec")) execute = false;
 
@@ -210,9 +209,8 @@ public class Asl{
             formatter.printHelp (cmdline, options);
             return false;
         }
-        
+
         infile = files[0];
         return true;
     }
 }
-
