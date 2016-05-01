@@ -1,6 +1,7 @@
 package interp.datatype;
 
 import interp.Data;
+import parser.*;
 
 public class SvglangVoid extends Data
 {
@@ -13,12 +14,12 @@ public class SvglangVoid extends Data
     {
        return "void";
     }
-    
+
     public boolean isVoid() { return true; }
-    
+
 	public String toString()
     {
         return "null";
     }
-    
+
 }

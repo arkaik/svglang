@@ -1,6 +1,7 @@
 package interp.datatype;
 
 import interp.Data;
+import parser.*;
 
 public class SvglangFloat extends Data
 {
@@ -13,42 +14,44 @@ public class SvglangFloat extends Data
     {
        return "Float";
     }
-    
+
     public boolean isFloat() { return true; }
-    
+
 	public float getFloatValue() {
-        return value;
+        return (float) value;
     }
-    
+
 	public String toString()
     {
-        return Float.toString(value);
+        return Float.toString((float) value);
     }
-    
+
 	private void checkDivZero(Data d) {
-        if (d.value == 0.) throw new RuntimeException ("Division by zero");
+        if ((float) d.getValue() == 0.) throw new RuntimeException ("Division by zero");
     }
-    
+
 	public void evaluateArithmetic (int op, Data d) {
-        //assert type == Type.INTEGER && d.type == Type.INTEGER;
+
+        float fv = (float) value;
         switch (op) {
-            case AslLexer.PLUS: value += d.value; break;
-            case AslLexer.MINUS: value -= d.value; break;
-            case AslLexer.MUL: value *= d.value; break;
-            case AslLexer.DIV: checkDivZero(d); value /= d.value; break;
-            case AslLexer.MOD: checkDivZero(d); value %= d.value; break;
+            case AslLexer.PLUS: fv += (float) d.getValue(); break;
+            case AslLexer.MINUS: fv -= (float) d.getValue(); break;
+            case AslLexer.MUL: fv *= (float) d.getValue(); break;
+            case AslLexer.DIV: checkDivZero(d); fv /= (float) d.getValue(); break;
+            case AslLexer.MOD: checkDivZero(d); fv %= (float) d.getValue(); break;
             default: assert false;
         }
+        value = fv;
     }
     	public Data evaluateRelational (int op, Data d) {
         //assert type != Type.VOID && type == d.type;
         switch (op) {
-            case AslLexer.EQUAL: return new SvglangFloat(value == d.getValue());
-            case AslLexer.NOT_EQUAL: return new SvglangFloat(value != d.getValue());
-            case AslLexer.LT: return new SvglangFloat(value < d.getValue());
-            case AslLexer.LE: return new SvglangFloat(value <= d.getValue());
-            case AslLexer.GT: return new SvglangFloat(value > d.getValue());
-            case AslLexer.GE: return new SvglangFloat(value >= d.getValue());
+            case AslLexer.EQUAL: return new SvglangBoolean((float) value == (float) d.getValue());
+            case AslLexer.NOT_EQUAL: return new SvglangBoolean((float) value != (float) d.getValue());
+            case AslLexer.LT: return new SvglangBoolean((float) value < (float) d.getValue());
+            case AslLexer.LE: return new SvglangBoolean((float) value <= (float) d.getValue());
+            case AslLexer.GT: return new SvglangBoolean((float) value > (float) d.getValue());
+            case AslLexer.GE: return new SvglangBoolean((float) value >= (float) d.getValue());
             default: assert false;
         }
         return null;

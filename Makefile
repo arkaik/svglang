@@ -20,6 +20,7 @@ MANIFEST=	$(BIN)/$(TARGET)_Manifest.txt
 # Libraries and Classpath
 LIB_ANTLR =	$(LIBDIR)/antlr-3.4-complete.jar
 LIB_CLI =	$(LIBDIR)/commons-cli-1.2.jar
+
 CLASSPATH=	$(LIB_ANTLR):$(LIB_CLI)
 JARPATH=	"$(LIB_ANTLR) $(LIB_CLI)"
 
@@ -46,10 +47,10 @@ PARSER_SRC =	$(PARSER)/$(TARGET)Lexer.java \
 INTERP_SRC =	$(INTERP)/Interp.java \
 				$(INTERP)/Stack.java \
 				$(INTERP)/Data.java \
+				$(INTERP)/WebExecution.java \
 				$(INTERP)/$(TARGET)Tree.java \
 				$(INTERP)/AslTreeAdaptor.java
-				
-				
+
 DATATYPE_SRC =	$(DATATYPE)/SvglangBoolean.java \
 				$(DATATYPE)/SvglangInteger.java \
 				$(DATATYPE)/SvglangFloat.java \
@@ -64,7 +65,7 @@ compile:
 	if [ ! -e $(CLASSDIR) ]; then\
 	  mkdir $(CLASSDIR);\
 	fi
-	javac $(JFLAGS) $(ALL_SRC)
+	javac $(JFLAGS) $(ALL_SRC) -Xlint:unchecked
 
 docs:
 	javadoc $(DOCFLAGS) $(ALL_SRC)
@@ -81,10 +82,10 @@ exec:
 	chmod a+x $(EXEC)
 
 clean:
-	rm -rf $(PARSER)/*.java $(PARSER)/*.tokens 
+	rm -rf $(PARSER)/*.java $(PARSER)/*.tokens
 	rm -rf $(CLASSDIR)
 	rm -rf $(JAVADOC)
 	rm -rf $(BIN)
 
 tar: clean
-	cd ..; tar cvzf $(DISTRIB) $(TARGET); mv $(DISTRIB) $(TARGET); cd $(TARGET) 
+	cd ..; tar cvzf $(DISTRIB) $(TARGET); mv $(DISTRIB) $(TARGET); cd $(TARGET)

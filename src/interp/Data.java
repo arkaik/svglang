@@ -40,20 +40,24 @@ package interp;
 import parser.*;
 import java.util.ArrayList;
 
-public abstract class Data<T> {
+public abstract class Data {
 
  /** Value of the data */
-    protected T value;
+    protected Object value;
 
 
     /** Default Constructor */
     public Data() {  }
 
     /** Constructor Template */
-    public Data(T v) { value = v; }
+    public Data(Object v) {
+        value = v;
+    }
 
     /** Copy constructor */
-    public Data(Data<T> d) { value = d.value; }
+    public Data(Data d) {
+        value = d.value;
+    }
 
     /** Returns the type of data */
     public abstract String getType();
@@ -66,9 +70,6 @@ public abstract class Data<T> {
 
 	/** Indicates whether the data is Float */
     public boolean isFloat() { return false; }
-
-    /** Indicates whether the data is float */
-    public boolean isFloat() { return type == Type.FLOAT; }
 
     /** Indicates whether the data is void */
     public boolean isVoid() { return false; }
@@ -98,16 +99,16 @@ public abstract class Data<T> {
 
 
     /** Defines a new Template value */
-	public void setValue(T v) {
+	public void setValue(Object v) {
         value = v;
     }
 
-	public T getValue() {
+	public Object getValue() {
         return value;
     }
 
 	/** Defines the value from another data */
-	public void setData(Data<T> d) {
+	public void setData(Data d) {
         value = d.value;
     }
 
@@ -143,7 +144,6 @@ public abstract class Data<T> {
 
     public void evaluateArithmetic (int op, Data d) {
         throw new RuntimeException ("INCORRECT TYPE FOR ARITHMETIC OP");
-
     }
 
     /**

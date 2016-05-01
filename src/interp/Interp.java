@@ -30,8 +30,6 @@ package interp;
 import parser.*;
 import interp.datatype.*;
 
-
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -267,7 +265,8 @@ public class Interp {
             // Assignment
             case AslLexer.ASSIGN:
                 value = evaluateExpression(t.getChild(1));
-                Stack.defineVariable (t.getChild(0).getText(), value);
+                System.out.println(value.getValue().getClass().getName());
+                Stack.defineVariable(t.getChild(0).getText(), value);
                 return null;
 
             // If-then-else
@@ -300,13 +299,18 @@ public class Interp {
             // in case of a format error.
             case AslLexer.READ:
                 String token = null;
-                Data val = new SvglangInteger(0);
-                try {
-                    token = stdin.next();
-                    val.setValue(Integer.parseInt(token));
-                } catch (NumberFormatException ex) {
-                    throw new RuntimeException ("Format error when reading a number: " + token);
+                token = stdin.next();
+                //TODO rehacer esta parte
+                Data val = null;
+                if (token.matches("^\\d+"))
+                {
+                    val = new SvglangInteger(Integer.parseInt(token));
                 }
+                else if (token.matches("^\\d+(\\.\\d+)?"))
+                {
+                    val = new SvglangFloat(Float.parseFloat(token));
+                }
+
                 Stack.defineVariable (t.getChild(0).getText(), val);
                 return null;
 
@@ -315,12 +319,12 @@ public class Interp {
                 AslTree v = t.getChild(0);
                 // Special case for strings
                 if (v.getType() == AslLexer.STRING) {
-                    System.out.format(v.getStringValue());
+                    System.out.format(v.getStringValue() + "\n");
                     return null;
                 }
 
                 // Write an expression
-                System.out.print(evaluateExpression(v).toString());
+                System.out.print(evaluateExpression(v).toString() + "\n");
                 return null;
 
             case AslLexer.DRAW:
@@ -330,12 +334,10 @@ public class Interp {
                 return null;
 
             case AslLexer.FILL:
-                System.out.println("Rellenar "+t.getChild(0).getText()+" de color "+t.getChild(1).getText());
                 writer.println(t.getChild(0).getText()+".style.fill = \""+t.getChild(1).getText()+"\";");
                 return null;
 
             case AslLexer.TRANSFORM:
-                System.out.println("Ejecutar transformación...");
                 executeTransformation(t.getChild(0));
                 return null;
 
@@ -345,7 +347,6 @@ public class Interp {
                 return null;
 
             case AslLexer.DISP:
-                System.out.println("Declarar objeto display...");
                 evaluateDisplay(t.getChild(0));
                 return null;
 
@@ -396,7 +397,7 @@ public class Interp {
         switch (type) {
             // A variable
             case AslLexer.ID:
-                value = new SvglangInteger(Stack.getVariable(t.getText()));
+                value = Stack.getVariable(t.getText());
                 break;
             // An integer literal
             case AslLexer.INT:
@@ -426,8 +427,6 @@ public class Interp {
             setLineNumber(previous_line);
             return value;
         }
-
-        //System.out.println("type: "+t.getType()+", number of childs: " + t.getChildCount());
 
         // Unary operators
         value = evaluateExpression(t.getChild(0));
@@ -462,7 +461,6 @@ public class Interp {
             case AslLexer.GE:
                 value2 = evaluateExpression(t.getChild(1));
                 if (value.getType() != value2.getType()) {
-                  throw new RuntimeException ("Incompatible types in relational expression");
                 }
                 value = value.evaluateRelational(type, value2);
                 break;
@@ -603,7 +601,13 @@ public class Interp {
     /** Checks that the data is integer and raises an exception if it is not. */
     private void checkInteger (Data b) {
         if (!b.isInteger()) {
-            throw new RuntimeException ("Expecting numerical expression");
+            throw new RuntimeException ("Expecting integer expression");
+        }
+    }
+
+    private void checkFloat (Data b) {
+        if (!b.isFloat()) {
+            throw new RuntimeException ("Expecting float expression");
         }
     }
 
