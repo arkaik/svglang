@@ -141,6 +141,9 @@ draw	:	DRAW^ ID
 
 fill	:	FILL^ ID COLOR
 		;
+		
+stroke	:	STROKE^ ID COLOR INT
+		;
 
 // if-then-else (else is optional)
 ite_stmt	:	IF^ expr THEN! block_instructions (ELSE! block_instructions)? ENDIF!
