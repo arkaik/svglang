@@ -1,0 +1,11 @@
+func main ()
+    Rectangle a (0, 0, 10, 10);
+    Fill a #ff0080;
+    Draw a;
+    n = 0;
+    while n < 5 do
+        a @ position (0,n) {n,1};
+        n = n + 1;
+    endwhile;
+endfunc
+$SHOW
