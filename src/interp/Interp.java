@@ -335,6 +335,11 @@ public class Interp {
                 writer.println(t.getChild(0).getText()+".style.fill = \""+t.getChild(1).getText()+"\";");
                 return null;
 
+            case AslLexer.STROKE:
+                writer.println(t.getChild(0).getText()+".style.stroke = \""+t.getChild(1).getText()+"\";");
+                writer.println(t.getChild(0).getText()+".style['stroke-width'] = \""+t.getChild(2).getText()+"\";");
+                return null;
+
             case AslLexer.TRANSFORM:
                 executeTransformation(t.getChild(0));
                 return null;
@@ -350,6 +355,9 @@ public class Interp {
 
             case AslLexer.REL:
                 relativeSet(t);
+                return null;
+
+            case AslLexer.LOOP:
                 return null;
 
             default: assert false; // Should never happen
@@ -491,10 +499,10 @@ public class Interp {
     }
 
     private Data evaluateDisplay(AslTree t) {
+        String id = t.getChild(0).getText();
+        AslTree arglist = t.getChild(1);
         switch (t.getType()) {
             case AslLexer.RECT:
-                String id = t.getChild(0).getText();
-                AslTree arglist = t.getChild(1);
                 assert arglist.getChildCount() == 4;
                 writer.println("var "+id+" = document.createElementNS(svgNS, \"rect\");");
                 writer.println(id+".setAttribute(\"id\",\""+id+"\");");
@@ -503,17 +511,15 @@ public class Interp {
                 writer.println(id+".setAttribute(\"width\",\""+arglist.getChild(2).getText()+"\");");
                 writer.println(id+".setAttribute(\"height\",\""+arglist.getChild(3).getText()+"\");");
                 //TODO ¿Las propiedades deben ir en una estructura de JavaScript o en una de Java?
-                /*writer.println(id+".prop.x = "+arglist.getChild(0).getText()+"; "+id+".prop.y = "+arglist.getChild(1).getText()+";");
-                writer.println(id+".prop.w = "+arglist.getChild(2).getText()+"; "+id+".prop.h = "+arglist.getChild(3).getText()+";");
-                writer.println(id+".prop.sx = 1; "+id+".prop.sy = 1; "+id+".prop.rx = 0; "+id+".prop.ry = 0;");
-                */// TODO Decisions difícils...
+                // TODO Decisions difícils...
                 break;
             case AslLexer.CIRCLE:
-                writer.println("<circle");
-                writer.println("\tid="+1);
-                writer.println("\tcx="+t.getChild(0).getText()+" cy="+t.getChild(1).getText());
-                writer.println("\tr="+t.getChild(2).getText());
-                writer.println("/>");
+                assert arglist.getChildCount() == 3;
+                writer.println("var "+id+" = document.createElementNS(svgNS, \"circle\");");
+                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
+                writer.println(id+".setAttribute(\"cx\",\""+arglist.getChild(0).getText()+"\");");
+                writer.println(id+".setAttribute(\"cy\",\""+arglist.getChild(1).getText()+"\");");
+                writer.println(id+".setAttribute(\"r\",\""+arglist.getChild(2).getText()+"\");");
                 break;
             default:
                 break;

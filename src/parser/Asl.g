@@ -103,6 +103,7 @@ instruction
         |	set				//
         |	draw			// Draw a declared object
         |	fill
+        |	stroke
         |	transform	-> ^(TRANSFORM transform)	// object transformations
         |	animation		// basic animations
         |	loop

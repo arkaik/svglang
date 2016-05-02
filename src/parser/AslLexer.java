@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-05-01 20:24:15
+// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-05-02 08:34:33
 
 package parser;
 
@@ -323,8 +323,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:7: ( '=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:9: '='
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:239:7: ( '=' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:239:9: '='
             {
             match('='); 
 
@@ -344,8 +344,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = EQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:236:5: ( '==' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:236:7: '=='
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:240:5: ( '==' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:240:7: '=='
             {
             match("=="); 
 
@@ -367,8 +367,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = NOT_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:237:10: ( '!=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:237:12: '!='
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:241:10: ( '!=' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:241:12: '!='
             {
             match("!="); 
 
@@ -390,8 +390,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:238:8: ( '<' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:238:10: '<'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:242:8: ( '<' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:242:10: '<'
             {
             match('<'); 
 
@@ -411,8 +411,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:239:8: ( '<=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:239:10: '<='
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:243:8: ( '<=' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:243:10: '<='
             {
             match("<="); 
 
@@ -434,8 +434,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:240:8: ( '>' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:240:10: '>'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:244:8: ( '>' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:244:10: '>'
             {
             match('>'); 
 
@@ -455,8 +455,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = GE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:241:8: ( '>=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:241:10: '>='
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:245:8: ( '>=' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:245:10: '>='
             {
             match(">="); 
 
@@ -478,8 +478,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:242:6: ( '+' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:242:8: '+'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:246:6: ( '+' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:246:8: '+'
             {
             match('+'); 
 
@@ -499,8 +499,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:243:7: ( '-' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:243:9: '-'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:247:7: ( '-' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:247:9: '-'
             {
             match('-'); 
 
@@ -520,8 +520,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MUL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:244:9: ( '*' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:244:11: '*'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:248:9: ( '*' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:248:11: '*'
             {
             match('*'); 
 
@@ -541,8 +541,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:245:9: ( '/' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:245:11: '/'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:249:9: ( '/' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:249:11: '/'
             {
             match('/'); 
 
@@ -562,8 +562,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:246:9: ( '%' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:246:11: '%'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:250:9: ( '%' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:250:11: '%'
             {
             match('%'); 
 
@@ -583,8 +583,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = REL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:248:6: ( '@' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:248:8: '@'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:252:6: ( '@' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:252:8: '@'
             {
             match('@'); 
 
@@ -604,8 +604,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ABS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:249:6: ( '#' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:249:8: '#'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:253:6: ( '#' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:253:8: '#'
             {
             match('#'); 
 
@@ -625,8 +625,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:251:9: ( 'not' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:251:11: 'not'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:255:9: ( 'not' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:255:11: 'not'
             {
             match("not"); 
 
@@ -648,8 +648,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:252:9: ( 'and' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:252:11: 'and'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:256:9: ( 'and' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:256:11: 'and'
             {
             match("and"); 
 
@@ -671,8 +671,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:253:8: ( 'or' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:253:10: 'or'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:257:8: ( 'or' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:257:10: 'or'
             {
             match("or"); 
 
@@ -694,8 +694,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:254:6: ( 'if' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:254:8: 'if'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:258:6: ( 'if' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:258:8: 'if'
             {
             match("if"); 
 
@@ -717,8 +717,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = THEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:255:6: ( 'then' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:255:8: 'then'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:259:6: ( 'then' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:259:8: 'then'
             {
             match("then"); 
 
@@ -740,8 +740,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:256:6: ( 'else' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:256:8: 'else'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:260:6: ( 'else' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:260:8: 'else'
             {
             match("else"); 
 
@@ -763,8 +763,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDIF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:257:7: ( 'endif' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:257:9: 'endif'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:261:7: ( 'endif' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:261:9: 'endif'
             {
             match("endif"); 
 
@@ -786,8 +786,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:258:7: ( 'while' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:258:9: 'while'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:262:7: ( 'while' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:262:9: 'while'
             {
             match("while"); 
 
@@ -809,8 +809,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:259:8: ( 'do' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:259:10: 'do'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:263:8: ( 'do' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:263:10: 'do'
             {
             match("do"); 
 
@@ -832,8 +832,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDWHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:260:9: ( 'endwhile' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:260:11: 'endwhile'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:264:9: ( 'endwhile' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:264:11: 'endwhile'
             {
             match("endwhile"); 
 
@@ -855,8 +855,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FUNC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:261:6: ( 'func' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:261:8: 'func'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:265:6: ( 'func' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:265:8: 'func'
             {
             match("func"); 
 
@@ -878,8 +878,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDFUNC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:262:9: ( 'endfunc' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:262:11: 'endfunc'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:266:9: ( 'endfunc' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:266:11: 'endfunc'
             {
             match("endfunc"); 
 
@@ -901,8 +901,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = RETURN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:263:8: ( 'return' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:263:10: 'return'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:267:8: ( 'return' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:267:10: 'return'
             {
             match("return"); 
 
@@ -924,8 +924,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = READ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:264:6: ( 'read' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:264:8: 'read'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:268:6: ( 'read' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:268:8: 'read'
             {
             match("read"); 
 
@@ -947,8 +947,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WRITE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:265:7: ( 'write' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:265:9: 'write'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:269:7: ( 'write' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:269:9: 'write'
             {
             match("write"); 
 
@@ -970,8 +970,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = RECT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:267:9: ( 'Rectangle' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:267:11: 'Rectangle'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:271:9: ( 'Rectangle' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:271:11: 'Rectangle'
             {
             match("Rectangle"); 
 
@@ -993,8 +993,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = CIRCLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:268:9: ( 'Circle' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:268:11: 'Circle'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:272:9: ( 'Circle' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:272:11: 'Circle'
             {
             match("Circle"); 
 
@@ -1016,8 +1016,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ELLIPSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:269:9: ( 'Ellipse' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:269:11: 'Ellipse'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:273:9: ( 'Ellipse' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:273:11: 'Ellipse'
             {
             match("Ellipse"); 
 
@@ -1039,8 +1039,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:270:6: ( 'Text' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:270:8: 'Text'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:274:6: ( 'Text' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:274:8: 'Text'
             {
             match("Text"); 
 
@@ -1062,8 +1062,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TRANS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:272:7: ( 'Trans' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:272:9: 'Trans'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:276:7: ( 'Trans' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:276:9: 'Trans'
             {
             match("Trans"); 
 
@@ -1085,8 +1085,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TRANSREL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:273:10: ( 'TransRel' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:273:12: 'TransRel'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:277:10: ( 'TransRel' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:277:12: 'TransRel'
             {
             match("TransRel"); 
 
@@ -1108,8 +1108,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = SCALE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:274:7: ( 'Scale' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:274:9: 'Scale'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:278:7: ( 'Scale' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:278:9: 'Scale'
             {
             match("Scale"); 
 
@@ -1131,8 +1131,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = SCALEREL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:275:10: ( 'ScaleRel' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:275:12: 'ScaleRel'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:279:10: ( 'ScaleRel' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:279:12: 'ScaleRel'
             {
             match("ScaleRel"); 
 
@@ -1154,8 +1154,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ROTATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:276:8: ( 'Rotate' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:276:10: 'Rotate'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:280:8: ( 'Rotate' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:280:10: 'Rotate'
             {
             match("Rotate"); 
 
@@ -1177,8 +1177,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ROTATEREL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:277:11: ( 'RotateRel' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:277:13: 'RotateRel'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:281:11: ( 'RotateRel' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:281:13: 'RotateRel'
             {
             match("RotateRel"); 
 
@@ -1200,8 +1200,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MOVEMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:279:10: ( 'Movement' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:279:12: 'Movement'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:283:10: ( 'Movement' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:283:12: 'Movement'
             {
             match("Movement"); 
 
@@ -1223,8 +1223,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ROTATION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:280:10: ( 'Rotation' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:280:12: 'Rotation'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:284:10: ( 'Rotation' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:284:12: 'Rotation'
             {
             match("Rotation"); 
 
@@ -1246,8 +1246,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LOOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:282:6: ( 'Loop' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:282:8: 'Loop'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:286:6: ( 'Loop' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:286:8: 'Loop'
             {
             match("Loop"); 
 
@@ -1269,8 +1269,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FILL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:283:6: ( 'Fill' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:283:8: 'Fill'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:287:6: ( 'Fill' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:287:8: 'Fill'
             {
             match("Fill"); 
 
@@ -1292,8 +1292,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = STROKE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:284:8: ( 'Stroke' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:284:10: 'Stroke'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:288:8: ( 'Stroke' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:288:10: 'Stroke'
             {
             match("Stroke"); 
 
@@ -1315,8 +1315,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DRAW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:285:6: ( 'Draw' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:285:8: 'Draw'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:289:6: ( 'Draw' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:289:8: 'Draw'
             {
             match("Draw"); 
 
@@ -1338,8 +1338,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:287:9: ( 'true' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:287:11: 'true'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:291:9: ( 'true' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:291:11: 'true'
             {
             match("true"); 
 
@@ -1361,8 +1361,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:288:9: ( 'false' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:288:11: 'false'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:292:9: ( 'false' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:292:11: 'false'
             {
             match("false"); 
 
@@ -1384,12 +1384,12 @@ public class AslLexer extends Lexer {
         try {
             int _type = COLOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:290:7: ( '#' ( 'a' .. 'f' | '0' .. '9' )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:290:9: '#' ( 'a' .. 'f' | '0' .. '9' )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:7: ( '#' ( 'a' .. 'f' | '0' .. '9' )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:9: '#' ( 'a' .. 'f' | '0' .. '9' )*
             {
             match('#'); 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:290:13: ( 'a' .. 'f' | '0' .. '9' )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:13: ( 'a' .. 'f' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -1439,8 +1439,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:292:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:292:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:296:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:296:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1452,7 +1452,7 @@ public class AslLexer extends Lexer {
             }
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:292:32: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:296:32: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop2:
             do {
                 int alt2=2;
@@ -1502,10 +1502,10 @@ public class AslLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:293:6: ( ( '0' .. '9' )+ )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:293:8: ( '0' .. '9' )+
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:297:6: ( ( '0' .. '9' )+ )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:297:8: ( '0' .. '9' )+
             {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:293:8: ( '0' .. '9' )+
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:297:8: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1560,10 +1560,10 @@ public class AslLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:9: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:9: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
             {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:13: ( '0' .. '9' )+
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:13: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1604,7 +1604,7 @@ public class AslLexer extends Lexer {
 
             match('.'); 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:27: ( '0' .. '9' )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:27: ( '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -1654,7 +1654,7 @@ public class AslLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1684,13 +1684,13 @@ public class AslLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:11: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:11: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     {
                     match("//"); 
 
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:16: (~ ( '\\n' | '\\r' ) )*
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:16: (~ ( '\\n' | '\\r' ) )*
                     loop6:
                     do {
                         int alt6=2;
@@ -1724,7 +1724,7 @@ public class AslLexer extends Lexer {
                     } while (true);
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:30: ( '\\r' )?
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:30: ( '\\r' )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -1733,7 +1733,7 @@ public class AslLexer extends Lexer {
                     }
                     switch (alt7) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:30: '\\r'
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:30: '\\r'
                             {
                             match('\r'); 
 
@@ -1750,13 +1750,13 @@ public class AslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:299:8: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:8: '/*' ( options {greedy=false; } : . )* '*/'
                     {
                     match("/*"); 
 
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:299:13: ( options {greedy=false; } : . )*
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:13: ( options {greedy=false; } : . )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1781,7 +1781,7 @@ public class AslLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:299:41: .
+                    	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:41: .
                     	    {
                     	    matchAny(); 
 
@@ -1818,12 +1818,12 @@ public class AslLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:9: ( '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:12: '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:9: ( '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:12: '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
             {
             match('\"'); 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:16: ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:16: ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )*
             loop10:
             do {
                 int alt10=3;
@@ -1839,7 +1839,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:17: '\\\\' ESC_SEQ
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:17: '\\\\' ESC_SEQ
             	    {
             	    match('\\'); 
 
@@ -1849,7 +1849,7 @@ public class AslLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:32: ~ ( '\\\\' | '\"' )
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:32: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -1886,7 +1886,7 @@ public class AslLexer extends Lexer {
     // $ANTLR start "ESC_SEQ"
     public final void mESC_SEQ() throws RecognitionException {
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:309:5: ( ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:313:5: ( ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
             {
             if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1914,8 +1914,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:312:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:312:8: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:316:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:316:8: ( ' ' | '\\t' | '\\r' | '\\n' )
             {
             if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
