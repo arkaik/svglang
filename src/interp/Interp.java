@@ -376,9 +376,10 @@ public class Interp {
 
     private Data executeTransformation(AslTree t) {
         String id = t.getChild(0).getText();
+        AslTree args = t.getChild(1);
         switch (t.getType()) {
             case AslLexer.SCALEREL:
-                AslTree args = t.getChild(1);
+
                 if (args.getChildCount() == 1) {
                     Data v = evaluateExpression(args.getChild(0));
                     checkNumeric(v);
@@ -386,8 +387,18 @@ public class Interp {
                     writer.println(id+".setAttribute(\"transform\", \"scale("+v.getValue()+")\");");
                 }
                 else {
-
+                    Data u = evaluateExpression(args.getChild(0)); Data v = evaluateExpression(args.getChild(1));
+                    checkNumeric(u); checkNumeric(v);
+                    //TODO Check transformation, we need the actual scale factor
+                    writer.println(id+".setAttribute(\"transform\", \"scale("+v.getValue()+" "+v.getValue()+")\");");
                 }
+                break;
+            case AslLexer.ROTATEREL:
+                assert args.getChildCount() == 1;
+                Data v = evaluateExpression(args.getChild(0));
+                checkNumeric(v);
+                //TODO Check transformation, we need the actual scale factor
+                writer.println(id+".setAttribute(\"transform\", \"rotate("+v.getValue()+")\");");
                 break;
             default:
                 break;

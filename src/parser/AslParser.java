@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-05-02 09:29:02
+// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-05-02 09:55:51
 
 package parser;
 import interp.AslTree;
@@ -41,11 +41,10 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class AslParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ABS", "AND", "ARGLIST", "ARRAY", "ASSIGN", "BOOLEAN", "CIRCLE", "COLOR", "COMMENT", "DISP", "DIV", "DO", "DRAW", "ELLIPSE", "ELSE", "ENDFUNC", "ENDIF", "ENDWHILE", "EQ", "EQUAL", "ESC_SEQ", "FALSE", "FILL", "FLOAT", "FUNC", "FUNCALL", "GE", "GT", "ID", "IF", "INT", "LE", "LIST_FUNCTIONS", "LIST_INSTR", "LOOP", "LT", "MACRO", "MINUS", "MOD", "MOVEMENT", "MUL", "NOT", "NOT_EQUAL", "OR", "PARAMS", "PLUS", "PREF", "PVALUE", "READ", "RECT", "REL", "RETURN", "ROTATE", "ROTATEREL", "ROTATION", "SCALE", "SCALEREL", "STRING", "STROKE", "TEXT", "THEN", "TIME", "TRANS", "TRANSFORM", "TRANSREL", "TRUE", "WHILE", "WRITE", "WS", "'$SHOW'", "'&'", "'('", "')'", "','", "';'", "'['", "']'", "'{'", "'}'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ABS", "AND", "ARGLIST", "ARRAY", "ASSIGN", "BOOLEAN", "CIRCLE", "COLOR", "COMMENT", "DISP", "DIV", "DO", "DRAW", "ELLIPSE", "ELSE", "ENDFUNC", "ENDIF", "ENDWHILE", "EQ", "EQUAL", "ESC_SEQ", "FALSE", "FILL", "FLOAT", "FUNC", "FUNCALL", "GE", "GT", "ID", "IF", "INT", "LE", "LINE", "LIST_FUNCTIONS", "LIST_INSTR", "LOOP", "LT", "MACRO", "MINUS", "MOD", "MOVEMENT", "MUL", "NOT", "NOT_EQUAL", "OR", "PARAMS", "PLUS", "PREF", "PVALUE", "READ", "RECT", "REL", "RETURN", "ROTATE", "ROTATEREL", "ROTATION", "SCALE", "SCALEREL", "STRING", "STROKE", "TEXT", "THEN", "TIME", "TRANS", "TRANSFORM", "TRANSREL", "TRUE", "WHILE", "WRITE", "WS", "'$SHOW'", "'&'", "'('", "')'", "','", "';'", "'['", "']'", "'{'", "'}'"
     };
 
     public static final int EOF=-1;
-    public static final int T__73=73;
     public static final int T__74=74;
     public static final int T__75=75;
     public static final int T__76=76;
@@ -55,6 +54,7 @@ public class AslParser extends Parser {
     public static final int T__80=80;
     public static final int T__81=81;
     public static final int T__82=82;
+    public static final int T__83=83;
     public static final int ABS=4;
     public static final int AND=5;
     public static final int ARGLIST=6;
@@ -87,43 +87,44 @@ public class AslParser extends Parser {
     public static final int IF=33;
     public static final int INT=34;
     public static final int LE=35;
-    public static final int LIST_FUNCTIONS=36;
-    public static final int LIST_INSTR=37;
-    public static final int LOOP=38;
-    public static final int LT=39;
-    public static final int MACRO=40;
-    public static final int MINUS=41;
-    public static final int MOD=42;
-    public static final int MOVEMENT=43;
-    public static final int MUL=44;
-    public static final int NOT=45;
-    public static final int NOT_EQUAL=46;
-    public static final int OR=47;
-    public static final int PARAMS=48;
-    public static final int PLUS=49;
-    public static final int PREF=50;
-    public static final int PVALUE=51;
-    public static final int READ=52;
-    public static final int RECT=53;
-    public static final int REL=54;
-    public static final int RETURN=55;
-    public static final int ROTATE=56;
-    public static final int ROTATEREL=57;
-    public static final int ROTATION=58;
-    public static final int SCALE=59;
-    public static final int SCALEREL=60;
-    public static final int STRING=61;
-    public static final int STROKE=62;
-    public static final int TEXT=63;
-    public static final int THEN=64;
-    public static final int TIME=65;
-    public static final int TRANS=66;
-    public static final int TRANSFORM=67;
-    public static final int TRANSREL=68;
-    public static final int TRUE=69;
-    public static final int WHILE=70;
-    public static final int WRITE=71;
-    public static final int WS=72;
+    public static final int LINE=36;
+    public static final int LIST_FUNCTIONS=37;
+    public static final int LIST_INSTR=38;
+    public static final int LOOP=39;
+    public static final int LT=40;
+    public static final int MACRO=41;
+    public static final int MINUS=42;
+    public static final int MOD=43;
+    public static final int MOVEMENT=44;
+    public static final int MUL=45;
+    public static final int NOT=46;
+    public static final int NOT_EQUAL=47;
+    public static final int OR=48;
+    public static final int PARAMS=49;
+    public static final int PLUS=50;
+    public static final int PREF=51;
+    public static final int PVALUE=52;
+    public static final int READ=53;
+    public static final int RECT=54;
+    public static final int REL=55;
+    public static final int RETURN=56;
+    public static final int ROTATE=57;
+    public static final int ROTATEREL=58;
+    public static final int ROTATION=59;
+    public static final int SCALE=60;
+    public static final int SCALEREL=61;
+    public static final int STRING=62;
+    public static final int STROKE=63;
+    public static final int TEXT=64;
+    public static final int THEN=65;
+    public static final int TIME=66;
+    public static final int TRANS=67;
+    public static final int TRANSFORM=68;
+    public static final int TRANSREL=69;
+    public static final int TRUE=70;
+    public static final int WHILE=71;
+    public static final int WRITE=72;
+    public static final int WS=73;
 
     // delegates
     public Parser[] getDelegates() {
@@ -185,7 +186,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==FUNC||LA1_0==73) ) {
+                if ( (LA1_0==FUNC||LA1_0==74) ) {
                     alt1=1;
                 }
 
@@ -316,7 +317,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( (LA2_0==FUNC) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==73) ) {
+            else if ( (LA2_0==74) ) {
                 alt2=2;
             }
             else {
@@ -453,22 +454,22 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree char_literal9_tree=null;
         AslTree char_literal11_tree=null;
-        RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
+        RewriteRuleTokenStream stream_77=new RewriteRuleTokenStream(adaptor,"token 77");
         RewriteRuleTokenStream stream_76=new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_paramlist=new RewriteRuleSubtreeStream(adaptor,"rule paramlist");
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:8: ( '(' ( paramlist )? ')' -> ^( PARAMS ( paramlist )? ) )
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:10: '(' ( paramlist )? ')'
             {
-            char_literal9=(Token)match(input,75,FOLLOW_75_in_params286);  
-            stream_75.add(char_literal9);
+            char_literal9=(Token)match(input,76,FOLLOW_76_in_params286);  
+            stream_76.add(char_literal9);
 
 
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:14: ( paramlist )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==ID||LA3_0==74) ) {
+            if ( (LA3_0==ID||LA3_0==75) ) {
                 alt3=1;
             }
             switch (alt3) {
@@ -488,8 +489,8 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal11=(Token)match(input,76,FOLLOW_76_in_params291);  
-            stream_76.add(char_literal11);
+            char_literal11=(Token)match(input,77,FOLLOW_77_in_params291);  
+            stream_77.add(char_literal11);
 
 
             // AST REWRITE
@@ -594,7 +595,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==77) ) {
+                if ( (LA4_0==78) ) {
                     alt4=1;
                 }
 
@@ -603,7 +604,7 @@ public TreeAdaptor getTreeAdaptor() {
             	case 1 :
             	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:78:19: ',' ! param
             	    {
-            	    char_literal13=(Token)match(input,77,FOLLOW_77_in_paramlist320); 
+            	    char_literal13=(Token)match(input,78,FOLLOW_78_in_paramlist320); 
 
             	    pushFollow(FOLLOW_param_in_paramlist323);
             	    param14=param();
@@ -666,14 +667,14 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree id_tree=null;
         AslTree char_literal15_tree=null;
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
-        RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+        RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
 
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:83:9: ( '&' id= ID -> ^( PREF[$id,$id.text] ) |id= ID -> ^( PVALUE[$id,$id.text] ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==74) ) {
+            if ( (LA5_0==75) ) {
                 alt5=1;
             }
             else if ( (LA5_0==ID) ) {
@@ -690,8 +691,8 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // /home/falc/FIB/cl/svglang/src/parser/Asl.g:83:13: '&' id= ID
                     {
-                    char_literal15=(Token)match(input,74,FOLLOW_74_in_param348);  
-                    stream_74.add(char_literal15);
+                    char_literal15=(Token)match(input,75,FOLLOW_75_in_param348);  
+                    stream_75.add(char_literal15);
 
 
                     id=(Token)match(input,ID,FOLLOW_ID_in_param352);  
@@ -811,7 +812,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         AslTree char_literal17_tree=null;
-        RewriteRuleTokenStream stream_78=new RewriteRuleTokenStream(adaptor,"token 78");
+        RewriteRuleTokenStream stream_79=new RewriteRuleTokenStream(adaptor,"token 79");
         RewriteRuleSubtreeStream stream_instruction=new RewriteRuleSubtreeStream(adaptor,"rule instruction");
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:89:9: ( instruction ( ';' instruction )* -> ^( LIST_INSTR ( instruction )+ ) )
@@ -830,7 +831,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==78) ) {
+                if ( (LA6_0==79) ) {
                     alt6=1;
                 }
 
@@ -839,8 +840,8 @@ public TreeAdaptor getTreeAdaptor() {
             	case 1 :
             	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:89:25: ';' instruction
             	    {
-            	    char_literal17=(Token)match(input,78,FOLLOW_78_in_block_instructions412);  
-            	    stream_78.add(char_literal17);
+            	    char_literal17=(Token)match(input,79,FOLLOW_79_in_block_instructions412);  
+            	    stream_79.add(char_literal17);
 
 
             	    pushFollow(FOLLOW_instruction_in_block_instructions414);
@@ -979,7 +980,7 @@ public TreeAdaptor getTreeAdaptor() {
                     alt7=1;
                     }
                     break;
-                case 75:
+                case 76:
                     {
                     alt7=5;
                     }
@@ -1002,6 +1003,7 @@ public TreeAdaptor getTreeAdaptor() {
                 break;
             case CIRCLE:
             case ELLIPSE:
+            case LINE:
             case RECT:
             case TEXT:
                 {
@@ -1073,7 +1075,7 @@ public TreeAdaptor getTreeAdaptor() {
             case ENDFUNC:
             case ENDIF:
             case ENDWHILE:
-            case 78:
+            case 79:
                 {
                 alt7=16;
                 }
@@ -1397,7 +1399,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
 
 
-            string_literal34=(Token)match(input,73,FOLLOW_73_in_macro761); 
+            string_literal34=(Token)match(input,74,FOLLOW_74_in_macro761); 
             string_literal34_tree = 
             (AslTree)adaptor.create(string_literal34)
             ;
@@ -2642,7 +2644,7 @@ public TreeAdaptor getTreeAdaptor() {
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==FALSE||LA14_0==FLOAT||LA14_0==ID||LA14_0==INT||LA14_0==MINUS||LA14_0==NOT||LA14_0==PLUS||LA14_0==TRUE||LA14_0==75||LA14_0==79) ) {
+            if ( (LA14_0==FALSE||LA14_0==FLOAT||LA14_0==ID||LA14_0==INT||LA14_0==MINUS||LA14_0==NOT||LA14_0==PLUS||LA14_0==TRUE||LA14_0==76||LA14_0==80) ) {
                 alt14=1;
             }
             switch (alt14) {
@@ -2793,7 +2795,7 @@ public TreeAdaptor getTreeAdaptor() {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==FALSE||LA15_0==FLOAT||LA15_0==ID||LA15_0==INT||LA15_0==MINUS||LA15_0==NOT||LA15_0==PLUS||LA15_0==TRUE||LA15_0==75||LA15_0==79) ) {
+            if ( (LA15_0==FALSE||LA15_0==FLOAT||LA15_0==ID||LA15_0==INT||LA15_0==MINUS||LA15_0==NOT||LA15_0==PLUS||LA15_0==TRUE||LA15_0==76||LA15_0==80) ) {
                 alt15=1;
             }
             else if ( (LA15_0==STRING) ) {
@@ -2966,7 +2968,7 @@ public TreeAdaptor getTreeAdaptor() {
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==81) ) {
+            if ( (LA17_0==82) ) {
                 alt17=1;
             }
             switch (alt17) {
@@ -3036,16 +3038,16 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree char_literal104_tree=null;
         AslTree char_literal106_tree=null;
         AslTree char_literal108_tree=null;
-        RewriteRuleTokenStream stream_77=new RewriteRuleTokenStream(adaptor,"token 77");
-        RewriteRuleTokenStream stream_81=new RewriteRuleTokenStream(adaptor,"token 81");
+        RewriteRuleTokenStream stream_78=new RewriteRuleTokenStream(adaptor,"token 78");
         RewriteRuleTokenStream stream_82=new RewriteRuleTokenStream(adaptor,"token 82");
+        RewriteRuleTokenStream stream_83=new RewriteRuleTokenStream(adaptor,"token 83");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:6: ( '{' expr ( ',' expr )? '}' -> ^( TIME expr ( expr )? ) )
             // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:9: '{' expr ( ',' expr )? '}'
             {
-            char_literal104=(Token)match(input,81,FOLLOW_81_in_time1170);  
-            stream_81.add(char_literal104);
+            char_literal104=(Token)match(input,82,FOLLOW_82_in_time1170);  
+            stream_82.add(char_literal104);
 
 
             pushFollow(FOLLOW_expr_in_time1172);
@@ -3059,15 +3061,15 @@ public TreeAdaptor getTreeAdaptor() {
             int alt18=2;
             int LA18_0 = input.LA(1);
 
-            if ( (LA18_0==77) ) {
+            if ( (LA18_0==78) ) {
                 alt18=1;
             }
             switch (alt18) {
                 case 1 :
                     // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:19: ',' expr
                     {
-                    char_literal106=(Token)match(input,77,FOLLOW_77_in_time1175);  
-                    stream_77.add(char_literal106);
+                    char_literal106=(Token)match(input,78,FOLLOW_78_in_time1175);  
+                    stream_78.add(char_literal106);
 
 
                     pushFollow(FOLLOW_expr_in_time1177);
@@ -3083,8 +3085,8 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal108=(Token)match(input,82,FOLLOW_82_in_time1181);  
-            stream_82.add(char_literal108);
+            char_literal108=(Token)match(input,83,FOLLOW_83_in_time1181);  
+            stream_83.add(char_literal108);
 
 
             // AST REWRITE
@@ -3296,7 +3298,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "graphicconst"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:181:1: graphicconst : ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist );
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:181:1: graphicconst : ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist | LINE ^ ID arglist );
     public final AslParser.graphicconst_return graphicconst() throws RecognitionException {
         AslParser.graphicconst_return retval = new AslParser.graphicconst_return();
         retval.start = input.LT(1);
@@ -3312,6 +3314,8 @@ public TreeAdaptor getTreeAdaptor() {
         Token ID118=null;
         Token ELLIPSE120=null;
         Token ID121=null;
+        Token LINE123=null;
+        Token ID124=null;
         AslParser.arglist_return arglist113 =null;
 
         AslParser.arglist_return arglist116 =null;
@@ -3319,6 +3323,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslParser.arglist_return arglist119 =null;
 
         AslParser.arglist_return arglist122 =null;
+
+        AslParser.arglist_return arglist125 =null;
 
 
         AslTree RECT111_tree=null;
@@ -3329,10 +3335,12 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ID118_tree=null;
         AslTree ELLIPSE120_tree=null;
         AslTree ID121_tree=null;
+        AslTree LINE123_tree=null;
+        AslTree ID124_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:181:13: ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist )
-            int alt19=4;
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:181:13: ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist | LINE ^ ID arglist )
+            int alt19=5;
             switch ( input.LA(1) ) {
             case RECT:
                 {
@@ -3352,6 +3360,11 @@ public TreeAdaptor getTreeAdaptor() {
             case ELLIPSE:
                 {
                 alt19=4;
+                }
+                break;
+            case LINE:
+                {
+                alt19=5;
                 }
                 break;
             default:
@@ -3479,6 +3492,35 @@ public TreeAdaptor getTreeAdaptor() {
 
                     }
                     break;
+                case 5 :
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:185:6: LINE ^ ID arglist
+                    {
+                    root_0 = (AslTree)adaptor.nil();
+
+
+                    LINE123=(Token)match(input,LINE,FOLLOW_LINE_in_graphicconst1285); 
+                    LINE123_tree = 
+                    (AslTree)adaptor.create(LINE123)
+                    ;
+                    root_0 = (AslTree)adaptor.becomeRoot(LINE123_tree, root_0);
+
+
+                    ID124=(Token)match(input,ID,FOLLOW_ID_in_graphicconst1288); 
+                    ID124_tree = 
+                    (AslTree)adaptor.create(ID124)
+                    ;
+                    adaptor.addChild(root_0, ID124_tree);
+
+
+                    pushFollow(FOLLOW_arglist_in_graphicconst1290);
+                    arglist125=arglist();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, arglist125.getTree());
+
+                    }
+                    break;
 
             }
             retval.stop = input.LT(-1);
@@ -3510,7 +3552,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "boolexpr"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:1: boolexpr : boolterm ( OR ^ boolterm )* ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:189:1: boolexpr : boolterm ( OR ^ boolterm )* ;
     public final AslParser.boolexpr_return boolexpr() throws RecognitionException {
         AslParser.boolexpr_return retval = new AslParser.boolexpr_return();
         retval.start = input.LT(1);
@@ -3518,29 +3560,29 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token OR124=null;
-        AslParser.boolterm_return boolterm123 =null;
+        Token OR127=null;
+        AslParser.boolterm_return boolterm126 =null;
 
-        AslParser.boolterm_return boolterm125 =null;
+        AslParser.boolterm_return boolterm128 =null;
 
 
-        AslTree OR124_tree=null;
+        AslTree OR127_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:13: ( boolterm ( OR ^ boolterm )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:17: boolterm ( OR ^ boolterm )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:189:13: ( boolterm ( OR ^ boolterm )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:189:17: boolterm ( OR ^ boolterm )*
             {
             root_0 = (AslTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_boolterm_in_boolexpr1301);
-            boolterm123=boolterm();
+            pushFollow(FOLLOW_boolterm_in_boolexpr1313);
+            boolterm126=boolterm();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, boolterm123.getTree());
+            adaptor.addChild(root_0, boolterm126.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:26: ( OR ^ boolterm )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:189:26: ( OR ^ boolterm )*
             loop20:
             do {
                 int alt20=2;
@@ -3553,21 +3595,21 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt20) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:27: OR ^ boolterm
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:189:27: OR ^ boolterm
             	    {
-            	    OR124=(Token)match(input,OR,FOLLOW_OR_in_boolexpr1304); 
-            	    OR124_tree = 
-            	    (AslTree)adaptor.create(OR124)
+            	    OR127=(Token)match(input,OR,FOLLOW_OR_in_boolexpr1316); 
+            	    OR127_tree = 
+            	    (AslTree)adaptor.create(OR127)
             	    ;
-            	    root_0 = (AslTree)adaptor.becomeRoot(OR124_tree, root_0);
+            	    root_0 = (AslTree)adaptor.becomeRoot(OR127_tree, root_0);
 
 
-            	    pushFollow(FOLLOW_boolterm_in_boolexpr1307);
-            	    boolterm125=boolterm();
+            	    pushFollow(FOLLOW_boolterm_in_boolexpr1319);
+            	    boolterm128=boolterm();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, boolterm125.getTree());
+            	    adaptor.addChild(root_0, boolterm128.getTree());
 
             	    }
             	    break;
@@ -3609,7 +3651,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "boolterm"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:1: boolterm : boolfact ( AND ^ boolfact )* ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:192:1: boolterm : boolfact ( AND ^ boolfact )* ;
     public final AslParser.boolterm_return boolterm() throws RecognitionException {
         AslParser.boolterm_return retval = new AslParser.boolterm_return();
         retval.start = input.LT(1);
@@ -3617,29 +3659,29 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token AND127=null;
-        AslParser.boolfact_return boolfact126 =null;
+        Token AND130=null;
+        AslParser.boolfact_return boolfact129 =null;
 
-        AslParser.boolfact_return boolfact128 =null;
+        AslParser.boolfact_return boolfact131 =null;
 
 
-        AslTree AND127_tree=null;
+        AslTree AND130_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:9: ( boolfact ( AND ^ boolfact )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:13: boolfact ( AND ^ boolfact )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:192:9: ( boolfact ( AND ^ boolfact )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:192:13: boolfact ( AND ^ boolfact )*
             {
             root_0 = (AslTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_boolfact_in_boolterm1327);
-            boolfact126=boolfact();
+            pushFollow(FOLLOW_boolfact_in_boolterm1339);
+            boolfact129=boolfact();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, boolfact126.getTree());
+            adaptor.addChild(root_0, boolfact129.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:22: ( AND ^ boolfact )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:192:22: ( AND ^ boolfact )*
             loop21:
             do {
                 int alt21=2;
@@ -3652,21 +3694,21 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt21) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:23: AND ^ boolfact
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:192:23: AND ^ boolfact
             	    {
-            	    AND127=(Token)match(input,AND,FOLLOW_AND_in_boolterm1330); 
-            	    AND127_tree = 
-            	    (AslTree)adaptor.create(AND127)
+            	    AND130=(Token)match(input,AND,FOLLOW_AND_in_boolterm1342); 
+            	    AND130_tree = 
+            	    (AslTree)adaptor.create(AND130)
             	    ;
-            	    root_0 = (AslTree)adaptor.becomeRoot(AND127_tree, root_0);
+            	    root_0 = (AslTree)adaptor.becomeRoot(AND130_tree, root_0);
 
 
-            	    pushFollow(FOLLOW_boolfact_in_boolterm1333);
-            	    boolfact128=boolfact();
+            	    pushFollow(FOLLOW_boolfact_in_boolterm1345);
+            	    boolfact131=boolfact();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, boolfact128.getTree());
+            	    adaptor.addChild(root_0, boolfact131.getTree());
 
             	    }
             	    break;
@@ -3708,7 +3750,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "boolfact"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:1: boolfact : num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:1: boolfact : num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? ;
     public final AslParser.boolfact_return boolfact() throws RecognitionException {
         AslParser.boolfact_return retval = new AslParser.boolfact_return();
         retval.start = input.LT(1);
@@ -3716,39 +3758,39 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token EQ130=null;
-        Token NOT_EQUAL131=null;
-        Token LT132=null;
-        Token LE133=null;
-        Token GT134=null;
-        Token GE135=null;
-        AslParser.num_expr_return num_expr129 =null;
+        Token EQ133=null;
+        Token NOT_EQUAL134=null;
+        Token LT135=null;
+        Token LE136=null;
+        Token GT137=null;
+        Token GE138=null;
+        AslParser.num_expr_return num_expr132 =null;
 
-        AslParser.num_expr_return num_expr136 =null;
+        AslParser.num_expr_return num_expr139 =null;
 
 
-        AslTree EQ130_tree=null;
-        AslTree NOT_EQUAL131_tree=null;
-        AslTree LT132_tree=null;
-        AslTree LE133_tree=null;
-        AslTree GT134_tree=null;
-        AslTree GE135_tree=null;
+        AslTree EQ133_tree=null;
+        AslTree NOT_EQUAL134_tree=null;
+        AslTree LT135_tree=null;
+        AslTree LE136_tree=null;
+        AslTree GT137_tree=null;
+        AslTree GE138_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:9: ( num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:13: num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:9: ( num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:13: num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
             {
             root_0 = (AslTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_num_expr_in_boolfact1353);
-            num_expr129=num_expr();
+            pushFollow(FOLLOW_num_expr_in_boolfact1365);
+            num_expr132=num_expr();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, num_expr129.getTree());
+            adaptor.addChild(root_0, num_expr132.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:22: ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:22: ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -3757,9 +3799,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt23) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr
                     {
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^)
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^)
                     int alt22=6;
                     switch ( input.LA(1) ) {
                     case EQ:
@@ -3802,73 +3844,73 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt22) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:24: EQ ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:24: EQ ^
                             {
-                            EQ130=(Token)match(input,EQ,FOLLOW_EQ_in_boolfact1357); 
-                            EQ130_tree = 
-                            (AslTree)adaptor.create(EQ130)
+                            EQ133=(Token)match(input,EQ,FOLLOW_EQ_in_boolfact1369); 
+                            EQ133_tree = 
+                            (AslTree)adaptor.create(EQ133)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(EQ130_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(EQ133_tree, root_0);
 
 
                             }
                             break;
                         case 2 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:30: NOT_EQUAL ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:30: NOT_EQUAL ^
                             {
-                            NOT_EQUAL131=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_boolfact1362); 
-                            NOT_EQUAL131_tree = 
-                            (AslTree)adaptor.create(NOT_EQUAL131)
+                            NOT_EQUAL134=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_boolfact1374); 
+                            NOT_EQUAL134_tree = 
+                            (AslTree)adaptor.create(NOT_EQUAL134)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(NOT_EQUAL131_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(NOT_EQUAL134_tree, root_0);
 
 
                             }
                             break;
                         case 3 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:43: LT ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:43: LT ^
                             {
-                            LT132=(Token)match(input,LT,FOLLOW_LT_in_boolfact1367); 
-                            LT132_tree = 
-                            (AslTree)adaptor.create(LT132)
+                            LT135=(Token)match(input,LT,FOLLOW_LT_in_boolfact1379); 
+                            LT135_tree = 
+                            (AslTree)adaptor.create(LT135)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(LT132_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(LT135_tree, root_0);
 
 
                             }
                             break;
                         case 4 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:49: LE ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:49: LE ^
                             {
-                            LE133=(Token)match(input,LE,FOLLOW_LE_in_boolfact1372); 
-                            LE133_tree = 
-                            (AslTree)adaptor.create(LE133)
+                            LE136=(Token)match(input,LE,FOLLOW_LE_in_boolfact1384); 
+                            LE136_tree = 
+                            (AslTree)adaptor.create(LE136)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(LE133_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(LE136_tree, root_0);
 
 
                             }
                             break;
                         case 5 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:55: GT ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:55: GT ^
                             {
-                            GT134=(Token)match(input,GT,FOLLOW_GT_in_boolfact1377); 
-                            GT134_tree = 
-                            (AslTree)adaptor.create(GT134)
+                            GT137=(Token)match(input,GT,FOLLOW_GT_in_boolfact1389); 
+                            GT137_tree = 
+                            (AslTree)adaptor.create(GT137)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(GT134_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(GT137_tree, root_0);
 
 
                             }
                             break;
                         case 6 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:61: GE ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:195:61: GE ^
                             {
-                            GE135=(Token)match(input,GE,FOLLOW_GE_in_boolfact1382); 
-                            GE135_tree = 
-                            (AslTree)adaptor.create(GE135)
+                            GE138=(Token)match(input,GE,FOLLOW_GE_in_boolfact1394); 
+                            GE138_tree = 
+                            (AslTree)adaptor.create(GE138)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(GE135_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(GE138_tree, root_0);
 
 
                             }
@@ -3877,12 +3919,12 @@ public TreeAdaptor getTreeAdaptor() {
                     }
 
 
-                    pushFollow(FOLLOW_num_expr_in_boolfact1386);
-                    num_expr136=num_expr();
+                    pushFollow(FOLLOW_num_expr_in_boolfact1398);
+                    num_expr139=num_expr();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, num_expr136.getTree());
+                    adaptor.addChild(root_0, num_expr139.getTree());
 
                     }
                     break;
@@ -3921,7 +3963,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "num_expr"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:1: num_expr : term ( ( PLUS ^| MINUS ^) term )* ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:1: num_expr : term ( ( PLUS ^| MINUS ^) term )* ;
     public final AslParser.num_expr_return num_expr() throws RecognitionException {
         AslParser.num_expr_return retval = new AslParser.num_expr_return();
         retval.start = input.LT(1);
@@ -3929,31 +3971,31 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token PLUS138=null;
-        Token MINUS139=null;
-        AslParser.term_return term137 =null;
-
+        Token PLUS141=null;
+        Token MINUS142=null;
         AslParser.term_return term140 =null;
 
+        AslParser.term_return term143 =null;
 
-        AslTree PLUS138_tree=null;
-        AslTree MINUS139_tree=null;
+
+        AslTree PLUS141_tree=null;
+        AslTree MINUS142_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:9: ( term ( ( PLUS ^| MINUS ^) term )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:13: term ( ( PLUS ^| MINUS ^) term )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:9: ( term ( ( PLUS ^| MINUS ^) term )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:13: term ( ( PLUS ^| MINUS ^) term )*
             {
             root_0 = (AslTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_term_in_num_expr1406);
-            term137=term();
+            pushFollow(FOLLOW_term_in_num_expr1418);
+            term140=term();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, term137.getTree());
+            adaptor.addChild(root_0, term140.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:18: ( ( PLUS ^| MINUS ^) term )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:18: ( ( PLUS ^| MINUS ^) term )*
             loop25:
             do {
                 int alt25=2;
@@ -3966,9 +4008,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt25) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:20: ( PLUS ^| MINUS ^) term
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:20: ( PLUS ^| MINUS ^) term
             	    {
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:20: ( PLUS ^| MINUS ^)
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:20: ( PLUS ^| MINUS ^)
             	    int alt24=2;
             	    int LA24_0 = input.LA(1);
 
@@ -3987,25 +4029,25 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    switch (alt24) {
             	        case 1 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:21: PLUS ^
+            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:21: PLUS ^
             	            {
-            	            PLUS138=(Token)match(input,PLUS,FOLLOW_PLUS_in_num_expr1411); 
-            	            PLUS138_tree = 
-            	            (AslTree)adaptor.create(PLUS138)
+            	            PLUS141=(Token)match(input,PLUS,FOLLOW_PLUS_in_num_expr1423); 
+            	            PLUS141_tree = 
+            	            (AslTree)adaptor.create(PLUS141)
             	            ;
-            	            root_0 = (AslTree)adaptor.becomeRoot(PLUS138_tree, root_0);
+            	            root_0 = (AslTree)adaptor.becomeRoot(PLUS141_tree, root_0);
 
 
             	            }
             	            break;
             	        case 2 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:29: MINUS ^
+            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:198:29: MINUS ^
             	            {
-            	            MINUS139=(Token)match(input,MINUS,FOLLOW_MINUS_in_num_expr1416); 
-            	            MINUS139_tree = 
-            	            (AslTree)adaptor.create(MINUS139)
+            	            MINUS142=(Token)match(input,MINUS,FOLLOW_MINUS_in_num_expr1428); 
+            	            MINUS142_tree = 
+            	            (AslTree)adaptor.create(MINUS142)
             	            ;
-            	            root_0 = (AslTree)adaptor.becomeRoot(MINUS139_tree, root_0);
+            	            root_0 = (AslTree)adaptor.becomeRoot(MINUS142_tree, root_0);
 
 
             	            }
@@ -4014,12 +4056,12 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_term_in_num_expr1420);
-            	    term140=term();
+            	    pushFollow(FOLLOW_term_in_num_expr1432);
+            	    term143=term();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, term140.getTree());
+            	    adaptor.addChild(root_0, term143.getTree());
 
             	    }
             	    break;
@@ -4061,7 +4103,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "term"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:1: term : factor ( ( MUL ^| DIV ^| MOD ^) factor )* ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:1: term : factor ( ( MUL ^| DIV ^| MOD ^) factor )* ;
     public final AslParser.term_return term() throws RecognitionException {
         AslParser.term_return retval = new AslParser.term_return();
         retval.start = input.LT(1);
@@ -4069,33 +4111,33 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token MUL142=null;
-        Token DIV143=null;
-        Token MOD144=null;
-        AslParser.factor_return factor141 =null;
+        Token MUL145=null;
+        Token DIV146=null;
+        Token MOD147=null;
+        AslParser.factor_return factor144 =null;
 
-        AslParser.factor_return factor145 =null;
+        AslParser.factor_return factor148 =null;
 
 
-        AslTree MUL142_tree=null;
-        AslTree DIV143_tree=null;
-        AslTree MOD144_tree=null;
+        AslTree MUL145_tree=null;
+        AslTree DIV146_tree=null;
+        AslTree MOD147_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:9: ( factor ( ( MUL ^| DIV ^| MOD ^) factor )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:13: factor ( ( MUL ^| DIV ^| MOD ^) factor )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:9: ( factor ( ( MUL ^| DIV ^| MOD ^) factor )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:13: factor ( ( MUL ^| DIV ^| MOD ^) factor )*
             {
             root_0 = (AslTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_factor_in_term1444);
-            factor141=factor();
+            pushFollow(FOLLOW_factor_in_term1456);
+            factor144=factor();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, factor141.getTree());
+            adaptor.addChild(root_0, factor144.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:20: ( ( MUL ^| DIV ^| MOD ^) factor )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:20: ( ( MUL ^| DIV ^| MOD ^) factor )*
             loop27:
             do {
                 int alt27=2;
@@ -4108,9 +4150,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt27) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:22: ( MUL ^| DIV ^| MOD ^) factor
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:22: ( MUL ^| DIV ^| MOD ^) factor
             	    {
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:22: ( MUL ^| DIV ^| MOD ^)
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:22: ( MUL ^| DIV ^| MOD ^)
             	    int alt26=3;
             	    switch ( input.LA(1) ) {
             	    case MUL:
@@ -4138,37 +4180,37 @@ public TreeAdaptor getTreeAdaptor() {
 
             	    switch (alt26) {
             	        case 1 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:23: MUL ^
+            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:23: MUL ^
             	            {
-            	            MUL142=(Token)match(input,MUL,FOLLOW_MUL_in_term1449); 
-            	            MUL142_tree = 
-            	            (AslTree)adaptor.create(MUL142)
+            	            MUL145=(Token)match(input,MUL,FOLLOW_MUL_in_term1461); 
+            	            MUL145_tree = 
+            	            (AslTree)adaptor.create(MUL145)
             	            ;
-            	            root_0 = (AslTree)adaptor.becomeRoot(MUL142_tree, root_0);
+            	            root_0 = (AslTree)adaptor.becomeRoot(MUL145_tree, root_0);
 
 
             	            }
             	            break;
             	        case 2 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:30: DIV ^
+            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:30: DIV ^
             	            {
-            	            DIV143=(Token)match(input,DIV,FOLLOW_DIV_in_term1454); 
-            	            DIV143_tree = 
-            	            (AslTree)adaptor.create(DIV143)
+            	            DIV146=(Token)match(input,DIV,FOLLOW_DIV_in_term1466); 
+            	            DIV146_tree = 
+            	            (AslTree)adaptor.create(DIV146)
             	            ;
-            	            root_0 = (AslTree)adaptor.becomeRoot(DIV143_tree, root_0);
+            	            root_0 = (AslTree)adaptor.becomeRoot(DIV146_tree, root_0);
 
 
             	            }
             	            break;
             	        case 3 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:37: MOD ^
+            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:201:37: MOD ^
             	            {
-            	            MOD144=(Token)match(input,MOD,FOLLOW_MOD_in_term1459); 
-            	            MOD144_tree = 
-            	            (AslTree)adaptor.create(MOD144)
+            	            MOD147=(Token)match(input,MOD,FOLLOW_MOD_in_term1471); 
+            	            MOD147_tree = 
+            	            (AslTree)adaptor.create(MOD147)
             	            ;
-            	            root_0 = (AslTree)adaptor.becomeRoot(MOD144_tree, root_0);
+            	            root_0 = (AslTree)adaptor.becomeRoot(MOD147_tree, root_0);
 
 
             	            }
@@ -4177,12 +4219,12 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_factor_in_term1463);
-            	    factor145=factor();
+            	    pushFollow(FOLLOW_factor_in_term1475);
+            	    factor148=factor();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, factor145.getTree());
+            	    adaptor.addChild(root_0, factor148.getTree());
 
             	    }
             	    break;
@@ -4224,7 +4266,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "factor"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:1: factor : ( ( NOT ^| PLUS ^| MINUS ^) factor | atom );
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:1: factor : ( ( NOT ^| PLUS ^| MINUS ^) factor | atom );
     public final AslParser.factor_return factor() throws RecognitionException {
         AslParser.factor_return retval = new AslParser.factor_return();
         retval.start = input.LT(1);
@@ -4232,27 +4274,27 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token NOT146=null;
-        Token PLUS147=null;
-        Token MINUS148=null;
-        AslParser.factor_return factor149 =null;
+        Token NOT149=null;
+        Token PLUS150=null;
+        Token MINUS151=null;
+        AslParser.factor_return factor152 =null;
 
-        AslParser.atom_return atom150 =null;
+        AslParser.atom_return atom153 =null;
 
 
-        AslTree NOT146_tree=null;
-        AslTree PLUS147_tree=null;
-        AslTree MINUS148_tree=null;
+        AslTree NOT149_tree=null;
+        AslTree PLUS150_tree=null;
+        AslTree MINUS151_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:9: ( ( NOT ^| PLUS ^| MINUS ^) factor | atom )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:9: ( ( NOT ^| PLUS ^| MINUS ^) factor | atom )
             int alt29=2;
             int LA29_0 = input.LA(1);
 
             if ( (LA29_0==MINUS||LA29_0==NOT||LA29_0==PLUS) ) {
                 alt29=1;
             }
-            else if ( (LA29_0==FALSE||LA29_0==FLOAT||LA29_0==ID||LA29_0==INT||LA29_0==TRUE||LA29_0==75||LA29_0==79) ) {
+            else if ( (LA29_0==FALSE||LA29_0==FLOAT||LA29_0==ID||LA29_0==INT||LA29_0==TRUE||LA29_0==76||LA29_0==80) ) {
                 alt29=2;
             }
             else {
@@ -4264,12 +4306,12 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt29) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:13: ( NOT ^| PLUS ^| MINUS ^) factor
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:13: ( NOT ^| PLUS ^| MINUS ^) factor
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:13: ( NOT ^| PLUS ^| MINUS ^)
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:13: ( NOT ^| PLUS ^| MINUS ^)
                     int alt28=3;
                     switch ( input.LA(1) ) {
                     case NOT:
@@ -4297,37 +4339,37 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt28) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:14: NOT ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:14: NOT ^
                             {
-                            NOT146=(Token)match(input,NOT,FOLLOW_NOT_in_factor1486); 
-                            NOT146_tree = 
-                            (AslTree)adaptor.create(NOT146)
+                            NOT149=(Token)match(input,NOT,FOLLOW_NOT_in_factor1498); 
+                            NOT149_tree = 
+                            (AslTree)adaptor.create(NOT149)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(NOT146_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(NOT149_tree, root_0);
 
 
                             }
                             break;
                         case 2 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:21: PLUS ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:21: PLUS ^
                             {
-                            PLUS147=(Token)match(input,PLUS,FOLLOW_PLUS_in_factor1491); 
-                            PLUS147_tree = 
-                            (AslTree)adaptor.create(PLUS147)
+                            PLUS150=(Token)match(input,PLUS,FOLLOW_PLUS_in_factor1503); 
+                            PLUS150_tree = 
+                            (AslTree)adaptor.create(PLUS150)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(PLUS147_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(PLUS150_tree, root_0);
 
 
                             }
                             break;
                         case 3 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:29: MINUS ^
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:29: MINUS ^
                             {
-                            MINUS148=(Token)match(input,MINUS,FOLLOW_MINUS_in_factor1496); 
-                            MINUS148_tree = 
-                            (AslTree)adaptor.create(MINUS148)
+                            MINUS151=(Token)match(input,MINUS,FOLLOW_MINUS_in_factor1508); 
+                            MINUS151_tree = 
+                            (AslTree)adaptor.create(MINUS151)
                             ;
-                            root_0 = (AslTree)adaptor.becomeRoot(MINUS148_tree, root_0);
+                            root_0 = (AslTree)adaptor.becomeRoot(MINUS151_tree, root_0);
 
 
                             }
@@ -4336,27 +4378,27 @@ public TreeAdaptor getTreeAdaptor() {
                     }
 
 
-                    pushFollow(FOLLOW_factor_in_factor1500);
-                    factor149=factor();
+                    pushFollow(FOLLOW_factor_in_factor1512);
+                    factor152=factor();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, factor149.getTree());
+                    adaptor.addChild(root_0, factor152.getTree());
 
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:13: atom
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:205:13: atom
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_atom_in_factor1514);
-                    atom150=atom();
+                    pushFollow(FOLLOW_atom_in_factor1526);
+                    atom153=atom();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, atom150.getTree());
+                    adaptor.addChild(root_0, atom153.getTree());
 
                     }
                     break;
@@ -4391,7 +4433,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "atom"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:210:1: atom : ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !);
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:211:1: atom : ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !);
     public final AslParser.atom_return atom() throws RecognitionException {
         AslParser.atom_return retval = new AslParser.atom_return();
         retval.start = input.LT(1);
@@ -4400,42 +4442,42 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree root_0 = null;
 
         Token b=null;
-        Token ID151=null;
-        Token FLOAT152=null;
-        Token INT153=null;
-        Token char_literal157=null;
-        Token char_literal159=null;
-        AslParser.array_return array154 =null;
+        Token ID154=null;
+        Token FLOAT155=null;
+        Token INT156=null;
+        Token char_literal160=null;
+        Token char_literal162=null;
+        AslParser.array_return array157 =null;
 
-        AslParser.arrayacc_return arrayacc155 =null;
+        AslParser.arrayacc_return arrayacc158 =null;
 
-        AslParser.funcall_return funcall156 =null;
+        AslParser.funcall_return funcall159 =null;
 
-        AslParser.boolexpr_return boolexpr158 =null;
+        AslParser.boolexpr_return boolexpr161 =null;
 
 
         AslTree b_tree=null;
-        AslTree ID151_tree=null;
-        AslTree FLOAT152_tree=null;
-        AslTree INT153_tree=null;
-        AslTree char_literal157_tree=null;
-        AslTree char_literal159_tree=null;
+        AslTree ID154_tree=null;
+        AslTree FLOAT155_tree=null;
+        AslTree INT156_tree=null;
+        AslTree char_literal160_tree=null;
+        AslTree char_literal162_tree=null;
         RewriteRuleTokenStream stream_TRUE=new RewriteRuleTokenStream(adaptor,"token TRUE");
         RewriteRuleTokenStream stream_FALSE=new RewriteRuleTokenStream(adaptor,"token FALSE");
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:210:9: ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !)
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:211:9: ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !)
             int alt31=8;
             switch ( input.LA(1) ) {
             case ID:
                 {
                 switch ( input.LA(2) ) {
-                case 79:
+                case 80:
                     {
                     alt31=5;
                     }
                     break;
-                case 75:
+                case 76:
                     {
                     alt31=7;
                     }
@@ -4460,11 +4502,11 @@ public TreeAdaptor getTreeAdaptor() {
                 case OR:
                 case PLUS:
                 case THEN:
-                case 76:
                 case 77:
                 case 78:
-                case 80:
-                case 82:
+                case 79:
+                case 81:
+                case 83:
                     {
                     alt31=1;
                     }
@@ -4489,7 +4531,7 @@ public TreeAdaptor getTreeAdaptor() {
                 alt31=3;
                 }
                 break;
-            case 79:
+            case 80:
                 {
                 alt31=4;
                 }
@@ -4500,7 +4542,7 @@ public TreeAdaptor getTreeAdaptor() {
                 alt31=6;
                 }
                 break;
-            case 75:
+            case 76:
                 {
                 alt31=8;
                 }
@@ -4515,84 +4557,84 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt31) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:210:13: ID
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:211:13: ID
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    ID151=(Token)match(input,ID,FOLLOW_ID_in_atom1539); 
-                    ID151_tree = 
-                    (AslTree)adaptor.create(ID151)
+                    ID154=(Token)match(input,ID,FOLLOW_ID_in_atom1551); 
+                    ID154_tree = 
+                    (AslTree)adaptor.create(ID154)
                     ;
-                    adaptor.addChild(root_0, ID151_tree);
+                    adaptor.addChild(root_0, ID154_tree);
 
 
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:211:5: FLOAT
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:212:5: FLOAT
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    FLOAT152=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_atom1545); 
-                    FLOAT152_tree = 
-                    (AslTree)adaptor.create(FLOAT152)
+                    FLOAT155=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_atom1557); 
+                    FLOAT155_tree = 
+                    (AslTree)adaptor.create(FLOAT155)
                     ;
-                    adaptor.addChild(root_0, FLOAT152_tree);
+                    adaptor.addChild(root_0, FLOAT155_tree);
 
 
                     }
                     break;
                 case 3 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:212:5: INT
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:213:5: INT
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    INT153=(Token)match(input,INT,FOLLOW_INT_in_atom1551); 
-                    INT153_tree = 
-                    (AslTree)adaptor.create(INT153)
+                    INT156=(Token)match(input,INT,FOLLOW_INT_in_atom1563); 
+                    INT156_tree = 
+                    (AslTree)adaptor.create(INT156)
                     ;
-                    adaptor.addChild(root_0, INT153_tree);
+                    adaptor.addChild(root_0, INT156_tree);
 
 
                     }
                     break;
                 case 4 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:213:5: array
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:214:5: array
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_array_in_atom1557);
-                    array154=array();
+                    pushFollow(FOLLOW_array_in_atom1569);
+                    array157=array();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, array154.getTree());
+                    adaptor.addChild(root_0, array157.getTree());
 
                     }
                     break;
                 case 5 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:214:5: arrayacc
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:5: arrayacc
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_arrayacc_in_atom1563);
-                    arrayacc155=arrayacc();
+                    pushFollow(FOLLOW_arrayacc_in_atom1575);
+                    arrayacc158=arrayacc();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, arrayacc155.getTree());
+                    adaptor.addChild(root_0, arrayacc158.getTree());
 
                     }
                     break;
                 case 6 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:13: (b= TRUE |b= FALSE )
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:216:13: (b= TRUE |b= FALSE )
                     {
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:13: (b= TRUE |b= FALSE )
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:216:13: (b= TRUE |b= FALSE )
                     int alt30=2;
                     int LA30_0 = input.LA(1);
 
@@ -4611,18 +4653,18 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     switch (alt30) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:14: b= TRUE
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:216:14: b= TRUE
                             {
-                            b=(Token)match(input,TRUE,FOLLOW_TRUE_in_atom1580);  
+                            b=(Token)match(input,TRUE,FOLLOW_TRUE_in_atom1592);  
                             stream_TRUE.add(b);
 
 
                             }
                             break;
                         case 2 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:23: b= FALSE
+                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:216:23: b= FALSE
                             {
-                            b=(Token)match(input,FALSE,FOLLOW_FALSE_in_atom1586);  
+                            b=(Token)match(input,FALSE,FOLLOW_FALSE_in_atom1598);  
                             stream_FALSE.add(b);
 
 
@@ -4643,9 +4685,9 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (AslTree)adaptor.nil();
-                    // 215:33: -> ^( BOOLEAN[$b,$b.text] )
+                    // 216:33: -> ^( BOOLEAN[$b,$b.text] )
                     {
-                        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:36: ^( BOOLEAN[$b,$b.text] )
+                        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:216:36: ^( BOOLEAN[$b,$b.text] )
                         {
                         AslTree root_1 = (AslTree)adaptor.nil();
                         root_1 = (AslTree)adaptor.becomeRoot(
@@ -4663,36 +4705,36 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 7 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:216:13: funcall
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:217:13: funcall
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_funcall_in_atom1609);
-                    funcall156=funcall();
+                    pushFollow(FOLLOW_funcall_in_atom1621);
+                    funcall159=funcall();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, funcall156.getTree());
+                    adaptor.addChild(root_0, funcall159.getTree());
 
                     }
                     break;
                 case 8 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:217:13: '(' ! boolexpr ')' !
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:218:13: '(' ! boolexpr ')' !
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    char_literal157=(Token)match(input,75,FOLLOW_75_in_atom1623); 
+                    char_literal160=(Token)match(input,76,FOLLOW_76_in_atom1635); 
 
-                    pushFollow(FOLLOW_boolexpr_in_atom1626);
-                    boolexpr158=boolexpr();
+                    pushFollow(FOLLOW_boolexpr_in_atom1638);
+                    boolexpr161=boolexpr();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, boolexpr158.getTree());
+                    adaptor.addChild(root_0, boolexpr161.getTree());
 
-                    char_literal159=(Token)match(input,76,FOLLOW_76_in_atom1628); 
+                    char_literal162=(Token)match(input,77,FOLLOW_77_in_atom1640); 
 
                     }
                     break;
@@ -4727,7 +4769,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "array"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:1: array : '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:222:1: array : '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) ;
     public final AslParser.array_return array() throws RecognitionException {
         AslParser.array_return retval = new AslParser.array_return();
         retval.start = input.LT(1);
@@ -4735,61 +4777,61 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token char_literal160=null;
-        Token char_literal162=null;
-        Token char_literal164=null;
-        AslParser.atom_return atom161 =null;
+        Token char_literal163=null;
+        Token char_literal165=null;
+        Token char_literal167=null;
+        AslParser.atom_return atom164 =null;
 
-        AslParser.atom_return atom163 =null;
+        AslParser.atom_return atom166 =null;
 
 
-        AslTree char_literal160_tree=null;
-        AslTree char_literal162_tree=null;
-        AslTree char_literal164_tree=null;
-        RewriteRuleTokenStream stream_77=new RewriteRuleTokenStream(adaptor,"token 77");
-        RewriteRuleTokenStream stream_79=new RewriteRuleTokenStream(adaptor,"token 79");
+        AslTree char_literal163_tree=null;
+        AslTree char_literal165_tree=null;
+        AslTree char_literal167_tree=null;
+        RewriteRuleTokenStream stream_78=new RewriteRuleTokenStream(adaptor,"token 78");
         RewriteRuleTokenStream stream_80=new RewriteRuleTokenStream(adaptor,"token 80");
+        RewriteRuleTokenStream stream_81=new RewriteRuleTokenStream(adaptor,"token 81");
         RewriteRuleSubtreeStream stream_atom=new RewriteRuleSubtreeStream(adaptor,"rule atom");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:7: ( '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:9: '[' atom ( ',' atom )* ']'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:222:7: ( '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:222:9: '[' atom ( ',' atom )* ']'
             {
-            char_literal160=(Token)match(input,79,FOLLOW_79_in_array1647);  
-            stream_79.add(char_literal160);
+            char_literal163=(Token)match(input,80,FOLLOW_80_in_array1659);  
+            stream_80.add(char_literal163);
 
 
-            pushFollow(FOLLOW_atom_in_array1649);
-            atom161=atom();
+            pushFollow(FOLLOW_atom_in_array1661);
+            atom164=atom();
 
             state._fsp--;
 
-            stream_atom.add(atom161.getTree());
+            stream_atom.add(atom164.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:18: ( ',' atom )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:222:18: ( ',' atom )*
             loop32:
             do {
                 int alt32=2;
                 int LA32_0 = input.LA(1);
 
-                if ( (LA32_0==77) ) {
+                if ( (LA32_0==78) ) {
                     alt32=1;
                 }
 
 
                 switch (alt32) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:19: ',' atom
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:222:19: ',' atom
             	    {
-            	    char_literal162=(Token)match(input,77,FOLLOW_77_in_array1652);  
-            	    stream_77.add(char_literal162);
+            	    char_literal165=(Token)match(input,78,FOLLOW_78_in_array1664);  
+            	    stream_78.add(char_literal165);
 
 
-            	    pushFollow(FOLLOW_atom_in_array1654);
-            	    atom163=atom();
+            	    pushFollow(FOLLOW_atom_in_array1666);
+            	    atom166=atom();
 
             	    state._fsp--;
 
-            	    stream_atom.add(atom163.getTree());
+            	    stream_atom.add(atom166.getTree());
 
             	    }
             	    break;
@@ -4800,8 +4842,8 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            char_literal164=(Token)match(input,80,FOLLOW_80_in_array1658);  
-            stream_80.add(char_literal164);
+            char_literal167=(Token)match(input,81,FOLLOW_81_in_array1670);  
+            stream_81.add(char_literal167);
 
 
             // AST REWRITE
@@ -4815,9 +4857,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (AslTree)adaptor.nil();
-            // 221:34: -> ^( ARRAY ( atom )+ )
+            // 222:34: -> ^( ARRAY ( atom )+ )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:37: ^( ARRAY ( atom )+ )
+                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:222:37: ^( ARRAY ( atom )+ )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -4872,7 +4914,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "arrayacc"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:223:1: arrayacc : ID '[' INT ']' ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:224:1: arrayacc : ID '[' INT ']' ;
     public final AslParser.arrayacc_return arrayacc() throws RecognitionException {
         AslParser.arrayacc_return retval = new AslParser.arrayacc_return();
         retval.start = input.LT(1);
@@ -4880,49 +4922,49 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token ID165=null;
-        Token char_literal166=null;
-        Token INT167=null;
-        Token char_literal168=null;
+        Token ID168=null;
+        Token char_literal169=null;
+        Token INT170=null;
+        Token char_literal171=null;
 
-        AslTree ID165_tree=null;
-        AslTree char_literal166_tree=null;
-        AslTree INT167_tree=null;
-        AslTree char_literal168_tree=null;
+        AslTree ID168_tree=null;
+        AslTree char_literal169_tree=null;
+        AslTree INT170_tree=null;
+        AslTree char_literal171_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:224:2: ( ID '[' INT ']' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:224:4: ID '[' INT ']'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:225:2: ( ID '[' INT ']' )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:225:4: ID '[' INT ']'
             {
             root_0 = (AslTree)adaptor.nil();
 
 
-            ID165=(Token)match(input,ID,FOLLOW_ID_in_arrayacc1677); 
-            ID165_tree = 
-            (AslTree)adaptor.create(ID165)
+            ID168=(Token)match(input,ID,FOLLOW_ID_in_arrayacc1689); 
+            ID168_tree = 
+            (AslTree)adaptor.create(ID168)
             ;
-            adaptor.addChild(root_0, ID165_tree);
+            adaptor.addChild(root_0, ID168_tree);
 
 
-            char_literal166=(Token)match(input,79,FOLLOW_79_in_arrayacc1679); 
-            char_literal166_tree = 
-            (AslTree)adaptor.create(char_literal166)
+            char_literal169=(Token)match(input,80,FOLLOW_80_in_arrayacc1691); 
+            char_literal169_tree = 
+            (AslTree)adaptor.create(char_literal169)
             ;
-            adaptor.addChild(root_0, char_literal166_tree);
+            adaptor.addChild(root_0, char_literal169_tree);
 
 
-            INT167=(Token)match(input,INT,FOLLOW_INT_in_arrayacc1681); 
-            INT167_tree = 
-            (AslTree)adaptor.create(INT167)
+            INT170=(Token)match(input,INT,FOLLOW_INT_in_arrayacc1693); 
+            INT170_tree = 
+            (AslTree)adaptor.create(INT170)
             ;
-            adaptor.addChild(root_0, INT167_tree);
+            adaptor.addChild(root_0, INT170_tree);
 
 
-            char_literal168=(Token)match(input,80,FOLLOW_80_in_arrayacc1683); 
-            char_literal168_tree = 
-            (AslTree)adaptor.create(char_literal168)
+            char_literal171=(Token)match(input,81,FOLLOW_81_in_arrayacc1695); 
+            char_literal171_tree = 
+            (AslTree)adaptor.create(char_literal171)
             ;
-            adaptor.addChild(root_0, char_literal168_tree);
+            adaptor.addChild(root_0, char_literal171_tree);
 
 
             }
@@ -4956,7 +4998,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "funcall"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:1: funcall : ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:1: funcall : ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) ;
     public final AslParser.funcall_return funcall() throws RecognitionException {
         AslParser.funcall_return retval = new AslParser.funcall_return();
         retval.start = input.LT(1);
@@ -4964,48 +5006,48 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token ID169=null;
-        Token char_literal170=null;
-        Token char_literal172=null;
-        AslParser.expr_list_return expr_list171 =null;
+        Token ID172=null;
+        Token char_literal173=null;
+        Token char_literal175=null;
+        AslParser.expr_list_return expr_list174 =null;
 
 
-        AslTree ID169_tree=null;
-        AslTree char_literal170_tree=null;
-        AslTree char_literal172_tree=null;
+        AslTree ID172_tree=null;
+        AslTree char_literal173_tree=null;
+        AslTree char_literal175_tree=null;
+        RewriteRuleTokenStream stream_77=new RewriteRuleTokenStream(adaptor,"token 77");
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
-        RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
         RewriteRuleTokenStream stream_76=new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_expr_list=new RewriteRuleSubtreeStream(adaptor,"rule expr_list");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:9: ( ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:13: ID '(' ( expr_list )? ')'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:9: ( ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:13: ID '(' ( expr_list )? ')'
             {
-            ID169=(Token)match(input,ID,FOLLOW_ID_in_funcall1696);  
-            stream_ID.add(ID169);
+            ID172=(Token)match(input,ID,FOLLOW_ID_in_funcall1708);  
+            stream_ID.add(ID172);
 
 
-            char_literal170=(Token)match(input,75,FOLLOW_75_in_funcall1698);  
-            stream_75.add(char_literal170);
+            char_literal173=(Token)match(input,76,FOLLOW_76_in_funcall1710);  
+            stream_76.add(char_literal173);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:20: ( expr_list )?
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:20: ( expr_list )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==FALSE||LA33_0==FLOAT||LA33_0==ID||LA33_0==INT||LA33_0==MINUS||LA33_0==NOT||LA33_0==PLUS||LA33_0==TRUE||LA33_0==75||LA33_0==79) ) {
+            if ( (LA33_0==FALSE||LA33_0==FLOAT||LA33_0==ID||LA33_0==INT||LA33_0==MINUS||LA33_0==NOT||LA33_0==PLUS||LA33_0==TRUE||LA33_0==76||LA33_0==80) ) {
                 alt33=1;
             }
             switch (alt33) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:20: expr_list
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:20: expr_list
                     {
-                    pushFollow(FOLLOW_expr_list_in_funcall1700);
-                    expr_list171=expr_list();
+                    pushFollow(FOLLOW_expr_list_in_funcall1712);
+                    expr_list174=expr_list();
 
                     state._fsp--;
 
-                    stream_expr_list.add(expr_list171.getTree());
+                    stream_expr_list.add(expr_list174.getTree());
 
                     }
                     break;
@@ -5013,8 +5055,8 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal172=(Token)match(input,76,FOLLOW_76_in_funcall1703);  
-            stream_76.add(char_literal172);
+            char_literal175=(Token)match(input,77,FOLLOW_77_in_funcall1715);  
+            stream_77.add(char_literal175);
 
 
             // AST REWRITE
@@ -5028,9 +5070,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (AslTree)adaptor.nil();
-            // 228:35: -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) )
+            // 229:35: -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:38: ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) )
+                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:38: ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -5041,14 +5083,14 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:51: ^( ARGLIST ( expr_list )? )
+                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:51: ^( ARGLIST ( expr_list )? )
                 {
                 AslTree root_2 = (AslTree)adaptor.nil();
                 root_2 = (AslTree)adaptor.becomeRoot(
                 (AslTree)adaptor.create(ARGLIST, "ARGLIST")
                 , root_2);
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:61: ( expr_list )?
+                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:229:61: ( expr_list )?
                 if ( stream_expr_list.hasNext() ) {
                     adaptor.addChild(root_2, stream_expr_list.nextTree());
 
@@ -5097,7 +5139,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "arglist"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:231:1: arglist : '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:1: arglist : '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) ;
     public final AslParser.arglist_return arglist() throws RecognitionException {
         AslParser.arglist_return retval = new AslParser.arglist_return();
         retval.start = input.LT(1);
@@ -5105,41 +5147,41 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token char_literal173=null;
-        Token char_literal175=null;
-        AslParser.expr_list_return expr_list174 =null;
+        Token char_literal176=null;
+        Token char_literal178=null;
+        AslParser.expr_list_return expr_list177 =null;
 
 
-        AslTree char_literal173_tree=null;
-        AslTree char_literal175_tree=null;
-        RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
+        AslTree char_literal176_tree=null;
+        AslTree char_literal178_tree=null;
+        RewriteRuleTokenStream stream_77=new RewriteRuleTokenStream(adaptor,"token 77");
         RewriteRuleTokenStream stream_76=new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_expr_list=new RewriteRuleSubtreeStream(adaptor,"rule expr_list");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:2: ( '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:4: '(' ( expr_list )? ')'
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:233:2: ( '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:233:4: '(' ( expr_list )? ')'
             {
-            char_literal173=(Token)match(input,75,FOLLOW_75_in_arglist1736);  
-            stream_75.add(char_literal173);
+            char_literal176=(Token)match(input,76,FOLLOW_76_in_arglist1748);  
+            stream_76.add(char_literal176);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:8: ( expr_list )?
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:233:8: ( expr_list )?
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( (LA34_0==FALSE||LA34_0==FLOAT||LA34_0==ID||LA34_0==INT||LA34_0==MINUS||LA34_0==NOT||LA34_0==PLUS||LA34_0==TRUE||LA34_0==75||LA34_0==79) ) {
+            if ( (LA34_0==FALSE||LA34_0==FLOAT||LA34_0==ID||LA34_0==INT||LA34_0==MINUS||LA34_0==NOT||LA34_0==PLUS||LA34_0==TRUE||LA34_0==76||LA34_0==80) ) {
                 alt34=1;
             }
             switch (alt34) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:8: expr_list
+                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:233:8: expr_list
                     {
-                    pushFollow(FOLLOW_expr_list_in_arglist1738);
-                    expr_list174=expr_list();
+                    pushFollow(FOLLOW_expr_list_in_arglist1750);
+                    expr_list177=expr_list();
 
                     state._fsp--;
 
-                    stream_expr_list.add(expr_list174.getTree());
+                    stream_expr_list.add(expr_list177.getTree());
 
                     }
                     break;
@@ -5147,8 +5189,8 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal175=(Token)match(input,76,FOLLOW_76_in_arglist1741);  
-            stream_76.add(char_literal175);
+            char_literal178=(Token)match(input,77,FOLLOW_77_in_arglist1753);  
+            stream_77.add(char_literal178);
 
 
             // AST REWRITE
@@ -5162,16 +5204,16 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (AslTree)adaptor.nil();
-            // 232:23: -> ^( ARGLIST ( expr_list )? )
+            // 233:23: -> ^( ARGLIST ( expr_list )? )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:26: ^( ARGLIST ( expr_list )? )
+                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:233:26: ^( ARGLIST ( expr_list )? )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
                 (AslTree)adaptor.create(ARGLIST, "ARGLIST")
                 , root_1);
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:36: ( expr_list )?
+                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:233:36: ( expr_list )?
                 if ( stream_expr_list.hasNext() ) {
                     adaptor.addChild(root_1, stream_expr_list.nextTree());
 
@@ -5217,7 +5259,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "expr_list"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:1: expr_list : expr ( ',' ! expr )* ;
+    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:236:1: expr_list : expr ( ',' ! expr )* ;
     public final AslParser.expr_list_return expr_list() throws RecognitionException {
         AslParser.expr_list_return retval = new AslParser.expr_list_return();
         retval.start = input.LT(1);
@@ -5225,51 +5267,51 @@ public TreeAdaptor getTreeAdaptor() {
 
         AslTree root_0 = null;
 
-        Token char_literal177=null;
-        AslParser.expr_return expr176 =null;
+        Token char_literal180=null;
+        AslParser.expr_return expr179 =null;
 
-        AslParser.expr_return expr178 =null;
+        AslParser.expr_return expr181 =null;
 
 
-        AslTree char_literal177_tree=null;
+        AslTree char_literal180_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:10: ( expr ( ',' ! expr )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:13: expr ( ',' ! expr )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:236:10: ( expr ( ',' ! expr )* )
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:236:13: expr ( ',' ! expr )*
             {
             root_0 = (AslTree)adaptor.nil();
 
 
-            pushFollow(FOLLOW_expr_in_expr_list1760);
-            expr176=expr();
+            pushFollow(FOLLOW_expr_in_expr_list1772);
+            expr179=expr();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, expr176.getTree());
+            adaptor.addChild(root_0, expr179.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:18: ( ',' ! expr )*
+            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:236:18: ( ',' ! expr )*
             loop35:
             do {
                 int alt35=2;
                 int LA35_0 = input.LA(1);
 
-                if ( (LA35_0==77) ) {
+                if ( (LA35_0==78) ) {
                     alt35=1;
                 }
 
 
                 switch (alt35) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:19: ',' ! expr
+            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:236:19: ',' ! expr
             	    {
-            	    char_literal177=(Token)match(input,77,FOLLOW_77_in_expr_list1763); 
+            	    char_literal180=(Token)match(input,78,FOLLOW_78_in_expr_list1775); 
 
-            	    pushFollow(FOLLOW_expr_in_expr_list1766);
-            	    expr178=expr();
+            	    pushFollow(FOLLOW_expr_in_expr_list1778);
+            	    expr181=expr();
 
             	    state._fsp--;
 
-            	    adaptor.addChild(root_0, expr178.getTree());
+            	    adaptor.addChild(root_0, expr181.getTree());
 
             	    }
             	    break;
@@ -5308,26 +5350,26 @@ public TreeAdaptor getTreeAdaptor() {
 
  
 
-    public static final BitSet FOLLOW_func_in_prog210 = new BitSet(new long[]{0x0000000010000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_func_in_prog210 = new BitSet(new long[]{0x0000000010000000L,0x0000000000000400L});
     public static final BitSet FOLLOW_EOF_in_prog213 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_FUNC_in_func240 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_func243 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_params_in_func245 = new BitSet(new long[]{0xDFB0084304030400L,0x00000000000040D4L});
+    public static final BitSet FOLLOW_ID_in_func243 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_params_in_func245 = new BitSet(new long[]{0xBF60109304030400L,0x00000000000081A9L});
     public static final BitSet FOLLOW_block_instructions_in_func247 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_ENDFUNC_in_func249 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_macro_in_func258 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_params286 = new BitSet(new long[]{0x0000000100000000L,0x0000000000001400L});
-    public static final BitSet FOLLOW_paramlist_in_params288 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_76_in_params291 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_param_in_paramlist317 = new BitSet(new long[]{0x0000000000000002L,0x0000000000002000L});
-    public static final BitSet FOLLOW_77_in_paramlist320 = new BitSet(new long[]{0x0000000100000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_param_in_paramlist323 = new BitSet(new long[]{0x0000000000000002L,0x0000000000002000L});
-    public static final BitSet FOLLOW_74_in_param348 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_76_in_params286 = new BitSet(new long[]{0x0000000100000000L,0x0000000000002800L});
+    public static final BitSet FOLLOW_paramlist_in_params288 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_77_in_params291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_param_in_paramlist317 = new BitSet(new long[]{0x0000000000000002L,0x0000000000004000L});
+    public static final BitSet FOLLOW_78_in_paramlist320 = new BitSet(new long[]{0x0000000100000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_param_in_paramlist323 = new BitSet(new long[]{0x0000000000000002L,0x0000000000004000L});
+    public static final BitSet FOLLOW_75_in_param348 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_ID_in_param352 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ID_in_param375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_instruction_in_block_instructions409 = new BitSet(new long[]{0x0000000000000002L,0x0000000000004000L});
-    public static final BitSet FOLLOW_78_in_block_instructions412 = new BitSet(new long[]{0xDFB0084304030400L,0x00000000000040D4L});
-    public static final BitSet FOLLOW_instruction_in_block_instructions414 = new BitSet(new long[]{0x0000000000000002L,0x0000000000004000L});
+    public static final BitSet FOLLOW_instruction_in_block_instructions409 = new BitSet(new long[]{0x0000000000000002L,0x0000000000008000L});
+    public static final BitSet FOLLOW_79_in_block_instructions412 = new BitSet(new long[]{0xBF60109304030400L,0x00000000000081A9L});
+    public static final BitSet FOLLOW_instruction_in_block_instructions414 = new BitSet(new long[]{0x0000000000000002L,0x0000000000008000L});
     public static final BitSet FOLLOW_assign_in_instruction463 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_declare_in_instruction485 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ite_stmt_in_instruction499 = new BitSet(new long[]{0x0000000000000002L});
@@ -5343,29 +5385,29 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_transform_in_instruction680 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_animation_in_instruction701 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_loop_in_instruction715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_macro761 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOOP_in_loop774 = new BitSet(new long[]{0x0400080000000000L});
+    public static final BitSet FOLLOW_74_in_macro761 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOOP_in_loop774 = new BitSet(new long[]{0x0800100000000000L});
     public static final BitSet FOLLOW_animation_in_loop777 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRANS_in_transform786 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_transform789 = new BitSet(new long[]{0x000000050A000000L,0x0000000000008820L});
+    public static final BitSet FOLLOW_ID_in_transform789 = new BitSet(new long[]{0x000000050A000000L,0x0000000000011040L});
     public static final BitSet FOLLOW_atom_in_transform791 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_FLOAT_in_transform794 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TRANSREL_in_transform801 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_transform804 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ID_in_transform804 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
     public static final BitSet FOLLOW_arglist_in_transform806 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SCALE_in_transform811 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_transform814 = new BitSet(new long[]{0x000000050A000000L,0x0000000000008820L});
+    public static final BitSet FOLLOW_ID_in_transform814 = new BitSet(new long[]{0x000000050A000000L,0x0000000000011040L});
     public static final BitSet FOLLOW_atom_in_transform816 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_FLOAT_in_transform819 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SCALEREL_in_transform826 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_transform829 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ID_in_transform829 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
     public static final BitSet FOLLOW_arglist_in_transform831 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ROTATE_in_transform837 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_transform840 = new BitSet(new long[]{0x000000050A000000L,0x0000000000008820L});
+    public static final BitSet FOLLOW_ID_in_transform840 = new BitSet(new long[]{0x000000050A000000L,0x0000000000011040L});
     public static final BitSet FOLLOW_atom_in_transform842 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_FLOAT_in_transform845 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ROTATEREL_in_transform852 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_transform855 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ID_in_transform855 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
     public static final BitSet FOLLOW_arglist_in_transform857 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_MOVEMENT_in_animation868 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_ID_in_animation871 = new BitSet(new long[]{0x0000000008000000L});
@@ -5377,7 +5419,7 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_FLOAT_in_animation887 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_FLOAT_in_animation889 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ID_in_assign900 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_EQUAL_in_assign904 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
+    public static final BitSet FOLLOW_EQUAL_in_assign904 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
     public static final BitSet FOLLOW_expr_in_assign906 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_graphicexpr_in_declare934 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_DRAW_in_draw945 = new BitSet(new long[]{0x0000000100000000L});
@@ -5389,107 +5431,110 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_ID_in_stroke980 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_COLOR_in_stroke982 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_INT_in_stroke984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_ite_stmt996 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_expr_in_ite_stmt999 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_THEN_in_ite_stmt1001 = new BitSet(new long[]{0xDFB0084304030400L,0x00000000000040D4L});
+    public static final BitSet FOLLOW_IF_in_ite_stmt996 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_expr_in_ite_stmt999 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_THEN_in_ite_stmt1001 = new BitSet(new long[]{0xBF60109304030400L,0x00000000000081A9L});
     public static final BitSet FOLLOW_block_instructions_in_ite_stmt1004 = new BitSet(new long[]{0x0000000000140000L});
-    public static final BitSet FOLLOW_ELSE_in_ite_stmt1007 = new BitSet(new long[]{0xDFB0084304030400L,0x00000000000040D4L});
+    public static final BitSet FOLLOW_ELSE_in_ite_stmt1007 = new BitSet(new long[]{0xBF60109304030400L,0x00000000000081A9L});
     public static final BitSet FOLLOW_block_instructions_in_ite_stmt1010 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_ENDIF_in_ite_stmt1014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_while_stmt1037 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
+    public static final BitSet FOLLOW_WHILE_in_while_stmt1037 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
     public static final BitSet FOLLOW_expr_in_while_stmt1040 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DO_in_while_stmt1042 = new BitSet(new long[]{0xDFB0084304030400L,0x00000000000040D4L});
+    public static final BitSet FOLLOW_DO_in_while_stmt1042 = new BitSet(new long[]{0xBF60109304030400L,0x00000000000081A9L});
     public static final BitSet FOLLOW_block_instructions_in_while_stmt1045 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_ENDWHILE_in_while_stmt1047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RETURN_in_return_stmt1070 = new BitSet(new long[]{0x000222050A000002L,0x0000000000008820L});
+    public static final BitSet FOLLOW_RETURN_in_return_stmt1070 = new BitSet(new long[]{0x000444050A000002L,0x0000000000011040L});
     public static final BitSet FOLLOW_expr_in_return_stmt1073 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_READ_in_read1092 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_ID_in_read1095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WRITE_in_write1115 = new BitSet(new long[]{0x200222050A000000L,0x0000000000008820L});
+    public static final BitSet FOLLOW_WRITE_in_write1115 = new BitSet(new long[]{0x400444050A000000L,0x0000000000011040L});
     public static final BitSet FOLLOW_expr_in_write1119 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STRING_in_write1123 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_set1143 = new BitSet(new long[]{0x0040000000000010L});
+    public static final BitSet FOLLOW_ID_in_set1143 = new BitSet(new long[]{0x0080000000000010L});
     public static final BitSet FOLLOW_REL_in_set1146 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_ABS_in_set1149 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_set1153 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_arglist_in_set1155 = new BitSet(new long[]{0x0000000000000002L,0x0000000000020000L});
+    public static final BitSet FOLLOW_ID_in_set1153 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_arglist_in_set1155 = new BitSet(new long[]{0x0000000000000002L,0x0000000000040000L});
     public static final BitSet FOLLOW_time_in_set1157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_time1170 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_expr_in_time1172 = new BitSet(new long[]{0x0000000000000000L,0x0000000000042000L});
-    public static final BitSet FOLLOW_77_in_time1175 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_expr_in_time1177 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
-    public static final BitSet FOLLOW_82_in_time1181 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_time1170 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_expr_in_time1172 = new BitSet(new long[]{0x0000000000000000L,0x0000000000084000L});
+    public static final BitSet FOLLOW_78_in_time1175 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_expr_in_time1177 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
+    public static final BitSet FOLLOW_83_in_time1181 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_boolexpr_in_expr1201 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_graphicconst_in_graphicexpr1217 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RECT_in_graphicconst1237 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_graphicconst1240 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ID_in_graphicconst1240 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
     public static final BitSet FOLLOW_arglist_in_graphicconst1242 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CIRCLE_in_graphicconst1249 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_graphicconst1252 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ID_in_graphicconst1252 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
     public static final BitSet FOLLOW_arglist_in_graphicconst1254 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_TEXT_in_graphicconst1261 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_graphicconst1264 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ID_in_graphicconst1264 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
     public static final BitSet FOLLOW_arglist_in_graphicconst1266 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ELLIPSE_in_graphicconst1273 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ID_in_graphicconst1276 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_ID_in_graphicconst1276 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
     public static final BitSet FOLLOW_arglist_in_graphicconst1278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_boolterm_in_boolexpr1301 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_OR_in_boolexpr1304 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_boolterm_in_boolexpr1307 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_boolfact_in_boolterm1327 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_AND_in_boolterm1330 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_boolfact_in_boolterm1333 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_num_expr_in_boolfact1353 = new BitSet(new long[]{0x00004088C0400002L});
-    public static final BitSet FOLLOW_EQ_in_boolfact1357 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_boolfact1362 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_LT_in_boolfact1367 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_LE_in_boolfact1372 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_GT_in_boolfact1377 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_GE_in_boolfact1382 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_num_expr_in_boolfact1386 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_term_in_num_expr1406 = new BitSet(new long[]{0x0002020000000002L});
-    public static final BitSet FOLLOW_PLUS_in_num_expr1411 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_MINUS_in_num_expr1416 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_term_in_num_expr1420 = new BitSet(new long[]{0x0002020000000002L});
-    public static final BitSet FOLLOW_factor_in_term1444 = new BitSet(new long[]{0x0000140000004002L});
-    public static final BitSet FOLLOW_MUL_in_term1449 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_DIV_in_term1454 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_MOD_in_term1459 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_factor_in_term1463 = new BitSet(new long[]{0x0000140000004002L});
-    public static final BitSet FOLLOW_NOT_in_factor1486 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_PLUS_in_factor1491 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_MINUS_in_factor1496 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_factor_in_factor1500 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_atom_in_factor1514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_atom1539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOAT_in_atom1545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_atom1551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_array_in_atom1557 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayacc_in_atom1563 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRUE_in_atom1580 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FALSE_in_atom1586 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_funcall_in_atom1609 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_atom1623 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_boolexpr_in_atom1626 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_76_in_atom1628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_array1647 = new BitSet(new long[]{0x000000050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_atom_in_array1649 = new BitSet(new long[]{0x0000000000000000L,0x0000000000012000L});
-    public static final BitSet FOLLOW_77_in_array1652 = new BitSet(new long[]{0x000000050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_atom_in_array1654 = new BitSet(new long[]{0x0000000000000000L,0x0000000000012000L});
-    public static final BitSet FOLLOW_80_in_array1658 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_arrayacc1677 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_79_in_arrayacc1679 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_INT_in_arrayacc1681 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_80_in_arrayacc1683 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_funcall1696 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_75_in_funcall1698 = new BitSet(new long[]{0x000222050A000000L,0x0000000000009820L});
-    public static final BitSet FOLLOW_expr_list_in_funcall1700 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_76_in_funcall1703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_arglist1736 = new BitSet(new long[]{0x000222050A000000L,0x0000000000009820L});
-    public static final BitSet FOLLOW_expr_list_in_arglist1738 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_76_in_arglist1741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_expr_list1760 = new BitSet(new long[]{0x0000000000000002L,0x0000000000002000L});
-    public static final BitSet FOLLOW_77_in_expr_list1763 = new BitSet(new long[]{0x000222050A000000L,0x0000000000008820L});
-    public static final BitSet FOLLOW_expr_in_expr_list1766 = new BitSet(new long[]{0x0000000000000002L,0x0000000000002000L});
+    public static final BitSet FOLLOW_LINE_in_graphicconst1285 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_ID_in_graphicconst1288 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_arglist_in_graphicconst1290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_boolterm_in_boolexpr1313 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_OR_in_boolexpr1316 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_boolterm_in_boolexpr1319 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_boolfact_in_boolterm1339 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_AND_in_boolterm1342 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_boolfact_in_boolterm1345 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_num_expr_in_boolfact1365 = new BitSet(new long[]{0x00008108C0400002L});
+    public static final BitSet FOLLOW_EQ_in_boolfact1369 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_boolfact1374 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_LT_in_boolfact1379 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_LE_in_boolfact1384 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_GT_in_boolfact1389 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_GE_in_boolfact1394 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_num_expr_in_boolfact1398 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_term_in_num_expr1418 = new BitSet(new long[]{0x0004040000000002L});
+    public static final BitSet FOLLOW_PLUS_in_num_expr1423 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_MINUS_in_num_expr1428 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_term_in_num_expr1432 = new BitSet(new long[]{0x0004040000000002L});
+    public static final BitSet FOLLOW_factor_in_term1456 = new BitSet(new long[]{0x0000280000004002L});
+    public static final BitSet FOLLOW_MUL_in_term1461 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_DIV_in_term1466 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_MOD_in_term1471 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_factor_in_term1475 = new BitSet(new long[]{0x0000280000004002L});
+    public static final BitSet FOLLOW_NOT_in_factor1498 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_PLUS_in_factor1503 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_MINUS_in_factor1508 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_factor_in_factor1512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_atom_in_factor1526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_atom1551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOAT_in_atom1557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_atom1563 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_array_in_atom1569 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayacc_in_atom1575 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRUE_in_atom1592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FALSE_in_atom1598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_funcall_in_atom1621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_atom1635 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_boolexpr_in_atom1638 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_77_in_atom1640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_array1659 = new BitSet(new long[]{0x000000050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_atom_in_array1661 = new BitSet(new long[]{0x0000000000000000L,0x0000000000024000L});
+    public static final BitSet FOLLOW_78_in_array1664 = new BitSet(new long[]{0x000000050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_atom_in_array1666 = new BitSet(new long[]{0x0000000000000000L,0x0000000000024000L});
+    public static final BitSet FOLLOW_81_in_array1670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_arrayacc1689 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_80_in_arrayacc1691 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_INT_in_arrayacc1693 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_81_in_arrayacc1695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_funcall1708 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_76_in_funcall1710 = new BitSet(new long[]{0x000444050A000000L,0x0000000000013040L});
+    public static final BitSet FOLLOW_expr_list_in_funcall1712 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_77_in_funcall1715 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_arglist1748 = new BitSet(new long[]{0x000444050A000000L,0x0000000000013040L});
+    public static final BitSet FOLLOW_expr_list_in_arglist1750 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_77_in_arglist1753 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_expr_list1772 = new BitSet(new long[]{0x0000000000000002L,0x0000000000004000L});
+    public static final BitSet FOLLOW_78_in_expr_list1775 = new BitSet(new long[]{0x000444050A000000L,0x0000000000011040L});
+    public static final BitSet FOLLOW_expr_in_expr_list1778 = new BitSet(new long[]{0x0000000000000002L,0x0000000000004000L});
 
 }

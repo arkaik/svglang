@@ -182,6 +182,7 @@ graphicconst:   RECT^ ID arglist
 		|		CIRCLE^ ID arglist
 		|		TEXT^ ID arglist
 		|		ELLIPSE^ ID arglist
+		|		LINE^ ID arglist
         ;
 
 // Grammar for expressions with boolean, relational and aritmetic operators
@@ -271,6 +272,7 @@ WRITE	: 'write' ;
 RECT    : 'Rectangle';
 CIRCLE  : 'Circle';
 ELLIPSE	: 'Ellipse';
+LINE	: 'Line';
 TEXT	: 'Text';
 
 TRANS	: 'Trans';
