@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-05-02 08:34:33
+// $ANTLR 3.4 /home/hamele/UPC/CL/svglang/src/parser/Asl.g 2016-05-02 09:58:06
 
 package parser;
 
@@ -104,15 +104,15 @@ public class AslLexer extends Lexer {
     public AslLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
     }
-    public String getGrammarFileName() { return "/home/falc/FIB/cl/svglang/src/parser/Asl.g"; }
+    public String getGrammarFileName() { return "/home/hamele/UPC/CL/svglang/src/parser/Asl.g"; }
 
     // $ANTLR start "T__73"
     public final void mT__73() throws RecognitionException {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:6:7: ( '$SHOW' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:6:9: '$SHOW'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:6:7: ( '$SHOW' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:6:9: '$SHOW'
             {
             match("$SHOW"); 
 
@@ -134,8 +134,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:7:7: ( '&' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:7:9: '&'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:7:7: ( '&' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:7:9: '&'
             {
             match('&'); 
 
@@ -155,8 +155,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:8:7: ( '(' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:8:9: '('
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:8:7: ( '(' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:8:9: '('
             {
             match('('); 
 
@@ -176,8 +176,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:9:7: ( ')' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:9:9: ')'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:9:7: ( ')' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:9:9: ')'
             {
             match(')'); 
 
@@ -197,8 +197,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:10:7: ( ',' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:10:9: ','
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:10:7: ( ',' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:10:9: ','
             {
             match(','); 
 
@@ -218,8 +218,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:11:7: ( ';' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:11:9: ';'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:11:7: ( ';' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:11:9: ';'
             {
             match(';'); 
 
@@ -239,8 +239,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:12:7: ( '[' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:12:9: '['
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:12:7: ( '[' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:12:9: '['
             {
             match('['); 
 
@@ -260,8 +260,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:13:7: ( ']' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:13:9: ']'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:13:7: ( ']' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:13:9: ']'
             {
             match(']'); 
 
@@ -281,8 +281,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:14:7: ( '{' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:14:9: '{'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:14:7: ( '{' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:14:9: '{'
             {
             match('{'); 
 
@@ -302,8 +302,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:15:7: ( '}' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:15:9: '}'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:15:7: ( '}' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:15:9: '}'
             {
             match('}'); 
 
@@ -323,8 +323,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:239:7: ( '=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:239:9: '='
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:239:7: ( '=' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:239:9: '='
             {
             match('='); 
 
@@ -344,8 +344,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = EQ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:240:5: ( '==' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:240:7: '=='
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:240:5: ( '==' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:240:7: '=='
             {
             match("=="); 
 
@@ -367,8 +367,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = NOT_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:241:10: ( '!=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:241:12: '!='
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:241:10: ( '!=' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:241:12: '!='
             {
             match("!="); 
 
@@ -390,8 +390,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:242:8: ( '<' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:242:10: '<'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:242:8: ( '<' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:242:10: '<'
             {
             match('<'); 
 
@@ -411,8 +411,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:243:8: ( '<=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:243:10: '<='
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:243:8: ( '<=' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:243:10: '<='
             {
             match("<="); 
 
@@ -434,8 +434,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = GT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:244:8: ( '>' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:244:10: '>'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:244:8: ( '>' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:244:10: '>'
             {
             match('>'); 
 
@@ -455,8 +455,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = GE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:245:8: ( '>=' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:245:10: '>='
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:245:8: ( '>=' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:245:10: '>='
             {
             match(">="); 
 
@@ -478,8 +478,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:246:6: ( '+' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:246:8: '+'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:246:6: ( '+' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:246:8: '+'
             {
             match('+'); 
 
@@ -499,8 +499,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:247:7: ( '-' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:247:9: '-'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:247:7: ( '-' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:247:9: '-'
             {
             match('-'); 
 
@@ -520,8 +520,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MUL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:248:9: ( '*' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:248:11: '*'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:248:9: ( '*' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:248:11: '*'
             {
             match('*'); 
 
@@ -541,8 +541,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:249:9: ( '/' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:249:11: '/'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:249:9: ( '/' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:249:11: '/'
             {
             match('/'); 
 
@@ -562,8 +562,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:250:9: ( '%' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:250:11: '%'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:250:9: ( '%' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:250:11: '%'
             {
             match('%'); 
 
@@ -583,8 +583,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = REL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:252:6: ( '@' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:252:8: '@'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:252:6: ( '@' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:252:8: '@'
             {
             match('@'); 
 
@@ -604,8 +604,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ABS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:253:6: ( '#' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:253:8: '#'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:253:6: ( '#' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:253:8: '#'
             {
             match('#'); 
 
@@ -625,8 +625,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:255:9: ( 'not' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:255:11: 'not'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:255:9: ( 'not' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:255:11: 'not'
             {
             match("not"); 
 
@@ -648,8 +648,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:256:9: ( 'and' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:256:11: 'and'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:256:9: ( 'and' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:256:11: 'and'
             {
             match("and"); 
 
@@ -671,8 +671,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:257:8: ( 'or' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:257:10: 'or'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:257:8: ( 'or' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:257:10: 'or'
             {
             match("or"); 
 
@@ -694,8 +694,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:258:6: ( 'if' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:258:8: 'if'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:258:6: ( 'if' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:258:8: 'if'
             {
             match("if"); 
 
@@ -717,8 +717,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = THEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:259:6: ( 'then' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:259:8: 'then'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:259:6: ( 'then' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:259:8: 'then'
             {
             match("then"); 
 
@@ -740,8 +740,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:260:6: ( 'else' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:260:8: 'else'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:260:6: ( 'else' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:260:8: 'else'
             {
             match("else"); 
 
@@ -763,8 +763,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDIF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:261:7: ( 'endif' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:261:9: 'endif'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:261:7: ( 'endif' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:261:9: 'endif'
             {
             match("endif"); 
 
@@ -786,8 +786,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:262:7: ( 'while' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:262:9: 'while'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:262:7: ( 'while' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:262:9: 'while'
             {
             match("while"); 
 
@@ -809,8 +809,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:263:8: ( 'do' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:263:10: 'do'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:263:8: ( 'do' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:263:10: 'do'
             {
             match("do"); 
 
@@ -832,8 +832,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDWHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:264:9: ( 'endwhile' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:264:11: 'endwhile'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:264:9: ( 'endwhile' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:264:11: 'endwhile'
             {
             match("endwhile"); 
 
@@ -855,8 +855,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FUNC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:265:6: ( 'func' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:265:8: 'func'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:265:6: ( 'func' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:265:8: 'func'
             {
             match("func"); 
 
@@ -878,8 +878,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ENDFUNC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:266:9: ( 'endfunc' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:266:11: 'endfunc'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:266:9: ( 'endfunc' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:266:11: 'endfunc'
             {
             match("endfunc"); 
 
@@ -901,8 +901,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = RETURN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:267:8: ( 'return' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:267:10: 'return'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:267:8: ( 'return' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:267:10: 'return'
             {
             match("return"); 
 
@@ -924,8 +924,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = READ;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:268:6: ( 'read' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:268:8: 'read'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:268:6: ( 'read' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:268:8: 'read'
             {
             match("read"); 
 
@@ -947,8 +947,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WRITE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:269:7: ( 'write' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:269:9: 'write'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:269:7: ( 'write' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:269:9: 'write'
             {
             match("write"); 
 
@@ -970,8 +970,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = RECT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:271:9: ( 'Rectangle' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:271:11: 'Rectangle'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:271:9: ( 'Rectangle' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:271:11: 'Rectangle'
             {
             match("Rectangle"); 
 
@@ -993,8 +993,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = CIRCLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:272:9: ( 'Circle' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:272:11: 'Circle'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:272:9: ( 'Circle' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:272:11: 'Circle'
             {
             match("Circle"); 
 
@@ -1016,8 +1016,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ELLIPSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:273:9: ( 'Ellipse' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:273:11: 'Ellipse'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:273:9: ( 'Ellipse' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:273:11: 'Ellipse'
             {
             match("Ellipse"); 
 
@@ -1039,8 +1039,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:274:6: ( 'Text' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:274:8: 'Text'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:274:6: ( 'Text' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:274:8: 'Text'
             {
             match("Text"); 
 
@@ -1062,8 +1062,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TRANS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:276:7: ( 'Trans' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:276:9: 'Trans'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:276:7: ( 'Trans' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:276:9: 'Trans'
             {
             match("Trans"); 
 
@@ -1085,8 +1085,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TRANSREL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:277:10: ( 'TransRel' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:277:12: 'TransRel'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:277:10: ( 'TransRel' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:277:12: 'TransRel'
             {
             match("TransRel"); 
 
@@ -1108,8 +1108,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = SCALE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:278:7: ( 'Scale' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:278:9: 'Scale'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:278:7: ( 'Scale' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:278:9: 'Scale'
             {
             match("Scale"); 
 
@@ -1131,8 +1131,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = SCALEREL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:279:10: ( 'ScaleRel' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:279:12: 'ScaleRel'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:279:10: ( 'ScaleRel' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:279:12: 'ScaleRel'
             {
             match("ScaleRel"); 
 
@@ -1154,8 +1154,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ROTATE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:280:8: ( 'Rotate' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:280:10: 'Rotate'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:280:8: ( 'Rotate' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:280:10: 'Rotate'
             {
             match("Rotate"); 
 
@@ -1177,8 +1177,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ROTATEREL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:281:11: ( 'RotateRel' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:281:13: 'RotateRel'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:281:11: ( 'RotateRel' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:281:13: 'RotateRel'
             {
             match("RotateRel"); 
 
@@ -1200,8 +1200,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = MOVEMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:283:10: ( 'Movement' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:283:12: 'Movement'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:283:10: ( 'Movement' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:283:12: 'Movement'
             {
             match("Movement"); 
 
@@ -1223,8 +1223,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ROTATION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:284:10: ( 'Rotation' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:284:12: 'Rotation'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:284:10: ( 'Rotation' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:284:12: 'Rotation'
             {
             match("Rotation"); 
 
@@ -1246,8 +1246,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = LOOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:286:6: ( 'Loop' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:286:8: 'Loop'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:286:6: ( 'Loop' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:286:8: 'Loop'
             {
             match("Loop"); 
 
@@ -1269,8 +1269,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FILL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:287:6: ( 'Fill' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:287:8: 'Fill'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:287:6: ( 'Fill' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:287:8: 'Fill'
             {
             match("Fill"); 
 
@@ -1292,8 +1292,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = STROKE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:288:8: ( 'Stroke' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:288:10: 'Stroke'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:288:8: ( 'Stroke' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:288:10: 'Stroke'
             {
             match("Stroke"); 
 
@@ -1315,8 +1315,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = DRAW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:289:6: ( 'Draw' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:289:8: 'Draw'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:289:6: ( 'Draw' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:289:8: 'Draw'
             {
             match("Draw"); 
 
@@ -1338,8 +1338,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:291:9: ( 'true' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:291:11: 'true'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:291:9: ( 'true' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:291:11: 'true'
             {
             match("true"); 
 
@@ -1361,8 +1361,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:292:9: ( 'false' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:292:11: 'false'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:292:9: ( 'false' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:292:11: 'false'
             {
             match("false"); 
 
@@ -1384,12 +1384,12 @@ public class AslLexer extends Lexer {
         try {
             int _type = COLOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:7: ( '#' ( 'a' .. 'f' | '0' .. '9' )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:9: '#' ( 'a' .. 'f' | '0' .. '9' )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:294:7: ( '#' ( 'a' .. 'f' | '0' .. '9' )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:294:9: '#' ( 'a' .. 'f' | '0' .. '9' )*
             {
             match('#'); 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:294:13: ( 'a' .. 'f' | '0' .. '9' )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:294:13: ( 'a' .. 'f' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -1402,7 +1402,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
             	        input.consume();
@@ -1439,8 +1439,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:296:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:296:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:296:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:296:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1452,7 +1452,7 @@ public class AslLexer extends Lexer {
             }
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:296:32: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:296:32: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop2:
             do {
                 int alt2=2;
@@ -1465,7 +1465,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
@@ -1502,10 +1502,10 @@ public class AslLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:297:6: ( ( '0' .. '9' )+ )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:297:8: ( '0' .. '9' )+
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:297:6: ( ( '0' .. '9' )+ )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:297:8: ( '0' .. '9' )+
             {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:297:8: ( '0' .. '9' )+
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:297:8: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1519,7 +1519,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -1560,10 +1560,10 @@ public class AslLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:9: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:298:9: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:298:13: ( '0' .. '9' )+ '.' ( '0' .. '9' )*
             {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:13: ( '0' .. '9' )+
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:298:13: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1577,7 +1577,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -1604,7 +1604,7 @@ public class AslLexer extends Lexer {
 
             match('.'); 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:298:27: ( '0' .. '9' )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:298:27: ( '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -1617,7 +1617,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -1654,7 +1654,7 @@ public class AslLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:302:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1684,13 +1684,13 @@ public class AslLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:11: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:302:11: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     {
                     match("//"); 
 
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:16: (~ ( '\\n' | '\\r' ) )*
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:302:16: (~ ( '\\n' | '\\r' ) )*
                     loop6:
                     do {
                         int alt6=2;
@@ -1703,7 +1703,7 @@ public class AslLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
+                    	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:
                     	    {
                     	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) {
                     	        input.consume();
@@ -1724,7 +1724,7 @@ public class AslLexer extends Lexer {
                     } while (true);
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:30: ( '\\r' )?
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:302:30: ( '\\r' )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -1733,7 +1733,7 @@ public class AslLexer extends Lexer {
                     }
                     switch (alt7) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:302:30: '\\r'
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:302:30: '\\r'
                             {
                             match('\r'); 
 
@@ -1750,13 +1750,13 @@ public class AslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:8: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:303:8: '/*' ( options {greedy=false; } : . )* '*/'
                     {
                     match("/*"); 
 
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:13: ( options {greedy=false; } : . )*
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:303:13: ( options {greedy=false; } : . )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1781,7 +1781,7 @@ public class AslLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:303:41: .
+                    	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:303:41: .
                     	    {
                     	    matchAny(); 
 
@@ -1818,12 +1818,12 @@ public class AslLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:9: ( '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:12: '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:307:9: ( '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:307:12: '\"' ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
             {
             match('\"'); 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:16: ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:307:16: ( '\\\\' ESC_SEQ |~ ( '\\\\' | '\"' ) )*
             loop10:
             do {
                 int alt10=3;
@@ -1839,7 +1839,7 @@ public class AslLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:17: '\\\\' ESC_SEQ
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:307:17: '\\\\' ESC_SEQ
             	    {
             	    match('\\'); 
 
@@ -1849,7 +1849,7 @@ public class AslLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:307:32: ~ ( '\\\\' | '\"' )
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:307:32: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -1886,8 +1886,8 @@ public class AslLexer extends Lexer {
     // $ANTLR start "ESC_SEQ"
     public final void mESC_SEQ() throws RecognitionException {
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:313:5: ( ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:313:5: ( ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:
             {
             if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
                 input.consume();
@@ -1914,8 +1914,8 @@ public class AslLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:316:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:316:8: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:316:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:316:8: ( ' ' | '\\t' | '\\r' | '\\n' )
             {
             if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1941,12 +1941,12 @@ public class AslLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:8: ( T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | EQUAL | EQ | NOT_EQUAL | LT | LE | GT | GE | PLUS | MINUS | MUL | DIV | MOD | REL | ABS | NOT | AND | OR | IF | THEN | ELSE | ENDIF | WHILE | DO | ENDWHILE | FUNC | ENDFUNC | RETURN | READ | WRITE | RECT | CIRCLE | ELLIPSE | TEXT | TRANS | TRANSREL | SCALE | SCALEREL | ROTATE | ROTATEREL | MOVEMENT | ROTATION | LOOP | FILL | STROKE | DRAW | TRUE | FALSE | COLOR | ID | INT | FLOAT | COMMENT | STRING | WS )
+        // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:8: ( T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | EQUAL | EQ | NOT_EQUAL | LT | LE | GT | GE | PLUS | MINUS | MUL | DIV | MOD | REL | ABS | NOT | AND | OR | IF | THEN | ELSE | ENDIF | WHILE | DO | ENDWHILE | FUNC | ENDFUNC | RETURN | READ | WRITE | RECT | CIRCLE | ELLIPSE | TEXT | TRANS | TRANSREL | SCALE | SCALEREL | ROTATE | ROTATEREL | MOVEMENT | ROTATION | LOOP | FILL | STROKE | DRAW | TRUE | FALSE | COLOR | ID | INT | FLOAT | COMMENT | STRING | WS )
         int alt11=64;
         alt11 = dfa11.predict(input);
         switch (alt11) {
             case 1 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:10: T__73
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:10: T__73
                 {
                 mT__73(); 
 
@@ -1954,7 +1954,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 2 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:16: T__74
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:16: T__74
                 {
                 mT__74(); 
 
@@ -1962,7 +1962,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 3 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:22: T__75
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:22: T__75
                 {
                 mT__75(); 
 
@@ -1970,7 +1970,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 4 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:28: T__76
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:28: T__76
                 {
                 mT__76(); 
 
@@ -1978,7 +1978,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 5 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:34: T__77
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:34: T__77
                 {
                 mT__77(); 
 
@@ -1986,7 +1986,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 6 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:40: T__78
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:40: T__78
                 {
                 mT__78(); 
 
@@ -1994,7 +1994,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 7 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:46: T__79
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:46: T__79
                 {
                 mT__79(); 
 
@@ -2002,7 +2002,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 8 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:52: T__80
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:52: T__80
                 {
                 mT__80(); 
 
@@ -2010,7 +2010,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:58: T__81
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:58: T__81
                 {
                 mT__81(); 
 
@@ -2018,7 +2018,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 10 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:64: T__82
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:64: T__82
                 {
                 mT__82(); 
 
@@ -2026,7 +2026,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 11 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:70: EQUAL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:70: EQUAL
                 {
                 mEQUAL(); 
 
@@ -2034,7 +2034,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:76: EQ
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:76: EQ
                 {
                 mEQ(); 
 
@@ -2042,7 +2042,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 13 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:79: NOT_EQUAL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:79: NOT_EQUAL
                 {
                 mNOT_EQUAL(); 
 
@@ -2050,7 +2050,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 14 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:89: LT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:89: LT
                 {
                 mLT(); 
 
@@ -2058,7 +2058,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 15 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:92: LE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:92: LE
                 {
                 mLE(); 
 
@@ -2066,7 +2066,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 16 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:95: GT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:95: GT
                 {
                 mGT(); 
 
@@ -2074,7 +2074,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 17 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:98: GE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:98: GE
                 {
                 mGE(); 
 
@@ -2082,7 +2082,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 18 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:101: PLUS
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:101: PLUS
                 {
                 mPLUS(); 
 
@@ -2090,7 +2090,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 19 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:106: MINUS
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:106: MINUS
                 {
                 mMINUS(); 
 
@@ -2098,7 +2098,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 20 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:112: MUL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:112: MUL
                 {
                 mMUL(); 
 
@@ -2106,7 +2106,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 21 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:116: DIV
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:116: DIV
                 {
                 mDIV(); 
 
@@ -2114,7 +2114,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 22 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:120: MOD
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:120: MOD
                 {
                 mMOD(); 
 
@@ -2122,7 +2122,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 23 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:124: REL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:124: REL
                 {
                 mREL(); 
 
@@ -2130,7 +2130,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 24 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:128: ABS
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:128: ABS
                 {
                 mABS(); 
 
@@ -2138,7 +2138,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 25 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:132: NOT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:132: NOT
                 {
                 mNOT(); 
 
@@ -2146,7 +2146,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 26 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:136: AND
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:136: AND
                 {
                 mAND(); 
 
@@ -2154,7 +2154,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 27 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:140: OR
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:140: OR
                 {
                 mOR(); 
 
@@ -2162,7 +2162,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 28 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:143: IF
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:143: IF
                 {
                 mIF(); 
 
@@ -2170,7 +2170,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:146: THEN
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:146: THEN
                 {
                 mTHEN(); 
 
@@ -2178,7 +2178,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 30 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:151: ELSE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:151: ELSE
                 {
                 mELSE(); 
 
@@ -2186,7 +2186,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 31 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:156: ENDIF
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:156: ENDIF
                 {
                 mENDIF(); 
 
@@ -2194,7 +2194,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 32 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:162: WHILE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:162: WHILE
                 {
                 mWHILE(); 
 
@@ -2202,7 +2202,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 33 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:168: DO
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:168: DO
                 {
                 mDO(); 
 
@@ -2210,7 +2210,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 34 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:171: ENDWHILE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:171: ENDWHILE
                 {
                 mENDWHILE(); 
 
@@ -2218,7 +2218,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 35 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:180: FUNC
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:180: FUNC
                 {
                 mFUNC(); 
 
@@ -2226,7 +2226,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 36 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:185: ENDFUNC
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:185: ENDFUNC
                 {
                 mENDFUNC(); 
 
@@ -2234,7 +2234,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 37 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:193: RETURN
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:193: RETURN
                 {
                 mRETURN(); 
 
@@ -2242,7 +2242,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 38 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:200: READ
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:200: READ
                 {
                 mREAD(); 
 
@@ -2250,7 +2250,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 39 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:205: WRITE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:205: WRITE
                 {
                 mWRITE(); 
 
@@ -2258,7 +2258,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 40 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:211: RECT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:211: RECT
                 {
                 mRECT(); 
 
@@ -2266,7 +2266,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 41 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:216: CIRCLE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:216: CIRCLE
                 {
                 mCIRCLE(); 
 
@@ -2274,7 +2274,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 42 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:223: ELLIPSE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:223: ELLIPSE
                 {
                 mELLIPSE(); 
 
@@ -2282,7 +2282,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 43 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:231: TEXT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:231: TEXT
                 {
                 mTEXT(); 
 
@@ -2290,7 +2290,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 44 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:236: TRANS
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:236: TRANS
                 {
                 mTRANS(); 
 
@@ -2298,7 +2298,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 45 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:242: TRANSREL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:242: TRANSREL
                 {
                 mTRANSREL(); 
 
@@ -2306,7 +2306,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 46 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:251: SCALE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:251: SCALE
                 {
                 mSCALE(); 
 
@@ -2314,7 +2314,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 47 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:257: SCALEREL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:257: SCALEREL
                 {
                 mSCALEREL(); 
 
@@ -2322,7 +2322,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 48 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:266: ROTATE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:266: ROTATE
                 {
                 mROTATE(); 
 
@@ -2330,7 +2330,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 49 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:273: ROTATEREL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:273: ROTATEREL
                 {
                 mROTATEREL(); 
 
@@ -2338,7 +2338,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 50 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:283: MOVEMENT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:283: MOVEMENT
                 {
                 mMOVEMENT(); 
 
@@ -2346,7 +2346,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 51 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:292: ROTATION
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:292: ROTATION
                 {
                 mROTATION(); 
 
@@ -2354,7 +2354,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 52 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:301: LOOP
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:301: LOOP
                 {
                 mLOOP(); 
 
@@ -2362,7 +2362,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 53 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:306: FILL
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:306: FILL
                 {
                 mFILL(); 
 
@@ -2370,7 +2370,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 54 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:311: STROKE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:311: STROKE
                 {
                 mSTROKE(); 
 
@@ -2378,7 +2378,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 55 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:318: DRAW
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:318: DRAW
                 {
                 mDRAW(); 
 
@@ -2386,7 +2386,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 56 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:323: TRUE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:323: TRUE
                 {
                 mTRUE(); 
 
@@ -2394,7 +2394,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 57 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:328: FALSE
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:328: FALSE
                 {
                 mFALSE(); 
 
@@ -2402,7 +2402,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 58 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:334: COLOR
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:334: COLOR
                 {
                 mCOLOR(); 
 
@@ -2410,7 +2410,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 59 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:340: ID
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:340: ID
                 {
                 mID(); 
 
@@ -2418,7 +2418,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 60 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:343: INT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:343: INT
                 {
                 mINT(); 
 
@@ -2426,7 +2426,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 61 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:347: FLOAT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:347: FLOAT
                 {
                 mFLOAT(); 
 
@@ -2434,7 +2434,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 62 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:353: COMMENT
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:353: COMMENT
                 {
                 mCOMMENT(); 
 
@@ -2442,7 +2442,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 63 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:361: STRING
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:361: STRING
                 {
                 mSTRING(); 
 
@@ -2450,7 +2450,7 @@ public class AslLexer extends Lexer {
                 }
                 break;
             case 64 :
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:1:368: WS
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:1:368: WS
                 {
                 mWS(); 
 

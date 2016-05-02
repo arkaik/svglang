@@ -54,6 +54,8 @@ INTERP_SRC =	$(INTERP)/Interp.java \
 DATATYPE_SRC =	$(DATATYPE)/SvglangBoolean.java \
 				$(DATATYPE)/SvglangInteger.java \
 				$(DATATYPE)/SvglangFloat.java \
+				$(DATATYPE)/SvglangObject.java \
+				$(DATATYPE)/SvglangRectangle.java \
 				$(DATATYPE)/SvglangVoid.java
 
 ALL_SRC =		$(MAIN_SRC) $(PARSER_SRC) $(INTERP_SRC) $(DATATYPE_SRC)

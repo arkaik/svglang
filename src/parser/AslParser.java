@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/falc/FIB/cl/svglang/src/parser/Asl.g 2016-05-02 08:34:32
+// $ANTLR 3.4 /home/hamele/UPC/CL/svglang/src/parser/Asl.g 2016-05-02 09:58:06
 
 package parser;
 import interp.AslTree;
@@ -149,7 +149,7 @@ public TreeAdaptor getTreeAdaptor() {
     return adaptor;
 }
     public String[] getTokenNames() { return AslParser.tokenNames; }
-    public String getGrammarFileName() { return "/home/falc/FIB/cl/svglang/src/parser/Asl.g"; }
+    public String getGrammarFileName() { return "/home/hamele/UPC/CL/svglang/src/parser/Asl.g"; }
 
 
     public static class prog_return extends ParserRuleReturnScope {
@@ -159,7 +159,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "prog"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:65:1: prog : ( func )+ EOF -> ^( LIST_FUNCTIONS ( func )+ ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:65:1: prog : ( func )+ EOF -> ^( LIST_FUNCTIONS ( func )+ ) ;
     public final AslParser.prog_return prog() throws RecognitionException {
         AslParser.prog_return retval = new AslParser.prog_return();
         retval.start = input.LT(1);
@@ -175,10 +175,10 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_EOF=new RewriteRuleTokenStream(adaptor,"token EOF");
         RewriteRuleSubtreeStream stream_func=new RewriteRuleSubtreeStream(adaptor,"rule func");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:65:6: ( ( func )+ EOF -> ^( LIST_FUNCTIONS ( func )+ ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:65:8: ( func )+ EOF
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:65:6: ( ( func )+ EOF -> ^( LIST_FUNCTIONS ( func )+ ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:65:8: ( func )+ EOF
             {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:65:8: ( func )+
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:65:8: ( func )+
             int cnt1=0;
             loop1:
             do {
@@ -192,7 +192,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt1) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:65:8: func
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:65:8: func
             	    {
             	    pushFollow(FOLLOW_func_in_prog210);
             	    func1=func();
@@ -231,7 +231,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 65:18: -> ^( LIST_FUNCTIONS ( func )+ )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:65:21: ^( LIST_FUNCTIONS ( func )+ )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:65:21: ^( LIST_FUNCTIONS ( func )+ )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -286,7 +286,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "func"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:69:1: func : ( FUNC ^ ID params block_instructions ENDFUNC !| macro -> ^( MACRO macro ) );
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:69:1: func : ( FUNC ^ ID params block_instructions ENDFUNC !| macro -> ^( MACRO macro ) );
     public final AslParser.func_return func() throws RecognitionException {
         AslParser.func_return retval = new AslParser.func_return();
         retval.start = input.LT(1);
@@ -309,7 +309,7 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ENDFUNC7_tree=null;
         RewriteRuleSubtreeStream stream_macro=new RewriteRuleSubtreeStream(adaptor,"rule macro");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:69:6: ( FUNC ^ ID params block_instructions ENDFUNC !| macro -> ^( MACRO macro ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:69:6: ( FUNC ^ ID params block_instructions ENDFUNC !| macro -> ^( MACRO macro ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -328,7 +328,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt2) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:69:8: FUNC ^ ID params block_instructions ENDFUNC !
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:69:8: FUNC ^ ID params block_instructions ENDFUNC !
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -366,7 +366,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:70:7: macro
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:70:7: macro
                     {
                     pushFollow(FOLLOW_macro_in_func258);
                     macro8=macro();
@@ -388,7 +388,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (AslTree)adaptor.nil();
                     // 70:14: -> ^( MACRO macro )
                     {
-                        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:70:17: ^( MACRO macro )
+                        // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:70:17: ^( MACRO macro )
                         {
                         AslTree root_1 = (AslTree)adaptor.nil();
                         root_1 = (AslTree)adaptor.becomeRoot(
@@ -438,7 +438,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "params"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:1: params : '(' ( paramlist )? ')' -> ^( PARAMS ( paramlist )? ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:74:1: params : '(' ( paramlist )? ')' -> ^( PARAMS ( paramlist )? ) ;
     public final AslParser.params_return params() throws RecognitionException {
         AslParser.params_return retval = new AslParser.params_return();
         retval.start = input.LT(1);
@@ -457,14 +457,14 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_76=new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_paramlist=new RewriteRuleSubtreeStream(adaptor,"rule paramlist");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:8: ( '(' ( paramlist )? ')' -> ^( PARAMS ( paramlist )? ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:10: '(' ( paramlist )? ')'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:74:8: ( '(' ( paramlist )? ')' -> ^( PARAMS ( paramlist )? ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:74:10: '(' ( paramlist )? ')'
             {
             char_literal9=(Token)match(input,75,FOLLOW_75_in_params286);  
             stream_75.add(char_literal9);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:14: ( paramlist )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:74:14: ( paramlist )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -473,7 +473,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt3) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:14: paramlist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:74:14: paramlist
                     {
                     pushFollow(FOLLOW_paramlist_in_params288);
                     paramlist10=paramlist();
@@ -505,14 +505,14 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 74:29: -> ^( PARAMS ( paramlist )? )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:32: ^( PARAMS ( paramlist )? )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:74:32: ^( PARAMS ( paramlist )? )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
                 (AslTree)adaptor.create(PARAMS, "PARAMS")
                 , root_1);
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:74:41: ( paramlist )?
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:74:41: ( paramlist )?
                 if ( stream_paramlist.hasNext() ) {
                     adaptor.addChild(root_1, stream_paramlist.nextTree());
 
@@ -558,7 +558,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "paramlist"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:78:1: paramlist : param ( ',' ! param )* ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:78:1: paramlist : param ( ',' ! param )* ;
     public final AslParser.paramlist_return paramlist() throws RecognitionException {
         AslParser.paramlist_return retval = new AslParser.paramlist_return();
         retval.start = input.LT(1);
@@ -575,8 +575,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree char_literal13_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:78:10: ( param ( ',' ! param )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:78:12: param ( ',' ! param )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:78:10: ( param ( ',' ! param )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:78:12: param ( ',' ! param )*
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -588,7 +588,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, param12.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:78:18: ( ',' ! param )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:78:18: ( ',' ! param )*
             loop4:
             do {
                 int alt4=2;
@@ -601,7 +601,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt4) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:78:19: ',' ! param
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:78:19: ',' ! param
             	    {
             	    char_literal13=(Token)match(input,77,FOLLOW_77_in_paramlist320); 
 
@@ -652,7 +652,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "param"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:83:1: param : ( '&' id= ID -> ^( PREF[$id,$id.text] ) |id= ID -> ^( PVALUE[$id,$id.text] ) );
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:83:1: param : ( '&' id= ID -> ^( PREF[$id,$id.text] ) |id= ID -> ^( PVALUE[$id,$id.text] ) );
     public final AslParser.param_return param() throws RecognitionException {
         AslParser.param_return retval = new AslParser.param_return();
         retval.start = input.LT(1);
@@ -669,7 +669,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:83:9: ( '&' id= ID -> ^( PREF[$id,$id.text] ) |id= ID -> ^( PVALUE[$id,$id.text] ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:83:9: ( '&' id= ID -> ^( PREF[$id,$id.text] ) |id= ID -> ^( PVALUE[$id,$id.text] ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -688,7 +688,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt5) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:83:13: '&' id= ID
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:83:13: '&' id= ID
                     {
                     char_literal15=(Token)match(input,74,FOLLOW_74_in_param348);  
                     stream_74.add(char_literal15);
@@ -711,7 +711,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (AslTree)adaptor.nil();
                     // 83:23: -> ^( PREF[$id,$id.text] )
                     {
-                        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:83:26: ^( PREF[$id,$id.text] )
+                        // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:83:26: ^( PREF[$id,$id.text] )
                         {
                         AslTree root_1 = (AslTree)adaptor.nil();
                         root_1 = (AslTree)adaptor.becomeRoot(
@@ -729,7 +729,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:84:13: id= ID
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:84:13: id= ID
                     {
                     id=(Token)match(input,ID,FOLLOW_ID_in_param375);  
                     stream_ID.add(id);
@@ -748,7 +748,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (AslTree)adaptor.nil();
                     // 84:19: -> ^( PVALUE[$id,$id.text] )
                     {
-                        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:84:22: ^( PVALUE[$id,$id.text] )
+                        // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:84:22: ^( PVALUE[$id,$id.text] )
                         {
                         AslTree root_1 = (AslTree)adaptor.nil();
                         root_1 = (AslTree)adaptor.becomeRoot(
@@ -796,7 +796,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "block_instructions"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:88:1: block_instructions : instruction ( ';' instruction )* -> ^( LIST_INSTR ( instruction )+ ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:88:1: block_instructions : instruction ( ';' instruction )* -> ^( LIST_INSTR ( instruction )+ ) ;
     public final AslParser.block_instructions_return block_instructions() throws RecognitionException {
         AslParser.block_instructions_return retval = new AslParser.block_instructions_return();
         retval.start = input.LT(1);
@@ -814,8 +814,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_78=new RewriteRuleTokenStream(adaptor,"token 78");
         RewriteRuleSubtreeStream stream_instruction=new RewriteRuleSubtreeStream(adaptor,"rule instruction");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:89:9: ( instruction ( ';' instruction )* -> ^( LIST_INSTR ( instruction )+ ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:89:12: instruction ( ';' instruction )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:89:9: ( instruction ( ';' instruction )* -> ^( LIST_INSTR ( instruction )+ ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:89:12: instruction ( ';' instruction )*
             {
             pushFollow(FOLLOW_instruction_in_block_instructions409);
             instruction16=instruction();
@@ -824,7 +824,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             stream_instruction.add(instruction16.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:89:24: ( ';' instruction )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:89:24: ( ';' instruction )*
             loop6:
             do {
                 int alt6=2;
@@ -837,7 +837,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt6) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:89:25: ';' instruction
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:89:25: ';' instruction
             	    {
             	    char_literal17=(Token)match(input,78,FOLLOW_78_in_block_instructions412);  
             	    stream_78.add(char_literal17);
@@ -872,7 +872,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 90:13: -> ^( LIST_INSTR ( instruction )+ )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:90:16: ^( LIST_INSTR ( instruction )+ )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:90:16: ^( LIST_INSTR ( instruction )+ )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -927,7 +927,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "instruction"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:94:1: instruction : ( assign | declare | ite_stmt | while_stmt | funcall | return_stmt | read | write | set | draw | fill | stroke | transform -> ^( TRANSFORM transform ) | animation | loop |);
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:94:1: instruction : ( assign | declare | ite_stmt | while_stmt | funcall | return_stmt | read | write | set | draw | fill | stroke | transform -> ^( TRANSFORM transform ) | animation | loop |);
     public final AslParser.instruction_return instruction() throws RecognitionException {
         AslParser.instruction_return retval = new AslParser.instruction_return();
         retval.start = input.LT(1);
@@ -968,7 +968,7 @@ public TreeAdaptor getTreeAdaptor() {
 
         RewriteRuleSubtreeStream stream_transform=new RewriteRuleSubtreeStream(adaptor,"rule transform");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:95:9: ( assign | declare | ite_stmt | while_stmt | funcall | return_stmt | read | write | set | draw | fill | stroke | transform -> ^( TRANSFORM transform ) | animation | loop |)
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:95:9: ( assign | declare | ite_stmt | while_stmt | funcall | return_stmt | read | write | set | draw | fill | stroke | transform -> ^( TRANSFORM transform ) | animation | loop |)
             int alt7=16;
             switch ( input.LA(1) ) {
             case ID:
@@ -1088,7 +1088,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt7) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:95:11: assign
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:95:11: assign
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1103,7 +1103,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:96:11: declare
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:96:11: declare
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1118,7 +1118,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:97:11: ite_stmt
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:97:11: ite_stmt
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1133,7 +1133,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:98:11: while_stmt
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:98:11: while_stmt
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1148,7 +1148,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 5 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:99:13: funcall
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:99:13: funcall
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1163,7 +1163,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 6 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:100:11: return_stmt
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:100:11: return_stmt
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1178,7 +1178,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 7 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:101:11: read
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:101:11: read
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1193,7 +1193,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 8 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:102:12: write
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:102:12: write
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1208,7 +1208,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 9 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:103:11: set
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:103:11: set
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1223,7 +1223,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 10 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:104:11: draw
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:104:11: draw
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1238,7 +1238,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 11 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:105:11: fill
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:105:11: fill
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1253,7 +1253,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 12 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:106:11: stroke
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:106:11: stroke
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1268,7 +1268,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 13 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:107:11: transform
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:107:11: transform
                     {
                     pushFollow(FOLLOW_transform_in_instruction680);
                     transform31=transform();
@@ -1290,7 +1290,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (AslTree)adaptor.nil();
                     // 107:21: -> ^( TRANSFORM transform )
                     {
-                        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:107:24: ^( TRANSFORM transform )
+                        // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:107:24: ^( TRANSFORM transform )
                         {
                         AslTree root_1 = (AslTree)adaptor.nil();
                         root_1 = (AslTree)adaptor.becomeRoot(
@@ -1310,7 +1310,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 14 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:108:11: animation
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:108:11: animation
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1325,7 +1325,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 15 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:109:11: loop
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:109:11: loop
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1340,7 +1340,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 16 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:111:9: 
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:111:9: 
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1378,7 +1378,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "macro"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:113:1: macro : '$SHOW' ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:113:1: macro : '$SHOW' ;
     public final AslParser.macro_return macro() throws RecognitionException {
         AslParser.macro_return retval = new AslParser.macro_return();
         retval.start = input.LT(1);
@@ -1391,8 +1391,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree string_literal34_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:113:7: ( '$SHOW' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:113:9: '$SHOW'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:113:7: ( '$SHOW' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:113:9: '$SHOW'
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -1435,7 +1435,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "loop"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:117:1: loop : LOOP ^ animation ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:117:1: loop : LOOP ^ animation ;
     public final AslParser.loop_return loop() throws RecognitionException {
         AslParser.loop_return retval = new AslParser.loop_return();
         retval.start = input.LT(1);
@@ -1450,8 +1450,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree LOOP35_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:117:6: ( LOOP ^ animation )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:117:8: LOOP ^ animation
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:117:6: ( LOOP ^ animation )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:117:8: LOOP ^ animation
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -1501,7 +1501,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "transform"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:120:1: transform : ( TRANS ^ ID atom ( FLOAT )? | TRANSREL ^ ID arglist | SCALE ^ ID atom ( FLOAT )? | SCALEREL ^ ID arglist | ROTATE ^ ID atom ( FLOAT )? | ROTATEREL ^ ID arglist );
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:120:1: transform : ( TRANS ^ ID atom ( FLOAT )? | TRANSREL ^ ID arglist | SCALE ^ ID atom ( FLOAT )? | SCALEREL ^ ID arglist | ROTATE ^ ID atom ( FLOAT )? | ROTATEREL ^ ID arglist );
     public final AslParser.transform_return transform() throws RecognitionException {
         AslParser.transform_return retval = new AslParser.transform_return();
         retval.start = input.LT(1);
@@ -1554,7 +1554,7 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ID56_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:120:11: ( TRANS ^ ID atom ( FLOAT )? | TRANSREL ^ ID arglist | SCALE ^ ID atom ( FLOAT )? | SCALEREL ^ ID arglist | ROTATE ^ ID atom ( FLOAT )? | ROTATEREL ^ ID arglist )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:120:11: ( TRANS ^ ID atom ( FLOAT )? | TRANSREL ^ ID arglist | SCALE ^ ID atom ( FLOAT )? | SCALEREL ^ ID arglist | ROTATE ^ ID atom ( FLOAT )? | ROTATEREL ^ ID arglist )
             int alt11=6;
             switch ( input.LA(1) ) {
             case TRANS:
@@ -1597,7 +1597,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt11) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:120:13: TRANS ^ ID atom ( FLOAT )?
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:120:13: TRANS ^ ID atom ( FLOAT )?
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1623,7 +1623,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     adaptor.addChild(root_0, atom39.getTree());
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:120:28: ( FLOAT )?
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:120:28: ( FLOAT )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -1632,7 +1632,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     switch (alt8) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:120:29: FLOAT
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:120:29: FLOAT
                             {
                             FLOAT40=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_transform794); 
                             FLOAT40_tree = 
@@ -1650,7 +1650,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:121:4: TRANSREL ^ ID arglist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:121:4: TRANSREL ^ ID arglist
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1679,7 +1679,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:122:4: SCALE ^ ID atom ( FLOAT )?
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:122:4: SCALE ^ ID atom ( FLOAT )?
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1705,7 +1705,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     adaptor.addChild(root_0, atom46.getTree());
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:122:19: ( FLOAT )?
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:122:19: ( FLOAT )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1714,7 +1714,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     switch (alt9) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:122:20: FLOAT
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:122:20: FLOAT
                             {
                             FLOAT47=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_transform819); 
                             FLOAT47_tree = 
@@ -1732,7 +1732,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:123:4: SCALEREL ^ ID arglist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:123:4: SCALEREL ^ ID arglist
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1761,7 +1761,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 5 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:124:4: ROTATE ^ ID atom ( FLOAT )?
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:124:4: ROTATE ^ ID atom ( FLOAT )?
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1787,7 +1787,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     adaptor.addChild(root_0, atom53.getTree());
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:124:20: ( FLOAT )?
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:124:20: ( FLOAT )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -1796,7 +1796,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     switch (alt10) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:124:21: FLOAT
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:124:21: FLOAT
                             {
                             FLOAT54=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_transform845); 
                             FLOAT54_tree = 
@@ -1814,7 +1814,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 6 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:125:4: ROTATEREL ^ ID arglist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:125:4: ROTATEREL ^ ID arglist
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1873,7 +1873,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "animation"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:129:1: animation : ( MOVEMENT ^ ID FLOAT FLOAT FLOAT | ROTATION ^ ID FLOAT FLOAT );
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:129:1: animation : ( MOVEMENT ^ ID FLOAT FLOAT FLOAT | ROTATION ^ ID FLOAT FLOAT );
     public final AslParser.animation_return animation() throws RecognitionException {
         AslParser.animation_return retval = new AslParser.animation_return();
         retval.start = input.LT(1);
@@ -1902,7 +1902,7 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree FLOAT66_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:129:11: ( MOVEMENT ^ ID FLOAT FLOAT FLOAT | ROTATION ^ ID FLOAT FLOAT )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:129:11: ( MOVEMENT ^ ID FLOAT FLOAT FLOAT | ROTATION ^ ID FLOAT FLOAT )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1921,7 +1921,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt12) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:129:13: MOVEMENT ^ ID FLOAT FLOAT FLOAT
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:129:13: MOVEMENT ^ ID FLOAT FLOAT FLOAT
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -1964,7 +1964,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:130:4: ROTATION ^ ID FLOAT FLOAT
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:130:4: ROTATION ^ ID FLOAT FLOAT
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -2030,7 +2030,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "assign"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:134:1: assign : ID eq= EQUAL expr -> ^( ASSIGN[$eq,\":=\"] ID expr ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:134:1: assign : ID eq= EQUAL expr -> ^( ASSIGN[$eq,\":=\"] ID expr ) ;
     public final AslParser.assign_return assign() throws RecognitionException {
         AslParser.assign_return retval = new AslParser.assign_return();
         retval.start = input.LT(1);
@@ -2049,8 +2049,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:134:8: ( ID eq= EQUAL expr -> ^( ASSIGN[$eq,\":=\"] ID expr ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:134:10: ID eq= EQUAL expr
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:134:8: ( ID eq= EQUAL expr -> ^( ASSIGN[$eq,\":=\"] ID expr ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:134:10: ID eq= EQUAL expr
             {
             ID67=(Token)match(input,ID,FOLLOW_ID_in_assign900);  
             stream_ID.add(ID67);
@@ -2080,7 +2080,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 134:27: -> ^( ASSIGN[$eq,\":=\"] ID expr )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:134:30: ^( ASSIGN[$eq,\":=\"] ID expr )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:134:30: ^( ASSIGN[$eq,\":=\"] ID expr )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -2132,7 +2132,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "declare"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:137:1: declare : graphicexpr ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:137:1: declare : graphicexpr ;
     public final AslParser.declare_return declare() throws RecognitionException {
         AslParser.declare_return retval = new AslParser.declare_return();
         retval.start = input.LT(1);
@@ -2145,8 +2145,8 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:137:9: ( graphicexpr )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:137:11: graphicexpr
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:137:9: ( graphicexpr )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:137:11: graphicexpr
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2189,7 +2189,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "draw"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:140:1: draw : DRAW ^ ID ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:140:1: draw : DRAW ^ ID ;
     public final AslParser.draw_return draw() throws RecognitionException {
         AslParser.draw_return retval = new AslParser.draw_return();
         retval.start = input.LT(1);
@@ -2204,8 +2204,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ID71_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:140:6: ( DRAW ^ ID )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:140:8: DRAW ^ ID
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:140:6: ( DRAW ^ ID )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:140:8: DRAW ^ ID
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2255,7 +2255,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "fill"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:143:1: fill : FILL ^ ID COLOR ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:143:1: fill : FILL ^ ID COLOR ;
     public final AslParser.fill_return fill() throws RecognitionException {
         AslParser.fill_return retval = new AslParser.fill_return();
         retval.start = input.LT(1);
@@ -2272,8 +2272,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree COLOR74_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:143:6: ( FILL ^ ID COLOR )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:143:8: FILL ^ ID COLOR
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:143:6: ( FILL ^ ID COLOR )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:143:8: FILL ^ ID COLOR
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2330,7 +2330,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "stroke"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:146:1: stroke : STROKE ^ ID COLOR INT ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:146:1: stroke : STROKE ^ ID COLOR INT ;
     public final AslParser.stroke_return stroke() throws RecognitionException {
         AslParser.stroke_return retval = new AslParser.stroke_return();
         retval.start = input.LT(1);
@@ -2349,8 +2349,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree INT78_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:146:8: ( STROKE ^ ID COLOR INT )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:146:10: STROKE ^ ID COLOR INT
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:146:8: ( STROKE ^ ID COLOR INT )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:146:10: STROKE ^ ID COLOR INT
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2414,7 +2414,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "ite_stmt"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:150:1: ite_stmt : IF ^ expr THEN ! block_instructions ( ELSE ! block_instructions )? ENDIF !;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:150:1: ite_stmt : IF ^ expr THEN ! block_instructions ( ELSE ! block_instructions )? ENDIF !;
     public final AslParser.ite_stmt_return ite_stmt() throws RecognitionException {
         AslParser.ite_stmt_return retval = new AslParser.ite_stmt_return();
         retval.start = input.LT(1);
@@ -2439,8 +2439,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ENDIF85_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:150:10: ( IF ^ expr THEN ! block_instructions ( ELSE ! block_instructions )? ENDIF !)
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:150:12: IF ^ expr THEN ! block_instructions ( ELSE ! block_instructions )? ENDIF !
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:150:10: ( IF ^ expr THEN ! block_instructions ( ELSE ! block_instructions )? ENDIF !)
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:150:12: IF ^ expr THEN ! block_instructions ( ELSE ! block_instructions )? ENDIF !
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2468,7 +2468,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, block_instructions82.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:150:46: ( ELSE ! block_instructions )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:150:46: ( ELSE ! block_instructions )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2477,7 +2477,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt13) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:150:47: ELSE ! block_instructions
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:150:47: ELSE ! block_instructions
                     {
                     ELSE83=(Token)match(input,ELSE,FOLLOW_ELSE_in_ite_stmt1007); 
 
@@ -2527,7 +2527,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "while_stmt"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:154:1: while_stmt : WHILE ^ expr DO ! block_instructions ENDWHILE !;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:154:1: while_stmt : WHILE ^ expr DO ! block_instructions ENDWHILE !;
     public final AslParser.while_stmt_return while_stmt() throws RecognitionException {
         AslParser.while_stmt_return retval = new AslParser.while_stmt_return();
         retval.start = input.LT(1);
@@ -2548,8 +2548,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ENDWHILE90_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:154:12: ( WHILE ^ expr DO ! block_instructions ENDWHILE !)
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:154:14: WHILE ^ expr DO ! block_instructions ENDWHILE !
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:154:12: ( WHILE ^ expr DO ! block_instructions ENDWHILE !)
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:154:14: WHILE ^ expr DO ! block_instructions ENDWHILE !
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2610,7 +2610,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "return_stmt"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:158:1: return_stmt : RETURN ^ ( expr )? ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:158:1: return_stmt : RETURN ^ ( expr )? ;
     public final AslParser.return_stmt_return return_stmt() throws RecognitionException {
         AslParser.return_stmt_return retval = new AslParser.return_stmt_return();
         retval.start = input.LT(1);
@@ -2625,8 +2625,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree RETURN91_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:158:13: ( RETURN ^ ( expr )? )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:158:15: RETURN ^ ( expr )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:158:13: ( RETURN ^ ( expr )? )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:158:15: RETURN ^ ( expr )?
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2638,7 +2638,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.becomeRoot(RETURN91_tree, root_0);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:158:23: ( expr )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:158:23: ( expr )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -2647,7 +2647,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt14) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:158:23: expr
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:158:23: expr
                     {
                     pushFollow(FOLLOW_expr_in_return_stmt1073);
                     expr92=expr();
@@ -2693,7 +2693,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "read"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:162:1: read : READ ^ ID ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:162:1: read : READ ^ ID ;
     public final AslParser.read_return read() throws RecognitionException {
         AslParser.read_return retval = new AslParser.read_return();
         retval.start = input.LT(1);
@@ -2708,8 +2708,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ID94_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:162:6: ( READ ^ ID )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:162:8: READ ^ ID
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:162:6: ( READ ^ ID )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:162:8: READ ^ ID
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2759,7 +2759,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "write"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:166:1: write : WRITE ^ ( expr | STRING ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:166:1: write : WRITE ^ ( expr | STRING ) ;
     public final AslParser.write_return write() throws RecognitionException {
         AslParser.write_return retval = new AslParser.write_return();
         retval.start = input.LT(1);
@@ -2776,8 +2776,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree STRING97_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:166:7: ( WRITE ^ ( expr | STRING ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:166:11: WRITE ^ ( expr | STRING )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:166:7: ( WRITE ^ ( expr | STRING ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:166:11: WRITE ^ ( expr | STRING )
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2789,7 +2789,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.becomeRoot(WRITE95_tree, root_0);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:166:18: ( expr | STRING )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:166:18: ( expr | STRING )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -2808,7 +2808,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt15) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:166:19: expr
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:166:19: expr
                     {
                     pushFollow(FOLLOW_expr_in_write1119);
                     expr96=expr();
@@ -2820,7 +2820,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:166:26: STRING
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:166:26: STRING
                     {
                     STRING97=(Token)match(input,STRING,FOLLOW_STRING_in_write1123); 
                     STRING97_tree = 
@@ -2866,7 +2866,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "set"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:1: set : ID ( REL ^| ABS ^) ID arglist ( time )? ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:1: set : ID ( REL ^| ABS ^) ID arglist ( time )? ;
     public final AslParser.set_return set() throws RecognitionException {
         AslParser.set_return retval = new AslParser.set_return();
         retval.start = input.LT(1);
@@ -2889,8 +2889,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ID101_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:6: ( ID ( REL ^| ABS ^) ID arglist ( time )? )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:8: ID ( REL ^| ABS ^) ID arglist ( time )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:6: ( ID ( REL ^| ABS ^) ID arglist ( time )? )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:8: ID ( REL ^| ABS ^) ID arglist ( time )?
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -2902,7 +2902,7 @@ public TreeAdaptor getTreeAdaptor() {
             adaptor.addChild(root_0, ID98_tree);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:11: ( REL ^| ABS ^)
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:11: ( REL ^| ABS ^)
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -2921,7 +2921,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt16) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:12: REL ^
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:12: REL ^
                     {
                     REL99=(Token)match(input,REL,FOLLOW_REL_in_set1146); 
                     REL99_tree = 
@@ -2933,7 +2933,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:17: ABS ^
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:17: ABS ^
                     {
                     ABS100=(Token)match(input,ABS,FOLLOW_ABS_in_set1149); 
                     ABS100_tree = 
@@ -2962,7 +2962,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, arglist102.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:34: ( time )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:34: ( time )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2971,7 +2971,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt17) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:169:34: time
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:169:34: time
                     {
                     pushFollow(FOLLOW_time_in_set1157);
                     time103=time();
@@ -3017,7 +3017,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "time"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:1: time : '{' expr ( ',' expr )? '}' -> ^( TIME expr ( expr )? ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:172:1: time : '{' expr ( ',' expr )? '}' -> ^( TIME expr ( expr )? ) ;
     public final AslParser.time_return time() throws RecognitionException {
         AslParser.time_return retval = new AslParser.time_return();
         retval.start = input.LT(1);
@@ -3041,8 +3041,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_82=new RewriteRuleTokenStream(adaptor,"token 82");
         RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:6: ( '{' expr ( ',' expr )? '}' -> ^( TIME expr ( expr )? ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:9: '{' expr ( ',' expr )? '}'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:172:6: ( '{' expr ( ',' expr )? '}' -> ^( TIME expr ( expr )? ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:172:9: '{' expr ( ',' expr )? '}'
             {
             char_literal104=(Token)match(input,81,FOLLOW_81_in_time1170);  
             stream_81.add(char_literal104);
@@ -3055,7 +3055,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             stream_expr.add(expr105.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:18: ( ',' expr )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:172:18: ( ',' expr )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -3064,7 +3064,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt18) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:19: ',' expr
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:172:19: ',' expr
                     {
                     char_literal106=(Token)match(input,77,FOLLOW_77_in_time1175);  
                     stream_77.add(char_literal106);
@@ -3100,7 +3100,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 172:34: -> ^( TIME expr ( expr )? )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:37: ^( TIME expr ( expr )? )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:172:37: ^( TIME expr ( expr )? )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -3109,7 +3109,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 adaptor.addChild(root_1, stream_expr.nextTree());
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:172:49: ( expr )?
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:172:49: ( expr )?
                 if ( stream_expr.hasNext() ) {
                     adaptor.addChild(root_1, stream_expr.nextTree());
 
@@ -3155,7 +3155,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "expr"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:174:1: expr : boolexpr ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:174:1: expr : boolexpr ;
     public final AslParser.expr_return expr() throws RecognitionException {
         AslParser.expr_return retval = new AslParser.expr_return();
         retval.start = input.LT(1);
@@ -3168,8 +3168,8 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:174:6: ( boolexpr )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:174:8: boolexpr
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:174:6: ( boolexpr )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:174:8: boolexpr
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -3212,7 +3212,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "graphicexpr"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:178:1: graphicexpr : graphicconst -> ^( DISP graphicconst ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:178:1: graphicexpr : graphicconst -> ^( DISP graphicconst ) ;
     public final AslParser.graphicexpr_return graphicexpr() throws RecognitionException {
         AslParser.graphicexpr_return retval = new AslParser.graphicexpr_return();
         retval.start = input.LT(1);
@@ -3225,8 +3225,8 @@ public TreeAdaptor getTreeAdaptor() {
 
         RewriteRuleSubtreeStream stream_graphicconst=new RewriteRuleSubtreeStream(adaptor,"rule graphicconst");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:178:13: ( graphicconst -> ^( DISP graphicconst ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:178:17: graphicconst
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:178:13: ( graphicconst -> ^( DISP graphicconst ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:178:17: graphicconst
             {
             pushFollow(FOLLOW_graphicconst_in_graphicexpr1217);
             graphicconst110=graphicconst();
@@ -3248,7 +3248,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 178:30: -> ^( DISP graphicconst )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:178:33: ^( DISP graphicconst )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:178:33: ^( DISP graphicconst )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -3296,7 +3296,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "graphicconst"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:181:1: graphicconst : ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist );
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:181:1: graphicconst : ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist );
     public final AslParser.graphicconst_return graphicconst() throws RecognitionException {
         AslParser.graphicconst_return retval = new AslParser.graphicconst_return();
         retval.start = input.LT(1);
@@ -3331,7 +3331,7 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree ID121_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:181:13: ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:181:13: ( RECT ^ ID arglist | CIRCLE ^ ID arglist | TEXT ^ ID arglist | ELLIPSE ^ ID arglist )
             int alt19=4;
             switch ( input.LA(1) ) {
             case RECT:
@@ -3364,7 +3364,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt19) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:181:17: RECT ^ ID arglist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:181:17: RECT ^ ID arglist
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -3393,7 +3393,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:182:6: CIRCLE ^ ID arglist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:182:6: CIRCLE ^ ID arglist
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -3422,7 +3422,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:183:6: TEXT ^ ID arglist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:183:6: TEXT ^ ID arglist
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -3451,7 +3451,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:184:6: ELLIPSE ^ ID arglist
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:184:6: ELLIPSE ^ ID arglist
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -3510,7 +3510,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "boolexpr"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:1: boolexpr : boolterm ( OR ^ boolterm )* ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:188:1: boolexpr : boolterm ( OR ^ boolterm )* ;
     public final AslParser.boolexpr_return boolexpr() throws RecognitionException {
         AslParser.boolexpr_return retval = new AslParser.boolexpr_return();
         retval.start = input.LT(1);
@@ -3527,8 +3527,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree OR124_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:13: ( boolterm ( OR ^ boolterm )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:17: boolterm ( OR ^ boolterm )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:188:13: ( boolterm ( OR ^ boolterm )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:188:17: boolterm ( OR ^ boolterm )*
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -3540,7 +3540,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, boolterm123.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:26: ( OR ^ boolterm )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:188:26: ( OR ^ boolterm )*
             loop20:
             do {
                 int alt20=2;
@@ -3553,7 +3553,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt20) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:188:27: OR ^ boolterm
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:188:27: OR ^ boolterm
             	    {
             	    OR124=(Token)match(input,OR,FOLLOW_OR_in_boolexpr1304); 
             	    OR124_tree = 
@@ -3609,7 +3609,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "boolterm"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:1: boolterm : boolfact ( AND ^ boolfact )* ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:191:1: boolterm : boolfact ( AND ^ boolfact )* ;
     public final AslParser.boolterm_return boolterm() throws RecognitionException {
         AslParser.boolterm_return retval = new AslParser.boolterm_return();
         retval.start = input.LT(1);
@@ -3626,8 +3626,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree AND127_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:9: ( boolfact ( AND ^ boolfact )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:13: boolfact ( AND ^ boolfact )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:191:9: ( boolfact ( AND ^ boolfact )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:191:13: boolfact ( AND ^ boolfact )*
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -3639,7 +3639,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, boolfact126.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:22: ( AND ^ boolfact )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:191:22: ( AND ^ boolfact )*
             loop21:
             do {
                 int alt21=2;
@@ -3652,7 +3652,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt21) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:191:23: AND ^ boolfact
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:191:23: AND ^ boolfact
             	    {
             	    AND127=(Token)match(input,AND,FOLLOW_AND_in_boolterm1330); 
             	    AND127_tree = 
@@ -3708,7 +3708,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "boolfact"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:1: boolfact : num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:1: boolfact : num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? ;
     public final AslParser.boolfact_return boolfact() throws RecognitionException {
         AslParser.boolfact_return retval = new AslParser.boolfact_return();
         retval.start = input.LT(1);
@@ -3735,8 +3735,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree GE135_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:9: ( num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:13: num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:9: ( num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )? )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:13: num_expr ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -3748,7 +3748,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, num_expr129.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:22: ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:22: ( ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -3757,9 +3757,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt23) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^) num_expr
                     {
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^)
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:23: ( EQ ^| NOT_EQUAL ^| LT ^| LE ^| GT ^| GE ^)
                     int alt22=6;
                     switch ( input.LA(1) ) {
                     case EQ:
@@ -3802,7 +3802,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt22) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:24: EQ ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:24: EQ ^
                             {
                             EQ130=(Token)match(input,EQ,FOLLOW_EQ_in_boolfact1357); 
                             EQ130_tree = 
@@ -3814,7 +3814,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 2 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:30: NOT_EQUAL ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:30: NOT_EQUAL ^
                             {
                             NOT_EQUAL131=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_boolfact1362); 
                             NOT_EQUAL131_tree = 
@@ -3826,7 +3826,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 3 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:43: LT ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:43: LT ^
                             {
                             LT132=(Token)match(input,LT,FOLLOW_LT_in_boolfact1367); 
                             LT132_tree = 
@@ -3838,7 +3838,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 4 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:49: LE ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:49: LE ^
                             {
                             LE133=(Token)match(input,LE,FOLLOW_LE_in_boolfact1372); 
                             LE133_tree = 
@@ -3850,7 +3850,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 5 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:55: GT ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:55: GT ^
                             {
                             GT134=(Token)match(input,GT,FOLLOW_GT_in_boolfact1377); 
                             GT134_tree = 
@@ -3862,7 +3862,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 6 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:194:61: GE ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:194:61: GE ^
                             {
                             GE135=(Token)match(input,GE,FOLLOW_GE_in_boolfact1382); 
                             GE135_tree = 
@@ -3921,7 +3921,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "num_expr"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:1: num_expr : term ( ( PLUS ^| MINUS ^) term )* ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:1: num_expr : term ( ( PLUS ^| MINUS ^) term )* ;
     public final AslParser.num_expr_return num_expr() throws RecognitionException {
         AslParser.num_expr_return retval = new AslParser.num_expr_return();
         retval.start = input.LT(1);
@@ -3940,8 +3940,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree MINUS139_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:9: ( term ( ( PLUS ^| MINUS ^) term )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:13: term ( ( PLUS ^| MINUS ^) term )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:9: ( term ( ( PLUS ^| MINUS ^) term )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:13: term ( ( PLUS ^| MINUS ^) term )*
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -3953,7 +3953,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, term137.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:18: ( ( PLUS ^| MINUS ^) term )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:18: ( ( PLUS ^| MINUS ^) term )*
             loop25:
             do {
                 int alt25=2;
@@ -3966,9 +3966,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt25) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:20: ( PLUS ^| MINUS ^) term
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:20: ( PLUS ^| MINUS ^) term
             	    {
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:20: ( PLUS ^| MINUS ^)
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:20: ( PLUS ^| MINUS ^)
             	    int alt24=2;
             	    int LA24_0 = input.LA(1);
 
@@ -3987,7 +3987,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    switch (alt24) {
             	        case 1 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:21: PLUS ^
+            	            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:21: PLUS ^
             	            {
             	            PLUS138=(Token)match(input,PLUS,FOLLOW_PLUS_in_num_expr1411); 
             	            PLUS138_tree = 
@@ -3999,7 +3999,7 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 2 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:197:29: MINUS ^
+            	            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:197:29: MINUS ^
             	            {
             	            MINUS139=(Token)match(input,MINUS,FOLLOW_MINUS_in_num_expr1416); 
             	            MINUS139_tree = 
@@ -4061,7 +4061,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "term"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:1: term : factor ( ( MUL ^| DIV ^| MOD ^) factor )* ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:1: term : factor ( ( MUL ^| DIV ^| MOD ^) factor )* ;
     public final AslParser.term_return term() throws RecognitionException {
         AslParser.term_return retval = new AslParser.term_return();
         retval.start = input.LT(1);
@@ -4082,8 +4082,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree MOD144_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:9: ( factor ( ( MUL ^| DIV ^| MOD ^) factor )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:13: factor ( ( MUL ^| DIV ^| MOD ^) factor )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:9: ( factor ( ( MUL ^| DIV ^| MOD ^) factor )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:13: factor ( ( MUL ^| DIV ^| MOD ^) factor )*
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -4095,7 +4095,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, factor141.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:20: ( ( MUL ^| DIV ^| MOD ^) factor )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:20: ( ( MUL ^| DIV ^| MOD ^) factor )*
             loop27:
             do {
                 int alt27=2;
@@ -4108,9 +4108,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt27) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:22: ( MUL ^| DIV ^| MOD ^) factor
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:22: ( MUL ^| DIV ^| MOD ^) factor
             	    {
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:22: ( MUL ^| DIV ^| MOD ^)
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:22: ( MUL ^| DIV ^| MOD ^)
             	    int alt26=3;
             	    switch ( input.LA(1) ) {
             	    case MUL:
@@ -4138,7 +4138,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             	    switch (alt26) {
             	        case 1 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:23: MUL ^
+            	            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:23: MUL ^
             	            {
             	            MUL142=(Token)match(input,MUL,FOLLOW_MUL_in_term1449); 
             	            MUL142_tree = 
@@ -4150,7 +4150,7 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 2 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:30: DIV ^
+            	            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:30: DIV ^
             	            {
             	            DIV143=(Token)match(input,DIV,FOLLOW_DIV_in_term1454); 
             	            DIV143_tree = 
@@ -4162,7 +4162,7 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 3 :
-            	            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:200:37: MOD ^
+            	            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:200:37: MOD ^
             	            {
             	            MOD144=(Token)match(input,MOD,FOLLOW_MOD_in_term1459); 
             	            MOD144_tree = 
@@ -4224,7 +4224,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "factor"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:1: factor : ( ( NOT ^| PLUS ^| MINUS ^) factor | atom );
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:203:1: factor : ( ( NOT ^| PLUS ^| MINUS ^) factor | atom );
     public final AslParser.factor_return factor() throws RecognitionException {
         AslParser.factor_return retval = new AslParser.factor_return();
         retval.start = input.LT(1);
@@ -4245,7 +4245,7 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree MINUS148_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:9: ( ( NOT ^| PLUS ^| MINUS ^) factor | atom )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:203:9: ( ( NOT ^| PLUS ^| MINUS ^) factor | atom )
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -4264,12 +4264,12 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt29) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:13: ( NOT ^| PLUS ^| MINUS ^) factor
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:203:13: ( NOT ^| PLUS ^| MINUS ^) factor
                     {
                     root_0 = (AslTree)adaptor.nil();
 
 
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:13: ( NOT ^| PLUS ^| MINUS ^)
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:203:13: ( NOT ^| PLUS ^| MINUS ^)
                     int alt28=3;
                     switch ( input.LA(1) ) {
                     case NOT:
@@ -4297,7 +4297,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt28) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:14: NOT ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:203:14: NOT ^
                             {
                             NOT146=(Token)match(input,NOT,FOLLOW_NOT_in_factor1486); 
                             NOT146_tree = 
@@ -4309,7 +4309,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 2 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:21: PLUS ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:203:21: PLUS ^
                             {
                             PLUS147=(Token)match(input,PLUS,FOLLOW_PLUS_in_factor1491); 
                             PLUS147_tree = 
@@ -4321,7 +4321,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 3 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:203:29: MINUS ^
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:203:29: MINUS ^
                             {
                             MINUS148=(Token)match(input,MINUS,FOLLOW_MINUS_in_factor1496); 
                             MINUS148_tree = 
@@ -4346,7 +4346,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:204:13: atom
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:204:13: atom
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4391,7 +4391,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "atom"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:210:1: atom : ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !);
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:210:1: atom : ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !);
     public final AslParser.atom_return atom() throws RecognitionException {
         AslParser.atom_return retval = new AslParser.atom_return();
         retval.start = input.LT(1);
@@ -4424,7 +4424,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_FALSE=new RewriteRuleTokenStream(adaptor,"token FALSE");
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:210:9: ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !)
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:210:9: ( ID | FLOAT | INT | array | arrayacc | (b= TRUE |b= FALSE ) -> ^( BOOLEAN[$b,$b.text] ) | funcall | '(' ! boolexpr ')' !)
             int alt31=8;
             switch ( input.LA(1) ) {
             case ID:
@@ -4515,7 +4515,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt31) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:210:13: ID
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:210:13: ID
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4530,7 +4530,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:211:5: FLOAT
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:211:5: FLOAT
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4545,7 +4545,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:212:5: INT
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:212:5: INT
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4560,7 +4560,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:213:5: array
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:213:5: array
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4575,7 +4575,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 5 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:214:5: arrayacc
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:214:5: arrayacc
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4590,9 +4590,9 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 6 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:13: (b= TRUE |b= FALSE )
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:215:13: (b= TRUE |b= FALSE )
                     {
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:13: (b= TRUE |b= FALSE )
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:215:13: (b= TRUE |b= FALSE )
                     int alt30=2;
                     int LA30_0 = input.LA(1);
 
@@ -4611,7 +4611,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     switch (alt30) {
                         case 1 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:14: b= TRUE
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:215:14: b= TRUE
                             {
                             b=(Token)match(input,TRUE,FOLLOW_TRUE_in_atom1580);  
                             stream_TRUE.add(b);
@@ -4620,7 +4620,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 2 :
-                            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:23: b= FALSE
+                            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:215:23: b= FALSE
                             {
                             b=(Token)match(input,FALSE,FOLLOW_FALSE_in_atom1586);  
                             stream_FALSE.add(b);
@@ -4645,7 +4645,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (AslTree)adaptor.nil();
                     // 215:33: -> ^( BOOLEAN[$b,$b.text] )
                     {
-                        // /home/falc/FIB/cl/svglang/src/parser/Asl.g:215:36: ^( BOOLEAN[$b,$b.text] )
+                        // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:215:36: ^( BOOLEAN[$b,$b.text] )
                         {
                         AslTree root_1 = (AslTree)adaptor.nil();
                         root_1 = (AslTree)adaptor.becomeRoot(
@@ -4663,7 +4663,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 7 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:216:13: funcall
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:216:13: funcall
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4678,7 +4678,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 8 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:217:13: '(' ! boolexpr ')' !
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:217:13: '(' ! boolexpr ')' !
                     {
                     root_0 = (AslTree)adaptor.nil();
 
@@ -4727,7 +4727,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "array"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:1: array : '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:221:1: array : '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) ;
     public final AslParser.array_return array() throws RecognitionException {
         AslParser.array_return retval = new AslParser.array_return();
         retval.start = input.LT(1);
@@ -4751,8 +4751,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_80=new RewriteRuleTokenStream(adaptor,"token 80");
         RewriteRuleSubtreeStream stream_atom=new RewriteRuleSubtreeStream(adaptor,"rule atom");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:7: ( '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:9: '[' atom ( ',' atom )* ']'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:221:7: ( '[' atom ( ',' atom )* ']' -> ^( ARRAY ( atom )+ ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:221:9: '[' atom ( ',' atom )* ']'
             {
             char_literal160=(Token)match(input,79,FOLLOW_79_in_array1647);  
             stream_79.add(char_literal160);
@@ -4765,7 +4765,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             stream_atom.add(atom161.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:18: ( ',' atom )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:221:18: ( ',' atom )*
             loop32:
             do {
                 int alt32=2;
@@ -4778,7 +4778,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt32) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:19: ',' atom
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:221:19: ',' atom
             	    {
             	    char_literal162=(Token)match(input,77,FOLLOW_77_in_array1652);  
             	    stream_77.add(char_literal162);
@@ -4817,7 +4817,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 221:34: -> ^( ARRAY ( atom )+ )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:221:37: ^( ARRAY ( atom )+ )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:221:37: ^( ARRAY ( atom )+ )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -4872,7 +4872,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "arrayacc"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:223:1: arrayacc : ID '[' INT ']' ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:223:1: arrayacc : ID '[' INT ']' ;
     public final AslParser.arrayacc_return arrayacc() throws RecognitionException {
         AslParser.arrayacc_return retval = new AslParser.arrayacc_return();
         retval.start = input.LT(1);
@@ -4891,8 +4891,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree char_literal168_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:224:2: ( ID '[' INT ']' )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:224:4: ID '[' INT ']'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:224:2: ( ID '[' INT ']' )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:224:4: ID '[' INT ']'
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -4956,7 +4956,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "funcall"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:1: funcall : ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:1: funcall : ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) ;
     public final AslParser.funcall_return funcall() throws RecognitionException {
         AslParser.funcall_return retval = new AslParser.funcall_return();
         retval.start = input.LT(1);
@@ -4978,8 +4978,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_76=new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_expr_list=new RewriteRuleSubtreeStream(adaptor,"rule expr_list");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:9: ( ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:13: ID '(' ( expr_list )? ')'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:9: ( ID '(' ( expr_list )? ')' -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:13: ID '(' ( expr_list )? ')'
             {
             ID169=(Token)match(input,ID,FOLLOW_ID_in_funcall1696);  
             stream_ID.add(ID169);
@@ -4989,7 +4989,7 @@ public TreeAdaptor getTreeAdaptor() {
             stream_75.add(char_literal170);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:20: ( expr_list )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:20: ( expr_list )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
@@ -4998,7 +4998,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt33) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:20: expr_list
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:20: expr_list
                     {
                     pushFollow(FOLLOW_expr_list_in_funcall1700);
                     expr_list171=expr_list();
@@ -5030,7 +5030,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 228:35: -> ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:38: ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:38: ^( FUNCALL ID ^( ARGLIST ( expr_list )? ) )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
@@ -5041,14 +5041,14 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:51: ^( ARGLIST ( expr_list )? )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:51: ^( ARGLIST ( expr_list )? )
                 {
                 AslTree root_2 = (AslTree)adaptor.nil();
                 root_2 = (AslTree)adaptor.becomeRoot(
                 (AslTree)adaptor.create(ARGLIST, "ARGLIST")
                 , root_2);
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:228:61: ( expr_list )?
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:228:61: ( expr_list )?
                 if ( stream_expr_list.hasNext() ) {
                     adaptor.addChild(root_2, stream_expr_list.nextTree());
 
@@ -5097,7 +5097,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "arglist"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:231:1: arglist : '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:231:1: arglist : '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) ;
     public final AslParser.arglist_return arglist() throws RecognitionException {
         AslParser.arglist_return retval = new AslParser.arglist_return();
         retval.start = input.LT(1);
@@ -5116,14 +5116,14 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_76=new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_expr_list=new RewriteRuleSubtreeStream(adaptor,"rule expr_list");
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:2: ( '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:4: '(' ( expr_list )? ')'
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:232:2: ( '(' ( expr_list )? ')' -> ^( ARGLIST ( expr_list )? ) )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:232:4: '(' ( expr_list )? ')'
             {
             char_literal173=(Token)match(input,75,FOLLOW_75_in_arglist1736);  
             stream_75.add(char_literal173);
 
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:8: ( expr_list )?
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:232:8: ( expr_list )?
             int alt34=2;
             int LA34_0 = input.LA(1);
 
@@ -5132,7 +5132,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt34) {
                 case 1 :
-                    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:8: expr_list
+                    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:232:8: expr_list
                     {
                     pushFollow(FOLLOW_expr_list_in_arglist1738);
                     expr_list174=expr_list();
@@ -5164,14 +5164,14 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (AslTree)adaptor.nil();
             // 232:23: -> ^( ARGLIST ( expr_list )? )
             {
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:26: ^( ARGLIST ( expr_list )? )
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:232:26: ^( ARGLIST ( expr_list )? )
                 {
                 AslTree root_1 = (AslTree)adaptor.nil();
                 root_1 = (AslTree)adaptor.becomeRoot(
                 (AslTree)adaptor.create(ARGLIST, "ARGLIST")
                 , root_1);
 
-                // /home/falc/FIB/cl/svglang/src/parser/Asl.g:232:36: ( expr_list )?
+                // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:232:36: ( expr_list )?
                 if ( stream_expr_list.hasNext() ) {
                     adaptor.addChild(root_1, stream_expr_list.nextTree());
 
@@ -5217,7 +5217,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "expr_list"
-    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:1: expr_list : expr ( ',' ! expr )* ;
+    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:235:1: expr_list : expr ( ',' ! expr )* ;
     public final AslParser.expr_list_return expr_list() throws RecognitionException {
         AslParser.expr_list_return retval = new AslParser.expr_list_return();
         retval.start = input.LT(1);
@@ -5234,8 +5234,8 @@ public TreeAdaptor getTreeAdaptor() {
         AslTree char_literal177_tree=null;
 
         try {
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:10: ( expr ( ',' ! expr )* )
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:13: expr ( ',' ! expr )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:235:10: ( expr ( ',' ! expr )* )
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:235:13: expr ( ',' ! expr )*
             {
             root_0 = (AslTree)adaptor.nil();
 
@@ -5247,7 +5247,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, expr176.getTree());
 
-            // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:18: ( ',' ! expr )*
+            // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:235:18: ( ',' ! expr )*
             loop35:
             do {
                 int alt35=2;
@@ -5260,7 +5260,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt35) {
             	case 1 :
-            	    // /home/falc/FIB/cl/svglang/src/parser/Asl.g:235:19: ',' ! expr
+            	    // /home/hamele/UPC/CL/svglang/src/parser/Asl.g:235:19: ',' ! expr
             	    {
             	    char_literal177=(Token)match(input,77,FOLLOW_77_in_expr_list1763); 
 
