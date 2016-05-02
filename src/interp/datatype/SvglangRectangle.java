@@ -46,6 +46,15 @@ public class SvglangRectangle extends SvglangObject
 		return width;
 	}
 	
+	//SETTERS
+	public void setHeigth(float h){
+		height = h;
+	}
+	
+	public void setWidth(float w){
+		width = w;
+	}
+	
 	//public boolean isRectangle() { return true; }
 
 }
