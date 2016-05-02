@@ -1,6 +1,7 @@
 func main ()
-    Rectangle a (0, 0, 10, 10);
+    Rectangle a (10, 10, 10, 10);
     Fill a #ff0080;
+    RotateRel a (30);
     Draw a;
     n = 0;
     while n < 500 do

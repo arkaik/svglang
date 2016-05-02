@@ -375,9 +375,30 @@ public class Interp {
     */
 
     private Data executeTransformation(AslTree t) {
+        String id = t.getChild(0).getText();
+        AslTree args = t.getChild(1);
         switch (t.getType()) {
             case AslLexer.SCALEREL:
 
+                if (args.getChildCount() == 1) {
+                    Data v = evaluateExpression(args.getChild(0));
+                    checkNumeric(v);
+                    //TODO Check transformation, we need the actual scale factor
+                    writer.println(id+".setAttribute(\"transform\", \"scale("+v.getValue()+")\");");
+                }
+                else {
+                    Data u = evaluateExpression(args.getChild(0)); Data v = evaluateExpression(args.getChild(1));
+                    checkNumeric(u); checkNumeric(v);
+                    //TODO Check transformation, we need the actual scale factor
+                    writer.println(id+".setAttribute(\"transform\", \"scale("+v.getValue()+" "+v.getValue()+")\");");
+                }
+                break;
+            case AslLexer.ROTATEREL:
+                assert args.getChildCount() == 1;
+                Data v = evaluateExpression(args.getChild(0));
+                checkNumeric(v);
+                //TODO Check transformation, we need the actual scale factor
+                writer.println(id+".setAttribute(\"transform\", \"rotate("+v.getValue()+")\");");
                 break;
             default:
                 break;
@@ -527,8 +548,7 @@ public class Interp {
         return null;
     }
 
-    private Data relativeSet(AslTree t)
-    {
+    private Data relativeSet(AslTree t) {
         String id = t.getChild(0).getText();
         String property = t.getChild(1).getText();
         AslTree args = t.getChild(2);
@@ -611,6 +631,12 @@ public class Interp {
     private void checkFloat (Data b) {
         if (!b.isFloat()) {
             throw new RuntimeException ("Expecting float expression");
+        }
+    }
+
+    private void checkNumeric (Data b) {
+        if (!b.isFloat() && !b.isInteger()) {
+            throw new RuntimeException ("Expecting numeric expression");
         }
     }
 

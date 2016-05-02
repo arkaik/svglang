@@ -2,7 +2,7 @@ func main ()
     Circle a (50, 50, 30);
     Fill a #0c0c80;
     Stroke a #008d80 2;
-    ScaleRel a (2,2);
+    ScaleRel a (2);
     Draw a;
     Loop Movement a 100. 100. 5.;
 
