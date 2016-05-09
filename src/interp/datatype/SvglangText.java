@@ -2,7 +2,6 @@ package interp.datatype;
 
 import interp.Data;
 import parser.*;
-import java.awt.Color;
 
 public class SvglangText extends SvglangObject
 {
@@ -25,7 +24,7 @@ public class SvglangText extends SvglangObject
         text = t;
         rot = 0;
         scalex = scaley = 1;
-        color = Color.black;
+        color = "#000000";
     }
 
     public String getType(){

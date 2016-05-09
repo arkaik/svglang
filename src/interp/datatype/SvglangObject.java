@@ -2,7 +2,6 @@ package interp.datatype;
 
 import interp.Data;
 import parser.*;
-import java.awt.Color;
 
 public abstract class SvglangObject extends Data
 {
@@ -12,7 +11,7 @@ public abstract class SvglangObject extends Data
     protected float scalex;
     protected float scaley;
     protected int num_transform;
-    protected Color color;
+    protected String color;
 
     public SvglangObject()
     {
@@ -45,7 +44,7 @@ public abstract class SvglangObject extends Data
 		return scaley;
 	}
 
-	public Color getColor(){
+	public String getColor(){
 		return color;
 	}
 
@@ -70,7 +69,7 @@ public abstract class SvglangObject extends Data
 		scaley = s;
 	}
 
-	public void setColor(Color c){
+	public void setColor(String c){
 		color = c;
 	}
 

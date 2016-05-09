@@ -2,7 +2,6 @@ package interp.datatype;
 
 import interp.Data;
 import parser.*;
-import java.awt.Color;
 
 public class SvglangRectangle extends SvglangObject
 {
@@ -25,7 +24,7 @@ public class SvglangRectangle extends SvglangObject
         height = h;
         rot = 0;
         scalex = scaley = 1;
-        color = Color.black;
+        color = "#000000";	//Blackk;
     }
 
     public String getType(){
