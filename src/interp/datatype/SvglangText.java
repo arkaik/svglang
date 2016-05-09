@@ -24,7 +24,7 @@ public class SvglangText extends SvglangObject
         text = t;
         rot = 0;
         scalex = scaley = 1;
-        color = "#000000";
+        color = "#000000";	//Black
     }
 
     public String getType(){
@@ -54,6 +54,6 @@ public class SvglangText extends SvglangObject
 		size = s;
 	}
 
-	//public boolean isRectangle() { return true; }
+	public boolean isText() { return true; }
 
 }
