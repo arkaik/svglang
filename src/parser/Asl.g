@@ -163,10 +163,10 @@ read	:	READ^ ID
         ;
 
 // Write an expression or a string
-write	:   WRITE^ (expr | STRING )
+write	:   WRITE^ expr
         ;
 
-symset		:	ID (REL^|ABS^) STRING arglist time?
+symset	:	ID (REL^|ABS^) STRING arglist time?
 		;
 
 time	: 	'{' expr (',' expr)? '}' -> ^(TIME expr expr?) ;
@@ -267,8 +267,8 @@ ENDWHILE: 'endwhile' ;
 FUNC	: 'func' ;
 ENDFUNC	: 'endfunc' ;
 RETURN	: 'return' ;
-READ	: 'read' ;
-WRITE	: 'write' ;
+READ	: 'Read' ;
+WRITE	: 'Write' ;
 
 RECT    : 'Rectangle';
 CIRCLE  : 'Circle';
@@ -307,8 +307,10 @@ COMMENT	: '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
     	;
 
 // Strings (in quotes) with escape sequences
-STRING  :  '"' ('\\' ESC_SEQ | ~('\\'|'"') )* '"'
-        ;
+//STRING  :  '"' ('\\' ESC_SEQ | ~('\\'|'"') )* '"'
+//		;
+STRING 
+	:	 '"' (~'"')* '"' ;
 
 fragment
 ESC_SEQ

@@ -23,7 +23,7 @@ public class SvglangCircle extends SvglangObject
         radius = r;
         rot = 0;
         scalex = scaley = 1;
-        color = Color.black;
+        color = "#000000";
     }
 
     public String getType(){

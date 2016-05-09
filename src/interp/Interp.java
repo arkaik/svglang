@@ -374,7 +374,7 @@ public class Interp {
     * @return The value of the expression.
     */
 
-    private Data executeTransformation(AslTree t) {
+    private Data executeTransformation (AslTree t) {
         String id = t.getChild(0).getText();
         AslTree args = t.getChild(1);
         switch (t.getType()) {
@@ -553,7 +553,6 @@ public class Interp {
             case AslLexer.CIRCLE:
                 assert arglist.getChildCount() == 3;
                 float rr = Float.parseFloat(arglist.getChild(2).getText());
-
                 Stack.defineVariable(id, new SvglangCircle(rx, ry, rr));
 
                 writer.println("var "+id+" = document.createElementNS(svgNS, \"circle\");");
@@ -561,6 +560,12 @@ public class Interp {
                 writer.println(id+".setAttribute(\"cx\",\""+arglist.getChild(0).getText()+"\");");
                 writer.println(id+".setAttribute(\"cy\",\""+arglist.getChild(1).getText()+"\");");
                 writer.println(id+".setAttribute(\"r\",\""+arglist.getChild(2).getText()+"\");");
+                break;
+            case AslLexer.TEXT:
+                assert arglist.getChildCount() == 3;
+                String rt = arglist.getChild(2).getStringValue();
+                Stack.defineVariable(id, new SvglangText(rx, ry, rt));
+
                 break;
             default:
                 break;
@@ -576,8 +581,7 @@ public class Interp {
         if (t.getChildCount() == 4) {
             AslTree time = t.getChild(3);
 
-            if (property.equals("position"))
-            {
+            if (property.equals("position")) {
                 SvglangObject obj = (SvglangObject) evaluateExpression(t.getChild(0));
                 Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
                 float ox = obj.getPosx(); float oy = obj.getPosy();

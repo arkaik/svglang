@@ -13,14 +13,14 @@ public class SvglangText extends SvglangObject
 //     protected float scaley;
 //     protected Color color;
 	protected String text;
-	protected float size
-	
-    public SvglangText(String t, float x, float y, float s)
+	protected float size;
+
+    public SvglangText( float x, float y, String t)
     {
         value = null;
         posx = x;
         posy = y;
-        size = s;
+        size = 1;
         text = t;
         rot = 0;
         scalex = scaley = 1;
