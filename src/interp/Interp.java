@@ -379,14 +379,20 @@ public class Interp {
         AslTree args = t.getChild(1);
         switch (t.getType()) {
             case AslLexer.SCALEREL:
-
                 if (args.getChildCount() == 1) {
                     Data v = evaluateExpression(args.getChild(0));
                     checkNumeric(v);
-                    //TODO Check transformation, we need the actual scale factor
-                    Data so = Stack.getVariable(id);
-                    float sf = ((SvglangObject) so).getScalex()*((float) v.getValue());
-                    ((SvglangObject) so).setScalex(sf); ((SvglangObject) so).setScaley(sf);
+                    SvglangObject so = (SvglangObject) Stack.getVariable(id);
+                    float sf = so.getScalex();
+                    System.out.println("KTHXBYE -> "+v.getValue().getClass().getName());
+
+                    Float fv; Object ov = v.getValue();
+                    if (v.isInteger()) fv = ((Integer) ov).floatValue();
+                    else fv = (Float) ov;
+
+                    sf *= fv;
+
+                    so.setScalex(sf); so.setScaley(sf);
                     writer.println(id+".setAttribute(\"transform\", \"scale("+sf+")\");");
                 }
                 else {
@@ -525,11 +531,12 @@ public class Interp {
     private Data evaluateDisplay(AslTree t) {
         String id = t.getChild(0).getText();
         AslTree arglist = t.getChild(1);
+        float rx = Float.parseFloat(arglist.getChild(0).getText());
+        float ry = Float.parseFloat(arglist.getChild(1).getText());
+
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;
-                float rx = Float.parseFloat(arglist.getChild(0).getText());
-                float ry = Float.parseFloat(arglist.getChild(1).getText());
                 float rw = Float.parseFloat(arglist.getChild(2).getText());
                 float rh = Float.parseFloat(arglist.getChild(3).getText());
 
@@ -545,6 +552,10 @@ public class Interp {
                 break;
             case AslLexer.CIRCLE:
                 assert arglist.getChildCount() == 3;
+                float rr = Float.parseFloat(arglist.getChild(2).getText());
+
+                Stack.defineVariable(id, new SvglangCircle(rx, ry, rr));
+
                 writer.println("var "+id+" = document.createElementNS(svgNS, \"circle\");");
                 writer.println(id+".setAttribute(\"id\",\""+id+"\");");
                 writer.println(id+".setAttribute(\"cx\",\""+arglist.getChild(0).getText()+"\");");
@@ -585,7 +596,7 @@ public class Interp {
                 int nlt = obj.getNumTransform();
 
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
-                writer.println("_elem.setAttribute(\"id\", \"id"+nlt+"\")");
+                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
                 writer.println("_elem.setAttribute(\"type\", \"translate\")");
 
@@ -596,12 +607,12 @@ public class Interp {
 
                 if (time.getChildCount() == 2) {
                     Data c2 = evaluateExpression(time.getChild(1));
-                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \"id"+(nlt-1)+".end\")");
-                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
                     writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
                 }
                 else {
-                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt-1)+".end\")");
+                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
                     writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
                 }
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
