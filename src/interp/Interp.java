@@ -384,7 +384,10 @@ public class Interp {
                     Data v = evaluateExpression(args.getChild(0));
                     checkNumeric(v);
                     //TODO Check transformation, we need the actual scale factor
-                    writer.println(id+".setAttribute(\"transform\", \"scale("+v.getValue()+")\");");
+                    Data so = Stack.getVariable(id);
+                    float sf = ((SvglangObject) so).getScalex()*((float) v.getValue());
+                    ((SvglangObject) so).setScalex(sf); ((SvglangObject) so).setScaley(sf);
+                    writer.println(id+".setAttribute(\"transform\", \"scale("+sf+")\");");
                 }
                 else {
                     Data u = evaluateExpression(args.getChild(0)); Data v = evaluateExpression(args.getChild(1));
@@ -525,14 +528,20 @@ public class Interp {
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;
+                float rx = Float.parseFloat(arglist.getChild(0).getText());
+                float ry = Float.parseFloat(arglist.getChild(1).getText());
+                float rw = Float.parseFloat(arglist.getChild(2).getText());
+                float rh = Float.parseFloat(arglist.getChild(3).getText());
+
+                Stack.defineVariable(id, new SvglangRectangle(rx, ry, rw, rh ));
+
                 writer.println("var "+id+" = document.createElementNS(svgNS, \"rect\");");
                 writer.println(id+".setAttribute(\"id\",\""+id+"\");");
                 writer.println(id+".setAttribute(\"x\",\""+arglist.getChild(0).getText()+"\");");
                 writer.println(id+".setAttribute(\"y\",\""+arglist.getChild(1).getText()+"\");");
                 writer.println(id+".setAttribute(\"width\",\""+arglist.getChild(2).getText()+"\");");
                 writer.println(id+".setAttribute(\"height\",\""+arglist.getChild(3).getText()+"\");");
-                //TODO ¿Las propiedades deben ir en una estructura de JavaScript o en una de Java?
-                // TODO Decisions difícils...
+
                 break;
             case AslLexer.CIRCLE:
                 assert arglist.getChildCount() == 3;
@@ -558,20 +567,46 @@ public class Interp {
 
             if (property.equals("position"))
             {
+                SvglangObject obj = (SvglangObject) evaluateExpression(t.getChild(0));
                 Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
-                writer.println("var _x = "+id+".getAttribute('x'); var _y = "+id+".getAttribute('y');");
+                float ox = obj.getPosx(); float oy = obj.getPosy();
+
+                Float ftx, fty;
+
+                Object otx = tx.getValue();
+                if (tx.isInteger()) ftx = ((Integer) otx).floatValue();
+                else ftx = (Float) otx;
+
+                Object oty = ty.getValue();
+                if (tx.isInteger()) fty = ((Integer) oty).floatValue();
+                else fty = (Float) oty;
+
+                obj.setPosx(ox+ftx); obj.setPosy(oy+fty);
+                int nlt = obj.getNumTransform();
+
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"id\", \"id"+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
                 writer.println("_elem.setAttribute(\"type\", \"translate\")");
-                writer.println("_elem.setAttribute(\"from\", _x+\" \"+_y)");
-                writer.println("_elem.setAttribute(\"to\", \""+tx.toString()+" "+ty.toString()+"\")");
-                Data ti = evaluateExpression(time.getChild(0));
-                writer.println("_elem.setAttribute(\"begin\", \""+ti.toString()+"s\")");
+
+                writer.println("_elem.setAttribute(\"from\", \""+ox+" "+oy+"\")");
+                writer.println("_elem.setAttribute(\"to\", \""+(ox+ftx)+" "+(oy+fty)+"\")");
+
+                Data c1 = evaluateExpression(time.getChild(0));
+
                 if (time.getChildCount() == 2) {
-                    Data to = evaluateExpression(time.getChild(1));
-                    writer.println("_elem.setAttribute(\"dur\", \""+to.toString()+"s\")");
+                    Data c2 = evaluateExpression(time.getChild(1));
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \"id"+(nlt-1)+".end\")");
+                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
                 }
+                else {
+                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
+                }
+                writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
                 writer.println(id+".appendChild(_elem);");
+                obj.setNumTransform(nlt+1);
             }
         }
         else { //LMAO, instant setting

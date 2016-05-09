@@ -1,10 +1,9 @@
 func main ()
     Rectangle a (10, 10, 10, 10);
     Fill a #ff0080;
-    RotateRel a (30);
     Draw a;
-    n = 0;
-    while n < 500 do
+    n = 1;
+    while n < 10 do
         a @ position (0,n) {n,1};
         n = n + 1;
     endwhile;

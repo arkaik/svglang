@@ -15,7 +15,7 @@ public class SvglangRectangle extends SvglangObject
 //     protected Color color;
 	protected float height;
 	protected float width;
-    
+
     public SvglangRectangle(float x, float y, float w, float h)
     {
         value = null;
@@ -36,25 +36,25 @@ public class SvglangRectangle extends SvglangObject
 	public String toString(){
 		return "Rectangle";	//Afegir atributs
 	}
-	
+
 	//GETTERS
 	public float getHeight(){
 		return height;
 	}
-	
+
 	public float getWidth(){
 		return width;
 	}
-	
+
 	//SETTERS
 	public void setHeigth(float h){
 		height = h;
 	}
-	
+
 	public void setWidth(float w){
 		width = w;
 	}
-	
+
 	//public boolean isRectangle() { return true; }
 
 }
