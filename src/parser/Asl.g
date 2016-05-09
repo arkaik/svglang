@@ -67,7 +67,7 @@ prog	: func+ EOF -> ^(LIST_FUNCTIONS func+)
 
 // A function has a name, a list of parameters and a block of instructions
 func	: FUNC^ ID params block_instructions ENDFUNC!
-		|   macro		-> ^(MACRO macro) 
+		|   macro		-> ^(MACRO macro)
         ;
 
 // The list of parameters grouped in a subtree (it can be empty)
@@ -100,7 +100,7 @@ instruction
         |	return_stmt     // Return statement
         |	read            // Read a variable
         | 	write           // Write a string or an expressionobject
-        |	set				//
+        |	symset				//
         |	draw			// Draw a declared object
         |	fill
         |	stroke
@@ -110,7 +110,7 @@ instruction
         |                   // Nothing
         ;
 
-macro	: '$SHOW' 
+macro	: '$SHOW'
 		;
 
 
@@ -142,7 +142,7 @@ draw	:	DRAW^ ID
 
 fill	:	FILL^ ID COLOR
 		;
-		
+
 stroke	:	STROKE^ ID COLOR INT
 		;
 
@@ -166,7 +166,7 @@ read	:	READ^ ID
 write	:   WRITE^ (expr | STRING )
         ;
 
-set		:	ID (REL^|ABS^) ID arglist time?
+symset		:	ID (REL^|ABS^) STRING arglist time?
 		;
 
 time	: 	'{' expr (',' expr)? '}' -> ^(TIME expr expr?) ;
@@ -209,6 +209,7 @@ factor  :   (NOT^ | PLUS^ | MINUS^) factor
 // An atom can also be a function call or another expression
 // in parenthesis
 atom    :   ID
+        |   STRING
 		|	FLOAT
 		|	INT
 		|	array

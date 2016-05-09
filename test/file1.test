@@ -10,5 +10,7 @@ func main ()
     Stroke b #80d00c 5;
     Draw b;
 
+    Text t (50, 200, "We are the winners");
+
 endfunc
 $SHOW
