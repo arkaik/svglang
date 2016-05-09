@@ -51,12 +51,7 @@ INTERP_SRC =	$(INTERP)/Interp.java \
 				$(INTERP)/$(TARGET)Tree.java \
 				$(INTERP)/AslTreeAdaptor.java
 
-DATATYPE_SRC =	$(DATATYPE)/SvglangBoolean.java \
-				$(DATATYPE)/SvglangInteger.java \
-				$(DATATYPE)/SvglangFloat.java \
-				$(DATATYPE)/SvglangObject.java \
-				$(DATATYPE)/SvglangRectangle.java \
-				$(DATATYPE)/SvglangVoid.java
+DATATYPE_SRC =	$(DATATYPE)/*.java
 
 ALL_SRC =		$(MAIN_SRC) $(PARSER_SRC) $(INTERP_SRC) $(DATATYPE_SRC)
 
