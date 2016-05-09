@@ -3,7 +3,7 @@ package interp.datatype;
 import interp.Data;
 import parser.*;
 
-public class SvglangCircle extends SvglangObject
+public class SvglangEllipse extends SvglangObject
 {
 
 //     protected float posx;
@@ -12,22 +12,23 @@ public class SvglangCircle extends SvglangObject
 //     protected float scalex;
 //     protected float scaley;
 //     protected Color color;
-	protected float radius;
+	protected float rx;
+	protected float ry;
 
-    public SvglangCircle(float x, float y, float r)
+    public SvglangEllipse(float x, float y, float r1, float r2)
     {
         value = null;
         posx = x;
         posy = y;
-        radius = r;
+        rx = r1;
+        ry = r2;
         rot = 0;
         scalex = scaley = 1;
-        color = "#000000";
-
+        color = "#000000";	//Black;
     }
 
     public String getType(){
-		return "SvglangRectangle";
+		return "SvglangEllipse";
     }
 
 
@@ -36,15 +37,24 @@ public class SvglangCircle extends SvglangObject
 	}
 
 	//GETTERS
-	public float getRadius(){
-		return radius;
+	public float getRx(){
+		return rx;
+	}
+	
+	public float getRy(){
+		return ry;
 	}
 
 	//SETTERS
-	public void setRadius(float r){
-		radius = r;
+	public void setRx(float r){
+		rx = r;
+	}
+	
+	public void setRy(float r){
+		ry = r;
 	}
 
-	public boolean isCircle() { return true; }
+
+	public boolean isEllipse() { return true; }
 
 }

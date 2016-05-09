@@ -24,7 +24,7 @@ public class SvglangRectangle extends SvglangObject
         height = h;
         rot = 0;
         scalex = scaley = 1;
-        color = "#000000";	//Blackk;
+        color = "#000000";	//Black;
     }
 
     public String getType(){
@@ -54,6 +54,6 @@ public class SvglangRectangle extends SvglangObject
 		width = w;
 	}
 
-	//public boolean isRectangle() { return true; }
+	public boolean isRectangle() { return true; }
 
 }
