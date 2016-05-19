@@ -1,6 +1,6 @@
 package interp.datatype;
 
-import interp.Data;
+import java.text.MessageFormat;
 import parser.*;
 
 public class SvglangText extends SvglangObject
@@ -17,7 +17,7 @@ public class SvglangText extends SvglangObject
 
     public SvglangText( float x, float y, String t)
     {
-        value = null;
+        super();
         posx = x;
         posy = y;
         size = 1;
@@ -25,6 +25,12 @@ public class SvglangText extends SvglangObject
         rot = 0;
         scalex = scaley = 1;
         color = "#000000";	//Black
+		code = 	"var {0} = document.createElementNS(svgNS, \"text\");\n"+
+				"{0}.setAttribute(\"id\",\"{0}\");\n"+
+				"{0}.setAttribute(\"x\",\"{1}\");\n"+
+				"{0}.setAttribute(\"y\",\"{2}\");\n"+
+				"var _t = document.createTextNode(\"{3}\")\n"+
+				"{0}.appendChild(_t);";
     }
 
     public String getType(){
@@ -44,6 +50,10 @@ public class SvglangText extends SvglangObject
 	public float getSize(){
 		return size;
 	}
+
+	public String getFullCode() {
+        return MessageFormat.format(code, name, posx, posy, text);
+    }
 
 	//SETTERS
 	public void setText(String t){

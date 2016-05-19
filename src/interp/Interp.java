@@ -33,6 +33,7 @@ import interp.datatype.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.text.MessageFormat;
 import java.io.*;
 
 /** Class that implements the interpreter of the language. */
@@ -268,6 +269,13 @@ public class Interp {
             // Assignment
             case AslLexer.ASSIGN:
                 value = evaluateExpression(t.getChild(1));
+                if (value instanceof SvglangObject) {
+                        SvglangObject so = (SvglangObject) value;
+                        so.setName(t.getChild(0).getText());
+                        writer.print(so.getFullCode());
+                        writer.println("_defs.appendChild("+t.getChild(0).getText()+");");
+                }
+
                 Stack.defineVariable(t.getChild(0).getText(), value);
                 return null;
 
@@ -559,65 +567,50 @@ public class Interp {
                 assert arglist.getChildCount() == 4;
                 float rw = Float.parseFloat(arglist.getChild(2).getText());
                 float rh = Float.parseFloat(arglist.getChild(3).getText());
+                SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
+                sr.setName(id);
+                Stack.defineVariable(id, sr);
 
-                Stack.defineVariable(id, new SvglangRectangle(rx, ry, rw, rh ));
-
-                writer.println("var "+id+" = document.createElementNS(svgNS, \"rect\");");
-                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
-                writer.println(id+".setAttribute(\"x\",\""+arglist.getChild(0).getText()+"\");");
-                writer.println(id+".setAttribute(\"y\",\""+arglist.getChild(1).getText()+"\");");
-                writer.println(id+".setAttribute(\"width\",\""+arglist.getChild(2).getText()+"\");");
-                writer.println(id+".setAttribute(\"height\",\""+arglist.getChild(3).getText()+"\");");
+                writer.print(sr.getFullCode());
                 break;
             case AslLexer.CIRCLE:
                 assert arglist.getChildCount() == 3;
                 float rr = Float.parseFloat(arglist.getChild(2).getText());
-                Stack.defineVariable(id, new SvglangCircle(rx, ry, rr));
+                SvglangCircle sc = new SvglangCircle(rx, ry, rr);
+                sc.setName(id);
+                Stack.defineVariable(id, sc);
 
-                writer.println("var "+id+" = document.createElementNS(svgNS, \"circle\");");
-                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
-                writer.println(id+".setAttribute(\"cx\",\""+arglist.getChild(0).getText()+"\");");
-                writer.println(id+".setAttribute(\"cy\",\""+arglist.getChild(1).getText()+"\");");
-                writer.println(id+".setAttribute(\"r\",\""+arglist.getChild(2).getText()+"\");");
+                writer.print(sc.getFullCode());
                 break;
             case AslLexer.TEXT:
                 assert arglist.getChildCount() >= 3;
                 String rt = arglist.getChild(2).getStringValue();
-                Stack.defineVariable(id, new SvglangText(rx, ry, rt));
+                SvglangText st = new SvglangText(rx, ry, rt);
+                st.setName(id);
+                Stack.defineVariable(id, st);
 
-                writer.println("var "+id+" = document.createElementNS(svgNS, \"text\");");
-                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
-                writer.println(id+".setAttribute(\"x\",\""+arglist.getChild(0).getText()+"\");");
-                writer.println(id+".setAttribute(\"y\",\""+arglist.getChild(1).getText()+"\");");
-                writer.println("var _t = document.createTextNode(\""+rt+"\")");
-                writer.println(id+".appendChild(_t);");
+                writer.print(st.getFullCode());
                 break;
             case AslLexer.ELLIPSE:
                 assert arglist.getChildCount() == 4;
                 float rrx = Float.parseFloat(arglist.getChild(2).getText());
                 float rry = Float.parseFloat(arglist.getChild(3).getText());
-                Stack.defineVariable(id, new SvglangEllipse(rx, ry, rrx, rry));
+                SvglangEllipse se = new SvglangEllipse(rx, ry, rrx, rry);
+                se.setName(id);
+                Stack.defineVariable(id, se);
 
-                writer.println("var "+id+" = document.createElementNS(svgNS, \"ellipse\");");
-                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
-                writer.println(id+".setAttribute(\"cx\",\""+arglist.getChild(0).getText()+"\");");
-                writer.println(id+".setAttribute(\"cy\",\""+arglist.getChild(1).getText()+"\");");
-                writer.println(id+".setAttribute(\"rx\",\""+arglist.getChild(2).getText()+"\");");
-                writer.println(id+".setAttribute(\"ry\",\""+arglist.getChild(3).getText()+"\");");
+                writer.print(se.getFullCode());
                 break;
             case AslLexer.PATH:
                 String d = "M"+rx+","+ry;
                 for (int i = 2; i < arglist.getChildCount(); i++) {
                     d += arglist.getChild(i).getStringValue();
                 }
-                Stack.defineVariable(id, new SvglangPath(rx, ry));
+                SvglangPath sp = new SvglangPath(rx, ry);
+                sp.setName(id); sp.setD(d);
+                Stack.defineVariable(id, sp);
 
-                writer.print(   "var "+id+" = document.createElementNS(svgNS, \"path\");\n"+
-                                id+".setAttribute(\"id\",\""+id+"\");\n"+
-                                id+".setAttribute(\"d\",\""+d+"\");\n"+
-                                id+".style.fill = \"none\";\n"+
-                                id+".style.stroke = \"#000000\";\n"
-                );
+                writer.print(sp.getFullCode());
                 break;
             default:
                 break;

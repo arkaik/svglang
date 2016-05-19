@@ -1,6 +1,6 @@
 package interp.datatype;
 
-import interp.Data;
+import java.text.MessageFormat;
 import parser.*;
 
 public class SvglangEllipse extends SvglangObject
@@ -25,6 +25,13 @@ public class SvglangEllipse extends SvglangObject
         rot = 0;
         scalex = scaley = 1;
         color = "#000000";	//Black;
+		name = "_";
+		code = 	"var {0} = document.createElementNS(svgNS, \"ellipse\");\n"+
+				"{0}.setAttribute(\"id\",\"{0}\");\n"+
+				"{0}.setAttribute(\"cx\",\"{0}\");\n"+
+				"{0}.setAttribute(\"cy\",\"{1}\");\n"+
+				"{0}.setAttribute(\"rx\",\"{2}\");\n"+
+				"{0}.setAttribute(\"ry\",\"{3}\");";
     }
 
     public String getType(){
@@ -44,6 +51,10 @@ public class SvglangEllipse extends SvglangObject
 	public float getRy(){
 		return ry;
 	}
+
+	public String getFullCode() {
+        return MessageFormat.format(code, name, posx, posy, rx, ry);
+    }
 
 	//SETTERS
 	public void setRx(float r){

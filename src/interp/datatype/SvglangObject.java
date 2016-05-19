@@ -1,10 +1,12 @@
 package interp.datatype;
 
 import interp.Data;
+import java.text.MessageFormat;
 import parser.*;
 
 public abstract class SvglangObject extends Data
 {
+    //protected Object value;
     protected float posx;
     protected float posy;
     protected float rot;
@@ -18,6 +20,7 @@ public abstract class SvglangObject extends Data
     public SvglangObject()
     {
         value = null;
+        name = "_";
     }
 
     public abstract String getType();
@@ -50,6 +53,21 @@ public abstract class SvglangObject extends Data
 		return color;
 	}
 
+    public String getName(){
+        return name;
+    }
+
+    public String getCode(){
+        return code;
+    }
+
+    // Return formatted code
+    public abstract String getFullCode();
+
+    public int getNumTransform(){
+		return num_transform;
+	}
+
 	//SETTERS
 	public void setPosx(float x){
 		posx = x;
@@ -75,12 +93,16 @@ public abstract class SvglangObject extends Data
 		color = c;
 	}
 
+    public void setName(String n) {
+        name = n;
+    }
+
+    public void setCode(String c) {
+        code = c;
+    }
+
     public void setNumTransform(int x){
 		num_transform = x;
-	}
-
-    public int getNumTransform(){
-		return num_transform;
 	}
 
     public abstract Data copy();

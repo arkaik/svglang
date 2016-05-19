@@ -1,6 +1,6 @@
 package interp.datatype;
 
-import interp.Data;
+import java.text.MessageFormat;
 import parser.*;
 
 public class SvglangRectangle extends SvglangObject
@@ -25,6 +25,13 @@ public class SvglangRectangle extends SvglangObject
         rot = 0;
         scalex = scaley = 1;
         color = "#000000";	//Black;
+		name = "_";
+		code =	"var {0} = document.createElementNS(svgNS, \"rect\");\n"+
+				"{0}.setAttribute(\"id\",\"{0}\");\n"+
+				"{0}.setAttribute(\"x\",\"{1}\");\n"+
+				"{0}.setAttribute(\"y\",\"{2}\");\n"+
+				"{0}.setAttribute(\"width\",\"{3}\");\n"+
+				"{0}.setAttribute(\"height\",\"{4}\");\n";
     }
 
     public String getType(){
@@ -44,6 +51,10 @@ public class SvglangRectangle extends SvglangObject
 	public float getWidth(){
 		return width;
 	}
+
+	public String getFullCode() {
+        return MessageFormat.format(code, name, posx, posy, width, height);
+    }
 
 	//SETTERS
 	public void setHeigth(float h){

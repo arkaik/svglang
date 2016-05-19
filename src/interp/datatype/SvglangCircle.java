@@ -1,6 +1,6 @@
 package interp.datatype;
 
-import interp.Data;
+import java.text.MessageFormat;
 import parser.*;
 
 public class SvglangCircle extends SvglangObject
@@ -23,6 +23,12 @@ public class SvglangCircle extends SvglangObject
         rot = 0;
         scalex = scaley = 1;
         color = "#000000";
+		name = "_";
+		code = 	"var {0} = document.createElementNS(svgNS, \"circle\");\n"+
+				"{0}.setAttribute(\"id\",\"{0}\");\n"+
+				"{0}.setAttribute(\"cx\",\"{1}\");\n"+
+				"{0}.setAttribute(\"cy\",\"{2}\");\n"+
+				"{0}.setAttribute(\"r\",\"{3}\");";
 
     }
 
@@ -40,6 +46,10 @@ public class SvglangCircle extends SvglangObject
 		return radius;
 	}
 
+	public String getFullCode() {
+        return MessageFormat.format(code, name, posx, posy, radius);
+    }
+
 	//SETTERS
 	public void setRadius(float r){
 		radius = r;
@@ -48,7 +58,9 @@ public class SvglangCircle extends SvglangObject
 	public boolean isCircle() { return true; }
 
 	public SvglangCircle copy() {
-        return new SvglangCircle(posx, posy, radius);
+		SvglangCircle sc = new SvglangCircle(posx, posy, radius);
+		sc.setName(name);
+		return sc;
     }
 
 }
