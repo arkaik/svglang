@@ -3,8 +3,8 @@ func main ()
     Fill a #ff0080;
     Draw a;
     n = 1;
-    while n < 10 do
-        a @ position (0,n) {n,1};
+    while n < 15 do
+        a @ "position" (0,n*2) {1};
         n = n + 1;
     endwhile;
 endfunc

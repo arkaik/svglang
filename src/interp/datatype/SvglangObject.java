@@ -12,6 +12,8 @@ public abstract class SvglangObject extends Data
     protected float scaley;
     protected int num_transform;
     protected String color;
+    protected String name;
+    protected String code;
 
     public SvglangObject()
     {
@@ -80,5 +82,7 @@ public abstract class SvglangObject extends Data
     public int getNumTransform(){
 		return num_transform;
 	}
+
+    public abstract Data copy();
 
 }

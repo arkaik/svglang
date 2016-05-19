@@ -56,4 +56,8 @@ public class SvglangText extends SvglangObject
 
 	public boolean isText() { return true; }
 
+	public SvglangText copy() {
+        return new SvglangText(posx, posy, text);
+    }
+
 }

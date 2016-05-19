@@ -168,16 +168,19 @@ public class Interp {
      * @return The data returned by the function.
      */
     private Data executeFunction (String funcname, AslTree args) {
-        try {
-            writer = new PrintWriter("default.js", "UTF-8");
-            writer.println("var svg = document.createElementNS(\"http://www.w3.org/2000/svg\", \"svg\");");
-            writer.println("var svgNS = svg.namespaceURI;");
-            writer.println("document.body.appendChild(svg);");
+        if (funcname.equals("main")) {
+            try {
+                writer = new PrintWriter("default.js", "UTF-8");
+                writer.println("var svg = document.createElementNS(\"http://www.w3.org/2000/svg\", \"svg\");");
+                writer.println("var svgNS = svg.namespaceURI;");
+                writer.println("var _defs = document.createElementNS(svgNS, \"defs\");");
+                writer.println("var _loop = false;");
+                writer.println("document.body.appendChild(svg);");
+            }
+            catch (Exception e) {
+                System.err.println("DANGER DANGER: " + e.getMessage());
+            }
         }
-        catch (Exception e) {
-            System.err.println("DANGER DANGER: " + e.getMessage());
-        }
-
 
         // Get the AST of the function
         AslTree f = FuncName2Tree.get(funcname);
@@ -219,7 +222,7 @@ public class Interp {
         // Destroy the activation record
         Stack.popActivationRecord();
 
-        if (funcname == "main") {
+        if (funcname.equals("main")) {
             writer.close();
             if (show) javafx.application.Application.launch(WebExecution.class);
         }
@@ -328,7 +331,13 @@ public class Interp {
 
             case AslLexer.DRAW:
                 //TODO <use> & <defs> & <symbol>
-                writer.println("svg.appendChild("+t.getChild(0).getText()+");");
+                writer.println("var _u = document.createElementNS(svgNS, \"use\");");
+                SvglangObject so  = (SvglangObject) Stack.getVariable(t.getChild(0).getText());
+                float px = so.getPosx(); float py = so.getPosy();
+                writer.println("_u.setAttributeNS(\"http://www.w3.org/1999/xlink\", \"xlink:href\", \"#"+t.getChild(0).getText()+"\");");
+                writer.println("_u.setAttribute(\"x\",\""+px+"\");");
+                writer.println("_u.setAttribute(\"y\",\""+py+"\");");
+                writer.println("svg.appendChild(_u);");
                 return null;
 
             case AslLexer.FILL:
@@ -357,7 +366,14 @@ public class Interp {
                 relativeSet(t);
                 return null;
 
+            case AslLexer.ABS:
+                return null;
+
             case AslLexer.LOOP:
+                assert t.getChild(0).getType() == AslLexer.REL || t.getChild(0).getType() == AslLexer.ABS || t.getChild(0).getType() == AslLexer.TRANSFORM;
+                writer.println("_loop = true;");
+                executeInstruction(t.getChild(0));
+                writer.println("_loop = false;");
                 return null;
 
             default: assert false; // Should never happen
@@ -384,7 +400,6 @@ public class Interp {
                     checkNumeric(v);
                     SvglangObject so = (SvglangObject) Stack.getVariable(id);
                     float sf = so.getScalex();
-                    System.out.println("KTHXBYE -> "+v.getValue().getClass().getName());
 
                     Float fv; Object ov = v.getValue();
                     if (v.isInteger()) fv = ((Integer) ov).floatValue();
@@ -403,11 +418,15 @@ public class Interp {
                 }
                 break;
             case AslLexer.ROTATEREL:
-                assert args.getChildCount() == 1;
+                assert args.getChildCount() > 1;
                 Data v = evaluateExpression(args.getChild(0));
                 checkNumeric(v);
-                //TODO Check transformation, we need the actual scale factor
-                writer.println(id+".setAttribute(\"transform\", \"rotate("+v.getValue()+")\");");
+                if (args.getChildCount() > 1) {
+                    Data vx = evaluateExpression(args.getChild(1)); Data vy = evaluateExpression(args.getChild(2));
+                    checkNumeric(vx); checkNumeric(vy);
+                    writer.println(id+".setAttribute(\"transform\", \"rotate("+v.getValue()+", "+vx.getValue()+", "+vy.getValue()+")\");");
+                }
+                else writer.println(id+".setAttribute(\"transform\", \"rotate("+v.getValue()+")\");");
                 break;
             default:
                 break;
@@ -433,7 +452,7 @@ public class Interp {
         switch (type) {
             // A variable
             case AslLexer.ID:
-                value = Stack.getVariable(t.getText());
+                value = Stack.getVariable(t.getText()).copy();
                 break;
             // An integer literal
             case AslLexer.INT:
@@ -531,6 +550,7 @@ public class Interp {
     private Data evaluateDisplay(AslTree t) {
         String id = t.getChild(0).getText();
         AslTree arglist = t.getChild(1);
+
         float rx = Float.parseFloat(arglist.getChild(0).getText());
         float ry = Float.parseFloat(arglist.getChild(1).getText());
 
@@ -548,7 +568,6 @@ public class Interp {
                 writer.println(id+".setAttribute(\"y\",\""+arglist.getChild(1).getText()+"\");");
                 writer.println(id+".setAttribute(\"width\",\""+arglist.getChild(2).getText()+"\");");
                 writer.println(id+".setAttribute(\"height\",\""+arglist.getChild(3).getText()+"\");");
-
                 break;
             case AslLexer.CIRCLE:
                 assert arglist.getChildCount() == 3;
@@ -562,28 +581,67 @@ public class Interp {
                 writer.println(id+".setAttribute(\"r\",\""+arglist.getChild(2).getText()+"\");");
                 break;
             case AslLexer.TEXT:
-                assert arglist.getChildCount() == 3;
+                assert arglist.getChildCount() >= 3;
                 String rt = arglist.getChild(2).getStringValue();
                 Stack.defineVariable(id, new SvglangText(rx, ry, rt));
 
+                writer.println("var "+id+" = document.createElementNS(svgNS, \"text\");");
+                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
+                writer.println(id+".setAttribute(\"x\",\""+arglist.getChild(0).getText()+"\");");
+                writer.println(id+".setAttribute(\"y\",\""+arglist.getChild(1).getText()+"\");");
+                writer.println("var _t = document.createTextNode(\""+rt+"\")");
+                writer.println(id+".appendChild(_t);");
+                break;
+            case AslLexer.ELLIPSE:
+                assert arglist.getChildCount() == 4;
+                float rrx = Float.parseFloat(arglist.getChild(2).getText());
+                float rry = Float.parseFloat(arglist.getChild(3).getText());
+                Stack.defineVariable(id, new SvglangEllipse(rx, ry, rrx, rry));
+
+                writer.println("var "+id+" = document.createElementNS(svgNS, \"ellipse\");");
+                writer.println(id+".setAttribute(\"id\",\""+id+"\");");
+                writer.println(id+".setAttribute(\"cx\",\""+arglist.getChild(0).getText()+"\");");
+                writer.println(id+".setAttribute(\"cy\",\""+arglist.getChild(1).getText()+"\");");
+                writer.println(id+".setAttribute(\"rx\",\""+arglist.getChild(2).getText()+"\");");
+                writer.println(id+".setAttribute(\"ry\",\""+arglist.getChild(3).getText()+"\");");
+                break;
+            case AslLexer.PATH:
+                String d = "M"+rx+","+ry;
+                for (int i = 2; i < arglist.getChildCount(); i++) {
+                    d += arglist.getChild(i).getStringValue();
+                }
+                Stack.defineVariable(id, new SvglangPath(rx, ry));
+
+                writer.print(   "var "+id+" = document.createElementNS(svgNS, \"path\");\n"+
+                                id+".setAttribute(\"id\",\""+id+"\");\n"+
+                                id+".setAttribute(\"d\",\""+d+"\");\n"+
+                                id+".style.fill = \"none\";\n"+
+                                id+".style.stroke = \"#000000\";\n"
+                );
                 break;
             default:
                 break;
         }
+
+        writer.println("_defs.appendChild("+id+");");
+        writer.println("svg.appendChild(_defs);");
+
         return null;
     }
 
     private Data relativeSet(AslTree t) {
         String id = t.getChild(0).getText();
-        String property = t.getChild(1).getText();
+        String property = t.getChild(1).getStringValue();
         AslTree args = t.getChild(2);
+        SvglangObject obj = (SvglangObject) Stack.getVariable(id);
         //Tenemos tiempo, hurra!
         if (t.getChildCount() == 4) {
             AslTree time = t.getChild(3);
 
             if (property.equals("position")) {
-                SvglangObject obj = (SvglangObject) evaluateExpression(t.getChild(0));
+
                 Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
+
                 float ox = obj.getPosx(); float oy = obj.getPosy();
 
                 Float ftx, fty;
@@ -622,10 +680,168 @@ public class Interp {
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
                 writer.println(id+".appendChild(_elem);");
                 obj.setNumTransform(nlt+1);
+
             }
+            else if (property.equals("rotation")) {
+                Data gr = evaluateExpression(args.getChild(0));
+                Data ax = evaluateExpression(args.getChild(1));
+                Data ay = evaluateExpression(args.getChild(2));
+
+                float ro = obj.getRot();
+
+                Float fgr, fax, fay;
+
+                Object ogr = gr.getValue();
+                if (gr.isInteger()) fgr = ((Integer) ogr).floatValue();
+                else fgr = (Float) ogr;
+
+                Object oax = ax.getValue();
+                if (ax.isInteger()) fax = ((Integer) oax).floatValue();
+                else fax = (Float) oax;
+
+                Object oay = ay.getValue();
+                if (ax.isInteger()) fay = ((Integer) oay).floatValue();
+                else fay = (Float) oay;
+
+                obj.setRot(ro+fgr);
+                int nlt = obj.getNumTransform();
+
+                writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
+                writer.println("_elem.setAttribute(\"type\", \"rotate\")");
+
+                writer.println("_elem.setAttribute(\"from\", \""+ro+" "+fax+" "+fay+"\")");
+                writer.println("_elem.setAttribute(\"to\", \""+(ro+fgr)+" "+fax+" "+fay+"\")");
+
+                Data c1 = evaluateExpression(time.getChild(0));
+
+                //AslTree time = t.getChild(3);
+                if (time.getChildCount() == 2) {
+                    Data c2 = evaluateExpression(time.getChild(1));
+                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
+                }
+                else {
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt-1)+".end\")");
+                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
+                }
+                writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
+                writer.println(id+".appendChild(_elem);");
+                obj.setNumTransform(nlt+1);
+            }
+            else {
+
+                int nlt1 = obj.getNumTransform();
+                String v = "";
+                for (int i = 0; i < args.getChildCount(); i++) {
+                    String auxt = args.getChild(i).getText();
+                    if (auxt.charAt(0) == '"' && auxt.charAt(auxt.length()-1) == '"') auxt = auxt.substring(1, auxt.length()-1);
+                    v += auxt;
+                    if (i != args.getChildCount()-1) v += ";";
+                }
+
+                writer.println("var _elem = document.createElementNS(svgNS,\"animate\")");
+                writer.println("_elem.setAttribute(\"id\", \""+id+nlt1+"\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \""+property+"\")");
+                writer.println("_elem.setAttribute(\"values\", \""+v+"\")");
+
+                Data c1 = evaluateExpression(time.getChild(0));
+
+                if (time.getChildCount() == 2) {
+                    Data c2 = evaluateExpression(time.getChild(1));
+                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
+                }
+                else {
+                    if (nlt1 != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt1-1)+".end\")");
+                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
+                }
+
+                writer.println(id+".appendChild(_elem);");
+
+            }
+
+            writer.println("if (_loop) _elem.setAttribute(\"repeatCount\",\"indefinite\");");
+
         }
         else { //LMAO, instant setting
-            System.out.println("LMAO");
+            if (property.equals("position")) {
+                Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
+                float ox = obj.getPosx(); float oy = obj.getPosy();
+
+                Float ftx, fty;
+
+                Object otx = tx.getValue();
+                if (tx.isInteger()) ftx = ((Integer) otx).floatValue();
+                else ftx = (Float) otx;
+
+                Object oty = ty.getValue();
+                if (tx.isInteger()) fty = ((Integer) oty).floatValue();
+                else fty = (Float) oty;
+
+                obj.setPosx(ox+ftx); obj.setPosy(oy+fty);
+                int nlt = obj.getNumTransform();
+
+                writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
+                writer.println("_elem.setAttribute(\"type\", \"translate\")");
+
+                writer.println("_elem.setAttribute(\"from\", \""+ox+" "+oy+"\")");
+                writer.println("_elem.setAttribute(\"to\", \""+(ox+ftx)+" "+(oy+fty)+"\")");
+
+                if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt-1)+".end\")");
+                else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                writer.println("_elem.setAttribute(\"dur\", \"0s\")");
+
+                writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
+                writer.println(id+".appendChild(_elem);");
+                obj.setNumTransform(nlt+1);
+            }
+            else if (property.equals("rotation")) {
+                System.out.println("Rotation");
+                Data gr = evaluateExpression(args.getChild(0));
+                Data ax = evaluateExpression(args.getChild(1));
+                Data ay = evaluateExpression(args.getChild(2));
+
+                float ro = obj.getRot();
+
+                Float fgr, fax, fay;
+
+                Object ogr = gr.getValue();
+                if (gr.isInteger()) fgr = ((Integer) ogr).floatValue();
+                else fgr = (Float) ogr;
+
+                Object oax = ax.getValue();
+                if (ax.isInteger()) fax = ((Integer) oax).floatValue();
+                else fax = (Float) oax;
+
+                Object oay = ay.getValue();
+                if (ax.isInteger()) fay = ((Integer) oay).floatValue();
+                else fay = (Float) oay;
+
+                obj.setRot(ro+fgr);
+                int nlt = obj.getNumTransform();
+
+                writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
+                writer.println("_elem.setAttribute(\"type\", \"rotate\")");
+
+                writer.println("_elem.setAttribute(\"from\", \""+ro+" "+fax+" "+fay+"\")");
+                writer.println("_elem.setAttribute(\"to\", \""+(ro+fgr)+" "+fax+" "+fay+"\")");
+
+                if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt-1)+".end\")");
+                else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                writer.println("_elem.setAttribute(\"dur\", \"0s\")");
+
+                writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
+                writer.println(id+".appendChild(_elem);");
+                obj.setNumTransform(nlt+1);
+            }
         }
 
         return null;

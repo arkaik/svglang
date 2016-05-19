@@ -56,4 +56,8 @@ public class SvglangRectangle extends SvglangObject
 
 	public boolean isRectangle() { return true; }
 
+	public SvglangRectangle copy() {
+        return new SvglangRectangle(posx, posy, width, height);
+    }
+
 }

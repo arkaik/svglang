@@ -43,7 +43,8 @@ public class SvglangFloat extends Data
         }
         value = fv;
     }
-    	public Data evaluateRelational (int op, Data d) {
+
+    public Data evaluateRelational (int op, Data d) {
         //assert type != Type.VOID && type == d.type;
         switch (op) {
             case AslLexer.EQUAL: return new SvglangBoolean((float) value == (float) d.getValue());
@@ -55,5 +56,10 @@ public class SvglangFloat extends Data
             default: assert false;
         }
         return null;
+    }
+
+    public SvglangFloat copy()
+    {
+        return new SvglangFloat((Float) value);
     }
 }

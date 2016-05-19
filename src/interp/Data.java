@@ -50,14 +50,14 @@ public abstract class Data {
     /** Default Constructor */
     public Data() {  }
 
-    /** Constructor Template */
-    public Data(Object v) {
-        value = v;
-    }
-
     /** Copy constructor */
     public Data(Data d) {
         value = d.value;
+    }
+
+    /** Constructor Template */
+    public Data(Object v) {
+        value = v;
     }
 
     /** Returns the type of data */
@@ -156,4 +156,6 @@ public abstract class Data {
     public Data evaluateRelational (int op, Data d) {
 		throw new RuntimeException ("INCORRECT TYPE FOR EVALUATERELATIONAL OP");
 	}
+
+    public abstract Data copy ();
 }

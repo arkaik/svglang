@@ -47,4 +47,8 @@ public class SvglangCircle extends SvglangObject
 
 	public boolean isCircle() { return true; }
 
+	public SvglangCircle copy() {
+        return new SvglangCircle(posx, posy, radius);
+    }
+
 }

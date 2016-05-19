@@ -34,4 +34,9 @@ public class SvglangBoolean extends Data
         }
         return null;
     }
+
+    public SvglangBoolean copy()
+    {
+        return new SvglangBoolean((Boolean) value);
+    }
 }

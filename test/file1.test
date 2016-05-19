@@ -10,9 +10,16 @@ func main ()
     Stroke b #80d00c 5;
     Draw b;
 
-    Write "We are the winners";
+    b @ "position" (20, 100);
+    Draw b;
+
     Text t (50, 200, "We are the winners");
     Draw t;
+
+    Ellipse e (200, 300, 20, 40);
+    Fill e #ffffff;
+    Stroke e #0080dd 5;
+    Draw e;
 
 endfunc
 $SHOW

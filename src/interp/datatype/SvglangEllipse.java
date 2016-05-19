@@ -40,7 +40,7 @@ public class SvglangEllipse extends SvglangObject
 	public float getRx(){
 		return rx;
 	}
-	
+
 	public float getRy(){
 		return ry;
 	}
@@ -49,12 +49,14 @@ public class SvglangEllipse extends SvglangObject
 	public void setRx(float r){
 		rx = r;
 	}
-	
+
 	public void setRy(float r){
 		ry = r;
 	}
 
-
 	public boolean isEllipse() { return true; }
 
+	public SvglangEllipse copy() {
+        return new SvglangEllipse(posx, posy, rx, ry);
+    }
 }

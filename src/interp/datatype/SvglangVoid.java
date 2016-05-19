@@ -22,4 +22,9 @@ public class SvglangVoid extends Data
         return "null";
     }
 
+    public SvglangVoid copy()
+    {
+        return new SvglangVoid();
+    }
+
 }

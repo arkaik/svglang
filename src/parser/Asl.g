@@ -114,7 +114,7 @@ macro	: '$SHOW'
 		;
 
 
-loop	:	LOOP^ animation;
+loop	:	LOOP^ (animation|symset);
 
 //Transformaciones de objetos
 transform	:	TRANS^ ID atom (FLOAT)?
@@ -183,6 +183,7 @@ graphicconst:   RECT^ ID arglist
 		|		TEXT^ ID arglist
 		|		ELLIPSE^ ID arglist
 		|		LINE^ ID arglist
+        |       PATH^ ID arglist
         ;
 
 // Grammar for expressions with boolean, relational and aritmetic operators
@@ -275,6 +276,7 @@ CIRCLE  : 'Circle';
 ELLIPSE	: 'Ellipse';
 LINE	: 'Line';
 TEXT	: 'Text';
+PATH    : 'Path';
 
 TRANS	: 'Trans';
 TRANSREL	: 'TransRel';
@@ -309,7 +311,7 @@ COMMENT	: '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
 // Strings (in quotes) with escape sequences
 //STRING  :  '"' ('\\' ESC_SEQ | ~('\\'|'"') )* '"'
 //		;
-STRING 
+STRING
 	:	 '"' (~'"')* '"' ;
 
 fragment

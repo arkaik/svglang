@@ -34,7 +34,6 @@ public class SvglangInteger extends Data
     }
 
 	public void evaluateArithmetic (int op, Data d) {
-        //assert type == Type.INTEGER && d.type == Type.INTEGER;
         int iv = (int) value;
         switch (op) {
             case AslLexer.PLUS: iv += (int) d.getValue(); break;
@@ -47,7 +46,7 @@ public class SvglangInteger extends Data
         value = iv;
     }
 
-    	public Data evaluateRelational (int op, Data d) {
+    public Data evaluateRelational (int op, Data d) {
         assert getType() == d.getType();
         switch (op) {
             case AslLexer.EQUAL: return new SvglangBoolean( (int) value == (int) d.getValue());
@@ -59,5 +58,10 @@ public class SvglangInteger extends Data
             default: assert false;
         }
         return null;
+    }
+
+    public SvglangInteger copy()
+    {
+        return new SvglangInteger((Integer) value);
     }
 }
