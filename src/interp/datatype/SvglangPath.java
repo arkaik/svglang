@@ -56,7 +56,7 @@ public class SvglangPath extends SvglangObject
 
 	public SvglangPath copy() {
         SvglangPath sp = new SvglangPath(posx, posy);
-        sp.setName(name); sp.setD(d);
+        sp.setName(name); sp.setD(d); sp.setRot(rot);
         return sp;
     }
 }

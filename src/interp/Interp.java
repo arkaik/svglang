@@ -68,7 +68,11 @@ public class Interp {
     /** Nested levels of function calls. */
     private int function_nesting = -1;
 
+    /** Show or not the result viewer*/
     private boolean show = false;
+
+    /** Number of anonym variables in interpret */
+    private int anon = 0;
 
     /**
      * Constructor of the interpreter. It prepares the main
@@ -169,12 +173,15 @@ public class Interp {
      * @return The data returned by the function.
      */
     private Data executeFunction (String funcname, AslTree args) {
+
         if (funcname.equals("main")) {
             try {
                 writer = new PrintWriter("default.js", "UTF-8");
                 writer.println("var svg = document.createElementNS(\"http://www.w3.org/2000/svg\", \"svg\");");
                 writer.println("var svgNS = svg.namespaceURI;");
                 writer.println("var _defs = document.createElementNS(svgNS, \"defs\");");
+                writer.println("svg.appendChild(_defs);");
+                writer.println("var _anon = 0;");
                 writer.println("var _loop = false;");
                 writer.println("document.body.appendChild(svg);");
             }
@@ -269,14 +276,20 @@ public class Interp {
             // Assignment
             case AslLexer.ASSIGN:
                 value = evaluateExpression(t.getChild(1));
+
                 if (value instanceof SvglangObject) {
                         SvglangObject so = (SvglangObject) value;
-                        so.setName(t.getChild(0).getText());
+                        String name = t.getChild(0).getText();
+                        if (t.getChild(0).getText().equals("anon")) {
+                            anon += 1;
+                            name = "anon__"+anon;
+                        }
+                        so.setName(name);
                         writer.print(so.getFullCode());
-                        writer.println("_defs.appendChild("+t.getChild(0).getText()+");");
+                        writer.println("_defs.appendChild("+name+");");
+                        Stack.defineVariable(t.getChild(0).getText(), so);
                 }
-
-                Stack.defineVariable(t.getChild(0).getText(), value);
+                else Stack.defineVariable(t.getChild(0).getText(), value);
                 return null;
 
             // If-then-else
@@ -340,16 +353,24 @@ public class Interp {
             case AslLexer.DRAW:
                 //TODO <use> & <defs> & <symbol>
                 writer.println("var _u = document.createElementNS(svgNS, \"use\");");
-                SvglangObject so  = (SvglangObject) Stack.getVariable(t.getChild(0).getText());
+
+                String id = t.getChild(0).getText();
+                String name = id;
+                if (id.equals("anon")) name = "anon__"+anon;
+
+                SvglangObject so  = (SvglangObject) Stack.getVariable(id);
                 float px = so.getPosx(); float py = so.getPosy();
-                writer.println("_u.setAttributeNS(\"http://www.w3.org/1999/xlink\", \"xlink:href\", \"#"+t.getChild(0).getText()+"\");");
+                writer.println("_u.setAttributeNS(\"http://www.w3.org/1999/xlink\", \"xlink:href\", \"#"+name+"\");");
                 writer.println("_u.setAttribute(\"x\",\""+px+"\");");
                 writer.println("_u.setAttribute(\"y\",\""+py+"\");");
                 writer.println("svg.appendChild(_u);");
                 return null;
 
             case AslLexer.FILL:
-                writer.println(t.getChild(0).getText()+".style.fill = \""+t.getChild(1).getText()+"\";");
+                String id1 = t.getChild(0).getText();
+                String name1 = id1;
+                if (id1.equals("anon")) name1 = "anon__"+anon;
+                writer.println(name1+".style.fill = \""+t.getChild(1).getText()+"\";");
                 return null;
 
             case AslLexer.STROKE:
@@ -400,13 +421,16 @@ public class Interp {
 
     private Data executeTransformation (AslTree t) {
         String id = t.getChild(0).getText();
+        String name = id;
+        if (id.equals("anon")) name = "anon__"+anon;
+        SvglangObject so = (SvglangObject) Stack.getVariable(id);
         AslTree args = t.getChild(1);
         switch (t.getType()) {
             case AslLexer.SCALEREL:
                 if (args.getChildCount() == 1) {
                     Data v = evaluateExpression(args.getChild(0));
                     checkNumeric(v);
-                    SvglangObject so = (SvglangObject) Stack.getVariable(id);
+
                     float sf = so.getScalex();
 
                     Float fv; Object ov = v.getValue();
@@ -416,7 +440,7 @@ public class Interp {
                     sf *= fv;
 
                     so.setScalex(sf); so.setScaley(sf);
-                    writer.println(id+".setAttribute(\"transform\", \"scale("+sf+")\");");
+                    writer.println(name+".setAttribute(\"transform\", \"scale("+sf+")\");");
                 }
                 else {
                     Data u = evaluateExpression(args.getChild(0)); Data v = evaluateExpression(args.getChild(1));
@@ -426,15 +450,70 @@ public class Interp {
                 }
                 break;
             case AslLexer.ROTATEREL:
-                assert args.getChildCount() > 1;
+                assert args.getChildCount() >= 1;
+
                 Data v = evaluateExpression(args.getChild(0));
                 checkNumeric(v);
+                float rot = so.getRot();
+
+                Float fv; Object ov = v.getValue();
+                if (v.isInteger()) fv = ((Integer) ov).floatValue();
+                else fv = (Float) ov;
+
+                rot += fv;
+                if (rot > 360) rot -= 360;
+                so.setRot(rot);
+
                 if (args.getChildCount() > 1) {
                     Data vx = evaluateExpression(args.getChild(1)); Data vy = evaluateExpression(args.getChild(2));
                     checkNumeric(vx); checkNumeric(vy);
-                    writer.println(id+".setAttribute(\"transform\", \"rotate("+v.getValue()+", "+vx.getValue()+", "+vy.getValue()+")\");");
+                    writer.println(name+".setAttribute(\"transform\", \"rotate("+rot+", "+vx.getValue()+", "+vy.getValue()+")\");");
                 }
-                else writer.println(id+".setAttribute(\"transform\", \"rotate("+v.getValue()+")\");");
+                else writer.println(name+".setAttribute(\"transform\", \"rotate("+rot+")\");");
+                break;
+            case AslLexer.TRANSREL:
+                break;
+            case AslLexer.SCALE:
+                assert args.getChildCount() == 2;
+                Data vs1 = evaluateExpression(args.getChild(0));
+                Data vs2 = evaluateExpression(args.getChild(1));
+                checkNumeric(vs1); checkNumeric(vs2);
+                //float rot = so.getRot();
+
+                Float fvs1; Object ovs1 = vs1.getValue();
+                if (vs1.isInteger()) fvs1 = ((Integer) ovs1).floatValue();
+                else fvs1 = (Float) ovs1;
+
+                Float fvs2; Object ovs2 = vs2.getValue();
+                if (vs2.isInteger()) fvs2 = ((Integer) ovs2).floatValue();
+                else fvs2 = (Float) ovs2;
+
+                so.setScalex(fvs1); so.setScaley(fvs2);
+
+                writer.println(name+".setAttribute(\"transform\", \"scale("+fvs1+", "+fvs2+")\");");
+                break;
+            case AslLexer.ROTATE:
+                assert args.getChildCount() >= 1;
+
+                Data v1 = evaluateExpression(args.getChild(0));
+                checkNumeric(v1);
+                //float rot = so.getRot();
+
+                Float fv1; Object ov1 = v1.getValue();
+                if (v1.isInteger()) fv1 = ((Integer) ov1).floatValue();
+                else fv1 = (Float) ov1;
+
+                //rot += fv;
+                if (fv1 > 360) fv1 -= 360;
+                so.setRot(fv1);
+
+                if (args.getChildCount() > 1) {
+                    Data vx = evaluateExpression(args.getChild(1)); Data vy = evaluateExpression(args.getChild(2));
+                    checkNumeric(vx); checkNumeric(vy);
+                    writer.println(name+".setAttribute(\"transform\", \"rotate("+fv1+", "+vx.getValue()+", "+vy.getValue()+")\");");
+                }
+                else writer.println(name+".setAttribute(\"transform\", \"rotate("+fv1+")\");");
+
                 break;
             default:
                 break;
@@ -557,18 +636,24 @@ public class Interp {
 
     private Data evaluateDisplay(AslTree t) {
         String id = t.getChild(0).getText();
+
         AslTree arglist = t.getChild(1);
 
         float rx = Float.parseFloat(arglist.getChild(0).getText());
         float ry = Float.parseFloat(arglist.getChild(1).getText());
 
+        String name = id;
+        if (name.equals("anon")) {
+            anon += 1;
+            name = "anon__"+anon;
+        }
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;
                 float rw = Float.parseFloat(arglist.getChild(2).getText());
                 float rh = Float.parseFloat(arglist.getChild(3).getText());
                 SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
-                sr.setName(id);
+                sr.setName(name);
                 Stack.defineVariable(id, sr);
 
                 writer.print(sr.getFullCode());
@@ -577,7 +662,7 @@ public class Interp {
                 assert arglist.getChildCount() == 3;
                 float rr = Float.parseFloat(arglist.getChild(2).getText());
                 SvglangCircle sc = new SvglangCircle(rx, ry, rr);
-                sc.setName(id);
+                sc.setName(name);
                 Stack.defineVariable(id, sc);
 
                 writer.print(sc.getFullCode());
@@ -586,7 +671,7 @@ public class Interp {
                 assert arglist.getChildCount() >= 3;
                 String rt = arglist.getChild(2).getStringValue();
                 SvglangText st = new SvglangText(rx, ry, rt);
-                st.setName(id);
+                st.setName(name);
                 Stack.defineVariable(id, st);
 
                 writer.print(st.getFullCode());
@@ -596,7 +681,7 @@ public class Interp {
                 float rrx = Float.parseFloat(arglist.getChild(2).getText());
                 float rry = Float.parseFloat(arglist.getChild(3).getText());
                 SvglangEllipse se = new SvglangEllipse(rx, ry, rrx, rry);
-                se.setName(id);
+                se.setName(name);
                 Stack.defineVariable(id, se);
 
                 writer.print(se.getFullCode());
@@ -607,7 +692,7 @@ public class Interp {
                     d += arglist.getChild(i).getStringValue();
                 }
                 SvglangPath sp = new SvglangPath(rx, ry);
-                sp.setName(id); sp.setD(d);
+                sp.setName(name); sp.setD(d);
                 Stack.defineVariable(id, sp);
 
                 writer.print(sp.getFullCode());
@@ -616,14 +701,18 @@ public class Interp {
                 break;
         }
 
-        writer.println("_defs.appendChild("+id+");");
-        writer.println("svg.appendChild(_defs);");
+        writer.println("_defs.appendChild("+name+");");
+
 
         return null;
     }
 
     private Data relativeSet(AslTree t) {
         String id = t.getChild(0).getText();
+
+        String name = id;
+        if (id.equals("anon")) name = "anon__"+anon;
+
         String property = t.getChild(1).getStringValue();
         AslTree args = t.getChild(2);
         SvglangObject obj = (SvglangObject) Stack.getVariable(id);
@@ -651,7 +740,7 @@ public class Interp {
                 int nlt = obj.getNumTransform();
 
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
-                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
                 writer.println("_elem.setAttribute(\"type\", \"translate\")");
 
@@ -666,12 +755,12 @@ public class Interp {
                     writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
                 }
                 else {
-                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt-1)+".end\")");
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+"_"+(nlt-1)+".end\")");
                     else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
                     writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
                 }
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
-                writer.println(id+".appendChild(_elem);");
+                writer.println(name+".appendChild(_elem);");
                 obj.setNumTransform(nlt+1);
 
             }
@@ -700,7 +789,7 @@ public class Interp {
                 int nlt = obj.getNumTransform();
 
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
-                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
                 writer.println("_elem.setAttribute(\"type\", \"rotate\")");
 
@@ -716,12 +805,12 @@ public class Interp {
                     writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
                 }
                 else {
-                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt-1)+".end\")");
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+"_"+(nlt-1)+".end\")");
                     else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
                     writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
                 }
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
-                writer.println(id+".appendChild(_elem);");
+                writer.println(name+".appendChild(_elem);");
                 obj.setNumTransform(nlt+1);
             }
             else {
@@ -736,7 +825,7 @@ public class Interp {
                 }
 
                 writer.println("var _elem = document.createElementNS(svgNS,\"animate\")");
-                writer.println("_elem.setAttribute(\"id\", \""+id+nlt1+"\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt1+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \""+property+"\")");
                 writer.println("_elem.setAttribute(\"values\", \""+v+"\")");
 
@@ -748,12 +837,12 @@ public class Interp {
                     writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
                 }
                 else {
-                    if (nlt1 != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+(nlt1-1)+".end\")");
+                    if (nlt1 != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+"_"+(nlt1-1)+".end\")");
                     else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
                     writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
                 }
 
-                writer.println(id+".appendChild(_elem);");
+                writer.println(name+".appendChild(_elem);");
 
             }
 
@@ -779,7 +868,7 @@ public class Interp {
                 int nlt = obj.getNumTransform();
 
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
-                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
                 writer.println("_elem.setAttribute(\"type\", \"translate\")");
 
@@ -791,7 +880,7 @@ public class Interp {
                 writer.println("_elem.setAttribute(\"dur\", \"0s\")");
 
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
-                writer.println(id+".appendChild(_elem);");
+                writer.println(name+".appendChild(_elem);");
                 obj.setNumTransform(nlt+1);
             }
             else if (property.equals("rotation")) {
@@ -820,7 +909,7 @@ public class Interp {
                 int nlt = obj.getNumTransform();
 
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
-                writer.println("_elem.setAttribute(\"id\", \""+id+nlt+"\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
                 writer.println("_elem.setAttribute(\"type\", \"rotate\")");
 
@@ -832,7 +921,7 @@ public class Interp {
                 writer.println("_elem.setAttribute(\"dur\", \"0s\")");
 
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
-                writer.println(id+".appendChild(_elem);");
+                writer.println(name+".appendChild(_elem);");
                 obj.setNumTransform(nlt+1);
             }
         }
@@ -840,6 +929,17 @@ public class Interp {
         return null;
     }
 
+    private Data absoluteSet(AslTree t) {
+        String id = t.getChild(0).getText();
+
+        String name = id;
+        if (id.equals("anon")) name = "anon__"+anon;
+
+        String property = t.getChild(1).getStringValue();
+        AslTree args = t.getChild(2);
+        SvglangObject obj = (SvglangObject) Stack.getVariable(id);
+        return null;
+    }
     /**
      * Evaluation of Boolean expressions. This function implements
      * a short-circuit evaluation. The second operand is still a tree

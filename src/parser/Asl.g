@@ -117,11 +117,11 @@ macro	: '$SHOW'
 loop	:	LOOP^ (animation|symset);
 
 //Transformaciones de objetos
-transform	:	TRANS^ ID atom (FLOAT)?
+transform	:	TRANS^ ID arglist
 	|	TRANSREL^ ID arglist
-	|	SCALE^ ID atom (FLOAT)?
-	|	SCALEREL^ ID arglist	//Necesitariem floats per ferho elegant
-	|	ROTATE^ ID atom (FLOAT)?
+	|	SCALE^ ID arglist
+	|	SCALEREL^ ID arglist
+	|	ROTATE^ ID arglist
 	|	ROTATEREL^ ID arglist
 	;
 
