@@ -17,14 +17,13 @@ public class SvglangArray extends Data
 		subtype = parts[parts.length-1];
 		
 		ArrayList<Object> v = new ArrayList<Object>();
-		
-		if(subtype == "Integer"){
-			for (int j = 0; j < i-1; j++){
+		if(subtype.equals( "Integer")){
+			for (int j = 0; j < i; j++){
 				v.add(0);
 			}
 			v.add(o);
 		}
-        setValue(v);
+        value = v;
         length = i;
     }
 
@@ -34,6 +33,11 @@ public class SvglangArray extends Data
     public String getType()
     {
        return ("Array<" + subtype +">");
+    }
+    
+	public String getSubType()
+    {
+       return subtype;
     }
 
     public boolean isArray() { return true; }

@@ -129,17 +129,27 @@ public class Stack {
     }
     
 	//AFEGIT FUNCIO PER OBTENIR EL VALOR DE UNA POSICIO DE LARRAY
-    public Object getArrayVal (String name, Data index) {
+    public Data getArrayVal (String name, Data index) {
 		if (index.getIntegerValue() == 0)
 		throw new RuntimeException ("Array " + name + "Fora de rang: [" +
 			index.getIntegerValue() + "]");
 		Data v = CurrentAR.get(name);
-		if (v == null)
+		if (v == null){
             throw new RuntimeException ("Variable " + name + " not defined");
-        else if (v.getLength() < index.getIntegerValue())
+		}
+        else if (v.getLength() < index.getIntegerValue()){
         	throw new RuntimeException ("Array " + name + "Fora de rang: [" +
 			index.getIntegerValue() + "]");
-		return v.getValue(index.getIntegerValue());
+		}
+		SvglangArray s = (SvglangArray)v;
+		
+		 switch (s.getSubType()) {
+            case "Integer":
+				return new SvglangInteger((Integer)v.getValue(index.getIntegerValue()));
+            default: throw new RuntimeException ("Cas variable no tractada");
+
+        }
+		//return v.getValue(index.getIntegerValue());
     }
     
     
