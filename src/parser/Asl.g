@@ -109,7 +109,7 @@ instruction
         |	transform	-> ^(TRANSFORM transform)	// object transformations
         |	animation		// basic animations
         |	loop
-        |	array_assign	//Assignment de arra
+        |	array_assign	//Assignment de array
         |                   // Nothing
         ;
 
@@ -139,7 +139,7 @@ assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
 
 // Array Assigment
 array_assign	:	ID '[' num_expr ']' eq=EQUAL expr -> ^(ARRAY_ASSIGN[$eq,":="] ID num_expr expr)
-				;
+		;
 
 declare	:	graphicexpr
 		;

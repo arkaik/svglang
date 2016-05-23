@@ -71,6 +71,9 @@ public abstract class Data {
 
 	/** Indicates whether the data is Float */
     public boolean isFloat() { return false; }
+    
+	/** Indicates whether the data is Array */
+    public boolean isArray() { return false; }
 
     /** Indicates whether the data is void */
     public boolean isVoid() { return false; }
@@ -98,6 +101,10 @@ public abstract class Data {
         throw new RuntimeException ("Incorrect type");
     }
 
+	public int getLength()
+    {
+       throw new RuntimeException ("Incorrect type");
+    }
 
     /** Defines a new Template value */
 	public void setValue(Object v) {
@@ -106,6 +113,11 @@ public abstract class Data {
 
 	public Object getValue() {
         return value;
+    }
+    
+	public Object getValue(int i)
+    {
+		throw new RuntimeException ("Incorrect type");
     }
 
 	/** Defines the value from another data */

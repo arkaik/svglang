@@ -8,6 +8,7 @@ public class SvglangArray extends Data
 {
 	protected String subtype;
 	protected ArrayList<Object> value;
+	protected int length;
 
     public SvglangArray(int i, Object o)
     {
@@ -24,6 +25,7 @@ public class SvglangArray extends Data
 			v.add(o);
 		}
         setValue(v);
+        length = i;
     }
 
 	/** Copy constructor */
@@ -41,13 +43,19 @@ public class SvglangArray extends Data
 		for (int j = value.size(); j < i-1; j++){
 				value.add(0);
 			}
+		if (i > length) length = i;
 		value.set(i, o);
     }
     
-	public Object getvalue(int i)
+	public Object getValue(int i)
     {
 //        ArrayList<Object> o = (ArrayList<Object>)value;
        return value.get(i);
+    }
+    
+	public int getLength()
+    {
+       return length;
     }
 
 // 	public int getIntegerValue() {

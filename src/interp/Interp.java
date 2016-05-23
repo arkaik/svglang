@@ -275,9 +275,15 @@ public class Interp {
                         writer.print(so.getFullCode());
                         writer.println("_defs.appendChild("+t.getChild(0).getText()+");");
                 }
-
                 Stack.defineVariable(t.getChild(0).getText(), value);
                 return null;
+                
+			//Array Assigment
+            case AslLexer.ARRAY_ASSIGN:
+				value = evaluateExpression(t.getChild(2));
+				Data index = evaluateExpression(t.getChild(1));
+				Stack.defineVariable (t.getChild(0).getText(), index, value);
+				return null;
 
             // If-then-else
             case AslLexer.IF:
@@ -474,6 +480,11 @@ public class Interp {
             case AslLexer.BOOLEAN:
                 value = new SvglangBoolean(t.getBooleanValue());
                 break;
+			// A array AFEGIT!
+            case AslLexer.ARRAY:
+				Data index = evaluateExpression(t.getChild(1));
+ 				value = new SvglangArray((Data)Stack.getArrayVal(t.getChild(0).getText(), index));
+				break;
             // A function call. Checks that the function returns a result.
             case AslLexer.FUNCALL:
                 value = executeFunction(t.getChild(0).getText(), t.getChild(1));
@@ -933,6 +944,18 @@ public class Interp {
             setLineNumber(a);
             if (p.getType() == AslLexer.PVALUE) {
                 // Pass by value: evaluate the expression
+                
+                //AFEGIT! Si es pasa un array per valor, es pasa per referencia igualment
+                if(Stack.isArray(a.getText())){ //Miro si es un array
+					if (a.getType() != AslLexer.ID) {
+						throw new RuntimeException("Wrong argument for pass by reference");
+					}
+					// Find the variable and pass the reference
+					Data v = Stack.getVariable(a.getText());
+					Params.add(i,v);
+                
+                }
+                
                 Params.add(i,evaluateExpression(a));
             } else {
                 // Pass by reference: check that it is a variable
