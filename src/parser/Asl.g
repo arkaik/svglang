@@ -49,6 +49,8 @@ tokens {
     MACRO;
     PVALUE;     // Parameter by value in the list of parameters
     PREF;       // Parameter by reference in the list of parameters
+    ARRAY;		// Array
+    ARRAY_ASSIGN;	// Array assigment instruction
 }
 
 @header {
@@ -107,6 +109,7 @@ instruction
         |	transform	-> ^(TRANSFORM transform)	// object transformations
         |	animation		// basic animations
         |	loop
+        |	array_assign	//Assignment de arra
         |                   // Nothing
         ;
 
@@ -133,6 +136,10 @@ animation	:	MOVEMENT^ ID FLOAT FLOAT FLOAT//Movement Identificador (desx desy)<-
 // Assignment
 assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
         ;
+
+// Array Assigment
+array_assign	:	ID '[' num_expr ']' eq=EQUAL expr -> ^(ARRAY_ASSIGN[$eq,":="] ID num_expr expr)
+				;
 
 declare	:	graphicexpr
 		;
@@ -214,18 +221,20 @@ atom    :   ID
 		|	FLOAT
 		|	INT
 		|	array
-		|	arrayacc
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
         |   funcall
         |   '('! boolexpr ')'!
         ;
 
-
-array	: '[' atom (',' atom)* ']' -> ^(ARRAY atom+) ;
-
-arrayacc
-	:	ID '[' INT ']'
+// Afegit array
+array	:	ID '[' num_expr ']' -> ^(ARRAY ID num_expr)
 	;
+
+//array	: '[' atom (',' atom)* ']' -> ^(ARRAY atom+) ;
+
+//arrayacc
+//	:	ID '[' INT ']'
+//	;
 
 // A function call has a lits of arguments in parenthesis (possibly empty)
 funcall :   ID '(' expr_list? ')' -> ^(FUNCALL ID ^(ARGLIST expr_list?))
