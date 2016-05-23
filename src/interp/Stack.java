@@ -146,6 +146,10 @@ public class Stack {
 		 switch (s.getSubType()) {
             case "Integer":
 				return new SvglangInteger((Integer)v.getValue(index.getIntegerValue()));
+			case "Boolean":
+				return new SvglangBoolean((Boolean)v.getValue(index.getIntegerValue()));
+			case "Float":
+				return new SvglangFloat((Float)v.getValue(index.getIntegerValue()));
             default: throw new RuntimeException ("Cas variable no tractada");
 
         }
