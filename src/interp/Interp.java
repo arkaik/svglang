@@ -483,7 +483,8 @@ public class Interp {
 			// A array AFEGIT!
             case AslLexer.ARRAY:
 				Data index = evaluateExpression(t.getChild(1));
- 				value = new SvglangArray((Data)Stack.getArrayVal(t.getChild(0).getText(), index));
+ 				//value = new SvglangArray((Data)Stack.getArrayVal(t.getChild(0).getText(), index));
+ 				value = (Data)Stack.getArrayVal(t.getChild(0).getText(), index);
 				break;
             // A function call. Checks that the function returns a result.
             case AslLexer.FUNCALL:

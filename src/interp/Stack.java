@@ -142,9 +142,6 @@ public class Stack {
 		return v.getValue(index.getIntegerValue());
     }
     
-//     public Object getArrayVal (String name, Data index) {
-//     
-//     }
     
     //AFEGIT Funcio per saber si una variable es array (pel pas de referencia)
     public boolean isArray(String name){
