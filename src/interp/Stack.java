@@ -95,15 +95,15 @@ public class Stack {
     public void defineVariable(String name, Data value) {
         Data d = CurrentAR.get(name);
         if (d == null) CurrentAR.put(name, value); // New definition
-        else d.setData(value); // Use the previous data 
+        else d.setData(value); // Use the previous data
     }
 
         //AFEGIT   FALTARIA REDEFINIR TIPUS!!!!
         public void defineVariable(String name, Data index, Data value) {
-        if (index.getIntegerValue() < 0) 
+        if (index.getIntegerValue() < 0)
 			throw new RuntimeException ("Array " + name + "Fora de rang: [" +
 			index.getIntegerValue() + "]");
-		SvglangArray d = (SvglangArray)CurrentAR.get(name);	
+		SvglangArray d = (SvglangArray)CurrentAR.get(name);
         if (d == null) {	//Si no estava definit
 			d = new SvglangArray((int)index.getValue(), value.getValue());
 			CurrentAR.put(name, d); // New definition
@@ -113,7 +113,7 @@ public class Stack {
         }
     }
 
-    
+
     /** Gets the value of the variable. The value is represented as
      * a Data object. In this way, any modification of the object
      * implicitly modifies the value of the variable.
@@ -127,7 +127,7 @@ public class Stack {
         }
         return v;
     }
-    
+
 	//AFEGIT FUNCIO PER OBTENIR EL VALOR DE UNA POSICIO DE LARRAY
     public Data getArrayVal (String name, Data index) {
 		if (index.getIntegerValue() == 0)
@@ -142,7 +142,7 @@ public class Stack {
 			index.getIntegerValue() + "]");
 		}
 		SvglangArray s = (SvglangArray)v;
-		
+
 		 switch (s.getSubType()) {
             case "Integer":
 				return new SvglangInteger((Integer)v.getValue(index.getIntegerValue()));
@@ -155,13 +155,12 @@ public class Stack {
         }
 		//return v.getValue(index.getIntegerValue());
     }
-    
-    
+
+
     //AFEGIT Funcio per saber si una variable es array (pel pas de referencia)
     public boolean isArray(String name){
     Data v = CurrentAR.get(name);
-    if (v==null)
-		throw new RuntimeException ("Variable " + name + " not defined");
+    if (v==null) return false;
     return v.isArray();
     }
 

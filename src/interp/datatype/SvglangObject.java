@@ -16,11 +16,13 @@ public abstract class SvglangObject extends Data
     protected String color;
     protected String name;
     protected String code;
+    protected String tcode;
 
     public SvglangObject()
     {
         value = null;
         name = "_";
+        tcode = "";
     }
 
     public abstract String getType();
@@ -68,6 +70,10 @@ public abstract class SvglangObject extends Data
 		return num_transform;
 	}
 
+    public String getTransformCode(){
+        return tcode;
+    }
+
 	//SETTERS
 	public void setPosx(float x){
 		posx = x;
@@ -104,6 +110,9 @@ public abstract class SvglangObject extends Data
     public void setNumTransform(int x){
 		num_transform = x;
 	}
+    public void addTransformCode(String tc){
+        tcode = tcode+tc+" ";
+    }
 
     public abstract Data copy();
 

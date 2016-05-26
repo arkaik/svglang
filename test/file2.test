@@ -1,0 +1,39 @@
+func layer1 (sec)
+    i = 0;
+    while i < 6
+    do
+        Path anon (100,100,"l0,0 0,0");
+        Loop anon @ "stroke-width" (0,4,4,4,0) {sec, 6};
+        Fill anon #dc451a;
+        Loop anon @ "d" ("m160,160l0,0 0,0","m130,110l30,-17 30,17","m130,60l30,-17 30,17","m160,20l0,0 0,0") {sec, 6};
+        RotateRel anon (60,160,160);
+        Draw anon;
+        i = i+1;
+    endwhile;
+endfunc
+
+func layer2 (sec)
+    Write "layer2";
+    i = 0;
+    while i < 6
+    do
+        Path anon (100,100,"l0,0 0,0");
+        Loop anon @ "stroke-width" (0,4,4,4,0) {sec, 6};
+        Fill anon #a35fa1;
+        Loop anon @ "d" ("m160,160l0,0 0,0","m130,110l30,-17 30,17","m130,60l30,-17 30,17","m160,20l0,0 0,0") {sec, 6};
+        Rotate anon (60*i+30,160,160);
+        Draw anon;
+        i = i+1;
+    endwhile;
+endfunc
+
+func main ()
+    j = 0;
+    while j < 6
+    do
+        layer1 (j);
+        layer2 (j+1);
+        j = j+2;
+    endwhile;
+endfunc
+$SHOW
