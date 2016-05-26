@@ -46,6 +46,7 @@ tokens {
     ARRAY;		//
     TIME;		//
     TRANSFORM;	//
+    ANIMATION;
     MACRO;
     PVALUE;     // Parameter by value in the list of parameters
     PREF;       // Parameter by reference in the list of parameters
@@ -107,7 +108,7 @@ instruction
         |	fill
         |	stroke
         |	transform	-> ^(TRANSFORM transform)	// object transformations
-        |	animation		// basic animations
+        |	animation	-> ^(ANIMATION animation)	// basic animations
         |	loop
         |	array_assign	//Assignment de array
         |                   // Nothing
@@ -129,7 +130,7 @@ transform	:	TRANS^ ID arglist
 	;
 
 //Animacinones de objetos
-animation	:	MOVEMENT^ ID FLOAT FLOAT FLOAT//Movement Identificador (desx desy)<- PAIR
+animation	:	MOVEMENT^ ID arglist//Movement Identificador (desx desy)<- PAIR
 	|	ROTATION^ ID FLOAT FLOAT// Rotation Identificador Velocitat<- FLOATS
 	;
 
