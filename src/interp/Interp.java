@@ -648,8 +648,8 @@ public class Interp {
 
         AslTree arglist = t.getChild(1);
 
-        float rx = Float.parseFloat(arglist.getChild(0).getText());
-        float ry = Float.parseFloat(arglist.getChild(1).getText());
+        float rx = data2float(evaluateExpression(arglist.getChild(0)));
+        float ry = data2float(evaluateExpression(arglist.getChild(1)));
 
         String name = id;
         if (name.equals("anon")) {
@@ -661,9 +661,10 @@ public class Interp {
                 assert arglist.getChildCount() == 4;
 //                 float rw = Float.parseFloat(arglist.getChild(2).getText());
 //                 float rh = Float.parseFloat(arglist.getChild(3).getText());
-				Data rw = evaluateExpression(arglist.getChild(2)); 
-                Data rh = evaluateExpression(arglist.getChild(3));
-                SvglangRectangle sr = new SvglangRectangle(rx, ry, rw.getFloatValue(), rh.getFloatValue());
+//                 SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
+				float rw = data2float(evaluateExpression(arglist.getChild(2))); 
+                float rh = data2float(evaluateExpression(arglist.getChild(3)));
+                SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
                 sr.setName(name);
 
                 Stack.defineVariable(id, sr);
