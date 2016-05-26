@@ -74,6 +74,9 @@ public abstract class Data {
     
 	/** Indicates whether the data is Array */
     public boolean isArray() { return false; }
+    
+		/** Indicates whether the data is Array */
+    public boolean isString() { return false; }
 
     /** Indicates whether the data is void */
     public boolean isVoid() { return false; }
@@ -98,6 +101,14 @@ public abstract class Data {
      * the data is a Boolean.
      */
     public boolean getBooleanValue() {
+        throw new RuntimeException ("Incorrect type");
+    }
+    
+			/**
+     * Gets the value of a String data. The method asserts that
+     * the data is a String.
+     */
+    public String getStringValue() {
         throw new RuntimeException ("Incorrect type");
     }
 

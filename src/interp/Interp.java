@@ -380,6 +380,9 @@ public class Interp {
                 String id1 = t.getChild(0).getText();
                 String name1 = id1;
                 if (id1.equals("anon")) name1 = "anon__"+anon;
+                //CANVI IMPORTANT PER DESCOMENTAR
+                //SvglangString expr = (SvglangString)evaluateExpression(t.getChild(1));
+                //writer.println(name1+".style.fill = \""+ expr.toString() +"\";");
                 writer.println(name1+".style.fill = \""+t.getChild(1).getText()+"\";");
                 return null;
 
@@ -604,6 +607,9 @@ public class Interp {
             // A Boolean literal
             case AslLexer.BOOLEAN:
                 value = new SvglangBoolean(t.getBooleanValue());
+                break;
+						case AslLexer.STRING:
+                value = new SvglangString(t.getStringValue());
                 break;
 			// A array AFEGIT!
             case AslLexer.ARRAY:
