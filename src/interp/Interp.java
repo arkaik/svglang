@@ -392,6 +392,10 @@ public class Interp {
                 executeTransformation(t.getChild(0));
                 return null;
 
+            case AslLexer.ANIMATION:
+                executeAnimation(t.getChild(0));
+                return null;
+
             // Function call
             case AslLexer.FUNCALL:
                 executeFunction(t.getChild(0).getText(), t.getChild(1));
@@ -424,12 +428,57 @@ public class Interp {
         return null;
     }
 
+    private Data executeAnimation (AslTree t) {
+        String id = t.getChild(0).getText();
+        String name = id;
+        if (id.equals("anon")) name = "anon__"+anon;
+        SvglangObject so = (SvglangObject) Stack.getVariable(id);
+        AslTree args = t.getChild(1);
+        switch (t.getType()) {
+            case AslLexer.MOVEMENT:
+                float ox = so.getPosx(); float oy = so.getPosy();
+
+                Float ftx = data2float(evaluateExpression(args.getChild(0)));
+                Float fty = data2float(evaluateExpression(args.getChild(1)));
+
+                so.setPosx(ftx); so.setPosy(fty);
+                int nlt = so.getNumTransform();
+
+                writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
+                writer.println("_elem.setAttribute(\"type\", \"translate\")");
+
+                writer.println("_elem.setAttribute(\"from\", \""+ox+" "+oy+"\")");
+                writer.println("_elem.setAttribute(\"to\", \""+ftx+" "+fty+"\")");
+
+                Data c1 = evaluateExpression(args.getChild(2));
+
+                if (args.getChildCount() == 4) {
+                    Data c2 = evaluateExpression(args.getChild(3));
+                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
+                }
+                else {
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+"_"+(nlt-1)+".end\")");
+                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
+                }
+                writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
+                writer.println(name+".appendChild(_elem);");
+                so.setNumTransform(nlt+1);
+                break;
+            default: assert false;
+        }
+        return null;
+    }
+
     /**
     *   Evaluates and generate code for SVG transformations.
     * @param t The AST of the expression
     * @return The value of the expression.
     */
-
+    //TODO previous transformations
     private Data executeTransformation (AslTree t) {
         String id = t.getChild(0).getText();
         String name = id;
