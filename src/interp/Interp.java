@@ -709,7 +709,7 @@ public class Interp {
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;
-				float rw = data2float(evaluateExpression(arglist.getChild(2)));
+								float rw = data2float(evaluateExpression(arglist.getChild(2)));
                 float rh = data2float(evaluateExpression(arglist.getChild(3)));
                 SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
                 sr.setName(name);
@@ -720,7 +720,7 @@ public class Interp {
                 break;
             case AslLexer.CIRCLE:
                 assert arglist.getChildCount() == 3;
-                float rr = Float.parseFloat(arglist.getChild(2).getText());
+                float rr =  data2float(evaluateExpression(arglist.getChild(2)));
                 SvglangCircle sc = new SvglangCircle(rx, ry, rr);
                 sc.setName(name);
                 Stack.defineVariable(id, sc);
@@ -738,8 +738,8 @@ public class Interp {
                 break;
             case AslLexer.ELLIPSE:
                 assert arglist.getChildCount() == 4;
-                float rrx = Float.parseFloat(arglist.getChild(2).getText());
-                float rry = Float.parseFloat(arglist.getChild(3).getText());
+                float rrx =  data2float(evaluateExpression(arglist.getChild(2)));
+                float rry =  data2float(evaluateExpression(arglist.getChild(3)));
                 SvglangEllipse se = new SvglangEllipse(rx, ry, rrx, rry);
                 se.setName(name);
                 Stack.defineVariable(id, se);
