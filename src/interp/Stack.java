@@ -130,7 +130,6 @@ public class Stack {
 
 	//AFEGIT FUNCIO PER OBTENIR EL VALOR DE UNA POSICIO DE LARRAY
     public Data getArrayVal (String name, Data index) {
-	
 		Data v = CurrentAR.get(name);
 		if (v == null){
             throw new RuntimeException ("Variable " + name + " not defined");
@@ -140,7 +139,6 @@ public class Stack {
 			index.getIntegerValue() + "]");
 		}
 		SvglangArray s = (SvglangArray)v;
-
 		 switch (s.getSubType()) {
             case "Integer":
 				return new SvglangInteger((Integer)v.getValue(index.getIntegerValue()));
