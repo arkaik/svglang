@@ -577,9 +577,11 @@ public class Interp {
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;
-                float rw = Float.parseFloat(arglist.getChild(2).getText());
-                float rh = Float.parseFloat(arglist.getChild(3).getText());
-                SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
+//                 float rw = Float.parseFloat(arglist.getChild(2).getText());
+//                 float rh = Float.parseFloat(arglist.getChild(3).getText());
+				Data rw = evaluateExpression(arglist.getChild(2)); 
+                Data rh = evaluateExpression(arglist.getChild(3));
+                SvglangRectangle sr = new SvglangRectangle(rx, ry, rw.getFloatValue(), rh.getFloatValue());
                 sr.setName(id);
                 Stack.defineVariable(id, sr);
 
