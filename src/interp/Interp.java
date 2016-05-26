@@ -247,12 +247,14 @@ public class Interp {
      */
     private Data executeListInstructions (AslTree t) {
         assert t != null;
+
         Data result = null;
         int ninstr = t.getChildCount();
         for (int i = 0; i < ninstr; ++i) {
             result = executeInstruction (t.getChild(i));
             if (result != null) return result;
         }
+
         return null;
     }
 
@@ -652,7 +654,7 @@ public class Interp {
         String name = id;
         if (name.equals("anon")) {
             anon += 1;
-            name = "anon__S"+anon;
+            name = "anon__"+anon;
         }
         switch (t.getType()) {
             case AslLexer.RECT:
@@ -1114,15 +1116,12 @@ public class Interp {
             }
             else if (property.equals("rotation")) {
                 System.out.println("Rotation");
-                Data gr = evaluateExpression(args.getChild(0));
-                Data ax = evaluateExpression(args.getChild(1));
-                Data ay = evaluateExpression(args.getChild(2));
 
                 float ro = obj.getRot();
 
-                Float fgr = data2float(gr.getValue());
-                Float fax = data2float(ax.getValue());
-                Float fay = data2float(ay.getValue());
+                Float fgr = data2float(evaluateExpression(args.getChild(0)));
+                Float fax = data2float(evaluateExpression(args.getChild(1)));
+                Float fay = data2float(evaluateExpression(args.getChild(2)));
 
                 obj.setRot(ro+fgr);
                 int nlt = obj.getNumTransform();
@@ -1144,12 +1143,12 @@ public class Interp {
                 obj.setNumTransform(nlt+1);
             }
             else if (property.equals("scale")) {
-                float sx = data2float(evaluateExpression(args.getChild(0)).getValue());
-                Data sy = evaluateExpression(args.getChild(1));
+                float sx = data2float(evaluateExpression(args.getChild(0)));
+                float sy = data2float(evaluateExpression(args.getChild(1)));
                 float scx = obj.getScalex();
                 float scy = obj.getScaley();
 
-
+                int nlt = obj.getNumTransform();
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
                 writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
@@ -1297,7 +1296,6 @@ public class Interp {
 					// Find the variable and pass the reference
 					Data v = Stack.getVariable(a.getText());
 					Params.add(i,v);
-
                 }
 
                 Params.add(i,evaluateExpression(a));
