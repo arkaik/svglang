@@ -14,7 +14,7 @@ func main ()
     
     i = 0;
     while i < 5 do
-	  Rectangle a(vx[0],vy[0],20, 10);
+	  Rectangle a(vx[i],vy[i],20, 10);
 	  Draw a;
 	  i = i + 1;
 	endwhile;
