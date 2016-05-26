@@ -130,9 +130,7 @@ public class Stack {
 
 	//AFEGIT FUNCIO PER OBTENIR EL VALOR DE UNA POSICIO DE LARRAY
     public Data getArrayVal (String name, Data index) {
-		if (index.getIntegerValue() == 0)
-		throw new RuntimeException ("Array " + name + "Fora de rang: [" +
-			index.getIntegerValue() + "]");
+	
 		Data v = CurrentAR.get(name);
 		if (v == null){
             throw new RuntimeException ("Variable " + name + " not defined");

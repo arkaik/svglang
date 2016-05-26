@@ -610,6 +610,7 @@ public class Interp {
 				Data index = evaluateExpression(t.getChild(1));
  				//value = new SvglangArray((Data)Stack.getArrayVal(t.getChild(0).getText(), index));
  				value = Stack.getArrayVal(t.getChild(0).getText(), index);
+
 				break;
             // A function call. Checks that the function returns a result.
             case AslLexer.FUNCALL:
@@ -708,10 +709,7 @@ public class Interp {
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;
-//                 float rw = Float.parseFloat(arglist.getChild(2).getText());
-//                 float rh = Float.parseFloat(arglist.getChild(3).getText());
-//                 SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
-				float rw = data2float(evaluateExpression(arglist.getChild(2))); 
+				float rw = data2float(evaluateExpression(arglist.getChild(2)));
                 float rh = data2float(evaluateExpression(arglist.getChild(3)));
                 SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
                 sr.setName(name);
