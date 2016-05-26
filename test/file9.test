@@ -1,0 +1,22 @@
+func main ()
+
+    i = 0;
+    posx = 0;
+    posy = 0;
+    while i < 5 do
+	  posx = posx + 50;
+	  posy = posy + 20;
+	  vx[i] = posx;
+	  vy[i] = posy;
+	  i = i + 1;
+    endwhile;
+    
+    
+    i = 0;
+    while i < 5 do
+	  Rectangle a(vx[0],vy[0],20, 10);
+	  Draw a;
+	  i = i + 1;
+	endwhile;
+endfunc
+$SHOW
