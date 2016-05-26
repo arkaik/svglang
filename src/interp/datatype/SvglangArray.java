@@ -8,6 +8,7 @@ public class SvglangArray extends Data
 {
 	protected String subtype;
 	protected ArrayList<Object> value;
+	protected int length;
 
     public SvglangArray(int i, Object o)
     {
@@ -16,14 +17,28 @@ public class SvglangArray extends Data
 		subtype = parts[parts.length-1];
 		
 		ArrayList<Object> v = new ArrayList<Object>();
-		
-		if(subtype == "Integer"){
-			for (int j = 0; j < i-1; j++){
-				v.add(0);
-			}
-			v.add(o);
+		switch (subtype) {
+			case "Integer":
+				for (int j = 0; j < i; j++){
+					v.add(0);
+				}
+				break;
+			case "Boolean":
+				for (int j = 0; j < i; j++){
+					v.add(false);
+				}
+				break;
+			case "Float":
+				for (int j = 0; j < i; j++){
+					v.add(0.);
+				}
+				break;
+			default: throw new RuntimeException ("Cas variable no tractada");
 		}
-        setValue(v);
+
+		v.add(o);
+        value = v;
+        length = i;
     }
 
 	/** Copy constructor */
@@ -33,21 +48,49 @@ public class SvglangArray extends Data
     {
        return ("Array<" + subtype +">");
     }
+    
+	public String getSubType()
+    {
+       return subtype;
+    }
 
     public boolean isArray() { return true; }
     
 	public void setValue(int i, Object o)
     {
-		for (int j = value.size(); j < i-1; j++){
-				value.add(0);
-			}
+		switch (subtype) {
+			case "Integer":
+				for (int j = value.size(); j <= i; j++){
+					value.add(0);
+				}
+				break;
+			case "Boolean":
+				for (int j = value.size(); j <= i; j++){
+					value.add(false);
+				}
+				break;
+			case "Float":
+				for (int j = value.size(); j <= i; j++){
+					value.add(0.);
+				}
+				break;
+			default: throw new RuntimeException ("Cas variable no tractada");
+		}
+		
+		//value.add(o);
+		if (i > length) length = i;
 		value.set(i, o);
     }
     
-	public Object getvalue(int i)
+	public Object getValue(int i)
     {
 //        ArrayList<Object> o = (ArrayList<Object>)value;
        return value.get(i);
+    }
+    
+	public int getLength()
+    {
+       return length;
     }
 
 // 	public int getIntegerValue() {

@@ -31,6 +31,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
+import interp.datatype.*;
+
 /**
  * Class to represent the memory of the virtual machine of the
  * interpreter. The memory is organized as a stack of activation
@@ -96,6 +98,22 @@ public class Stack {
         else d.setData(value); // Use the previous data 
     }
 
+        //AFEGIT   FALTARIA REDEFINIR TIPUS!!!!
+        public void defineVariable(String name, Data index, Data value) {
+        if (index.getIntegerValue() < 0) 
+			throw new RuntimeException ("Array " + name + "Fora de rang: [" +
+			index.getIntegerValue() + "]");
+		SvglangArray d = (SvglangArray)CurrentAR.get(name);	
+        if (d == null) {	//Si no estava definit
+			d = new SvglangArray((int)index.getValue(), value.getValue());
+			CurrentAR.put(name, d); // New definition
+        }
+        else {	//Si ja estava definit
+			d.setValue((int)index.getValue(), value.getValue());
+        }
+    }
+
+    
     /** Gets the value of the variable. The value is represented as
      * a Data object. In this way, any modification of the object
      * implicitly modifies the value of the variable.
@@ -108,6 +126,43 @@ public class Stack {
             throw new RuntimeException ("Variable " + name + " not defined");
         }
         return v;
+    }
+    
+	//AFEGIT FUNCIO PER OBTENIR EL VALOR DE UNA POSICIO DE LARRAY
+    public Data getArrayVal (String name, Data index) {
+		if (index.getIntegerValue() == 0)
+		throw new RuntimeException ("Array " + name + "Fora de rang: [" +
+			index.getIntegerValue() + "]");
+		Data v = CurrentAR.get(name);
+		if (v == null){
+            throw new RuntimeException ("Variable " + name + " not defined");
+		}
+        else if (v.getLength() < index.getIntegerValue()){
+        	throw new RuntimeException ("Array " + name + "Fora de rang: [" +
+			index.getIntegerValue() + "]");
+		}
+		SvglangArray s = (SvglangArray)v;
+		
+		 switch (s.getSubType()) {
+            case "Integer":
+				return new SvglangInteger((Integer)v.getValue(index.getIntegerValue()));
+			case "Boolean":
+				return new SvglangBoolean((Boolean)v.getValue(index.getIntegerValue()));
+			case "Float":
+				return new SvglangFloat((Float)v.getValue(index.getIntegerValue()));
+            default: throw new RuntimeException ("Cas variable no tractada");
+
+        }
+		//return v.getValue(index.getIntegerValue());
+    }
+    
+    
+    //AFEGIT Funcio per saber si una variable es array (pel pas de referencia)
+    public boolean isArray(String name){
+    Data v = CurrentAR.get(name);
+    if (v==null)
+		throw new RuntimeException ("Variable " + name + " not defined");
+    return v.isArray();
     }
 
     /**
