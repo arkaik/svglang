@@ -527,6 +527,11 @@ public class Interp {
                 else writer.println(name+".setAttribute(\"transform\", \"rotate("+rot+")\");");
                 break;
             case AslLexer.TRANSREL:
+                float px = so.getPosx();
+                float py = so.getPosy();
+                float fpx = data2float(evaluateExpression(args.getChild(0)));
+                float fpy = data2float(evaluateExpression(args.getChild(1)));
+                writer.println(name+".setAttribute(\"transform\", \"translate("+(px+fpx)+", "+(py+fpy)+")\");");
             //TODO
                 break;
             case AslLexer.TRANS:
@@ -612,6 +617,13 @@ public class Interp {
  				value = Stack.getArrayVal(t.getChild(0).getText(), index);
 
 				break;
+            case AslLexer.ARRAYSIZE:
+                System.out.println("ArraySize");
+                Data d = Stack.getVariable(t.getText());
+                if (d.isArray()) value = new SvglangInteger(((SvglangArray) d).getLength());
+                else throw new RuntimeException ("argument should be an array");
+
+                break;
             // A function call. Checks that the function returns a result.
             case AslLexer.FUNCALL:
                 value = executeFunction(t.getChild(0).getText(), t.getChild(1));
@@ -706,6 +718,11 @@ public class Interp {
             anon += 1;
             name = "anon__"+anon;
         }
+        else {
+            writer.print(   "var _eim = document.getElementById("+id+");\n"+
+                            "if (_eim) _eim.parentNode.removeChild(_eim);");
+        }
+
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;

@@ -2,7 +2,7 @@ func main ()
     vx[5] = 40;
     vy[5] = 40;
     i = 0;
-    while i < 6 do
+    while i < size vx do
         Rectangle anon (vx[i], vy[i], 5, 5);
         Draw anon;
         i = i+1;

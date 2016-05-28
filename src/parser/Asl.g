@@ -132,6 +132,7 @@ transform	:	TRANS^ ID arglist
 //Animacinones de objetos
 animation	:	MOVEMENT^ ID arglist//Movement Identificador (desx desy)<- PAIR
 	|	ROTATION^ ID FLOAT FLOAT// Rotation Identificador Velocitat<- FLOATS
+    |   SCALING^ ID arglist
 	;
 
 // Assignment
@@ -222,6 +223,7 @@ atom    :   ID
 		|	FLOAT
 		|	INT
 		|	array
+        |   arraysize
         |   (b=TRUE | b=FALSE)  -> ^(BOOLEAN[$b,$b.text])
         |   funcall
         |   '('! boolexpr ')'!
@@ -231,6 +233,9 @@ atom    :   ID
 array	:	ID '[' num_expr ']' -> ^(ARRAY ID num_expr)
 	;
 
+arraysize
+	:	ARRAYSIZE id=ID -> ^(ARRAYSIZE[$id,$id.text])
+	;
 //array	: '[' atom (',' atom)* ']' -> ^(ARRAY atom+) ;
 
 //arrayacc
@@ -278,6 +283,8 @@ ENDWHILE: 'endwhile' ;
 FUNC	: 'func' ;
 ENDFUNC	: 'endfunc' ;
 RETURN	: 'return' ;
+ARRAYSIZE  : 'size' ;
+
 READ	: 'Read' ;
 WRITE	: 'Write' ;
 
@@ -297,6 +304,7 @@ ROTATEREL	: 'RotateRel';
 
 MOVEMENT	: 'Movement';
 ROTATION	: 'Rotation';
+SCALING     : 'Scaling';
 
 LOOP	: 'Loop';
 FILL	: 'Fill';

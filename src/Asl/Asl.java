@@ -126,7 +126,7 @@ public class Asl{
                 System.err.print ("Runtime error");
                 if (linenumber < 0) System.err.print (": ");
                 else System.err.print (" (" + infile + ", line " + linenumber + "): ");
-                System.err.format (I.getStackTrace());
+                System.err.format (e.getMessage()+"\n"+I.getStackTrace());
             } catch (StackOverflowError e) {
                 if (I != null) linenumber = I.lineNumber();
                 System.err.print("Stack overflow error");
