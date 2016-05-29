@@ -1,0 +1,21 @@
+func main ()
+
+	col[0] = "#0c0c80";
+	col[1] = "#0c0c00";
+	col[2] = "#0f0c80";
+	col[3] = "#0c0f00";
+	
+	i = 0;
+	posx = 0;
+	posy = 0;
+	while i < 4 do
+		posx = posx + 50;
+		posy = posy + 20;
+		Rectangle anon(posx,posy,20, 10);
+		Fill anon col[i];
+		Draw anon;
+		i = i + 1;
+	endwhile;
+
+endfunc
+$SHOW 

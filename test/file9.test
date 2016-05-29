@@ -1,11 +1,23 @@
 func main ()
-    vx[5] = 40;
-    vy[5] = 40;
-    i = 0;
-    while i < size vx do
-        Rectangle anon (vx[i], vy[i], 5, 5);
-        Draw anon;
-        i = i+1;
-    endwhile;
+
+	i = 0;
+	posx = 0;
+	posy = 0;
+	while i < 5 do
+	posx = posx + 50;
+	posy = posy + 20;
+	vx[i] = posx;
+	vy[i] = posy;
+	i = i + 1;
+	endwhile;
+
+
+	i = 0;
+	while i < size vx do
+			Rectangle anon(vx[i],vy[i],20, 10);
+			Draw anon;
+			i = i + 1;
+	endwhile;
+
 endfunc
 $SHOW

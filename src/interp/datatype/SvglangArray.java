@@ -33,6 +33,11 @@ public class SvglangArray extends Data
 					v.add(0.);
 				}
 				break;
+			case "String":
+				for (int j = 0; j < i; j++){
+					v.add("");
+				}
+				break;
 			default: throw new RuntimeException ("Cas variable no tractada");
 		}
 

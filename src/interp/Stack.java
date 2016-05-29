@@ -146,6 +146,8 @@ public class Stack {
 				return new SvglangBoolean((Boolean)v.getValue(index.getIntegerValue()));
 			case "Float":
 				return new SvglangFloat((Float)v.getValue(index.getIntegerValue()));
+			case "String":
+				return new SvglangString((String)v.getValue(index.getIntegerValue()));
             default: throw new RuntimeException ("Cas variable no tractada");
 
         }

@@ -111,6 +111,7 @@ instruction
         |	animation	-> ^(ANIMATION animation)	// basic animations
         |	loop
         |	array_assign	//Assignment de array
+        |   click
         |                   // Nothing
         ;
 
@@ -142,6 +143,9 @@ assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
 // Array Assigment
 array_assign	:	ID '[' num_expr ']' eq=EQUAL expr -> ^(ARRAY_ASSIGN[$eq,":="] ID num_expr expr)
 		;
+
+click   :   CLICK^ ID ID;
+        ;
 
 declare	:	graphicexpr
 		;
@@ -284,6 +288,7 @@ FUNC	: 'func' ;
 ENDFUNC	: 'endfunc' ;
 RETURN	: 'return' ;
 ARRAYSIZE  : 'size' ;
+RANDOM  : 'random' ;
 
 READ	: 'Read' ;
 WRITE	: 'Write' ;
@@ -305,6 +310,8 @@ ROTATEREL	: 'RotateRel';
 MOVEMENT	: 'Movement';
 ROTATION	: 'Rotation';
 SCALING     : 'Scaling';
+
+CLICK   : 'Click' ;
 
 LOOP	: 'Loop';
 FILL	: 'Fill';
