@@ -1,0 +1,21 @@
+func changeColor()
+    //v[2] = "#ff0000";
+    //v[1] = "#0000ff";
+    //v[0] = "#00ff00";
+    Fill a "#ff00ff";
+endfunc
+
+func changeColor2()
+    Fill a "#00ff00";
+endfunc
+
+func main()
+    Rectangle a (50,50,50,50);
+    Fill a "#ff0000";
+    Draw a;
+
+    Click a changeColor;
+
+
+endfunc
+$SHOW

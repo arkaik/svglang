@@ -1,0 +1,26 @@
+func main()
+    side = 500;
+    Rectangle background (0,0,side,side);
+    Draw background;
+
+    Path a (0,0);
+    Stroke a #ffffff 10;
+    Loop a # "d" ("m0,100 L250,100 L500,100","m0,100 L250,400 L500,100","m0,100 L250,100 L500,100") {10};
+    Draw a;
+
+    Path b (0,0);
+    Stroke b #ffffff 10;
+    Loop b # "d" ("m0,250 L250,250 L500,250","m0,250 L250,250 L500,250","m0,250 L250,250 L500,250") {10};
+    Draw b;
+
+    Path c (0,0);
+    Stroke c #ffffff 10;
+    Loop c # "d" ("m0,400 L250,400 L500,400","m0,400 L250,100 L500,400","m0,400 L250,400 L500,400") {10};
+    Draw c;
+
+    //Path quad (0,0);
+    //Loop quad # "d" ("M250,250 l0,0 0,0 0,0 0,0","M250,250 l0,0 0,0 0,0 0,0","M125,250 L250,100 375,250 250,400 125,250","M250,250 l0,0 0,0 0,0 0,0","M250,250 l0,0 0,0 0,0 0,0") {10};
+    //Fill quad #0000ff;
+    //Draw quad;
+endfunc
+$SHOW
