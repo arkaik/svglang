@@ -144,7 +144,7 @@ assign	:	ID eq=EQUAL expr -> ^(ASSIGN[$eq,":="] ID expr)
 array_assign	:	ID '[' num_expr ']' eq=EQUAL expr -> ^(ARRAY_ASSIGN[$eq,":="] ID num_expr expr)
 		;
 
-click   :   CLICK^ ID ID;
+click   :   CLICK a=ID b=ID -> ^(CLICK $a $b ^(ARGLIST))
         ;
 
 declare	:	graphicexpr

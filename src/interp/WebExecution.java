@@ -7,6 +7,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.scene.web.WebEvent;
 import javafx.stage.Stage;
 
 import javafx.beans.value.ChangeListener;
@@ -51,6 +52,7 @@ public class WebExecution extends Application {
             webEngine.loadContent("<html>"
                 +"<head><script>"
                 +"function setContent() {\n"
+                +"if (!document.getElementById('FirebugLite')){E = document['createElement' + 'NS'] && document.documentElement.namespaceURI;E = E ? document['createElement' + 'NS'](E, 'script') : document['createElement']('script');E['setAttribute']('id', 'FirebugLite');E['setAttribute']('src', 'https://getfirebug.com/' + 'firebug-lite.js' + '#startOpened');E['setAttribute']('FirebugLite', '4');(document['getElementsByTagName']('head')[0] || document['getElementsByTagName']('body')[0]).appendChild(E);E = new Image;E['setAttribute']('src', 'https://getfirebug.com/' + '#startOpened');}"
                 +content
                 +"} </script></head>"
                 +"<body onLoad='setContent()'>"

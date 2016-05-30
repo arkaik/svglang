@@ -417,7 +417,14 @@ public class Interp {
                 return null;
 
             case AslLexer.CLICK:
-                //executeFunction(t.getChild(1).getText(), t.getChild(1));
+                String cid = t.getChild(0).getText();
+                String funcname = t.getChild(1).getText();
+                System.out.println(cid+" "+funcname);
+                writer.println( "function "+funcname+"() {\n"/*+
+                                "\tvar "+cid+" = document.getElementById(\""+cid+"\");\n"*/);
+                executeFunction(funcname, t.getChild(2));
+                writer.println( "}\n"+
+                                cid+".setAttribute(\"onclick\", \""+funcname+"\");\n");
                 return null;
 
             case AslLexer.LOOP:
@@ -617,7 +624,7 @@ public class Interp {
             case AslLexer.BOOLEAN:
                 value = new SvglangBoolean(t.getBooleanValue());
                 break;
-						case AslLexer.STRING:
+			case AslLexer.STRING:
                 value = new SvglangString(t.getStringValue());
                 break;
 			// A array AFEGIT!

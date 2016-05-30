@@ -71,11 +71,11 @@ public abstract class Data {
 
 	/** Indicates whether the data is Float */
     public boolean isFloat() { return false; }
-    
+
 	/** Indicates whether the data is Array */
     public boolean isArray() { return false; }
     
-		/** Indicates whether the data is Array */
+		/** Indicates whether the data is String */
     public boolean isString() { return false; }
 
     /** Indicates whether the data is void */
@@ -103,7 +103,7 @@ public abstract class Data {
     public boolean getBooleanValue() {
         throw new RuntimeException ("Incorrect type");
     }
-    
+
 			/**
      * Gets the value of a String data. The method asserts that
      * the data is a String.
@@ -125,7 +125,7 @@ public abstract class Data {
 	public Object getValue() {
         return value;
     }
-    
+
 	public Object getValue(int i)
     {
 		throw new RuntimeException ("Incorrect type");
