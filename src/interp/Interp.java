@@ -30,6 +30,7 @@ package interp;
 import parser.*;
 import interp.datatype.*;
 
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -680,6 +681,14 @@ public class Interp {
                 case AslLexer.NOT:
                     checkBoolean(value);
                     value.setValue(!value.getBooleanValue());
+                    break;
+								case AslLexer.RAND:
+										Data value1 = evaluateExpression(t.getChild(0).getChild(0));
+										Data value2 = evaluateExpression(t.getChild(0).getChild(1));
+                    checkInteger(value1);
+                    checkInteger(value2);
+                    Random rand = new Random();
+                    value.setValue(rand.nextInt((value2.getIntegerValue() - value1.getIntegerValue()) + 1) + value1.getIntegerValue());	//Genera random entre value i value2
                     break;
                 default: assert false; // Should never happen
             }

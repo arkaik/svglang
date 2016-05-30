@@ -3,7 +3,8 @@ func main ()
 	i = 0;
 	posx = 0;
 	posy = 0;
-	while i < 5 do
+	randmax = Rand(3, 8);
+	while i < randmax do
 	posx = posx + 50;
 	posy = posy + 20;
 	vx[i] = posx;
