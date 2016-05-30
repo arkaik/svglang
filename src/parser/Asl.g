@@ -153,10 +153,10 @@ declare	:	graphicexpr
 draw	:	DRAW^ ID
 		;
 
-fill	:	FILL^ ID (STRING|array)
+fill	:	FILL^ ID atom
 		;
 
-stroke	:	STROKE^ ID (STRING|array) INT
+stroke	:	STROKE^ ID atom INT
 		;
 
 // if-then-else (else is optional)

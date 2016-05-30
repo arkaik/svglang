@@ -45,20 +45,20 @@ public class SvglangString extends Data
         }
         value = iv;
     }
-
+*/
     public Data evaluateRelational (int op, Data d) {
         assert getType() == d.getType();
         switch (op) {
-            case AslLexer.EQUAL: return new SvglangBoolean( (int) value == (int) d.getValue());
-            case AslLexer.NOT_EQUAL: return new SvglangBoolean( (int) value != (int) d.getValue());
-            case AslLexer.LT: return new SvglangBoolean( (int) value < (int) d.getValue());
-            case AslLexer.LE: return new SvglangBoolean( (int) value <= (int) d.getValue());
-            case AslLexer.GT: return new SvglangBoolean( (int) value > (int) d.getValue());
-            case AslLexer.GE: return new SvglangBoolean( (int) value >= (int) d.getValue());
+            case AslLexer.EQUAL: return new SvglangBoolean( ((String) value).equals((String) d.getValue()));
+            case AslLexer.NOT_EQUAL: return new SvglangBoolean(!((String) value).equals((String) d.getValue()));
+            case AslLexer.LT: return new SvglangBoolean( ((String) value).compareTo( (String) d.getValue()) < 0);
+            case AslLexer.LE: return new SvglangBoolean( ((String) value).compareTo((String) d.getValue()) <= 0);
+            case AslLexer.GT: return new SvglangBoolean( ((String) value).compareTo((String) d.getValue()) > 0);
+            case AslLexer.GE: return new SvglangBoolean( ((String) value).compareTo((String) d.getValue()) >= 0);
             default: assert false;
         }
         return null;
-    }*/
+    }
 
     public SvglangString copy()
     {
