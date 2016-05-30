@@ -30,6 +30,7 @@ package interp;
 import parser.*;
 import interp.datatype.*;
 
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -671,7 +672,6 @@ public class Interp {
 
 				break;
             case AslLexer.ARRAYSIZE:
-                System.out.println("ArraySize");
                 Data d = Stack.getVariable(t.getText());
                 if (d.isArray()) value = new SvglangInteger(((SvglangArray) d).getLength());
                 else throw new RuntimeException ("argument should be an array");
@@ -708,6 +708,27 @@ public class Interp {
                 case AslLexer.NOT:
                     checkBoolean(value);
                     value.setValue(!value.getBooleanValue());
+                    break;
+								case AslLexer.RAND:
+										//if (t.getChild(0).getChildCount() == 2) {	//Dos parametres
+											Data value1 = evaluateExpression(t.getChild(0).getChild(0));
+											Data value2 = evaluateExpression(t.getChild(0).getChild(1));
+											checkInteger(value1);
+											checkInteger(value2);
+											Random rand = new Random();
+											value.setValue(rand.nextInt((value2.getIntegerValue() - value1.getIntegerValue()) + 1) + value1.getIntegerValue());	//Genera random entre value i value2
+//                     }
+//                     else if (t.getChild(0).getChildCount() == 1){ //Un parametre
+// 											Data value2 = evaluateExpression(t.getChild(0).getChild(0));
+// 											                    System.out.println(value2.getIntegerValue());
+// 											checkInteger(value2);
+// 											Random rand = new Random();
+// 											value.setValue(rand.nextInt((value2.getIntegerValue()) + 1));	//Genera random entre 0 i value2
+//                     }
+// 										else {	// 0 o mes de 2 parametres, genera un random
+// 											Random rand = new Random();
+// 											value.setValue(rand.nextInt(100));	//Genera random entre value i value2
+//                     }
                     break;
                 default: assert false; // Should never happen
             }

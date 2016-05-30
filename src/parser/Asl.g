@@ -210,6 +210,7 @@ boolfact:   num_expr ((EQ^ | NOT_EQUAL^ | LT^ | LE^ | GT^ | GE^) num_expr)?
         ;
 
 num_expr:   term ( (PLUS^ | MINUS^) term)*
+				|		RAND^ arglist
         ;
 
 term    :   factor ( (MUL^ | DIV^ | MOD^) factor)*
@@ -316,6 +317,7 @@ LOOP	: 'Loop';
 FILL	: 'Fill';
 STROKE	: 'Stroke';
 DRAW	: 'Draw';
+RAND	: 'Rand';
 
 TRUE    : 'true' ;
 FALSE   : 'false';

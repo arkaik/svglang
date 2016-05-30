@@ -43,7 +43,7 @@ public class SvglangArray extends Data
 
 		v.add(o);
         value = v;
-        length = i;
+        length = i+1;
     }
 
 	/** Copy constructor */
@@ -83,7 +83,7 @@ public class SvglangArray extends Data
 		}
 		
 		//value.add(o);
-		if (i > length) length = i;
+		if (i > length) length = i+1;
 		value.set(i, o);
     }
     
