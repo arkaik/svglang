@@ -381,14 +381,18 @@ public class Interp {
                 String name1 = id1;
                 if (id1.equals("anon")) name1 = "anon__"+anon;
                 //CANVI IMPORTANT PER DESCOMENTAR
-                //SvglangString expr = (SvglangString)evaluateExpression(t.getChild(1));
-                //writer.println(name1+".style.fill = \""+ expr.toString() +"\";");
-                writer.println(name1+".style.fill = \""+t.getChild(1).getText()+"\";");
+
+                SvglangString expr = (SvglangString)evaluateExpression(t.getChild(1));
+                checkColor(expr);
+                writer.println(name1+".style.fill = \""+ expr.toString() +"\";");
+                //writer.println(name1+".style.fill = \""+t.getChild(1).getText()+"\";");
                 return null;
 
             case AslLexer.STROKE:
+                SvglangString colex = (SvglangString)evaluateExpression(t.getChild(1));
+                checkColor(colex);
                 writer.println(t.getChild(0).getText()+".style.stroke = \""+t.getChild(1).getText()+"\";");
-                writer.println(t.getChild(0).getText()+".style['stroke-width'] = \""+t.getChild(2).getText()+"\";");
+                writer.println(t.getChild(0).getText()+".style['stroke-width'] = \""+colex.toString()+"\";");
                 return null;
 
             case AslLexer.TRANSFORM:
@@ -420,11 +424,11 @@ public class Interp {
                 String cid = t.getChild(0).getText();
                 String funcname = t.getChild(1).getText();
                 System.out.println(cid+" "+funcname);
-                writer.println( "function "+funcname+"() {\n"/*+
+                writer.println( funcname+" = function() {\n"/*+
                                 "\tvar "+cid+" = document.getElementById(\""+cid+"\");\n"*/);
                 executeFunction(funcname, t.getChild(2));
                 writer.println( "}\n"+
-                                cid+".setAttribute(\"onclick\", \""+funcname+"\");\n");
+                                cid+".setAttribute(\"onclick\", \"window."+funcname+"()\");\n");
                 return null;
 
             case AslLexer.LOOP:
@@ -481,6 +485,10 @@ public class Interp {
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
                 writer.println(name+".appendChild(_elem);");
                 so.setNumTransform(nlt+1);
+                break;
+            case AslLexer.ROTATION:
+                break;
+            case AslLexer.SCALING:
                 break;
             default: assert false;
         }
@@ -1325,6 +1333,20 @@ public class Interp {
     private void checkNumeric (Data b) {
         if (!b.isFloat() && !b.isInteger()) {
             throw new RuntimeException ("Expecting numeric expression");
+        }
+    }
+
+    private void checkString (Data b) {
+        if (!b.isString()) {
+            throw new RuntimeException ("Expecting string expression");
+        }
+    }
+
+    private void checkColor (Data b) {
+        String color = (String) b.getValue();
+
+        if (!b.isString() && color.charAt(0) != '#' ) {
+            throw new RuntimeException ("Expecting string expression");
         }
     }
 

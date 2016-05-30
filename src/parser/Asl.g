@@ -132,7 +132,7 @@ transform	:	TRANS^ ID arglist
 
 //Animacinones de objetos
 animation	:	MOVEMENT^ ID arglist//Movement Identificador (desx desy)<- PAIR
-	|	ROTATION^ ID FLOAT FLOAT// Rotation Identificador Velocitat<- FLOATS
+	|	ROTATION^ ID arglist// Rotation Identificador Velocitat<- FLOATS
     |   SCALING^ ID arglist
 	;
 
@@ -153,10 +153,10 @@ declare	:	graphicexpr
 draw	:	DRAW^ ID
 		;
 
-fill	:	FILL^ ID COLOR
+fill	:	FILL^ ID (STRING|array)
 		;
 
-stroke	:	STROKE^ ID COLOR INT
+stroke	:	STROKE^ ID (STRING|array) INT
 		;
 
 // if-then-else (else is optional)
@@ -288,7 +288,6 @@ FUNC	: 'func' ;
 ENDFUNC	: 'endfunc' ;
 RETURN	: 'return' ;
 ARRAYSIZE  : 'size' ;
-RANDOM  : 'random' ;
 
 READ	: 'Read' ;
 WRITE	: 'Write' ;
@@ -320,8 +319,6 @@ DRAW	: 'Draw';
 
 TRUE    : 'true' ;
 FALSE   : 'false';
-
-COLOR	: '#' ('a'..'f'|'0'..'9')* ;
 
 ID  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT 	:	'0'..'9'+ ;
