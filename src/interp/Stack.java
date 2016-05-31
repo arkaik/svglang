@@ -99,7 +99,7 @@ public class Stack {
     }
 
         //AFEGIT   FALTARIA REDEFINIR TIPUS!!!!
-        public void defineVariable(String name, Data index, Data value) {
+		public void defineVariable(String name, Data index, Data value) {
         if (index.getIntegerValue() < 0)
 			throw new RuntimeException ("Array " + name + "Fora de rang: [" +
 			index.getIntegerValue() + "]");
@@ -108,8 +108,12 @@ public class Stack {
 			d = new SvglangArray((int)index.getValue(), value.getValue());
 			CurrentAR.put(name, d); // New definition
         }
-        else {	//Si ja estava definit
-			d.setValue((int)index.getValue(), value.getValue());
+				else if (d.getSubType().equals(value.getType())){	//Si l'array es del mateix tipus
+					d.setValue((int)index.getValue(), value.getValue());
+         }
+        else {	//Si l'array es de un tipus diferent
+					d = new SvglangArray((int)index.getValue(), value.getValue());
+					CurrentAR.put(name, d); // New definition
         }
     }
 

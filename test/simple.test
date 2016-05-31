@@ -1,0 +1,7 @@
+func main ()
+    Rectangle a (100, 100, 80, 80);
+    Fill a "#0c0c80";
+    Scale a (1.5,1);
+    Draw a;
+endfunc
+$SHOW

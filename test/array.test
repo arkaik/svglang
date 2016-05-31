@@ -1,0 +1,11 @@
+func main ()
+    v[2] = "hola";
+    v[3] = true;
+    v[2] = 50;
+    v[4] = 75;
+    i = 0;
+    while i < size v do
+        Write v[i];
+        i = i+1;
+    endwhile;
+endfunc
