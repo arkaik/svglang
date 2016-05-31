@@ -488,6 +488,34 @@ public class Interp {
                 so.setNumTransform(nlt+1);
                 break;
             case AslLexer.ROTATION:
+                float rot = so.getRot();
+                Float fr = data2float(evaluateExpression(args.getChild(1)));
+                Float fax = data2float(evaluateExpression(args.getChild(2)));
+                Float fay = data2float(evaluateExpression(args.getChild(2)));
+
+                Data c1 = evaluateExpression(args.getChild(2));
+
+                writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
+                writer.println("_elem.setAttribute(\"type\", \"rotate\")");
+
+                writer.println("_elem.setAttribute(\"from\", \""+rot+" "+fax+" "+fay+"\")");
+                writer.println("_elem.setAttribute(\"to\", \""+fr+" "+fax+" "+fay+"\")");
+
+                if (args.getChildCount() == 4) {
+                    Data c2 = evaluateExpression(args.getChild(3));
+                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
+                }
+                else {
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+"_"+(nlt-1)+".end\")");
+                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
+                }
+                writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
+                writer.println(name+".appendChild(_elem);");
+                so.setNumTransform(nlt+1);
                 break;
             case AslLexer.SCALING:
                 break;
@@ -772,7 +800,7 @@ public class Interp {
         switch (t.getType()) {
             case AslLexer.RECT:
                 assert arglist.getChildCount() == 4;
-								float rw = data2float(evaluateExpression(arglist.getChild(2)));
+				float rw = data2float(evaluateExpression(arglist.getChild(2)));
                 float rh = data2float(evaluateExpression(arglist.getChild(3)));
                 SvglangRectangle sr = new SvglangRectangle(rx, ry, rw, rh);
                 sr.setName(name);
@@ -820,6 +848,17 @@ public class Interp {
 
                 writer.print(sp.getFullCode());
                 break;
+            case AslLexer.LINE:
+                assert arglist.getChildCount() == 4;
+                float lx =  data2float(evaluateExpression(arglist.getChild(2)));
+                float ly =  data2float(evaluateExpression(arglist.getChild(3)));
+
+                SvglangLine sl = new SvglangLine(rx, ry, lx, ly);
+                sl.setName(name); sl.setD(d);
+                Stack.defineVariable(id, sl);
+
+                writer.print(sl.getFullCode());
+                break;
             default:
                 break;
         }
@@ -845,19 +884,10 @@ public class Interp {
 
             if (property.equals("position")) {
 
-                Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
-
                 float ox = obj.getPosx(); float oy = obj.getPosy();
 
-                Float ftx, fty;
-
-                Object otx = tx.getValue();
-                if (tx.isInteger()) ftx = ((Integer) otx).floatValue();
-                else ftx = (Float) otx;
-
-                Object oty = ty.getValue();
-                if (tx.isInteger()) fty = ((Integer) oty).floatValue();
-                else fty = (Float) oty;
+                Float ftx = data2float(evaluateExpression(args.getChild(0)));
+                Float fty = data2float(evaluateExpression(args.getChild(1)));
 
                 obj.setPosx(ox+ftx); obj.setPosy(oy+fty);
                 int nlt = obj.getNumTransform();
@@ -888,17 +918,14 @@ public class Interp {
 
             }
             else if (property.equals("rotation")) {
-                Data gr = evaluateExpression(args.getChild(0));
+
                 Data ax = evaluateExpression(args.getChild(1));
                 Data ay = evaluateExpression(args.getChild(2));
 
                 float ro = obj.getRot();
 
-                Float fgr, fax, fay;
-
-                Object ogr = gr.getValue();
-                if (gr.isInteger()) fgr = ((Integer) ogr).floatValue();
-                else fgr = (Float) ogr;
+                Float fgr = data2float(evaluateExpression(args.getChild(0)));
+                Float fax, fay;
 
                 Object oax = ax.getValue();
                 if (ax.isInteger()) fax = ((Integer) oax).floatValue();
@@ -922,6 +949,34 @@ public class Interp {
                 Data c1 = evaluateExpression(time.getChild(0));
 
                 //AslTree time = t.getChild(3);
+                if (time.getChildCount() == 2) {
+                    Data c2 = evaluateExpression(time.getChild(1));
+                    writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c2.toString()+"s\")");
+                }
+                else {
+                    if (nlt != 0) writer.println("_elem.setAttribute(\"begin\", \""+id+"_"+(nlt-1)+".end\")");
+                    else writer.println("_elem.setAttribute(\"begin\", \"0s\")");
+                    writer.println("_elem.setAttribute(\"dur\", \""+c1.toString()+"s\")");
+                }
+                writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
+                writer.println(name+".appendChild(_elem);");
+                obj.setNumTransform(nlt+1);
+            }
+            else if (property.equals("scale")) {
+                float fsx = data2float(evaluateExpression(t.getChild(0)));
+                float fsy = data2float(evaluateExpression(t.getChild(1)));
+
+                float sx = obj.setScalex(); float sy = obj.setScaley();
+
+                writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
+                writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
+                writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
+                writer.println("_elem.setAttribute(\"type\", \"scale\")");
+
+                writer.println("_elem.setAttribute(\"from\", \""+sx+" "+sy+"\")");
+                writer.println("_elem.setAttribute(\"to\", \""+(sx+fsx)+" "+(sy+fsy)+"\")");
+
                 if (time.getChildCount() == 2) {
                     Data c2 = evaluateExpression(time.getChild(1));
                     writer.println("_elem.setAttribute(\"begin\", \""+c1.toString()+"s\")");
