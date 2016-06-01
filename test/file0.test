@@ -1,6 +1,6 @@
 func main ()
     Rectangle a (10, 10, 10, 10);
-    Fill a #ff0080;
+    Fill a "#ff0080";
     Draw a;
     n = 1;
     while n < 15 do
