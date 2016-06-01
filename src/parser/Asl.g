@@ -156,7 +156,7 @@ draw	:	DRAW^ ID
 fill	:	FILL^ ID atom
 		;
 
-stroke	:	STROKE^ ID atom INT
+stroke	:	STROKE^ ID STRING atom
 		;
 
 // if-then-else (else is optional)

@@ -392,8 +392,8 @@ public class Interp {
             case AslLexer.STROKE:
                 SvglangString colex = (SvglangString)evaluateExpression(t.getChild(1));
                 checkColor(colex);
-                writer.println(t.getChild(0).getText()+".style.stroke = \""+t.getChild(1).getText()+"\";");
-                writer.println(t.getChild(0).getText()+".style['stroke-width'] = \""+colex.toString()+"\";");
+                writer.println(t.getChild(0).getText()+".style.stroke = \""+colex.toString()+"\";");
+                writer.println(t.getChild(0).getText()+".style['stroke-width'] = \""+t.getChild(2).toString()+"\";");
                 return null;
 
             case AslLexer.TRANSFORM:
