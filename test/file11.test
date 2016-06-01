@@ -1,0 +1,13 @@
+func main ()
+    Text t (30, 0, "SVGLANG");
+    Loop t # "font-size" (20,100,20) {8.};
+    Trans t (0,100);
+    Loop t # "fill" ("#ff0000","#00ff00", "#0000ff", "#ff0000") {4.};
+    Loop t # "rotate" (1,90,180,270,360,470,560,660,750,570,360,180,1) {3.};
+    Draw t;
+
+    Text t2 (0, 80, "THE GAME");
+    Movement t2 (100,80, 0, 10);
+    Draw t2;
+endfunc
+$SHOW
