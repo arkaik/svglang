@@ -98,7 +98,6 @@ public class Stack {
         else d.setData(value); // Use the previous data
     }
 
-        //AFEGIT   FALTARIA REDEFINIR TIPUS!!!!
 		public void defineVariable(String name, Data index, Data value) {
         if (index.getIntegerValue() < 0)
 			throw new RuntimeException ("Array " + name + "Fora de rang: [" +
@@ -152,7 +151,7 @@ public class Stack {
 				return new SvglangFloat((Float)v.getValue(index.getIntegerValue()));
 			case "String":
 				return new SvglangString((String)v.getValue(index.getIntegerValue()));
-            default: throw new RuntimeException ("Cas variable no tractada");
+            default: throw new RuntimeException ("Cas variable no tractada "+ s.getSubType());
 
         }
 		//return v.getValue(index.getIntegerValue());

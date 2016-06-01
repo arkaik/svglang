@@ -1,0 +1,17 @@
+func main ()
+
+	//Vector de colors
+	colors[0] = "#ff0000";
+	colors[1] = "#00ff00";
+	colors[2] = "#0000ff";
+	colors[3] = "#00ffff";
+	
+	i = 0; randmax = Rand(1,5);
+	while i < randmax do	//Creo aleatoriament entre 1 i 5 rectangles
+		Rectangle anon (i*100,i*100,i*10,i*10);
+		Fill anon colors[Rand(0,3)];	//Pinto el rectangle de un color aleatori del vector
+		Draw anon;
+		i = i + 1;
+	endwhile;
+endfunc
+$SHOW

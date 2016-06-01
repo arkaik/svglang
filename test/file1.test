@@ -1,13 +1,13 @@
 func main ()
     Circle a (50, 50, 30);
-    Fill a #0c0c80;
-    Stroke a #008d80 2;
+    Fill a "#0c0c80";
+    Stroke a "#008d80" 2;
     ScaleRel a (2);
     Draw a;
     //Movement a 100. 100. 5.;
 
     Circle b (75, 90, 25);
-    Stroke b #80d00c 5;
+    Stroke b "#80d00c" 5;
     Draw b;
 
     b @ "position" (20, 100);
@@ -17,8 +17,8 @@ func main ()
     Draw t;
 
     Ellipse e (200, 300, 20, 40);
-    Fill e #ffffff;
-    Stroke e #0080dd 5;
+    Fill e "#ffffff";
+    Stroke e "#0080dd" 5;
     Draw e;
 
 endfunc
