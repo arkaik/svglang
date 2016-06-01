@@ -4,7 +4,7 @@ func main ()
     Stroke a #008d80 2;
     ScaleRel a (2);
     Draw a;
-    //Movement a 100. 100. 5.;
+    Movement a 100 100 5;
 
     Circle b (75, 90, 25);
     Stroke b #80d00c 5;
