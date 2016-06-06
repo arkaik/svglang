@@ -524,8 +524,6 @@ public class Interp {
                 Float fsx = data2float(evaluateExpression(args.getChild(0)));
                 Float fsy = data2float(evaluateExpression(args.getChild(1)));
 
-
-
                 writer.println("var _elem = document.createElementNS(svgNS,\"animateTransform\")");
                 writer.println("_elem.setAttribute(\"id\", \""+name+"_"+nlt+"\")");
                 writer.println("_elem.setAttribute(\"attributeName\", \"transform\")");
@@ -948,21 +946,11 @@ public class Interp {
             }
             else if (property.equals("rotation")) {
 
-                Data ax = evaluateExpression(args.getChild(1));
-                Data ay = evaluateExpression(args.getChild(2));
-
                 float ro = obj.getRot();
 
                 Float fgr = data2float(evaluateExpression(args.getChild(0)));
-                Float fax, fay;
-
-                Object oax = ax.getValue();
-                if (ax.isInteger()) fax = ((Integer) oax).floatValue();
-                else fax = (Float) oax;
-
-                Object oay = ay.getValue();
-                if (ax.isInteger()) fay = ((Integer) oay).floatValue();
-                else fay = (Float) oay;
+                Float fax = data2float(evaluateExpression(args.getChild(1)));
+                Float fay = data2float(evaluateExpression(args.getChild(2)));
 
                 obj.setRot(ro+fgr);
                 int nlt = obj.getNumTransform();
@@ -1060,18 +1048,9 @@ public class Interp {
         }
         else { //LMAO, instant setting
             if (property.equals("position")) {
-                Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
+                Float ftx = data2float(evaluateExpression(args.getChild(0)));
+                Float fty = data2float(evaluateExpression(args.getChild(1)));
                 float ox = obj.getPosx(); float oy = obj.getPosy();
-
-                Float ftx, fty;
-
-                Object otx = tx.getValue();
-                if (tx.isInteger()) ftx = ((Integer) otx).floatValue();
-                else ftx = (Float) otx;
-
-                Object oty = ty.getValue();
-                if (tx.isInteger()) fty = ((Integer) oty).floatValue();
-                else fty = (Float) oty;
 
                 obj.setPosx(ox+ftx); obj.setPosy(oy+fty);
                 int nlt = obj.getNumTransform();
@@ -1094,25 +1073,11 @@ public class Interp {
             }
             else if (property.equals("rotation")) {
                 System.out.println("Rotation");
-                Data gr = evaluateExpression(args.getChild(0));
-                Data ax = evaluateExpression(args.getChild(1));
-                Data ay = evaluateExpression(args.getChild(2));
+                Float fgr = data2float(evaluateExpression(args.getChild(0)));
+                Float fax = data2float(evaluateExpression(args.getChild(1)));
+                Float fay = data2float(evaluateExpression(args.getChild(2)));
 
                 float ro = obj.getRot();
-
-                Float fgr, fax, fay;
-
-                Object ogr = gr.getValue();
-                if (gr.isInteger()) fgr = ((Integer) ogr).floatValue();
-                else fgr = (Float) ogr;
-
-                Object oax = ax.getValue();
-                if (ax.isInteger()) fax = ((Integer) oax).floatValue();
-                else fax = (Float) oax;
-
-                Object oay = ay.getValue();
-                if (ax.isInteger()) fay = ((Integer) oay).floatValue();
-                else fay = (Float) oay;
 
                 obj.setRot(ro+fgr);
                 int nlt = obj.getNumTransform();
@@ -1153,19 +1118,10 @@ public class Interp {
 
             if (property.equals("position")) {
 
-                Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
-
                 float ox = obj.getPosx(); float oy = obj.getPosy();
 
-                Float ftx, fty;
-
-                Object otx = tx.getValue();
-                if (tx.isInteger()) ftx = ((Integer) otx).floatValue();
-                else ftx = (Float) otx;
-
-                Object oty = ty.getValue();
-                if (tx.isInteger()) fty = ((Integer) oty).floatValue();
-                else fty = (Float) oty;
+                Float ftx = data2float(evaluateExpression(args.getChild(0)));
+                Float fty = data2float(evaluateExpression(args.getChild(1)));
 
                 obj.setPosx(ftx); obj.setPosy(fty);
                 int nlt = obj.getNumTransform();
@@ -1196,25 +1152,11 @@ public class Interp {
 
             }
             else if (property.equals("rotation")) {
-                Data gr = evaluateExpression(args.getChild(0));
-                Data ax = evaluateExpression(args.getChild(1));
-                Data ay = evaluateExpression(args.getChild(2));
+                Float fgr = data2float(evaluateExpression(args.getChild(0)));
+                Float fax = data2float(evaluateExpression(args.getChild(1)));
+                Float fay = data2float(evaluateExpression(args.getChild(2)));
 
                 float ro = obj.getRot();
-
-                Float fgr, fax, fay;
-
-                Object ogr = gr.getValue();
-                if (gr.isInteger()) fgr = ((Integer) ogr).floatValue();
-                else fgr = (Float) ogr;
-
-                Object oax = ax.getValue();
-                if (ax.isInteger()) fax = ((Integer) oax).floatValue();
-                else fax = (Float) oax;
-
-                Object oay = ay.getValue();
-                if (ax.isInteger()) fay = ((Integer) oay).floatValue();
-                else fay = (Float) oay;
 
                 obj.setRot(fgr);
                 int nlt = obj.getNumTransform();
@@ -1282,18 +1224,10 @@ public class Interp {
         }
         else { //LMAO, instant setting
             if (property.equals("position")) {
-                Data tx = evaluateExpression(args.getChild(0)); Data ty = evaluateExpression(args.getChild(1));
                 float ox = obj.getPosx(); float oy = obj.getPosy();
 
-                Float ftx, fty;
-
-                Object otx = tx.getValue();
-                if (tx.isInteger()) ftx = ((Integer) otx).floatValue();
-                else ftx = (Float) otx;
-
-                Object oty = ty.getValue();
-                if (tx.isInteger()) fty = ((Integer) oty).floatValue();
-                else fty = (Float) oty;
+                Float ftx = data2float(evaluateExpression(args.getChild(0)));
+                Float fty = data2float(evaluateExpression(args.getChild(1)));
 
                 obj.setPosx(ftx); obj.setPosy(fty);
                 int nlt = obj.getNumTransform();

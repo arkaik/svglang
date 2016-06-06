@@ -8,13 +8,14 @@ func main ()
 
     Rectangle r2 (65, 50, 10, 80);
     Loop r2 # "height" (80,55,33,5,75,23,73,33,12,14,60,80) {2};
-    Loop r1 # "fill" ("#ff0050","#c05f00", "#d006ff", "#ff0050") {2};
+    Loop r2 # "fill" ("#ff0050","#c05f00", "#d006ff", "#ff0050") {2};
     Trans r2 (0,100);
     Scale r2 (1,-1);
     Draw r2;
 
     Rectangle r3 (80, 50, 10, 50);
     Loop r3 # "height" (50,34,78,23,56,23,34,76,80,54,21,50) {1.4};
+    Loop r3 # "fill" ("#c0c0c0","#c05f00", "#d006ff", "#ff0050") {2};
     Trans r3 (0,100);
     Scale r3 (1,-1);
     Draw r3;
