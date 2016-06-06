@@ -1150,6 +1150,8 @@ public class Interp {
                 writer.println(name+".appendChild(_elem);");
                 obj.setNumTransform(nlt+1);
 
+                writer.println("if (_loop) _elem.setAttribute(\"repeatCount\",\"indefinite\");");
+
             }
             else if (property.equals("rotation")) {
                 Float fgr = data2float(evaluateExpression(args.getChild(0)));
@@ -1185,6 +1187,8 @@ public class Interp {
                 writer.println("_elem.setAttribute(\"fill\", \"freeze\")");
                 writer.println(name+".appendChild(_elem);");
                 obj.setNumTransform(nlt+1);
+
+                writer.println("if (_loop) _elem.setAttribute(\"repeatCount\",\"indefinite\");");
             }
             else {
 
